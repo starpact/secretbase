@@ -12,8 +12,6 @@ local options = {
   number = true,                           -- set numbered lines
   relativenumber = true,                   -- set relative numbered lines
 
-  completeopt = { "menuone", "noselect" }, -- mostly just for cmp
-
   conceallevel = 0,                        -- so that `` is visible in markdown files
 
   hlsearch = true,                         -- highlight all matches on previous search pattern
@@ -31,8 +29,8 @@ local options = {
 
   smartindent = true,                      -- make indenting smarter again
   expandtab = true,                        -- convert tabs to spaces
-  shiftwidth = 2,                          -- the number of spaces inserted for each indentation
-  tabstop = 2,                             -- insert 2 spaces for a tab
+  shiftwidth = 4,                          -- the number of spaces inserted for each indentation
+  tabstop = 4,                             -- insert 4 spaces for a tab
 
   splitbelow = true,                       -- force all horizontal splits to go below current window
   splitright = true,                       -- force all vertical splits to go to the right of current window

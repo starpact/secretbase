@@ -81,7 +81,7 @@ cmp.setup {
     }),
   },
   completion = {
-    completeopt = 'menu,menuone,noinsert',
+    completeopt = 'menuone,noinsert',
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },

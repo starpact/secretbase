@@ -358,8 +358,8 @@ plugins:
       tag: tab-bar
     - path: status-bar
       tag: status-bar
-  #    - path: strider
-  #    tag: strider
+    - path: strider
+      tag: strider
 
 # Choose what to do when zellij receives SIGTERM, SIGINT, SIGQUIT or SIGHUP
 # eg. when terminal window with an active zellij session is closed
@@ -378,14 +378,4 @@ plugins:
 # Default: default
 # theme: default
 
-# Choose the mode that zellij uses when starting up.
-# Default: normal
 default_mode: locked
-
-# Toggle enabling the mouse mode.
-# On certain configurations, or terminals this could
-# potentially interfere with copying text.
-# Options:
-#   - true (default)
-#   - false
-#mouse_mode: false
