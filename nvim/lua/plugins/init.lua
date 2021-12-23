@@ -22,7 +22,6 @@ vim.cmd [[
   augroup end
 ]]
 
--- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
@@ -41,21 +40,21 @@ packer.startup(function(use)
   use "windwp/nvim-autopairs"
 
   -- cmp
-  use "hrsh7th/nvim-cmp" -- completion plugin
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
+  use "hrsh7th/nvim-cmp"
+  use "hrsh7th/cmp-buffer"
+  use "hrsh7th/cmp-path"
+  use "hrsh7th/cmp-cmdline"
+  use "saadparwaiz1/cmp_luasnip"
   use "hrsh7th/cmp-nvim-lsp"
 
   -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  use "L3MON4D3/LuaSnip"
+  use "rafamadriz/friendly-snippets"
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-  use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
+  use "tamago324/nlsp-settings.nvim"
 
   -- tree-sitter
   use {
