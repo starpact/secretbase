@@ -104,7 +104,7 @@ window:
 font:
   size: 16.0
   normal:
-    family: "Monaco Nerd Font"
+    family: "Monaco Nerd Font Mono"
     # family: "Inconsolata Nerd Font Mono"
     # family: "InconsolataLGC Nerd Font Mono"
     # family: "Hack Nerd Font"
@@ -156,7 +156,7 @@ font:
   # spacing.
   offset:
     x: 0
-    y: 2
+    y: 5
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the

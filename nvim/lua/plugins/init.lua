@@ -30,14 +30,22 @@ end
 packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
-  -- utils
+  -- core-utils
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
 
   -- coloscheme
   use "sainnhe/gruvbox-material"
 
-  use "windwp/nvim-autopairs"
+  -- tree-sitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+
+  -- LSP
+  use "neovim/nvim-lspconfig"
+  use "williamboman/nvim-lsp-installer"
 
   -- cmp
   use "hrsh7th/nvim-cmp"
@@ -51,16 +59,8 @@ packer.startup(function(use)
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
-  -- LSP
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
-  use "tamago324/nlsp-settings.nvim"
-
-  -- tree-sitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
+  -- utils
+  use "windwp/nvim-autopairs"
 
   -- Automatically set up configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then

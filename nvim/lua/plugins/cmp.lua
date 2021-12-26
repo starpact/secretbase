@@ -12,16 +12,16 @@ require("luasnip/loaders/from_vscode").lazy_load()
 
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 local cmp_kinds = {
-  Text = "",
-  Method = "m",
+  Text = "",
+  Method = "",
   Function = "",
-  Constructor = "",
-  Field = "",
-  Variable = "",
-  Class = "",
+  Constructor = "",
+  Field = "",
+  Variable = "",
+  Class = "ﴯ",
   Interface = "",
   Module = "",
-  Property = "",
+  Property = "ﰠ",
   Unit = "",
   Value = "",
   Enum = "",
@@ -32,12 +32,13 @@ local cmp_kinds = {
   Reference = "",
   Folder = "",
   EnumMember = "",
-  Constant = "",
+  Constant = "",
   Struct = "",
   Event = "",
   Operator = "",
-  TypeParameter = "",
+  TypeParameter = "",
 }
+
 
 cmp.setup {
   snippet = {
@@ -57,6 +58,10 @@ cmp.setup {
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
 	    cmp.confirm()
+      elseif luasnip.expandable() then
+        luasnip.expand()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
@@ -66,9 +71,15 @@ cmp.setup {
     completeopt = 'menuone,noinsert', -- always select the first item
   },
   formatting = {
-    fields = { "kind", "abbr" },
-    format = function(_, vim_item)
-      vim_item.kind = cmp_kinds[vim_item.kind] or ""
+    fields = { "kind", "abbr", "menu" },
+    format = function(entry, vim_item)
+      vim_item.kind = cmp_kinds[vim_item.kind] or ""
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
       return vim_item
     end,
   },
@@ -78,9 +89,6 @@ cmp.setup {
     { name = "buffer" },
     { name = "path" },
   },
-  confirm_opts = {
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = false,
-  },
+  confirm_opts = { behavior = cmp.ConfirmBehavior.Replace },
   documentation = true,
 }
