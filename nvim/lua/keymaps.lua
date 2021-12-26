@@ -21,8 +21,6 @@ map("n", "<M-Right>", ":vertical resize +2<CR>", opts)
 
 map("n", "<leader>h", ":noh<CR>", opts)
 
--- disable the default `swap` behavior when pasting to selected
-map("v", "p", '"_dP', opts)
 map("v", "<", "<gv", opts)
 map("v", ">", ">gv", opts)
 

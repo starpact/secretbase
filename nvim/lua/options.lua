@@ -44,4 +44,11 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.opt.shortmess:append("c")
+vim.opt.shortmess:append("c") vim.cmd [[
+  if system('uname -r') =~ "Microsoft"
+    augroup Yank
+      autocmd!
+      autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/windows/system32/clip.exe ', @0)
+      augroup END
+  endif
+]]
