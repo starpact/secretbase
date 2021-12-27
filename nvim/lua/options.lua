@@ -44,7 +44,8 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.opt.shortmess:append("c") vim.cmd [[
+vim.opt.shortmess:append("c")
+vim.cmd [[
   if system('uname -r') =~ "Microsoft"
     augroup Yank
       autocmd!
