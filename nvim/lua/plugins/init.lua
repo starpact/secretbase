@@ -59,6 +59,10 @@ packer.startup(function(use)
   use "L3MON4D3/LuaSnip"
   use "rafamadriz/friendly-snippets"
 
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+  use 'nvim-telescope/telescope-media-files.nvim'
+
   -- utils
   use "windwp/nvim-autopairs"
 
@@ -72,3 +76,4 @@ require("plugins.colorscheme")
 require("plugins.cmp")
 require("plugins.tree-sitter")
 require("plugins.autopairs")
+require("plugins.telescope")
