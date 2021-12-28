@@ -1,5 +1,5 @@
 local options = {
-  fileencoding = "utf-8",                  -- the encoding written to a file
+  fileencoding = "UTF-8",
   swapfile = false,                        -- creates a swapfile
   backup = false,                          -- creates a backup file
   writebackup = false,                     -- if a file is being edited by another program, it is not allowed to be edited

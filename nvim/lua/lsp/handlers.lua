@@ -9,7 +9,6 @@ M.setup = function()
 
   vim.diagnostic.config({
     virtual_text = { prefix = "🐶" },
-    underline = false,
     severity_sort = true,
     float = { source = "always" },
   })
@@ -28,8 +27,8 @@ M.on_attach = function(_, bufnr)
   map("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>")
   map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-  map("n", "gp", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>')
-  map("n", "gn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>')
+  map("n", "gp", '<cmd>lua vim.diagnostic.goto_prev({})<CR>')
+  map("n", "gn", '<cmd>lua vim.diagnostic.goto_next({})<CR>')
   map("n", "go", "<cmd>lua vim.diagnostic.open_float()<CR>")
   map("n", "gl", '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>')
   map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")

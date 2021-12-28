@@ -36,12 +36,10 @@ packer.startup(function(use)
 
   -- coloscheme
   use "sainnhe/gruvbox-material"
+  use "folke/tokyonight.nvim"
 
   -- tree-sitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- LSP
   use "neovim/nvim-lspconfig"
@@ -61,7 +59,7 @@ packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
+  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
   -- utils
   use "windwp/nvim-autopairs"
@@ -74,6 +72,6 @@ end)
 
 require("plugins.colorscheme")
 require("plugins.cmp")
-require("plugins.tree-sitter")
+require("plugins.treesitter")
 require("plugins.autopairs")
 require("plugins.telescope")

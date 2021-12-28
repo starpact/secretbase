@@ -15,12 +15,12 @@ map("n", "<C-l>", "<C-w>l")
 map("n", "<C-u>", "10k")
 map("n", "<C-d>", "10j")
 
-map("n", "<M-Up>", ":resize -2<CR>")
-map("n", "<M-Down>", ":resize +2<CR>")
-map("n", "<M-Left>", ":vertical resize -2<CR>")
-map("n", "<M-Right>", ":vertical resize +2<CR>")
+map("n", "<M-Up>", "<cmd>resize -2<CR>")
+map("n", "<M-Down>", "<cmd>resize +2<CR>")
+map("n", "<M-Left>", "<cmd>vertical resize -2<CR>")
+map("n", "<M-Right>", "<cmd>vertical resize +2<CR>")
 
-map("n", "<leader>h", ":noh<CR>")
+map("n", "<leader>h", "<cmd>noh<CR>")
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")
