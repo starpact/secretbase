@@ -36,9 +36,8 @@ packer.startup(function(use)
 
   -- coloscheme
   use "sainnhe/gruvbox-material"
-  use "folke/tokyonight.nvim"
 
-  -- tree-sitter
+  -- treesitter
   use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- LSP
@@ -63,6 +62,7 @@ packer.startup(function(use)
 
   -- utils
   use "windwp/nvim-autopairs"
+  use "lewis6991/gitsigns.nvim"
 
   -- Automatically set up configuration after cloning packer.nvim
   if PACKER_BOOTSTRAP then
@@ -75,3 +75,4 @@ require("plugins.cmp")
 require("plugins.treesitter")
 require("plugins.autopairs")
 require("plugins.telescope")
+require("plugins.gitsigns")
