@@ -15,8 +15,8 @@ local map = function(keys, cmd)
   vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })
 end
 
-map("<Leader>sf", "<cmd>Telescope find_files<CR>")
-map("<Leader>sr", "<cmd>Telescope find_files<CR>")
-map("<Leader>sg", "<cmd>Telescope live_grep<CR>")
-map("<Leader>sb", "<cmd>Telescope buffers<CR>")
-map("<Leader>sh", "<cmd>Telescope help_tags<CR>")
+map("<Leader>ff", "<cmd>Telescope find_files<CR>")
+map("<Leader>fo", "<cmd>Telescope oldfiles<CR>")
+map("<Leader>fb", "<cmd>Telescope buffers<CR>")
+map("<Leader>fw", "<cmd>Telescope live_grep<CR>")
+map("<Leader>fh", "<cmd>Telescope help_tags<CR>")

@@ -37,7 +37,7 @@ local options = {
 
   termguicolors = true,                    -- set term gui colors (most terminals support this)
 
-  timeoutlen = 200,                        -- time to wait for a mapped sequence to complete (in milliseconds)
+  timeoutlen = 300,                        -- time to wait for a mapped sequence to complete (in milliseconds)
 }
 
 for k, v in pairs(options) do
