@@ -10,7 +10,6 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
--- find more here: https://www.nerdfonts.com/cheat-sheet
 local cmp_kinds = {
   Text = "",
   Method = "",
@@ -39,7 +38,6 @@ local cmp_kinds = {
   TypeParameter = "",
 }
 
-
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -66,7 +64,7 @@ cmp.setup {
     end),
   },
   completion = {
-    completeopt = 'menuone,noinsert', -- always select the first item
+    completeopt = "menuone,noinsert", -- always select the first item
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },

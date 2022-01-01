@@ -30,5 +30,3 @@ map("v", ">", ">gv")
 map("t", "<C-h>", "<C-\\><C-N><C-w>h")
 map("t", "<C-j>", "<C-\\><C-N><C-w>j")
 map("t", "<C-k>", "<C-\\><C-N><C-w>k")
--- <C-l> is used too often in the terminal so I do not map that. As a result,
--- there should be no window on the right side of the terminal.
