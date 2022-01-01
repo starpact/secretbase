@@ -14,14 +14,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost init.lua source <afile> | PackerSync
-  augroup end
-]]
-
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
   return
@@ -33,6 +25,8 @@ packer.startup(function(use)
   -- core-utils
   use "nvim-lua/popup.nvim"
   use "nvim-lua/plenary.nvim"
+
+  use "kyazdani42/nvim-web-devicons"
 
   -- coloscheme
   use "sainnhe/gruvbox-material"
@@ -60,19 +54,36 @@ packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
   use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
 
+  -- integrated terminal
+  use "akinsho/toggleterm.nvim"
+
   -- utils
   use "windwp/nvim-autopairs"
+  use "numToStr/Comment.nvim"
+  use "blackCauldron7/surround.nvim"
   use "lewis6991/gitsigns.nvim"
+  use "ahmedkhalf/project.nvim"
 
-  -- Automatically set up configuration after cloning packer.nvim
+  -- status line
+  use "nvim-lualine/lualine.nvim"
+
+  -- file explorer
+  use "kyazdani42/nvim-tree.lua"
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
 end)
 
 require("plugins.colorscheme")
-require("plugins.cmp")
 require("plugins.treesitter")
-require("plugins.autopairs")
+require("plugins.cmp")
 require("plugins.telescope")
+require("plugins.toggleterm")
+require("plugins.autopairs")
+require("plugins.comment")
+require("plugins.surround")
 require("plugins.gitsigns")
+require("plugins.project")
+require("plugins.lualine")
+require("plugins.nvim-tree")

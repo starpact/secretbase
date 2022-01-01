@@ -1,5 +1,5 @@
-local map = function(mod, keys, cmd)
-   vim.api.nvim_set_keymap(mod, keys, cmd, { noremap = true, silent = true })
+local function map(mod, keys, cmd)
+  vim.api.nvim_set_keymap(mod, keys, cmd, { noremap = true, silent = true })
 end
 
 map("", "<Space>", "<Nop>")
@@ -14,6 +14,8 @@ map("n", "<C-l>", "<C-w>l")
 
 map("n", "<C-u>", "10k")
 map("n", "<C-d>", "10j")
+map("v", "<C-u>", "10k")
+map("v", "<C-d>", "10j")
 
 map("n", "<M-Up>", "<cmd>resize -2<CR>")
 map("n", "<M-Down>", "<cmd>resize +2<CR>")
