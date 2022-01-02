@@ -3,9 +3,8 @@ if not status_ok then
   return
 end
 
-
-telescope.load_extension('fzf')
-telescope.load_extension('projects')
+telescope.load_extension("fzf")
+telescope.load_extension("projects")
 
 local function map(keys, cmd)
   vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })
@@ -23,6 +22,5 @@ telescope.setup({
     prompt_prefix = "🔭 ",
     selection_caret = " ",
     path_display = { "smart" },
-  }
+  },
 })
-

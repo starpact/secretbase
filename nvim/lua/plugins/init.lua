@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     install_path,
   })
-  vim.cmd [[packadd packer.nvim]]
+  vim.cmd([[packadd packer.nvim]])
 end
 
 local status_ok, packer = pcall(require, "packer")
@@ -20,55 +20,57 @@ if not status_ok then
 end
 
 packer.startup(function(use)
-  use "wbthomason/packer.nvim"
+  use("wbthomason/packer.nvim")
 
   -- core-utils
-  use "nvim-lua/popup.nvim"
-  use "nvim-lua/plenary.nvim"
+  use("nvim-lua/popup.nvim")
+  use("nvim-lua/plenary.nvim")
 
-  use "kyazdani42/nvim-web-devicons"
+  use("kyazdani42/nvim-web-devicons")
 
   -- coloscheme
-  use "sainnhe/gruvbox-material"
+  use("sainnhe/gruvbox-material")
 
   -- treesitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
   -- LSP
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
+  use("neovim/nvim-lspconfig")
+  use("williamboman/nvim-lsp-installer")
+  use("jose-elias-alvarez/null-ls.nvim")
 
   -- cmp
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  use "saadparwaiz1/cmp_luasnip"
-  use "hrsh7th/cmp-nvim-lsp"
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-cmdline")
+  use("saadparwaiz1/cmp_luasnip")
+  use("hrsh7th/cmp-nvim-lsp")
 
   -- snippets
-  use "L3MON4D3/LuaSnip"
-  use "rafamadriz/friendly-snippets"
+  use("L3MON4D3/LuaSnip")
+  use("rafamadriz/friendly-snippets")
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use { "nvim-telescope/telescope-fzf-native.nvim", run = "make" }
+  use("nvim-telescope/telescope.nvim")
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- integrated terminal
-  use "akinsho/toggleterm.nvim"
+  use("akinsho/toggleterm.nvim")
 
   -- utils
-  use "windwp/nvim-autopairs"
-  use "numToStr/Comment.nvim"
-  use "blackCauldron7/surround.nvim"
-  use "lewis6991/gitsigns.nvim"
-  use "ahmedkhalf/project.nvim"
+  use("windwp/nvim-autopairs")
+  use("numToStr/Comment.nvim")
+  use("blackCauldron7/surround.nvim")
+  use("lewis6991/gitsigns.nvim")
+  use("ahmedkhalf/project.nvim")
+  use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
   -- status line
-  use "nvim-lualine/lualine.nvim"
+  use("nvim-lualine/lualine.nvim")
 
   -- file explorer
-  use "kyazdani42/nvim-tree.lua"
+  use("kyazdani42/nvim-tree.lua")
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
@@ -86,4 +88,4 @@ require("plugins.surround")
 require("plugins.gitsigns")
 require("plugins.project")
 require("plugins.lualine")
-require("plugins.nvimtree")
+require("plugins.nvim_tree")

@@ -20,4 +20,4 @@ function _G.set_terminal_keymaps()
   map("<C-k>", "<C-\\><C-n><C-W>k")
 end
 
-vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")

@@ -3,8 +3,8 @@ local M = {}
 M.setup = function()
   local signs = { Error = "", Warn = "", Hint = "", Info = "" }
   for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
   vim.diagnostic.config({
@@ -21,14 +21,14 @@ M.on_attach = function(_, bufnr)
 
   map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
   map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+  map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+  map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
   map("i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
   map("", "<F2>", "<cmd>lua vim.lsp.buf.rename()<CR>")
-  map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
   map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-  map("n", "gp", '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-  map("n", "gn", '<cmd>lua vim.diagnostic.goto_next()<CR>')
+  map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+  map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
   map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>")
   map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
 

@@ -5,17 +5,22 @@ end
 
 local diff = {
   "diff",
-  colored = false,
   symbols = { added = " ", modified = " ", removed = " " },
+  diff_color = {
+    added = { fg = "#a9b665" },
+    modified = { fg = "#7daea3" },
+    removed = { fg = "#ea6962" },
+  },
 }
 
 local diagnostics = {
   "diagnostics",
   sources = { "nvim_diagnostic" },
   sections = { "error", "warn" },
-  colored = false,
-  update_in_insert = false,
-  always_visible = true,
+  diagnostics_color = {
+    error = { fg = "#ea6962" },
+    warn = { fg = "#d8a657" },
+  },
 }
 
 lualine.setup({
@@ -25,10 +30,10 @@ lualine.setup({
     disabled_filetypes = { "NvimTree", "Outline" },
   },
   sections = {
-    lualine_a = { "branch", diff },
-    lualine_b = { diagnostics },
-    lualine_c = { { "filename", path = 1 } },
-    lualine_x = { "encoding", "filetype" },
+    lualine_a = { { "filename", path = 1 } },
+    lualine_b = { "branch", diff },
+    lualine_c = { diagnostics },
+    lualine_x = { "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },

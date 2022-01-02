@@ -40,5 +40,5 @@ nvim_tree.setup({
   },
   view = {
     width = 36,
-  }
+  },
 })

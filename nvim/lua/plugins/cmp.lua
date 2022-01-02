@@ -38,7 +38,7 @@ local cmp_kinds = {
   TypeParameter = "",
 }
 
-cmp.setup {
+cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -55,7 +55,7 @@ cmp.setup {
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
-	    cmp.confirm()
+        cmp.confirm()
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
       else
@@ -87,4 +87,4 @@ cmp.setup {
   },
   confirm_opts = { behavior = cmp.ConfirmBehavior.Replace },
   documentation = true,
-}
+})
