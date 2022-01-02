@@ -10,12 +10,12 @@ local function map(keys, cmd)
   vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })
 end
 
-map("<Leader>ff", "<cmd>Telescope find_files<CR>")
-map("<Leader>fo", "<cmd>Telescope oldfiles<CR>")
-map("<Leader>fb", "<cmd>Telescope buffers<CR>")
-map("<Leader>fg", "<cmd>Telescope live_grep<CR>")
-map("<Leader>fp", "<cmd>Telescope projects<CR>")
-map("<Leader>fh", "<cmd>Telescope help_tags<CR>")
+map("<leader>f", "<cmd>Telescope find_files<CR>")
+map("<leader>o", "<cmd>Telescope oldfiles<CR>")
+map("<leader>b", "<cmd>Telescope buffers<CR>")
+map("<leader>/", "<cmd>Telescope live_grep<CR>")
+map("<leader>tp", "<cmd>Telescope projects<CR>")
+map("<leader>th", "<cmd>Telescope help_tags<CR>")
 
 telescope.setup({
   defaults = {
