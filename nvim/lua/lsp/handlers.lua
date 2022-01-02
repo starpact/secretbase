@@ -31,8 +31,6 @@ M.on_attach = function(_, bufnr)
   map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<CR>")
   map("n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>")
   map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-
-  vim.cmd("autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 300)")
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

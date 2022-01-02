@@ -1,10 +1,10 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+local ok_installer, installer = pcall(require, "nvim-lsp-installer")
+if not ok_installer then
   return
 end
 
-local status_ok_lspconfig, lspconfig = pcall(require, "lspconfig")
-if not status_ok_lspconfig then
+local ok_config, config = pcall(require, "lspconfig")
+if not ok_config then
   return
 end
 
@@ -16,7 +16,7 @@ local function general_opts()
   }
 end
 
-lsp_installer.on_server_ready(function(server)
+installer.on_server_ready(function(server)
   local opts = general_opts()
   local configured, settings = pcall(require, "lsp.settings." .. server.name)
   if configured then
@@ -27,4 +27,6 @@ lsp_installer.on_server_ready(function(server)
 end)
 
 -- Some language servers not included in nvim-lsp-installer
-lspconfig.golangci_lint_ls.setup(vim.tbl_deep_extend("force", require("lsp.settings.golangci_lint"), general_opts()))
+config.golangci_lint_ls.setup(
+  vim.tbl_deep_extend("force", require("lsp.settings.golangci_lint"), general_opts())
+)

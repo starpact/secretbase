@@ -11,7 +11,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     "https://github.com/wbthomason/packer.nvim",
     install_path,
   })
-  vim.cmd([[packadd packer.nvim]])
+  vim.cmd("packadd packer.nvim")
 end
 
 local status_ok, packer = pcall(require, "packer")
@@ -60,6 +60,7 @@ packer.startup(function(use)
 
   -- utils
   use("windwp/nvim-autopairs")
+  use("windwp/nvim-ts-autotag")
   use("numToStr/Comment.nvim")
   use("blackCauldron7/surround.nvim")
   use("lewis6991/gitsigns.nvim")
@@ -83,6 +84,7 @@ require("plugins.cmp")
 require("plugins.telescope")
 require("plugins.toggleterm")
 require("plugins.autopairs")
+require("plugins.autotag")
 require("plugins.comment")
 require("plugins.surround")
 require("plugins.gitsigns")

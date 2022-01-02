@@ -17,8 +17,8 @@ vim.g.nvim_tree_icons = {
 }
 vim.g.nvim_tree_indent_markers = 1
 
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
   return
 end
 
