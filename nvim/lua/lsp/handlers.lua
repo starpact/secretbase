@@ -14,7 +14,7 @@ M.setup = function()
   })
 end
 
-M.on_attach = function(_, bufnr)
+M.on_attach = function(client, bufnr)
   local function map(mode, keys, cmd)
     vim.api.nvim_buf_set_keymap(bufnr, mode, keys, cmd, { noremap = true, silent = true })
   end
