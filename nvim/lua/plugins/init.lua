@@ -66,7 +66,6 @@ packer.startup(function(use)
   use("blackCauldron7/surround.nvim")
   use("lewis6991/gitsigns.nvim")
   use("ahmedkhalf/project.nvim")
-  use({ "kevinhwang91/nvim-bqf", ft = "qf" })
 
   -- status line
   use("nvim-lualine/lualine.nvim")
