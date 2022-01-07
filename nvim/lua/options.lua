@@ -10,6 +10,7 @@ local options = {
 
   number = true,
   relativenumber = true,
+  cursorline = true,
 
   hlsearch = true, -- highlight all matches on previous search pattern
   incsearch = true, -- highlight all matches on previous search pattern

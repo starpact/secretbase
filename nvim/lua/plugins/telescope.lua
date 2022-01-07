@@ -28,6 +28,7 @@ local function lsp_goto_picker(theme)
     mappings = {
       n = {
         ["o"] = actions.select_default,
+        ["q"] = actions.close,
       },
     },
   }

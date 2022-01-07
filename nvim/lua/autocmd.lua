@@ -3,10 +3,6 @@ autocmd BufRead,BufNewFile *.json,*.yml,*.yaml,*.lua,*html,*css,*.js,*.jsx,*.ts,
 autocmd BufRead,BufNewFile *.go setlocal expandtab!
 ]])
 
-vim.cmd([[
-autocmd BufWinEnter NvimTree setlocal cursorline
-]])
-
 -- For wsl
 vim.cmd([[
 if system('uname -r') =~ "Microsoft"
