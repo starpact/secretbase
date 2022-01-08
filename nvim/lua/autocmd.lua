@@ -1,9 +1,9 @@
 vim.cmd([[
-autocmd BufRead,BufNewFile *.json,*.yml,*.yaml,*.lua,*html,*css,*.js,*.jsx,*.ts,*.tsx setlocal ts=2 sw=2
+autocmd BufRead,BufNewFile *.json,*.yml,*.yaml,*.toml,*.lua,*html,*css,*.js,*.jsx,*.ts,*.tsx setlocal ts=2 sw=2
 autocmd BufRead,BufNewFile *.go setlocal expandtab!
 ]])
 
--- For wsl
+-- For WSL.
 vim.cmd([[
 if system('uname -r') =~ "Microsoft"
   augroup Yank

@@ -1,6 +1,6 @@
 local fn = vim.fn
 
--- Automatically install packer
+-- Automatically install packer.
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({
@@ -33,25 +33,23 @@ packer.startup(function(use)
   -- treesitter
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-  -- LSP
+  -- lsp
   use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer")
   use("jose-elias-alvarez/null-ls.nvim")
-  use("ray-x/lsp_signature.nvim")
 
-  -- cmp
+  -- completion
   use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("saadparwaiz1/cmp_luasnip")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
-  use("saadparwaiz1/cmp_luasnip")
-  use("hrsh7th/cmp-nvim-lsp")
 
   -- snippets
   use("L3MON4D3/LuaSnip")
   use("rafamadriz/friendly-snippets")
 
-  -- Telescope
+  -- telescope
   use("nvim-telescope/telescope.nvim")
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 

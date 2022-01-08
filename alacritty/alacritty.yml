@@ -14,14 +14,14 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+# env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  # TERM: xterm
 
 window:
   # Window dimensions (changes require restart)
@@ -77,7 +77,7 @@ window:
   # opacity: 0.9
 
   # Allow terminal applications to change Alacritty's window title.
-  dynamic_title: true
+  # dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
@@ -137,7 +137,7 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-# colors:
+colors:
   # Default colors
   #primary:
   #  background: '#1d1f21'
@@ -158,9 +158,9 @@ font:
   #
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  # cursor:
-  #   text: '#101010'
-  #   cursor: '#d4be98'
+  cursor:
+    text: '#101010'
+    cursor: '#d4be98'
 
   # Vi mode cursor colors
   #
@@ -675,10 +675,10 @@ font:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: H,    mods: Option, chars: "\x1bh"                       } # Alt + h
-  - { key: J,    mods: Option, chars: "\x1bj"                       } # Alt + j
-  - { key: K,    mods: Option, chars: "\x1bk"                       } # Alt + k
-  - { key: L,    mods: Option, chars: "\x1bl"                       } # Alt + l
+#   - { key: H,    mods: Option, chars: "\x1bh"                       } # Alt + h
+#   - { key: J,    mods: Option, chars: "\x1bj"                       } # Alt + j
+#   - { key: K,    mods: Option, chars: "\x1bk"                       } # Alt + k
+#   - { key: L,    mods: Option, chars: "\x1bl"                       } # Alt + l
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -689,7 +689,7 @@ key_bindings:
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
-  #- { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
+  - { key: Space,  mods: Shift|Option, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
   #- { key: I,                           mode: Vi|~Search, action: ToggleViMode            }

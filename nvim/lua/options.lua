@@ -12,12 +12,12 @@ local options = {
   relativenumber = true,
   cursorline = true,
 
-  hlsearch = true, -- highlight all matches on previous search pattern
-  incsearch = true, -- highlight all matches on previous search pattern
-  ignorecase = true, -- ignore case in search patterns
-  smartcase = true, -- smart case
+  hlsearch = true,
+  incsearch = true,
+  ignorecase = true,
+  smartcase = true,
 
-  mouse = "a", -- allow the mouse to be used in neovim
+  mouse = "a",
 
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   pumheight = 10, -- pop up menu height
@@ -25,7 +25,7 @@ local options = {
   wrap = false,
   scrolloff = 10,
 
-  smartindent = true, -- make indenting smarter again
+  smartindent = true,
   expandtab = true, -- convert tabs to spaces
   shiftwidth = 4, -- the number of spaces inserted for each indentation
   tabstop = 4, -- insert 4 spaces for a tab

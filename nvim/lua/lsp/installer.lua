@@ -16,6 +16,7 @@ local function general_opts()
   }
 end
 
+-- This function will be called for every language servers installed by nvim-lsp-installer.
 installer.on_server_ready(function(server)
   local opts = general_opts()
   local configured, settings = pcall(require, "lsp.settings." .. server.name)
@@ -26,7 +27,8 @@ installer.on_server_ready(function(server)
   server:setup(opts)
 end)
 
--- Some language servers not included in nvim-lsp-installer
+-- Some language servers not included in nvim-lsp-installer thus on `on_server_ready` will
+-- will be called for it. So we need to setup manually.
 config.golangci_lint_ls.setup(
   vim.tbl_deep_extend("force", require("lsp.settings.golangci_lint"), general_opts())
 )
