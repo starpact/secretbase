@@ -17,8 +17,7 @@ map("<leader>o", "<cmd>lua require('telescope.builtin').oldfiles()<CR>")
 map("<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("<leader>s", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
-map("<leader>th", "<cmd>lua require('telescope.builtin').help_tags()<CR>")
-map("<leader>tp", "<cmd>lua require('telescope').extensions.projects.projects()<CR>")
+map("<leader>p", "<cmd>lua require('telescope').extensions.projects.projects()<CR>")
 
 local function lsp_goto_picker(theme)
   return {

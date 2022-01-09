@@ -70,6 +70,8 @@ packer.startup(function(use)
   -- file explorer
   use("kyazdani42/nvim-tree.lua")
 
+  use("vim-test/vim-test")
+
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
@@ -88,3 +90,4 @@ require("plugins.gitsigns")
 require("plugins.project")
 require("plugins.lualine")
 require("plugins.nvim_tree")
+require("plugins.test")
