@@ -3,4 +3,8 @@ if not ok then
   return
 end
 
-gitsigns.setup()
+gitsigns.setup({
+  keymaps = {
+    noremap = false,
+  },
+})
