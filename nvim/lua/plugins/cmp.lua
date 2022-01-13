@@ -56,6 +56,8 @@ cmp.setup({
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.confirm()
+      elseif luasnip.expand_or_jumplable() then
+        luasnip.expand_or_jump()
       else
         fallback()
       end
