@@ -47,7 +47,7 @@ packer.startup(function(use)
 
   -- snippets
   use("L3MON4D3/LuaSnip")
-  -- use("rafamadriz/friendly-snippets")
+  use("rafamadriz/friendly-snippets")
 
   -- telescope
   use("nvim-telescope/telescope.nvim")

@@ -66,6 +66,7 @@ cmp.setup({
   completion = {
     completeopt = "menuone,noinsert", -- always select the first item
   },
+  preselect = cmp.PreselectMode.None,
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
