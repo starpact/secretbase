@@ -2,7 +2,6 @@ local colorscheme = "gruvbox-material"
 
 vim.g.gruvbox_material_disable_italic_comment = 1
 vim.g.gruvbox_material_sign_column_background = "none"
--- vim.g.gruvbox_material_diagnostic_virtual_text = "colored"
 
 pcall(vim.cmd, "colorscheme " .. colorscheme)
 
@@ -12,10 +11,6 @@ highlight VirtualTextWarning ctermfg=214 guifg=#b47109
 highlight VirtualTextInfo ctermfg=109 guifg=#45707a
 highlight VirtualTextHint ctermfg=142 guifg=#6c782e
 ]])
--- highlight VirtualTextError ctermfg=167 guifg=#fb4934
--- highlight VirtualTextWarning ctermfg=214 guifg=#fabd2f
--- highlight VirtualTextInfo ctermfg=109 guifg=#83a598
--- highlight VirtualTextHint ctermfg=142 guifg=Green
 
 vim.cmd([[
 highlight link rustTSField Fg
