@@ -8,7 +8,7 @@ M.setup = function()
   end
 
   vim.diagnostic.config({
-    virtual_text = { prefix = "" },
+    virtual_text = { prefix = " " },
     severity_sort = true,
     float = { source = "always" },
   })

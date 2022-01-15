@@ -116,9 +116,9 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
-  offset:
-    x: 0
-    y: 2
+  # offset:
+  #   x: 0
+  #   y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -570,11 +570,11 @@ colors:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: Space,    mods: Control, chars: "\x00"                       } # Alt + h
-#   - { key: H,    mods: Option, chars: "\x1bh"                       } # Alt + h
-#   - { key: J,    mods: Option, chars: "\x1bj"                       } # Alt + j
-#   - { key: K,    mods: Option, chars: "\x1bk"                       } # Alt + k
-#   - { key: L,    mods: Option, chars: "\x1bl"                       } # Alt + l
+  - { key: Space,      mods: Control,                    chars: "\x00"          } # Alt + h
+  - { key: H,          mods: Option,                     chars: "\x1bh"         } # Alt + h
+  - { key: J,          mods: Option,                     chars: "\x1bj"         } # Alt + j
+  - { key: K,          mods: Option,                     chars: "\x1bk"         } # Alt + k
+  - { key: L,          mods: Option,                     chars: "\x1bl"         } # Alt + l
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }

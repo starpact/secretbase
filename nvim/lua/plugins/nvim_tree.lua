@@ -11,8 +11,8 @@ vim.g.nvim_tree_icons = {
     ignored = "◌",
   },
   folder = {
-    default = "",
-    open = "",
+    default = "",
+    open = "",
   },
 }
 vim.g.nvim_tree_indent_markers = 1

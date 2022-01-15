@@ -19,7 +19,7 @@ local cmp_kinds = {
   Variable = "",
   Class = "ﴯ",
   Interface = "",
-  Module = "",
+  Module = "",
   Property = "ﰠ",
   Unit = "",
   Value = "",
@@ -35,7 +35,7 @@ local cmp_kinds = {
   Struct = "",
   Event = "",
   Operator = "",
-  TypeParameter = "",
+  TypeParameter = "",
 }
 
 cmp.setup({
@@ -83,7 +83,7 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer" },
+    { name = "buffer", keyword_length = 3 },
     { name = "path" },
   },
   confirm_opts = { behavior = cmp.ConfirmBehavior.Replace },
