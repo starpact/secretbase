@@ -11,6 +11,9 @@ return {
       },
       completion = {
         addCallArgumentSnippets = false,
+        postfix = {
+          enable = false,
+        },
       },
     },
   },
