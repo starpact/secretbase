@@ -6,6 +6,7 @@ end
 toggleterm.setup({
   size = 20,
   open_mapping = "<C-\\>",
+  shade_terminals = false,
 })
 
 function _G.set_terminal_keymaps()
