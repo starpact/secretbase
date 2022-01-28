@@ -1,3 +1,8 @@
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
+  return
+end
+
 vim.g.nvim_tree_icons = {
   default = "",
   symlink = "",
@@ -16,11 +21,6 @@ vim.g.nvim_tree_icons = {
   },
 }
 vim.g.nvim_tree_indent_markers = 1
-
-local ok, nvim_tree = pcall(require, "nvim-tree")
-if not ok then
-  return
-end
 
 local function map(mod, keys, cmd)
   vim.api.nvim_set_keymap(mod, keys, cmd, { noremap = true, silent = true })
