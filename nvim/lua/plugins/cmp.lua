@@ -8,6 +8,8 @@ if not ok_snip then
   return
 end
 
+local compare = require("cmp.config.compare")
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local cmp_kinds = {
@@ -81,9 +83,15 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer", keyword_length = 3 },
+    { name = "buffer", keyword_length = 5 },
     { name = "path" },
   },
   confirm_opts = { behavior = cmp.ConfirmBehavior.Replace },
   documentation = true,
+  sorting = {
+    comparators = {
+      compare.score,
+      compare.recently_used,
+    },
+  },
 })

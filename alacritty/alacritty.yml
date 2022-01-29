@@ -104,11 +104,11 @@ window:
 font:
   size: 17.0
   normal:
-    family: "JetBrainsMono Nerd Font Mono"
-  bold:
-    family: "JetBrainsMono Nerd Font Mono"
-  italic:
-    family: "JetBrainsMono Nerd Font Mono"
+    family: "Monaco Nerd Font Mono"
+  # bold:
+  #   family: "JetBrainsMono Nerd Font Mono"
+  # italic:
+  #   family: "JetBrainsMono Nerd Font Mono"
 
   # Point size
   # size: 20.0

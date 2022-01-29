@@ -5,10 +5,10 @@ end
 
 treesitter.setup({
   ensure_installed = "maintained",
+  ignore_install = { "norg" },
   sync_install = false,
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = true,
   },
-  -- indent = { enable = true },
 })
