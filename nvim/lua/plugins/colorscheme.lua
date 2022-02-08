@@ -17,3 +17,7 @@ highlight VirtualTextHint ctermfg=142 guifg=#6c782e
 vim.cmd([[
 highlight link rustTSField Fg
 ]])
+
+vim.cmd([[
+highlight link goTSNamespace Fg
+]])
