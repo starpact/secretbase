@@ -38,6 +38,9 @@ packer.startup(function(use)
   use("williamboman/nvim-lsp-installer")
   use("jose-elias-alvarez/null-ls.nvim")
 
+  -- lint
+  use("mfussenegger/nvim-lint")
+
   -- completion
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-nvim-lsp")
@@ -79,6 +82,7 @@ end)
 
 require("plugins.colorscheme")
 require("plugins.treesitter")
+require("plugins.nvim_lint")
 require("plugins.cmp")
 require("plugins.telescope")
 require("plugins.toggleterm")
