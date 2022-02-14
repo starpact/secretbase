@@ -4,6 +4,7 @@ if not ok then
 end
 
 lint.linters_by_ft = {
+  c = { "codespell" },
   go = { "golangcilint", "codespell" },
   rust = { "codespell" },
 }
