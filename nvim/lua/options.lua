@@ -36,6 +36,9 @@ local options = {
   termguicolors = true, -- set term gui colors (most terminals support this)
 
   timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
+
+  list = true,
+  listchars = "tab:  ", -- make the cursor shown at the start of a tab character
 }
 
 for k, v in pairs(options) do
