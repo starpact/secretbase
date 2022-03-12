@@ -11,6 +11,7 @@ telescope.load_extension("projects")
 local function map(keys, cmd)
   vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })
 end
+
 map("<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
 map("<leader>o", "<cmd>lua require('telescope.builtin').oldfiles()<CR>")
 map("<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
@@ -36,9 +37,14 @@ telescope.setup({
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
+    layout_config = {
+      preview_width = 0.5,
+    },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
+        ["<C-j>"] = actions.cycle_history_next,
+        ["<C-k>"] = actions.cycle_history_prev,
       },
     },
   },
