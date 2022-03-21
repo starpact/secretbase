@@ -39,6 +39,9 @@ packer.startup(function(use)
   -- lint
   use("mfussenegger/nvim-lint")
 
+  -- formatter
+  use("mhartington/formatter.nvim")
+
   -- completion
   use("hrsh7th/nvim-cmp")
   use("hrsh7th/cmp-nvim-lsp")
