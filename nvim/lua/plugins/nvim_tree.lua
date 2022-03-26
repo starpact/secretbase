@@ -30,10 +30,6 @@ map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>")
 
 nvim_tree.setup({
   auto_close = true,
-  git = {
-    enable = true,
-    ignore = false,
-  },
   update_cwd = true,
   diagnostics = {
     enable = true,
@@ -41,5 +37,8 @@ nvim_tree.setup({
   },
   view = {
     width = 36,
+  },
+  system_open = {
+    cmd = "code", -- vscode
   },
 })
