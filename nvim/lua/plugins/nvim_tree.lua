@@ -29,7 +29,6 @@ end
 map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>")
 
 nvim_tree.setup({
-  auto_close = true,
   update_cwd = true,
   diagnostics = {
     enable = true,

@@ -1,6 +1,7 @@
 vim.cmd([[
 autocmd BufRead,BufNewFile *.json,*.yml,*.yaml,*.toml,*.lua,*html,*css,*.js,*.jsx,*.ts,*.tsx setlocal ts=2 sw=2
 autocmd BufRead,BufNewFile *.go setlocal expandtab!
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
 ]])
 
 -- For WSL.
