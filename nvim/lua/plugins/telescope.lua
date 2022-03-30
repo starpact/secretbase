@@ -13,7 +13,7 @@ local function map(keys, cmd)
 end
 
 map("<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-map("<leader>o", "<cmd>lua require('telescope.builtin').oldfiles()<CR>")
+map("<leader>o", "<cmd>lua require('telescope.builtin').oldfiles({previewer=false})<CR>")
 map("<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
 map("<leader>s", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
