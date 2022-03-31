@@ -26,6 +26,9 @@ packer.startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("kyazdani42/nvim-web-devicons")
 
+  -- ui enhancement
+  use("stevearc/dressing.nvim")
+
   -- coloscheme
   use("sainnhe/gruvbox-material")
 
@@ -82,6 +85,7 @@ packer.startup(function(use)
   end
 end)
 
+require("plugins.dressing")
 require("plugins.colorscheme")
 require("plugins.treesitter")
 require("plugins.nvim_lint")
