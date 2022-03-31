@@ -34,9 +34,6 @@ nvim_tree.setup({
     enable = true,
     show_on_dirs = true,
   },
-  view = {
-    width = 36,
-  },
   system_open = {
     cmd = "code", -- vscode
   },
