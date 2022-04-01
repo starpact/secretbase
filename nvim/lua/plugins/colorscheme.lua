@@ -21,3 +21,7 @@ highlight link rustTSField Fg
 vim.cmd([[
 highlight link goTSNamespace Fg
 ]])
+
+vim.cmd([[
+highlight link FidgetTask Comment
+]])

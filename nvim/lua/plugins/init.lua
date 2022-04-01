@@ -38,6 +38,7 @@ packer.startup(function(use)
   -- lsp
   use("neovim/nvim-lspconfig")
   use("williamboman/nvim-lsp-installer")
+  use("j-hui/fidget.nvim")
 
   -- lint
   use("mfussenegger/nvim-lint")
@@ -88,6 +89,7 @@ end)
 require("plugins.dressing")
 require("plugins.colorscheme")
 require("plugins.treesitter")
+require("plugins.fidget")
 require("plugins.nvim_lint")
 require("plugins.formatter")
 require("plugins.cmp")
