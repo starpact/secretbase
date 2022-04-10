@@ -20,7 +20,6 @@ vim.g.nvim_tree_icons = {
     open = "",
   },
 }
-vim.g.nvim_tree_indent_markers = 1
 
 local function map(mod, keys, cmd)
   vim.api.nvim_set_keymap(mod, keys, cmd, { noremap = true, silent = true })
@@ -36,5 +35,10 @@ nvim_tree.setup({
   },
   system_open = {
     cmd = "code", -- vscode
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+    }
   },
 })

@@ -3,12 +3,6 @@ if not ok then
   return
 end
 
-toggleterm.setup({
-  size = 20,
-  open_mapping = "<C-\\>",
-  shade_terminals = false,
-})
-
 function _G.set_terminal_keymaps()
   local function map(keys, cmd)
     vim.api.nvim_buf_set_keymap(0, "t", keys, cmd, { noremap = true })
@@ -20,5 +14,10 @@ function _G.set_terminal_keymaps()
   map("<C-j>", "<C-\\><C-n><C-W>j")
   map("<C-k>", "<C-\\><C-n><C-W>k")
 end
+
+toggleterm.setup({
+  open_mapping = "<C-\\>",
+  shade_terminals = false,
+})
 
 vim.cmd("autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()")
