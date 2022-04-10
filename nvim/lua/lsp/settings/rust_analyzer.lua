@@ -15,6 +15,13 @@ return {
           enable = false,
         },
       },
+      workspace = {
+        symbol = {
+          search = {
+            kind = "all_symbols",
+          },
+        },
+      },
     },
   },
 }

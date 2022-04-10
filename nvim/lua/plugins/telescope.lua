@@ -16,7 +16,6 @@ map("<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
 map("<leader>o", "<cmd>lua require('telescope.builtin').oldfiles({previewer=false})<CR>")
 map("<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
 map("<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-map("<leader>s", "<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>")
 map("<leader>p", "<cmd>lua require('telescope').extensions.projects.projects()<CR>")
 
 local function lsp_goto_picker(theme)
@@ -51,6 +50,7 @@ telescope.setup({
   pickers = {
     lsp_definitions = lsp_goto_picker("ivy"),
     lsp_declarations = lsp_goto_picker("ivy"),
+    lsp_type_definitions = lsp_goto_picker("ivy"),
     lsp_references = lsp_goto_picker("ivy"),
     lsp_implementations = lsp_goto_picker("ivy"),
     lsp_code_actions = lsp_goto_picker("cursor"),
