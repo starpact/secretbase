@@ -65,14 +65,14 @@ cmp.setup({
       else
         fallback()
       end
-    end, { "i", "s", "c" }),
+    end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function(fallback)
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
         fallback()
       end
-    end, { "i", "s", "c" }),
+    end, { "i", "s" }),
   },
   completion = {
     completeopt = "menuone,noinsert", -- always select the first item
@@ -105,5 +105,3 @@ cmp.setup({
     },
   },
 })
-
-cmp.setup.cmdline("/", { sources = { { name = "buffer" } } })
