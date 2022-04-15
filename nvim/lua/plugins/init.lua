@@ -76,9 +76,6 @@ packer.startup(function(use)
   -- status line
   use("nvim-lualine/lualine.nvim")
 
-  -- move
-  use("ggandor/lightspeed.nvim")
-
   -- file explorer
   use("kyazdani42/nvim-tree.lua")
 
