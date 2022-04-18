@@ -1,3 +1,6 @@
-vim.cmd("autocmd BufWritePre *.js,*jsx,*ts,*tsx lua vim.lsp.buf.formatting_sync(nil, 1000)")
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+  callback = function() vim.lsp.buf.formatting_sync(nil, 1000) end,
+})
 
 return {}

@@ -1,8 +1,24 @@
--- Set tabsize.
-vim.cmd([[
-autocmd BufRead,BufNewFile *.json,*.yml,*.yaml,*.toml,*.lua,*html,*css,*.js,*.jsx,*.ts,*.tsx setlocal ts=2 sw=2
-autocmd BufRead,BufNewFile *.go setlocal expandtab!
-]])
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = {
+    "*.json",
+    "*.yml",
+    "*.yaml",
+    "*.toml",
+    "*.lua",
+    "*.html",
+    "*.css",
+    "*.js",
+    "*.jsx",
+    "*.ts",
+    "*.tsx",
+  },
+  command = "setlocal ts=2 sw=2",
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.go" },
+  command = "setlocal expandtab!",
+})
 
 -- NvimTree auto close.
 vim.cmd([[

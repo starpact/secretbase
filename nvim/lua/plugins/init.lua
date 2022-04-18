@@ -51,7 +51,6 @@ packer.startup(function(use)
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-cmdline")
   use("saadparwaiz1/cmp_luasnip")
 
   -- snippets
@@ -103,3 +102,4 @@ require("plugins.project")
 require("plugins.lualine")
 require("plugins.nvim_tree")
 require("plugins.test")
+

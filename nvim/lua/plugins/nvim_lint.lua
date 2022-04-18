@@ -17,4 +17,7 @@ lint.linters.codespell.args = {
   }, ","),
 }
 
-vim.cmd("autocmd BufEnter,BufWritePost * lua require('lint').try_lint()")
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+  pattern = { "*.go" },
+  callback = function() lint.try_lint() end,
+})

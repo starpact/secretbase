@@ -17,9 +17,7 @@ formatter.setup({
   }
 })
 
-vim.api.nvim_exec([[
-augroup AutoFormatGroup
-  autocmd!
-  autocmd BufWritePost *.py FormatWrite
-augroup END
-]], true)
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  pattern = { "*.py" },
+  command = "FormatWrite",
+})
