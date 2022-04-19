@@ -13,14 +13,18 @@ local function go_organize_imports(wait_ms)
   end
 end
 
+local group = vim.api.nvim_create_augroup("GoOnSave", {})
+
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
   callback = function() go_organize_imports(1000) end,
+  group = group,
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
   callback = function() vim.lsp.buf.formatting_sync(nil, 1000) end,
+  group = group,
 })
 
 return {}
