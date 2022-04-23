@@ -22,3 +22,7 @@ highlight link TSNamespace Fg
 vim.cmd([[
 highlight link FidgetTask Comment
 ]])
+
+vim.cmd([[
+highlight Search ctermfg=235 ctermbg=167 guifg=#282828 guibg=#ea6962
+]])
