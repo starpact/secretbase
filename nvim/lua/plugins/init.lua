@@ -29,7 +29,7 @@ packer.startup(function(use)
   -- ui enhancement
   use("stevearc/dressing.nvim")
 
-  -- coloscheme
+  -- colorscheme
   use("sainnhe/gruvbox-material")
 
   -- treesitter
@@ -102,4 +102,3 @@ require("plugins.project")
 require("plugins.lualine")
 require("plugins.nvim_tree")
 require("plugins.test")
-
