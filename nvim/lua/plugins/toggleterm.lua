@@ -16,7 +16,7 @@ function _G.set_terminal_keymaps()
 end
 
 toggleterm.setup({
-  open_mapping = "<C-\\>",
+  open_mapping = "<M-j>",
   shade_terminals = false,
 })
 
