@@ -36,9 +36,6 @@ telescope.setup({
   defaults = {
     prompt_prefix = " ",
     selection_caret = " ",
-    layout_config = {
-      preview_width = 0.5,
-    },
     mappings = {
       i = {
         ["<esc>"] = actions.close,
@@ -53,7 +50,6 @@ telescope.setup({
     lsp_type_definitions = lsp_goto_picker("ivy"),
     lsp_references = lsp_goto_picker("ivy"),
     lsp_implementations = lsp_goto_picker("ivy"),
-    lsp_code_actions = lsp_goto_picker("cursor"),
     diagnostics = lsp_goto_picker("ivy"),
   },
 })

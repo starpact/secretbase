@@ -3,21 +3,33 @@ if not ok_installer then
   return
 end
 
-local function general_opts()
-  local handlers = require("lsp.handlers")
-  return {
-    on_attach = handlers.on_attach,
-    capabilities = handlers.capabilities,
-  }
+local ok_lspconfig, lspconfig = pcall(require, "lspconfig")
+if not ok_lspconfig then
+  return
 end
 
--- This function will be called for every language servers installed by nvim-lsp-installer.
-installer.on_server_ready(function(server)
-  local opts = general_opts()
-  local configured, settings = pcall(require, "lsp.settings." .. server.name)
-  if configured then
-    opts = vim.tbl_deep_extend("force", settings, opts)
-  end
+installer.setup({ automatic_installation = true })
 
-  server:setup(opts)
-end)
+local handlers = require("lsp.handlers")
+
+local servers = {
+  "clangd",
+  "gopls",
+  "jsonls",
+  "rust_analyzer",
+  "sumneko_lua",
+  "taplo",
+  "tsserver",
+}
+
+for _, server in ipairs(servers) do
+  local configured, settings = pcall(require, "lsp.settings." .. server)
+  if configured then
+    lspconfig[server].setup(
+      vim.tbl_deep_extend("force", settings, {
+        on_attach = handlers.on_attach,
+        capabilities = handlers.capabilities,
+      })
+    )
+  end
+end
