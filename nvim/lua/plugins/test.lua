@@ -3,7 +3,6 @@ local function map(keys, cmd)
 end
 
 vim.g["test#strategy"] = "neovim"
-vim.g["test#neovim#start_normal"] = 1
 
 vim.g["test#go#runner"] = "gotest"
 vim.g["test#go#gotest#options"] = "-v -race -failfast --count=1"
