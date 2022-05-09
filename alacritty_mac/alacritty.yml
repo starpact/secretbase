@@ -102,7 +102,7 @@ window:
 
 # Font configuration
 font:
-  size: 18.0
+  size: 21.0
   normal:
     family: Iosevka Nerd Font Mono
     style: Regular
