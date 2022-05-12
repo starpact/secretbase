@@ -7,6 +7,8 @@ lint.linters_by_ft = {
   c = { "codespell" },
   go = { "golangcilint", "codespell" },
   rust = { "codespell" },
+  python = { "codespell" },
+  markdown = { "codespell" },
 }
 
 lint.linters.codespell.args = {
@@ -18,6 +20,6 @@ lint.linters.codespell.args = {
 }
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-  pattern = { "*.go" },
+  pattern = { "*" },
   callback = function() lint.try_lint() end,
 })
