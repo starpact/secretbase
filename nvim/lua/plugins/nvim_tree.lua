@@ -25,7 +25,8 @@ local function map(mod, keys, cmd)
   vim.api.nvim_set_keymap(mod, keys, cmd, { noremap = true, silent = true })
 end
 
-map("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>")
+map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
+map("n", "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>")
 
 nvim_tree.setup({
   update_cwd = true,
