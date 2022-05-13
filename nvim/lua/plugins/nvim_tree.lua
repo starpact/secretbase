@@ -26,7 +26,7 @@ local function map(mod, keys, cmd)
 end
 
 map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
-map("n", "<C-n>", "<cmd>NvimTreeFindFileToggle<CR>")
+map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
 nvim_tree.setup({
   update_cwd = true,

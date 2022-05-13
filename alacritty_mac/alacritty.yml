@@ -102,16 +102,16 @@ window:
 
 # Font configuration
 font:
-  size: 19.0
+  size: 18.0
   normal:
     family: Iosevka Nerd Font Mono
-    style: Regular
+    style: Light
   bold:
     family: Iosevka Nerd Font Mono
     style: Bold
   italic:
     family: Iosevka Nerd Font Mono
-    style: Italic
+    style: Oblique
 
   # Point size
   # size: 20.0

@@ -4,11 +4,12 @@ if not ok then
 end
 
 lint.linters_by_ft = {
-  c = { "codespell" },
+  c = { "clangtidy", "codespell" },
   go = { "golangcilint", "codespell" },
-  rust = { "codespell" },
-  python = { "codespell" },
+  lua = { "codespell" },
   markdown = { "codespell" },
+  python = { "flake8", "codespell" },
+  rust = { "codespell" },
 }
 
 lint.linters.codespell.args = {
@@ -20,6 +21,5 @@ lint.linters.codespell.args = {
 }
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
-  pattern = { "*" },
-  callback = function() lint.try_lint() end,
+  callback = function() lint.try_lint() end
 })

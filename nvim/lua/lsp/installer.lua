@@ -16,6 +16,7 @@ local servers = {
   "clangd",
   "gopls",
   "jsonls",
+  "pyright",
   "rust_analyzer",
   "sumneko_lua",
   "taplo",
