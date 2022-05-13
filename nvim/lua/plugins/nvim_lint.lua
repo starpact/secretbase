@@ -20,6 +20,6 @@ lint.linters.codespell.args = {
   }, ","),
 }
 
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "BufAdd", "BufWritePost" }, {
   callback = function() lint.try_lint() end
 })
