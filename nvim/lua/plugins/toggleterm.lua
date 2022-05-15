@@ -16,6 +16,7 @@ function _G.set_terminal_keymaps()
 end
 
 toggleterm.setup({
+  size = vim.o.lines * 0.3,
   open_mapping = "<M-j>",
   shade_terminals = false,
 })

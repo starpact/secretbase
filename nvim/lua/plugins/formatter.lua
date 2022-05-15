@@ -5,19 +5,12 @@ end
 
 formatter.setup({
   filetype = {
-    python = {
-      function()
-        return {
-          exe = "black",
-          args = { "-" },
-          stdin = true,
-        }
-      end
-    },
+    python = { require("formatter.filetypes.python").black },
+    yaml = { require("formatter.filetypes.yaml").prettier },
   }
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.py" },
+  pattern = { "*.py", "*.yml", "*.yaml" },
   command = "FormatWrite",
 })
