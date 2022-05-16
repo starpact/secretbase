@@ -1,12 +1,9 @@
-local ok_installer, installer = pcall(require, "nvim-lsp-installer")
-if not ok_installer then
-  return
-end
+local ok, installer = pcall(require, "nvim-lsp-installer")
+if not ok then return end
 
-local ok_lspconfig, lspconfig = pcall(require, "lspconfig")
-if not ok_lspconfig then
-  return
-end
+local lspconfig
+ok, lspconfig = pcall(require, "lspconfig")
+if not ok then return end
 
 installer.setup({ automatic_installation = true })
 

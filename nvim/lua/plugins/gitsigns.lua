@@ -1,7 +1,5 @@
 local ok, gitsigns = pcall(require, "gitsigns")
-if not ok then
-  return
-end
+if not ok then return end
 
 local function map(keys, cmd)
   vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })

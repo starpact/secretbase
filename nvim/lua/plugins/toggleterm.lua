@@ -1,7 +1,5 @@
 local ok, toggleterm = pcall(require, "toggleterm")
-if not ok then
-  return
-end
+if not ok then return end
 
 function _G.set_terminal_keymaps()
   local function map(keys, cmd)

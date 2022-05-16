@@ -1,12 +1,9 @@
-local ok_cmp, cmp = pcall(require, "cmp")
-if not ok_cmp then
-  return
-end
+local ok, cmp = pcall(require, "cmp")
+if not ok then return end
 
-local ok_snip, luasnip = pcall(require, "luasnip")
-if not ok_snip then
-  return
-end
+local luasnip
+ok, luasnip = pcall(require, "luasnip")
+if not ok then return end
 
 local compare = require("cmp.config.compare")
 

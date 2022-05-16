@@ -3,7 +3,8 @@ local fn = vim.fn
 -- Automatically install packer.
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({ "git",
+  PACKER_BOOTSTRAP = fn.system({
+    "git",
     "clone",
     "--depth",
     "1",
@@ -13,10 +14,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd("packadd packer.nvim")
 end
 
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-  return
-end
+local ok, packer = pcall(require, "packer")
+if not ok then return end
 
 packer.startup(function(use)
   use("wbthomason/packer.nvim")
@@ -78,6 +77,7 @@ packer.startup(function(use)
   -- file explorer
   use("kyazdani42/nvim-tree.lua")
 
+  -- test runner
   use("vim-test/vim-test")
 
   if PACKER_BOOTSTRAP then
