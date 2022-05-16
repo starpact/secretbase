@@ -15,7 +15,7 @@ end
 
 toggleterm.setup({
   size = vim.o.lines * 0.3,
-  open_mapping = "<M-j>",
+  open_mapping = "<C-t>",
   shade_terminals = false,
 })
 
