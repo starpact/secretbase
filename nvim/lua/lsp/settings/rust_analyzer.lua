@@ -13,7 +13,9 @@ return {
         command = "clippy",
       },
       completion = {
-        addCallArgumentSnippets = false,
+        callable = {
+          snippets = "add_parentheses",
+        },
         postfix = {
           enable = false,
         },
