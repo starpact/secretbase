@@ -151,28 +151,25 @@ draw_bold_text_with_bright_colors: true
 colors:
   primary:
     background: "0x282828"
-    foreground: "0xdfbf8e"
+    foreground: "0xd4be98"
   normal:
-    black: "0x665c54"
+    black: "0x3c3836"
     red: "0xea6962"
     green: "0xa9b665"
-    yellow: "0xe78a4e"
+    yellow: "0xd8a657"
     blue: "0x7daea3"
     magenta: "0xd3869b"
     cyan: "0x89b482"
-    white: "0xdfbf8e"
-
+    white: "0xd4be98"
   bright:
     black: "0x928374"
     red: "0xea6962"
     green: "0xa9b665"
-    yellow: "0xe3a84e"
+    yellow: "0xd8a657"
     blue: "0x7daea3"
     magenta: "0xd3869b"
     cyan: "0x89b482"
-    white: "0xdfbf8e"
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
+    white: "0xd4be98"
   cursor:
     text: "#101010"
     cursor: "#d4be98"
