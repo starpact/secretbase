@@ -153,7 +153,7 @@ colors:
     background: "0x282828"
     foreground: "0xd4be98"
   normal:
-    black: "0x3c3836"
+    black: "0x665c54"
     red: "0xea6962"
     green: "0xa9b665"
     yellow: "0xd8a657"
