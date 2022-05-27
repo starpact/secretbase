@@ -18,6 +18,10 @@ highlight link TSNamespace Fg
 ]])
 
 vim.cmd([[
+highlight link NvimTreeFolderIcon Aqua
+]])
+
+vim.cmd([[
 highlight link FidgetTask Comment
 ]])
 
