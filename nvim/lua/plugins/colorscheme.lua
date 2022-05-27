@@ -18,7 +18,7 @@ highlight link TSNamespace Fg
 ]])
 
 vim.cmd([[
-highlight link NvimTreeFolderIcon Aqua
+highlight link NvimTreeFolderIcon Blue
 ]])
 
 vim.cmd([[
