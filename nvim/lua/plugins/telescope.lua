@@ -1,20 +1,21 @@
 local ok, telescope = pcall(require, "telescope")
 if not ok then return end
 
+local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 
 telescope.load_extension("fzf")
 telescope.load_extension("projects")
 
 local function map(keys, cmd)
-  vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })
+  vim.keymap.set("n", keys, cmd, { noremap = true, silent = true })
 end
 
-map("<leader>f", "<cmd>lua require('telescope.builtin').find_files()<CR>")
-map("<leader>o", "<cmd>lua require('telescope.builtin').oldfiles({previewer=false})<CR>")
-map("<leader>b", "<cmd>lua require('telescope.builtin').buffers()<CR>")
-map("<leader>/", "<cmd>lua require('telescope.builtin').live_grep()<CR>")
-map("<leader>p", "<cmd>lua require('telescope').extensions.projects.projects()<CR>")
+map("<leader>f", builtin.find_files)
+map("<leader>o", builtin.oldfiles)
+map("<leader>b", builtin.buffers)
+map("<leader>/", builtin.live_grep)
+map("<leader>p", telescope.extensions.projects.projects)
 
 local function lsp_goto_picker(theme)
   return {

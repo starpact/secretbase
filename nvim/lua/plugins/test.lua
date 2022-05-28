@@ -1,5 +1,5 @@
 local function map(keys, cmd)
-  vim.api.nvim_set_keymap("n", keys, cmd, { noremap = true, silent = true })
+  vim.keymap.set("n", keys, cmd, { noremap = true, silent = true })
 end
 
 vim.g["test#strategy"] = "neovim"

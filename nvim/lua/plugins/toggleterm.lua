@@ -3,7 +3,7 @@ if not ok then return end
 
 function _G.set_terminal_keymaps()
   local function map(keys, cmd)
-    vim.api.nvim_buf_set_keymap(0, "t", keys, cmd, { noremap = true })
+    vim.keymap.set("t", keys, cmd, { noremap = true })
   end
 
   map("<Esc>", "<C-\\><C-n>")

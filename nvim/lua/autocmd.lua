@@ -13,13 +13,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.go" },
   command = "setlocal expandtab!",
 })
-
--- WSL.
-vim.cmd([[
-if has('wsl')
-  augroup Yank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator ==# 'y' | call system('/mnt/c/windows/system32/clip.exe ', @0)
-    augroup END
-endif
-]])

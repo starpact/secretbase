@@ -1,5 +1,5 @@
 local function map(mod, keys, cmd)
-  vim.api.nvim_set_keymap(mod, keys, cmd, { noremap = true, silent = true })
+  vim.keymap.set(mod, keys, cmd, { noremap = true, silent = true })
 end
 
 map("", "<Space>", "<Nop>")
