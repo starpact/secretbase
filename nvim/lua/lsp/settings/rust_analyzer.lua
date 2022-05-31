@@ -6,8 +6,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 return {
   settings = {
     ["rust-analyzer"] = {
-      assist = {
-        importGranlarity = "crate",
+      imports = {
+        granularity = {
+          group = "crate",
+          enforce = true,
+        },
       },
       checkOnSave = {
         command = "clippy",
