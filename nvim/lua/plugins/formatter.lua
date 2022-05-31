@@ -3,7 +3,7 @@ if not ok then return end
 
 formatter.setup({
   filetype = {
-    python = { require("formatter.filetypes.python").black },
+    python = { require("formatter.filetypes.python").yapf },
     yaml = { require("formatter.filetypes.yaml").prettier },
   }
 })
