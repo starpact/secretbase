@@ -2,13 +2,20 @@ local ok, lint = pcall(require, "lint")
 if not ok then return end
 
 lint.linters_by_ft = {
-  c = { "clangtidy", "codespell" },
-  go = { "golangcilint", "codespell" },
-  lua = { "codespell" },
-  markdown = { "codespell" },
-  python = { "flake8", "codespell" },
-  rust = { "codespell" },
+  c = { "clangtidy" },
+  go = { "golangcilint" },
+  python = { "flake8" },
 }
+
+local function auto_add_codespell_linter()
+  local ft = vim.bo.filetype
+  local linters = lint.linters_by_ft[ft]
+  if not linters then
+    lint.linters_by_ft[ft] = { "codespell" }
+  elseif not vim.tbl_contains(linters, "codespell") then
+    table.insert(linters, "codespell")
+  end
+end
 
 lint.linters.codespell.args = {
   "-L",
@@ -18,6 +25,8 @@ lint.linters.codespell.args = {
   }, ","),
 }
 
-vim.api.nvim_create_autocmd({ "BufAdd", "BufWritePost" }, {
-  callback = function() lint.try_lint() end
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = auto_add_codespell_linter,
 })
+
+vim.cmd("autocmd BufEnter,BufWritePost * lua require('lint').try_lint()")
