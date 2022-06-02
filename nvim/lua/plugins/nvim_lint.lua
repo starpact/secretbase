@@ -25,8 +25,10 @@ lint.linters.codespell.args = {
   }, ","),
 }
 
-vim.api.nvim_create_autocmd("BufEnter", {
+vim.api.nvim_create_autocmd("BufAdd", {
   callback = auto_add_codespell_linter,
 })
 
-vim.cmd("autocmd BufEnter,BufWritePost * lua require('lint').try_lint()")
+vim.api.nvim_create_autocmd({ "BufAdd", "BufWritePost" }, {
+  callback = function() lint.try_lint() end
+})
