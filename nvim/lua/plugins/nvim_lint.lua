@@ -7,6 +7,14 @@ lint.linters_by_ft = {
   python = { "flake8" },
 }
 
+lint.linters.codespell.args = {
+  "-L",
+  table.concat({
+    "crate",
+    "hist",
+  }, ","),
+}
+
 local function auto_add_codespell_linter()
   local ft = vim.bo.filetype
   local linters = lint.linters_by_ft[ft]
@@ -17,18 +25,9 @@ local function auto_add_codespell_linter()
   end
 end
 
-lint.linters.codespell.args = {
-  "-L",
-  table.concat({
-    "crate",
-    "hist",
-  }, ","),
-}
-
-vim.api.nvim_create_autocmd("BufAdd", {
-  callback = auto_add_codespell_linter,
-})
-
 vim.api.nvim_create_autocmd({ "BufAdd", "BufWritePost" }, {
-  callback = function() lint.try_lint() end
+  callback = function()
+    auto_add_codespell_linter()
+    lint.try_lint()
+  end
 })
