@@ -1,9 +1,6 @@
 local wezterm = require("wezterm")
 
 return {
-  term = "tmux-256color",
-  audible_bell = "Disabled",
-
   font = wezterm.font("Iosevka"),
   font_size = 14,
 

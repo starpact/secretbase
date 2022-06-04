@@ -579,11 +579,6 @@ colors:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: Space, mods: Control, chars: "\x00" } # Alt + h
-  - { key: H, mods: Option, chars: "\x1bh" } # Alt + h
-  - { key: J, mods: Option, chars: "\x1bj" } # Alt + j
-  - { key: K, mods: Option, chars: "\x1bk" } # Alt + k
-  - { key: L, mods: Option, chars: "\x1bl" } # Alt + l
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -594,6 +589,11 @@ key_bindings:
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
 
   # Vi Mode
+  - { key: Q, mode: Vi|~Search, action: ToggleViMode }
+  - { key: Q, mode: Vi|~Search, action: ScrollToBottom }
+  - { key: 5, mods: Shift, mode: Vi|~Search, action: Last }
+  - { key: 6, mods: Shift, mode: Vi|~Search, action: Bracket }
+  - { key: 7, mods: Shift, mode: Vi|~Search, action: FirstOccupied }
   # - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
@@ -625,8 +625,6 @@ key_bindings:
   #- { key: Left,                        mode: Vi|~Search, action: Left                    }
   #- { key: Right,                       mode: Vi|~Search, action: Right                   }
   #- { key: Key0,                        mode: Vi|~Search, action: First                   }
-  #- { key: Key4,   mods: Shift,         mode: Vi|~Search, action: Last                    }
-  #- { key: Key6,   mods: Shift,         mode: Vi|~Search, action: FirstOccupied           }
   #- { key: H,      mods: Shift,         mode: Vi|~Search, action: High                    }
   #- { key: M,      mods: Shift,         mode: Vi|~Search, action: Middle                  }
   #- { key: L,      mods: Shift,         mode: Vi|~Search, action: Low                     }
@@ -636,7 +634,6 @@ key_bindings:
   #- { key: B,      mods: Shift,         mode: Vi|~Search, action: WordLeft                }
   #- { key: W,      mods: Shift,         mode: Vi|~Search, action: WordRight               }
   #- { key: E,      mods: Shift,         mode: Vi|~Search, action: WordRightEnd            }
-  #- { key: Key5,   mods: Shift,         mode: Vi|~Search, action: Bracket                 }
   #- { key: Slash,                       mode: Vi|~Search, action: SearchForward           }
   #- { key: Slash,  mods: Shift,         mode: Vi|~Search, action: SearchBackward          }
   #- { key: N,                           mode: Vi|~Search, action: SearchNext              }

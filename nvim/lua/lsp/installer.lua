@@ -5,7 +5,7 @@ local lspconfig
 ok, lspconfig = pcall(require, "lspconfig")
 if not ok then return end
 
-installer.setup({ automatic_installation = true })
+installer.setup()
 
 local handlers = require("lsp.handlers")
 
