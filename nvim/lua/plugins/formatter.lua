@@ -1,7 +1,4 @@
-local ok, formatter = pcall(require, "formatter")
-if not ok then return end
-
-formatter.setup({
+require("formatter").setup({
   filetype = {
     python = { require("formatter.filetypes.python").yapf },
     yaml = { require("formatter.filetypes.yaml").prettier },

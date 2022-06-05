@@ -1,10 +1,5 @@
-local ok, cmp = pcall(require, "cmp")
-if not ok then return end
-
-local luasnip
-ok, luasnip = pcall(require, "luasnip")
-if not ok then return end
-
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 local compare = require("cmp.config.compare")
 
 require("luasnip/loaders/from_vscode").lazy_load()

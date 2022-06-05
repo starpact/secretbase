@@ -1,6 +1,3 @@
-local ok, lualine = pcall(require, "lualine")
-if not ok then return end
-
 local diff = {
   "diff",
   symbols = { added = " ", modified = " ", removed = " " },
@@ -21,7 +18,7 @@ local diagnostics = {
   },
 }
 
-lualine.setup({
+require("lualine").setup({
   options = {
     disabled_filetypes = { "NvimTree", "Outline" },
   },

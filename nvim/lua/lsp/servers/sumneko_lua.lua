@@ -4,9 +4,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 return {
-  cmd = { "lua-language-server", "--preview" },
   settings = {
     Lua = {
+      format = {
+        enable = true
+      },
       diagnostics = {
         globals = { "vim" },
       },

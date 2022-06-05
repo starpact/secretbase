@@ -3,7 +3,7 @@ vim.g.gruvbox_material_sign_column_background = "none"
 vim.g.gruvbox_material_transparent_background = 1
 vim.g.gruvbox_material_visual = "reverse"
 
-pcall(vim.cmd, "colorscheme gruvbox-material")
+vim.cmd("colorscheme gruvbox-material")
 
 vim.cmd([[
 highlight VirtualTextError ctermfg=167 guifg=#c14a4a

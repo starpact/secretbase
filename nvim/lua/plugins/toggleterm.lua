@@ -1,6 +1,3 @@
-local ok, toggleterm = pcall(require, "toggleterm")
-if not ok then return end
-
 function _G.set_terminal_keymaps()
   local function map(keys, cmd)
     vim.keymap.set("t", keys, cmd, { noremap = true })
@@ -13,7 +10,7 @@ function _G.set_terminal_keymaps()
   map("<C-k>", "<C-\\><C-n><C-W>k")
 end
 
-toggleterm.setup({
+require("toggleterm").setup({
   size = vim.o.lines * 0.3,
   open_mapping = "<C-t>",
   shade_terminals = false,

@@ -1,11 +1,7 @@
-local ok, dressing = pcall(require, "dressing")
-if not ok then return end
+local dressing = require("dressing")
 
-local telescope, themes
-ok, themes = pcall(require, "telescope.themes")
-if ok then
-  telescope = themes.get_cursor({ initial_mode = "normal" })
-end
+local themes = require("telescope.themes")
+local telescope = themes.get_cursor({ initial_mode = "normal" })
 
 dressing.setup({
   select = {
