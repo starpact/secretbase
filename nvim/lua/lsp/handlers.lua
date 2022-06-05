@@ -1,35 +1,19 @@
-local M = {}
-
-M.setup = function()
-  local signs = { Error = "", Warn = "", Hint = "", Info = "" }
-  for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-  end
-
-  vim.diagnostic.config({
-    severity_sort = true,
-    float = { source = "always" },
-  })
+local function map(mode, keys, cmd)
+  vim.keymap.set(mode, keys, cmd, { noremap = true, silent = true })
 end
 
-M.on_attach = function()
-  local function map(mode, keys, cmd)
-    vim.keymap.set(mode, keys, cmd, { noremap = true, silent = true })
-  end
+local function on_attach()
+  local telescope = require("telescope.builtin")
 
-  local ok, telescope_builtin = pcall(require, "telescope.builtin")
-  if not ok then return end
-
-  map("n", "gd", telescope_builtin.lsp_definitions)
+  map("n", "gd", telescope.lsp_definitions)
   map("n", "gD", vim.lsp.buf.declaration)
-  map("n", "gt", telescope_builtin.lsp_type_definitions)
-  map("n", "gr", function() telescope_builtin.lsp_references({ include_current_line = true }) end)
-  map("n", "gi", telescope_builtin.lsp_implementations)
+  map("n", "gt", telescope.lsp_type_definitions)
+  map("n", "gr", function() telescope.lsp_references({ include_current_line = true }) end)
+  map("n", "gi", telescope.lsp_implementations)
   map("n", "<leader>a", vim.lsp.buf.code_action)
-  map("n", "<leader>s", telescope_builtin.lsp_document_symbols)
-  map("n", "<leader>w", telescope_builtin.lsp_workspace_symbols)
-  map("n", "<leader>d", telescope_builtin.diagnostics)
+  map("n", "<leader>s", telescope.lsp_document_symbols)
+  map("n", "<leader>w", telescope.lsp_workspace_symbols)
+  map("n", "<leader>d", telescope.diagnostics)
   map("n", "K", vim.lsp.buf.hover)
   map("i", "<C-k>", vim.lsp.buf.signature_help)
   map("n", "<leader>r", vim.lsp.buf.rename)
@@ -38,11 +22,11 @@ M.on_attach = function()
   map("n", "gl", vim.diagnostic.open_float)
 end
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("cmp_nvim_lsp").update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
 
-local ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not ok then return M end
-
-M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
-
-return M
+return {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
