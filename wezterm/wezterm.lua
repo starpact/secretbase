@@ -6,6 +6,7 @@ return {
 
   window_decorations = "NONE",
   window_background_opacity = 0.9,
+  window_close_confirmation = "NeverPrompt",
 
   colors = {
     foreground = "#dfbf8e",
