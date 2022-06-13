@@ -112,6 +112,8 @@ font:
   italic:
     family: Iosevka
     style: Italic
+
+  # size: 13.0
   # normal:
   #   family: JetBrainsMono Nerd Font Mono
   #   style: Regular
@@ -120,6 +122,17 @@ font:
   #   style: Bold
   # italic:
   #   family: JetBrainsMono Nerd Font Mono
+  #   style: Italic
+
+  # size: 13.0
+  # normal:
+  #   family: VictorMono Nerd Font Mono
+  #   style: Medium
+  # bold:
+  #   family: VictorMono Nerd Font Mono
+  #   style: Bold
+  # italic:
+  #   family: VictorMono Nerd Font Mono
   #   style: Italic
 
   # Point size
