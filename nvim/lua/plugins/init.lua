@@ -14,76 +14,82 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd("packadd packer.nvim")
 end
 
-local ok, packer = pcall(require, "packer")
-if not ok then return end
+local packer = require("packer")
 
-packer.startup(function(use)
-  use("wbthomason/packer.nvim")
+packer.startup({
+  function(use)
+    use("wbthomason/packer.nvim")
 
-  -- general dependency
-  use("nvim-lua/popup.nvim")
-  use("nvim-lua/plenary.nvim")
-  use("kyazdani42/nvim-web-devicons")
+    -- general dependency
+    use("nvim-lua/popup.nvim")
+    use("nvim-lua/plenary.nvim")
+    use("kyazdani42/nvim-web-devicons")
 
-  -- ui enhancement
-  use("stevearc/dressing.nvim")
+    -- ui enhancement
+    use("stevearc/dressing.nvim")
 
-  -- colorscheme
-  use("sainnhe/gruvbox-material")
+    -- colorscheme
+    use("sainnhe/gruvbox-material")
 
-  -- treesitter
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    -- treesitter
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
-  -- lsp
-  use("neovim/nvim-lspconfig")
-  use("williamboman/nvim-lsp-installer")
-  use("j-hui/fidget.nvim")
+    -- lsp
+    use("neovim/nvim-lspconfig")
+    use("williamboman/nvim-lsp-installer")
+    use("j-hui/fidget.nvim")
 
-  -- lint
-  use("mfussenegger/nvim-lint")
+    -- lint
+    use("mfussenegger/nvim-lint")
 
-  -- formatter
-  use("mhartington/formatter.nvim")
+    -- formatter
+    use("mhartington/formatter.nvim")
 
-  -- completion
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("saadparwaiz1/cmp_luasnip")
+    -- completion
+    use("hrsh7th/nvim-cmp")
+    use("hrsh7th/cmp-nvim-lsp")
+    use("hrsh7th/cmp-buffer")
+    use("hrsh7th/cmp-path")
+    use("saadparwaiz1/cmp_luasnip")
 
-  -- snippets
-  use("L3MON4D3/LuaSnip")
-  use("rafamadriz/friendly-snippets")
+    -- snippets
+    use("L3MON4D3/LuaSnip")
+    use("rafamadriz/friendly-snippets")
 
-  -- telescope
-  use("nvim-telescope/telescope.nvim")
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    -- telescope
+    use("nvim-telescope/telescope.nvim")
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
-  -- integrated terminal
-  use("akinsho/toggleterm.nvim")
+    -- integrated terminal
+    use("akinsho/toggleterm.nvim")
 
-  -- utils
-  use("windwp/nvim-autopairs")
-  use("windwp/nvim-ts-autotag")
-  use("numToStr/Comment.nvim")
-  use("tpope/vim-surround")
-  use("lewis6991/gitsigns.nvim")
-  use("ahmedkhalf/project.nvim")
+    -- utils
+    use("windwp/nvim-autopairs")
+    use("windwp/nvim-ts-autotag")
+    use("numToStr/Comment.nvim")
+    use("tpope/vim-surround")
+    use("lewis6991/gitsigns.nvim")
+    use("ahmedkhalf/project.nvim")
 
-  -- status line
-  use("nvim-lualine/lualine.nvim")
+    -- status line
+    use("nvim-lualine/lualine.nvim")
 
-  -- file explorer
-  use("kyazdani42/nvim-tree.lua")
+    -- file explorer
+    use("kyazdani42/nvim-tree.lua")
 
-  -- test runner
-  use("vim-test/vim-test")
+    -- test runner
+    use("vim-test/vim-test")
 
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
-end)
+    if PACKER_BOOTSTRAP then
+      require("packer").sync()
+    end
+  end,
+  config = {
+    display = {
+      open_fn = require('packer.util').float,
+    },
+  },
+})
 
 require("plugins.dressing")
 require("plugins.colorscheme")
