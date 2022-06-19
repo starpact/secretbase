@@ -52,14 +52,14 @@ cmp.setup({
       elseif luasnip.choice_active() then
         luasnip.change_choice(1)
       end
-    end),
+    end, { "i", "s" }),
     ["<C-p>"] = cmp.mapping(function()
       if cmp.visible() then
         cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
       elseif luasnip.choice_active() then
         luasnip.change_choice(-1)
       end
-    end),
+    end, { "i", "s" }),
     ["<C-l>"] = cmp.mapping(function()
       if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
