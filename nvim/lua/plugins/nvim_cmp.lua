@@ -37,30 +37,37 @@ cmp.setup({
     end,
   },
   mapping = {
+    ["<CR>"] = cmp.mapping.confirm(),
+    ["<Tab>"] = cmp.mapping.confirm(),
+    ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     }),
-    ["<CR>"] = cmp.mapping.confirm(),
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<C-n>"] = cmp.mapping(function()
       if cmp.visible() then
-        cmp.confirm()
-      elseif luasnip.expand_or_jumpable() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      elseif luasnip.choice_active() then
+        luasnip.change_choice(1)
+      end
+    end),
+    ["<C-p>"] = cmp.mapping(function()
+      if cmp.visible() then
+        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+      elseif luasnip.choice_active() then
+        luasnip.change_choice(-1)
+      end
+    end),
+    ["<C-l>"] = cmp.mapping(function()
+      if luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
-      else
-        fallback()
       end
     end, { "i", "s" }),
-    ["<S-Tab>"] = cmp.mapping(function(fallback)
+    ["<C-h>"] = cmp.mapping(function()
       if luasnip.jumpable(-1) then
         luasnip.jump(-1)
-      else
-        fallback()
       end
     end, { "i", "s" }),
   },

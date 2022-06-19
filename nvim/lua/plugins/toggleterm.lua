@@ -11,7 +11,7 @@ function _G.set_terminal_keymaps()
 end
 
 require("toggleterm").setup({
-  size = vim.o.lines * 0.3,
+  size = vim.o.lines * 0.4,
   open_mapping = "<C-t>",
   shade_terminals = false,
 })
