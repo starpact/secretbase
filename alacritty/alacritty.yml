@@ -30,8 +30,8 @@ window:
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
   dimensions:
-    columns: 160
-    lines: 40
+    columns: 120
+    lines: 30
 
   # Window position (changes require restart)
   #
@@ -61,7 +61,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  # decorations: none
 
   # Startup Mode (changes require restart)
   #
@@ -78,12 +78,14 @@ window:
 
   # Allow terminal applications to change Alacritty's window title.
   # dynamic_title: true
+
   # Window class (Linux/BSD only):
   #class:
   # Application instance name
   #instance: Alacritty
   # General application class
   #general: Alacritty
+
   # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
@@ -100,31 +102,56 @@ window:
 
 # Font configuration
 font:
-  size: 18.0
+  size: 13.0
   normal:
-    family: Iosevka Nerd Font Mono
-    style: Light
+    family: Iosevka
+    style: Regular
   bold:
-    family: Iosevka Nerd Font Mono
+    family: Iosevka
     style: Bold
   italic:
-    family: Iosevka Nerd Font Mono
-    style: Oblique
+    family: Iosevka
+    style: Italic
+
+  # size: 12.0
+  # normal:
+  #   family: JetBrainsMono Nerd Font Mono
+  #   style: Regular
+  # bold:
+  #   family: JetBrainsMono Nerd Font Mono
+  #   style: Bold
+  # italic:
+  #   family: JetBrainsMono Nerd Font Mono
+  #   style: Italic
+
+  # size: 13.0
+  # normal:
+  #   family: VictorMono Nerd Font Mono
+  #   style: Medium
+  # bold:
+  #   family: VictorMono Nerd Font Mono
+  #   style: Bold
+  # italic:
+  #   family: VictorMono Nerd Font Mono
+  #   style: Italic
 
   # Point size
   # size: 20.0
+
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   # offset:
   #   x: 0
   #   y: 0
+
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
   # right, increasing `y` moves the glyph upward.
   #glyph_offset:
   #  x: 0
   #  y: 0
+
   # Thin stroke font rendering (macOS only)
   #
   # Thin strokes are suitable for retina displays, but for non-retina screens
@@ -137,28 +164,25 @@ draw_bold_text_with_bright_colors: true
 colors:
   primary:
     background: "0x282828"
-    foreground: "0xdfbf8e"
+    foreground: "0xd4be98"
   normal:
     black: "0x665c54"
     red: "0xea6962"
     green: "0xa9b665"
-    yellow: "0xe78a4e"
+    yellow: "0xd8a657"
     blue: "0x7daea3"
     magenta: "0xd3869b"
     cyan: "0x89b482"
-    white: "0xdfbf8e"
-
+    white: "0xd4be98"
   bright:
     black: "0x928374"
     red: "0xea6962"
     green: "0xa9b665"
-    yellow: "0xe3a84e"
+    yellow: "0xd8a657"
     blue: "0x7daea3"
     magenta: "0xd3869b"
     cyan: "0x89b482"
-    white: "0xdfbf8e"
-  # Allowed values are CellForeground/CellBackground, which reference the
-  # affected cell, or hexadecimal colors like #ff00ff.
+    white: "0xd4be98"
   cursor:
     text: "#101010"
     cursor: "#d4be98"
@@ -568,11 +592,6 @@ colors:
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: Space, mods: Control, chars: "\x00" } # Alt + h
-  - { key: H, mods: Option, chars: "\x1bh" } # Alt + h
-  - { key: J, mods: Option, chars: "\x1bj" } # Alt + j
-  - { key: K, mods: Option, chars: "\x1bk" } # Alt + k
-  - { key: L, mods: Option, chars: "\x1bl" } # Alt + l
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
   #- { key: L,         mods: Control,                    action: ClearLogNotice }
@@ -581,7 +600,13 @@ key_bindings:
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
+
   # Vi Mode
+  - { key: Q, mode: Vi|~Search, action: ToggleViMode }
+  - { key: Q, mode: Vi|~Search, action: ScrollToBottom }
+  - { key: 5, mods: Shift, mode: Vi|~Search, action: Last }
+  - { key: 6, mods: Shift, mode: Vi|~Search, action: Bracket }
+  - { key: 7, mods: Shift, mode: Vi|~Search, action: FirstOccupied }
   # - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   #- { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   #- { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
@@ -613,8 +638,6 @@ key_bindings:
   #- { key: Left,                        mode: Vi|~Search, action: Left                    }
   #- { key: Right,                       mode: Vi|~Search, action: Right                   }
   #- { key: Key0,                        mode: Vi|~Search, action: First                   }
-  #- { key: Key4,   mods: Shift,         mode: Vi|~Search, action: Last                    }
-  #- { key: Key6,   mods: Shift,         mode: Vi|~Search, action: FirstOccupied           }
   #- { key: H,      mods: Shift,         mode: Vi|~Search, action: High                    }
   #- { key: M,      mods: Shift,         mode: Vi|~Search, action: Middle                  }
   #- { key: L,      mods: Shift,         mode: Vi|~Search, action: Low                     }
@@ -624,11 +647,11 @@ key_bindings:
   #- { key: B,      mods: Shift,         mode: Vi|~Search, action: WordLeft                }
   #- { key: W,      mods: Shift,         mode: Vi|~Search, action: WordRight               }
   #- { key: E,      mods: Shift,         mode: Vi|~Search, action: WordRightEnd            }
-  #- { key: Key5,   mods: Shift,         mode: Vi|~Search, action: Bracket                 }
   #- { key: Slash,                       mode: Vi|~Search, action: SearchForward           }
   #- { key: Slash,  mods: Shift,         mode: Vi|~Search, action: SearchBackward          }
   #- { key: N,                           mode: Vi|~Search, action: SearchNext              }
   #- { key: N,      mods: Shift,         mode: Vi|~Search, action: SearchPrevious          }
+
   # Search Mode
   #- { key: Return,                mode: Search|Vi,  action: SearchConfirm         }
   #- { key: Escape,                mode: Search,     action: SearchCancel          }
@@ -641,6 +664,7 @@ key_bindings:
   #- { key: Down,                  mode: Search,     action: SearchHistoryNext     }
   #- { key: Return,                mode: Search|~Vi, action: SearchFocusNext       }
   #- { key: Return, mods: Shift,   mode: Search|~Vi, action: SearchFocusPrevious   }
+
   # (Windows, Linux, and BSD only)
   #- { key: V,              mods: Control|Shift, mode: ~Vi,        action: Paste            }
   #- { key: C,              mods: Control|Shift,                   action: Copy             }
@@ -654,8 +678,10 @@ key_bindings:
   #- { key: NumpadAdd,      mods: Control,                         action: IncreaseFontSize }
   #- { key: Minus,          mods: Control,                         action: DecreaseFontSize }
   #- { key: NumpadSubtract, mods: Control,                         action: DecreaseFontSize }
+
   # (Windows only)
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
+
   # (macOS only)
   #- { key: K,              mods: Command, mode: ~Vi|~Search, chars: "\x0c"                 }
   #- { key: K,              mods: Command, mode: ~Vi|~Search, action: ClearHistory          }
