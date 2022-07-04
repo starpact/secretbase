@@ -42,7 +42,6 @@ local cmp_kinds = {
   Package = "",
 }
 
-
 cmp.setup({
   snippet = {
     expand = function(args)
