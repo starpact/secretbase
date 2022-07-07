@@ -69,6 +69,7 @@ packer.startup({
     use("tpope/vim-surround")
     use("lewis6991/gitsigns.nvim")
     use("ahmedkhalf/project.nvim")
+    use("phaazon/hop.nvim")
 
     -- status line
     use("nvim-lualine/lualine.nvim")
@@ -105,6 +106,7 @@ require("plugins.autotag")
 require("plugins.nvim_comment")
 require("plugins.gitsigns")
 require("plugins.project")
+require("plugins.hop")
 require("plugins.lualine")
 require("plugins.nvim_tree")
 require("plugins.test")
