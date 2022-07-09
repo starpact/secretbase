@@ -38,7 +38,7 @@ packer.startup({
     use("tpope/vim-surround")
     use("lewis6991/gitsigns.nvim")
     use("ahmedkhalf/project.nvim")
-    use("phaazon/hop.nvim")
+    use("ggandor/leap.nvim")
 
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -99,7 +99,7 @@ require("plugins.autotag")
 require("plugins.nvim_comment")
 require("plugins.gitsigns")
 require("plugins.project")
-require("plugins.hop")
+require("plugins.leap")
 require("plugins.treesitter")
 require("plugins.fidget")
 require("plugins.formatter")
