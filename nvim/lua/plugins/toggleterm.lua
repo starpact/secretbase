@@ -12,7 +12,7 @@ end
 
 require("toggleterm").setup({
   size = vim.o.lines * 0.3,
-  open_mapping = "<C-t>",
+  open_mapping = "<A-j>",
   shade_terminals = false,
 })
 
