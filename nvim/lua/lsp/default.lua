@@ -1,6 +1,7 @@
-local function on_attach(_, bufnr)
-  local telescope = require("telescope.builtin")
+local function on_attach(client, bufnr)
+  require("nvim-navic").attach(client, bufnr)
 
+  local telescope = require("telescope.builtin")
   vim.keymap.set("n", "gd", telescope.lsp_definitions, { buffer = bufnr })
   vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = bufnr })
   vim.keymap.set("n", "gt", telescope.lsp_type_definitions, { buffer = bufnr })
