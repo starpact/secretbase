@@ -39,7 +39,6 @@ packer.startup({
     use("lewis6991/gitsigns.nvim")
     use("ahmedkhalf/project.nvim")
     use("ggandor/leap.nvim")
-    use("SmiteshP/nvim-navic")
 
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
@@ -102,7 +101,6 @@ require("plugins.nvim_surround")
 require("plugins.gitsigns")
 require("plugins.project")
 require("plugins.leap")
-require("plugins.nvim_navic")
 require("plugins.treesitter")
 require("plugins.fidget")
 require("plugins.formatter")
