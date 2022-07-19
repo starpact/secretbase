@@ -5,26 +5,12 @@ vim.g.gruvbox_material_visual = "reverse"
 
 vim.cmd("colorscheme gruvbox-material")
 
-vim.cmd([[
-highlight VirtualTextError ctermfg=167 guifg=#c14a4a
-highlight VirtualTextWarning ctermfg=214 guifg=#b47109
-highlight VirtualTextInfo ctermfg=109 guifg=#45707a
-highlight VirtualTextHint ctermfg=142 guifg=#6c782e
-]])
-
-vim.cmd([[
-highlight link TSField Fg
-highlight link TSNamespace Fg
-]])
-
-vim.cmd([[
-highlight link NvimTreeFolderIcon Blue
-]])
-
-vim.cmd([[
-highlight link FidgetTask Comment
-]])
-
-vim.cmd([[
-highlight Search ctermfg=235 ctermbg=167 guifg=#282828 guibg=#ea6962
-]])
+vim.api.nvim_set_hl(0, "VirtualTextError", { ctermfg = 167, fg = "#c14a4a" })
+vim.api.nvim_set_hl(0, "VirtualTextWarning", { ctermfg = 214, fg = "#b47109" })
+vim.api.nvim_set_hl(0, "VirtualTextInfo", { ctermfg = 109, fg = "#45707a" })
+vim.api.nvim_set_hl(0, "VirtualTextHint", { ctermfg = 142, fg = "#6c782e" })
+vim.api.nvim_set_hl(0, "TSField", { link = "Fg" })
+vim.api.nvim_set_hl(0, "TSNamespace", { link = "Fg" })
+vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { link = "Blue" })
+vim.api.nvim_set_hl(0, "FidgetTask", { link = "Comment" })
+vim.api.nvim_set_hl(0, "Search", { ctermfg = 235, ctermbg = 167, fg = "#282828", bg = "#ea6962" })
