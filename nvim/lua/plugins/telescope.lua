@@ -14,6 +14,8 @@ map("<leader>f", builtin.find_files)
 map("<leader>o", builtin.oldfiles)
 map("<leader>b", builtin.buffers)
 map("<leader>/", builtin.live_grep)
+map("<leader>gs", builtin.git_status)
+map("<leader>gc", builtin.git_commits)
 map("<leader>p", telescope.extensions.projects.projects)
 
 local function lsp_goto_picker(theme)
