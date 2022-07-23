@@ -46,3 +46,14 @@ for k, v in pairs(options) do
 end
 
 vim.opt.shortmess:append("c")
+
+-- Diagnostics
+for type, icon in pairs({ Error = "", Warn = "", Hint = "", Info = "" }) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+end
+
+vim.diagnostic.config({
+  severity_sort = true,
+  float = { source = "if_many" },
+})
