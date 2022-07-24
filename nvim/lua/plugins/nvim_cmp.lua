@@ -50,8 +50,8 @@ cmp.setup({
   },
   mapping = {
     ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm(),
     ["<Tab>"] = cmp.mapping(function(fallback)
