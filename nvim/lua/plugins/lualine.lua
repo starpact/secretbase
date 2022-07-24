@@ -1,20 +1,19 @@
 local diff = {
   "diff",
-  symbols = { added = " ", modified = " ", removed = " " },
-  diff_color = {
-    added = { fg = "#a9b665" },
-    modified = { fg = "#7daea3" },
-    removed = { fg = "#ea6962" },
+  symbols = {
+    added = " ",
+    modified = " ",
+    removed = " ",
   },
 }
 
 local diagnostics = {
   "diagnostics",
-  sources = { "nvim_diagnostic" },
-  sections = { "error", "warn" },
+  sections = { "error", "warn", "info" },
   diagnostics_color = {
     error = { fg = "#ea6962" },
     warn = { fg = "#d8a657" },
+    info = { fg = "#7daea3" },
   },
 }
 
