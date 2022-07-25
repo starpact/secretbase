@@ -1,6 +1,6 @@
 require("formatter").setup({
   filetype = {
-    python = { require("formatter.filetypes.python").yapf },
+    python = { require("formatter.filetypes.python").black },
     yaml = { require("formatter.filetypes.yaml").prettier },
   }
 })
