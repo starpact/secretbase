@@ -31,11 +31,15 @@ packer.startup({
     -- colorscheme
     use("sainnhe/gruvbox-material")
 
+    -- dependency management
+    use("williamboman/mason.nvim")
+    use("WhoIsSethDaniel/mason-tool-installer.nvim")
+
     -- util
     use("windwp/nvim-autopairs")
     use("windwp/nvim-ts-autotag")
-    use("numToStr/Comment.nvim")
     use("kylechui/nvim-surround")
+    use("numToStr/Comment.nvim")
     use("lewis6991/gitsigns.nvim")
     use("ahmedkhalf/project.nvim")
     use("ggandor/leap.nvim")
@@ -45,7 +49,6 @@ packer.startup({
 
     -- lsp
     use("neovim/nvim-lspconfig")
-    use("williamboman/nvim-lsp-installer")
     use("j-hui/fidget.nvim")
 
     -- lint
@@ -94,10 +97,11 @@ packer.startup({
 
 require("plugins.dressing")
 require("plugins.colorscheme")
+require("plugins.mason")
 require("plugins.autopairs")
 require("plugins.autotag")
-require("plugins.nvim_comment")
 require("plugins.nvim_surround")
+require("plugins.nvim_comment")
 require("plugins.gitsigns")
 require("plugins.project")
 require("plugins.leap")

@@ -14,16 +14,13 @@ local servers = {
   "yamlls",
 }
 
-require("nvim-lsp-installer").setup({
-  ensure_installed = { "bashls", "jsonls", "pyright", "yamlls" },
-})
-
 local lspconfig = require("lspconfig")
+local default_config = require("lsp.default")
 for _, server in ipairs(servers) do
   local configured, config = pcall(require, "lsp.servers." .. server)
   if configured then
     lspconfig[server].setup(
-      vim.tbl_deep_extend("keep", config, require("lsp.default"))
+      vim.tbl_deep_extend("keep", config, default_config)
     )
   end
 end
