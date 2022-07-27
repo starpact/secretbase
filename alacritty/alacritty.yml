@@ -102,16 +102,16 @@ window:
 
 # Font configuration
 font:
-  # size: 14.0
-  # normal:
-  #   family: Iosevka
-  #   style: Regular
-  # bold:
-  #   family: Iosevka
-  #   style: Bold
-  # italic:
-  #   family: Iosevka
-  #   style: Italic
+  size: 14.0
+  normal:
+    family: Iosevka
+    style: Regular
+  bold:
+    family: Iosevka
+    style: Bold
+  italic:
+    family: Iosevka
+    style: Italic
 
   # size: 13.0
   # normal:
@@ -124,16 +124,16 @@ font:
   #   family: JetBrainsMono Nerd Font
   #   style: Italic
 
-  size: 13.0
-  normal:
-    family: VictorMono Nerd Font
-    style: Medium
-  bold:
-    family: VictorMono Nerd Font
-    style: Bold
-  italic:
-    family: VictorMono Nerd Font
-    style: Oblique
+  # size: 13.0
+  # normal:
+  #   family: VictorMono Nerd Font
+  #   style: Medium
+  # bold:
+  #   family: VictorMono Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: VictorMono Nerd Font
+  #   style: Oblique
 
   # Point size
   # size: 20.0

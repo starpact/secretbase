@@ -27,4 +27,5 @@ local mason_tools = {
 
 require("mason-tool-installer").setup({
   ensure_installed = mason_tools,
+  auto_update = true,
 })
