@@ -33,7 +33,7 @@ packer.startup({
 
     -- dependency management
     use("williamboman/mason.nvim")
-    use("WhoIsSethDaniel/mason-tool-installer.nvim")
+    use("williamboman/mason-lspconfig.nvim")
 
     -- util
     use("windwp/nvim-autopairs")
@@ -97,7 +97,6 @@ packer.startup({
 
 require("plugins.dressing")
 require("plugins.colorscheme")
-require("plugins.mason")
 require("plugins.autopairs")
 require("plugins.autotag")
 require("plugins.nvim_surround")
