@@ -10,6 +10,7 @@ local servers = {
   "html",
   "jsonls",
   "pyright",
+  "rnix",
   "rust_analyzer",
   "sumneko_lua",
   "taplo",
