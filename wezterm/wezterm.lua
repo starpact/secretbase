@@ -1,8 +1,8 @@
 local wezterm = require("wezterm")
 
 return {
-  font = wezterm.font("Iosevka"),
-  font_size = 14,
+  font = wezterm.font("VictorMono Nerd Font"),
+  font_size = 13,
 
   window_decorations = "NONE",
   window_background_opacity = 0.9,
