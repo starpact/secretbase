@@ -133,7 +133,7 @@ font:
     style: Bold
   italic:
     family: VictorMono Nerd Font
-    style: Italic
+    style: Oblique
 
   # Point size
   # size: 20.0
