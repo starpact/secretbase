@@ -4,8 +4,8 @@ return {
   font = wezterm.font("VictorMono Nerd Font"),
   font_size = 16,
 
-  window_background_opacity = 0.9,
   window_close_confirmation = "NeverPrompt",
+  window_background_opacity = 0.85,
 
   colors = {
     foreground = "#dfbf8e",
