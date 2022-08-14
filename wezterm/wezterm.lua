@@ -1,10 +1,18 @@
 local wezterm = require("wezterm")
 
+wezterm.on('gui-startup', function(cmd)
+  local _, _, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
+
 return {
   font = wezterm.font("VictorMono Nerd Font"),
   font_size = 16,
 
   window_close_confirmation = "NeverPrompt",
+  window_decorations = "RESIZE",
+  hide_tab_bar_if_only_one_tab = true,
+
   window_background_opacity = 0.85,
 
   colors = {

@@ -43,7 +43,7 @@
     enable = true;
     extraConfig = builtins.readFile ../.tmux.conf;
   };
-  programs.z-lua.enable = true;
+  programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
     shellAliases = {
