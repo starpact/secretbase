@@ -38,6 +38,7 @@
     vimAlias = true;
   };
   programs.starship.enable = true;
+  programs.tealdeer.enable = true;
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ../.tmux.conf;
@@ -57,6 +58,15 @@
     initExtra = ''
       export PATH=$HOME./cargo/bin:$HOME/go/bin:$PATH
       bindkey -e
+      bindkey "^U" backward-kill-line
+      backward-kill-whole-word () {
+          local WORDCHARS="*?_-.[]~=/&;!#$%^(){}<>:,'\""
+          zle -f kill
+          zle backward-kill-word
+      }
+      zle -N backward-kill-whole-word
+      bindkey "^W" backward-kill-whole-word
+      export WORDCHARS=""
       eval "$(starship init zsh)"
       stty -ixon
     '';
