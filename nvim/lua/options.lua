@@ -37,8 +37,8 @@ local options = {
 
   timeoutlen = 300, -- time to wait for a mapped sequence to complete (in milliseconds)
 
-  list = true,
-  listchars = "tab:  ", -- make the cursor shown at the start of a tab character
+  foldmethod = "indent",
+  foldlevelstart = 99,
 }
 
 for k, v in pairs(options) do
@@ -55,5 +55,5 @@ end
 
 vim.diagnostic.config({
   severity_sort = true,
-  float = { source = "if_many" },
+  float = { source = "always" },
 })

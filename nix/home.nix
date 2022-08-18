@@ -15,7 +15,6 @@
     fd
     golangci-lint
     inetutils
-    mysql80
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
     onefetch
