@@ -11,10 +11,11 @@
   home.packages = with pkgs; [
     buf
     cmake
-    clang-tools
+    clang-tools_14
     fd
     golangci-lint
     inetutils
+    kubectl
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
     onefetch
@@ -53,6 +54,7 @@
     };
     sessionVariables = {
       EDITOR = "nvim";
+      KUBECONFIG = "~/workspace/misc/test-admin.conf";
     };
     initExtra = ''
       export PATH=$HOME./cargo/bin:$HOME/go/bin:$PATH

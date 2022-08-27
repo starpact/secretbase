@@ -102,18 +102,18 @@ window:
 
 # Font configuration
 font:
-  # size: 13.0
+  # size: 17.0
   # normal:
-  #   family: Iosevka
-  #   style: Regular
+  #   family: Iosevka Nerd Font
+  #   style: Light
   # bold:
-  #   family: Iosevka
+  #   family: Iosevka Nerd Font
   #   style: Bold
   # italic:
-  #   family: Iosevka
+  #   family: Iosevka Nerd Font
   #   style: Italic
 
-  # size: 12.0
+  # size: 16.0
   # normal:
   #   family: JetBrainsMono Nerd Font
   #   style: Regular

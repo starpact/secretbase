@@ -14,13 +14,9 @@ local function on_attach(_, bufnr)
   map("n", "<leader>a", vim.lsp.buf.code_action)
   map("n", "<leader>s", telescope.lsp_document_symbols)
   map("n", "<leader>w", telescope.lsp_dynamic_workspace_symbols)
-  map("n", "<leader>d", telescope.diagnostics)
   map("n", "K", vim.lsp.buf.hover)
   map("i", "<C-k>", vim.lsp.buf.signature_help)
   map("n", "<leader>r", vim.lsp.buf.rename)
-  map("n", "gp", vim.diagnostic.goto_prev)
-  map("n", "gn", vim.diagnostic.goto_next)
-  map("n", "gl", vim.diagnostic.open_float)
 end
 
 local capabilities = require("cmp_nvim_lsp").update_capabilities(
