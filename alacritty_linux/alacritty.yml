@@ -600,6 +600,8 @@ key_bindings:
   #- { key: PageDown,  mods: Shift,   mode: ~Alt,        action: ScrollPageDown }
   #- { key: Home,      mods: Shift,   mode: ~Alt,        action: ScrollToTop,   }
   #- { key: End,       mods: Shift,   mode: ~Alt,        action: ScrollToBottom }
+  #
+  - { key: Space, mods: Control, chars: "\x00" }
 
   # Vi Mode
   - { key: Q, mode: Vi|~Search, action: ToggleViMode }
