@@ -8,10 +8,10 @@ local fmt = require("luasnip.extras.fmt").fmt
 ls.add_snippets("go", {
   s("ife", fmt("if err != nil {{\n\treturn {}{}\n}}\n\n", {
     c(1, { i(nil, "nil, "), i(nil, "") }),
-    i(2, "err")
+    i(2, "err"),
   })),
   s("fp", fmt("fmt.Println({})", { i(1, "") })),
-  s("todo", t([[panic("unimplemented")]]))
+  s("todo", t([[panic("unimplemented")]])),
 })
 
 vim.api.nvim_create_autocmd("InsertLeave", {
