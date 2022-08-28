@@ -110,10 +110,4 @@ cmp.setup({
     { name = "nvim_lsp_signature_help" },
   },
   confirm_opts = { behavior = cmp.ConfirmBehavior.Replace },
-  sorting = {
-    comparators = {
-      compare.score,
-      compare.recently_used,
-    },
-  },
 })
