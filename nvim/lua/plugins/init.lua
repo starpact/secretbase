@@ -46,7 +46,6 @@ packer.startup({
 
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-    use("nvim-treesitter/nvim-treesitter-context")
 
     -- lsp
     use("neovim/nvim-lspconfig")
@@ -106,7 +105,6 @@ require("plugins.gitsigns")
 require("plugins.project")
 require("plugins.leap")
 require("plugins.treesitter")
-require("plugins.treesitter_context")
 require("plugins.fidget")
 require("plugins.formatter")
 require("plugins.nvim_lint")
