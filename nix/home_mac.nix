@@ -41,7 +41,7 @@
   programs.tealdeer.enable = true;
   programs.tmux = {
     enable = true;
-    extraConfig = builtins.readFile ../.tmux.conf;
+    extraConfig = builtins.readFile ../tmux/.tmux.conf;
   };
   programs.zoxide.enable = true;
   programs.zsh = {
@@ -54,7 +54,7 @@
     };
     sessionVariables = {
       EDITOR = "nvim";
-      KUBECONFIG = "~/workspace/misc/test-admin.conf";
+      KUBECONFIG = "$HOME/workspace/misc/test-admin.conf";
     };
     initExtra = ''
       export PATH=$HOME./cargo/bin:$HOME/go/bin:$PATH
