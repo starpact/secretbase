@@ -1,21 +1,22 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "yanhj";
-  home.homeDirectory = "/Users/yanhj";
+  home.username = "yhj";
+  home.homeDirectory = "/Users/yhj";
 
   home.stateVersion = "22.05";
 
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    buf
     cmake
     clang-tools_14
     fd
+    gcc12
     golangci-lint
     inetutils
     kubectl
+    nixpkgs-fmt
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
     onefetch
@@ -69,6 +70,7 @@
       bindkey "^W" backward-kill-whole-word
       export WORDCHARS=""
       eval "$(starship init zsh)"
+      eval "$(/opt/homebrew/bin/brew shellenv)"
       stty -ixon
     '';
   };

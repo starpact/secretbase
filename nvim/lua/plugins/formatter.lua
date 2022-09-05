@@ -2,8 +2,13 @@ local util = require("formatter.util")
 
 require("formatter").setup({
   filetype = {
-    python = { require("formatter.filetypes.python").black },
-    yaml = { require("formatter.filetypes.yaml").prettierd },
+    nix = {
+      function()
+        return {
+          exe = "nixpkgs-fmt",
+        }
+      end
+    },
     proto = {
       function()
         return {
@@ -16,10 +21,12 @@ require("formatter").setup({
         }
       end
     },
+    python = { require("formatter.filetypes.python").black },
+    yaml = { require("formatter.filetypes.yaml").prettierd },
   }
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.proto", "*.py", "*.yml", "*.yaml" },
+  pattern = { "*.nix", "*.proto", "*.py", "*.yml", "*.yaml" },
   command = "FormatWrite",
 })
