@@ -55,7 +55,6 @@
     };
     sessionVariables = {
       EDITOR = "nvim";
-      KUBECONFIG = "$HOME/workspace/misc/test-admin.conf";
     };
     initExtra = ''
       export PATH=$HOME./cargo/bin:$HOME/go/bin:$PATH
