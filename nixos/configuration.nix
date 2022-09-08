@@ -1,0 +1,69 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
+{ config, pkgs, ... }:
+
+{
+  system.stateVersion = "22.05";
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
+
+  imports = [
+    ./hardware-configuration.nix
+  ];
+
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi.canTouchEfiVariables = true;
+    efi.efiSysMountPoint = "/boot/efi";
+  };
+  
+  networking = {
+    hostName = "nixos";
+    networkmanager.enable = true;
+  };
+
+  time.timeZone = "Asia/Singapore";
+
+  i18n.defaultLocale = "en_SG.utf8";
+
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+
+  users.users.yhj = {
+    isNormalUser = true;
+    description = "yhj";
+    extraGroups = [ "networkmanager" "wheel" ];
+    packages = [];
+  };
+
+  environment = {
+    systemPackages = [];
+    gnome.excludePackages = [
+      pkgs.gnome.cheese
+      pkgs.gnome-tour
+    ];
+  };
+
+  services = {
+    flatpak.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    printing.enable = true;
+    xserver = {
+      enable = true;
+      layout = "us";
+      xkbVariant = "";
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
+      desktopManager.xterm.enable = false;
+      excludePackages = [ pkgs.xterm ];
+    };
+  };
+}
