@@ -95,6 +95,7 @@
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
     tdesktop
+    vscode
     wl-clipboard
     wqy_microhei
     wqy_zenhei
