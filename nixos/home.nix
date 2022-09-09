@@ -23,13 +23,13 @@
       repeat-interval = lib.hm.gvariant.mkUint32 30;
     };
     "org/gnome/shell/keybindings" = {
-      toggle-message-tray = [];
+      toggle-message-tray = [ ];
     };
     "org/gnome/shell/keybindings" = {
-      switch-to-application-1 = [];
-      switch-to-application-2 = [];
-      switch-to-application-3 = [];
-      switch-to-application-4 = [];
+      switch-to-application-1 = [ ];
+      switch-to-application-2 = [ ];
+      switch-to-application-3 = [ ];
+      switch-to-application-4 = [ ];
     };
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>q" ];
@@ -38,14 +38,14 @@
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
       switch-to-workspace-4 = [ "<Super>4" ];
-      switch-to-workspace-left= [ "<Super><Control>H" ];
-      switch-to-workspace-right= [ "<Super><Control>L" ];
+      switch-to-workspace-left = [ "<Super><Control>H" ];
+      switch-to-workspace-right = [ "<Super><Control>L" ];
       move-to-workspace-1 = [ "<Super><Shift>1" ];
       move-to-workspace-2 = [ "<Super><Shift>2" ];
       move-to-workspace-3 = [ "<Super><Shift>3" ];
       move-to-workspace-4 = [ "<Super><Shift>4" ];
-      move-to-workspace-left= [ "<Super><Shift>H" ];
-      move-to-workspace-right= [ "<Super><Shift>L" ];
+      move-to-workspace-left = [ "<Super><Shift>H" ];
+      move-to-workspace-right = [ "<Super><Shift>L" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
       home = [ "<Super>E" ];
@@ -104,6 +104,7 @@
     llvm_14
     mysql80
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
+    nixpkgs-fmt
     nodejs
     onefetch
     postgresql

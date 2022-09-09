@@ -13,12 +13,13 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader = {
-    systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    efi.efiSysMountPoint = "/boot/efi";
+  boot = {
+    kernelPackages = pkgs.linuxPackages_latest;
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    loader.efi.efiSysMountPoint = "/boot/efi";
   };
-  
+
   networking = {
     hostName = "nixos";
     networkmanager.enable = true;
@@ -36,11 +37,11 @@
     isNormalUser = true;
     description = "yhj";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = [];
+    packages = [ ];
   };
 
   environment = {
-    systemPackages = [];
+    systemPackages = [ ];
     gnome.excludePackages = [
       pkgs.gnome.cheese
       pkgs.gnome-tour

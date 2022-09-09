@@ -45,7 +45,7 @@ packer.startup({
     use("ggandor/leap.nvim")
 
     -- treesitter
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use({ "nvim-treesitter/nvim-treesitter"})
 
     -- lsp
     use("neovim/nvim-lspconfig")
