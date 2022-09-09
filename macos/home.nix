@@ -8,43 +8,10 @@
 
   fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs; [
-    cmake
-    clang-tools_14
-    fd
-    gcc12
-    golangci-lint
-    inetutils
-    kubectl
-    nixpkgs-fmt
-    (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
-    nodejs
-    onefetch
-    redis
-    ripgrep
-    rustup
-    wget
-  ];
+  home.packages = with pkgs; [ gcc12 inetutils ];
 
   programs.home-manager.enable = true;
 
-  programs.bat.enable = true;
-  programs.exa.enable = true;
-  programs.go.enable = true;
-  programs.htop.enable = true;
-  programs.jq.enable = true;
-  programs.lazygit.enable = true;
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-  };
-  programs.starship.enable = true;
-  programs.tealdeer.enable = true;
-  programs.tmux = {
-    enable = true;
-    extraConfig = builtins.readFile ../tmux/.tmux.conf;
-  };
-  programs.zoxide.enable = true;
   programs.zsh = {
     enable = true;
     shellAliases = {

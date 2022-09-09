@@ -85,13 +85,9 @@
   };
 
   home.packages = with pkgs; [
-    cmake
     clang_14
-    clang-tools_14
-    fd
-    gdb
+    dropbox
     gimp
-    golangci-lint
     google-chrome
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
@@ -99,21 +95,8 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
-    kubectl
-    lldb
     llvm_14
-    mysql80
-    (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
-    nodejs
-    onefetch
-    postgresql
-    redis
-    ripgrep
-    rustup
-    sqlite
     tdesktop
-    unzip
-    wget
     wl-clipboard
     wqy_microhei
     wqy_zenhei
@@ -123,62 +106,7 @@
 
   programs = {
     alacritty.enable = true;
-    bash = {
-      enable = true;
-      sessionVariables = {
-        EDITOR = "nvim";
-      };
-      shellAliases = {
-        vim = "nvim";
-        ls = "exa";
-        l = "ls -al";
-        cat = "bat";
-        lg = "lazygit";
-      };
-      initExtra = ''
-        export PATH=$HOME./cargo/bin:$HOME/go/bin:$PATH
-        stty -ixon
-      '';
-    };
-    bat.enable = true;
-    exa.enable = true;
-    git = {
-      enable = true;
-      userName = "starpact";
-      userEmail = "yhj.await@gmail.com";
-    };
-    go.enable = true;
-    htop.enable = true;
-    jq.enable = true;
-    lazygit.enable = true;
-    neovim = {
-      enable = true;
-      vimAlias = true;
-      extraPackages = with pkgs; [
-        black
-        codespell
-        gopls
-        nixpkgs-fmt
-        nodePackages.bash-language-server
-        nodePackages.eslint
-        nodePackages.prettier
-        nodePackages.typescript-language-server
-        nodePackages.vscode-json-languageserver
-        nodePackages.yaml-language-server
-        python310Packages.flake8
-        rnix-lsp
-        rust-analyzer
-        sumneko-lua-language-server
-        taplo
-      ];
-    };
-    starship.enable = true;
-    tmux = {
-      enable = true;
-      extraConfig = builtins.readFile ../tmux/.tmux.conf;
-    };
     wezterm.enable = true;
-    zoxide.enable = true;
   };
 
   services = {
