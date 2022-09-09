@@ -85,7 +85,6 @@
   };
 
   home.packages = with pkgs; [
-    clang_14
     dropbox
     gimp
     google-chrome
@@ -95,7 +94,6 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
-    llvm_14
     tdesktop
     wl-clipboard
     wqy_microhei

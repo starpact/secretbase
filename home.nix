@@ -9,12 +9,14 @@
 
   home.packages = with pkgs; [
     cmake
+    clang_14
     clang-tools_14
     fd
     gdb
     golangci-lint
     kubectl
     lldb
+    llvm_14
     mysql80
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
