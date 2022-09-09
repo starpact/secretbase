@@ -2,6 +2,7 @@ local util = require("formatter.util")
 
 require("formatter").setup({
   filetype = {
+    css = { require("formatter.filetypes.css").prettier },
     nix = {
       function()
         return {
@@ -9,6 +10,7 @@ require("formatter").setup({
         }
       end
     },
+    html = { require("formatter.filetypes.html").prettier },
     proto = {
       function()
         return {
@@ -27,6 +29,6 @@ require("formatter").setup({
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-  pattern = { "*.nix", "*.proto", "*.py", "*.yml", "*.yaml" },
+  pattern = { "*.css", "*.html", "*.nix", "*.proto", "*.py", "*.yaml", "*.yml" },
   command = "FormatWrite",
 })
