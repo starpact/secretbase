@@ -85,6 +85,7 @@
   };
 
   home.packages = with pkgs; [
+    clang_14
     dropbox
     gimp
     google-chrome

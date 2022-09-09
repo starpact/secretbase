@@ -6,4 +6,3 @@
     extraConfig = builtins.readFile ./tmux/.tmux.conf;
   };
 }
-

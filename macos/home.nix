@@ -6,9 +6,13 @@
 
   home.stateVersion = "22.05";
 
-  fonts.fontconfig.enable = true;
+  # fonts.fontconfig.enable = true;
 
-  home.packages = with pkgs; [ gcc12 inetutils ];
+  imports = [
+    ../home.nix
+  ];
+
+  home.packages = with pkgs; [ inetutils ];
 
   programs.home-manager.enable = true;
 
@@ -35,7 +39,6 @@
       zle -N backward-kill-whole-word
       bindkey "^W" backward-kill-whole-word
       export WORDCHARS=""
-      eval "$(starship init zsh)"
       eval "$(/opt/homebrew/bin/brew shellenv)"
       stty -ixon
     '';
