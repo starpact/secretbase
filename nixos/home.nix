@@ -104,13 +104,13 @@
     llvm_14
     mysql80
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
-    nixpkgs-fmt
     nodejs
     onefetch
     postgresql
     redis
     ripgrep
     rustup
+    sqlite
     tdesktop
     unzip
     wget
@@ -154,6 +154,23 @@
     neovim = {
       enable = true;
       vimAlias = true;
+      extraPackages = with pkgs; [
+        black
+        codespell
+        gopls
+        nixpkgs-fmt
+        nodePackages.bash-language-server
+        nodePackages.eslint
+        nodePackages.prettier
+        nodePackages.typescript-language-server
+        nodePackages.vscode-json-languageserver
+        nodePackages.yaml-language-server
+        python310Packages.flake8
+        rnix-lsp
+        rust-analyzer
+        sumneko-lua-language-server
+        taplo
+      ];
     };
     starship.enable = true;
     tmux = {

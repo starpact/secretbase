@@ -22,7 +22,7 @@ require("formatter").setup({
       end
     },
     python = { require("formatter.filetypes.python").black },
-    yaml = { require("formatter.filetypes.yaml").prettierd },
+    yaml = { require("formatter.filetypes.yaml").prettier },
   }
 })
 
