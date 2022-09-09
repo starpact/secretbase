@@ -31,10 +31,6 @@ packer.startup({
     -- colorscheme
     use("sainnhe/gruvbox-material")
 
-    -- dependency management
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-
     -- util
     use("windwp/nvim-autopairs")
     use("windwp/nvim-ts-autotag")

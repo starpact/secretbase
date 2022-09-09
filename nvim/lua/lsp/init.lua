@@ -1,6 +1,3 @@
-require("mason").setup()
-require("mason-lspconfig").setup({ ensure_installed = { "html", "cssls" } })
-
 local servers = {
   "bashls",
   "clangd",
