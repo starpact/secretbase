@@ -2,13 +2,37 @@
 
 {
   home.stateVersion = "22.05";
+  home.username = "yhj";
+  home.homeDirectory = "/home/yhj";
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-configtool
-    ];
+  home.packages = with pkgs; [
+    clang_14
+    wl-clipboard
+    wqy_microhei
+    wqy_zenhei
+    xclip
+  ];
+
+  programs = {
+    home-manager.enable = true;
+    bash = {
+      enable = true;
+      sessionVariables = {
+        EDITOR = "nvim";
+      };
+      shellAliases = {
+        vim = "nvim";
+        ls = "exa";
+        l = "ls -al";
+        cat = "bat";
+        lg = "lazygit";
+        hs = "home-manager switch --flake ~/workspace/dotfiles#fedora";
+      };
+      initExtra = ''
+        export PATH=$HOME/.cargo/bin:$HOME/go/bin:$PATH
+        stty -ixon
+      '';
+    };
   };
 
   dconf.settings = {
@@ -81,59 +105,6 @@
       binding = "<Super>I";
       command = "alacritty -e htop";
       name = "Htop";
-    };
-  };
-
-  home.packages = with pkgs; [
-    clang_14
-    dropbox
-    gimp
-    google-chrome
-    gnome.gnome-tweaks
-    gnomeExtensions.appindicator
-    gnomeExtensions.blur-my-shell
-    gnomeExtensions.clipboard-indicator
-    gnomeExtensions.gsconnect
-    gnomeExtensions.just-perfection
-    vscode
-    wl-clipboard
-    wqy_microhei
-    wqy_zenhei
-    xclip
-    zoom-us
-  ];
-
-  programs = {
-    alacritty.enable = true;
-    bash = {
-      enable = true;
-      sessionVariables = {
-        EDITOR = "nvim";
-      };
-      shellAliases = {
-        vim = "nvim";
-        ls = "exa";
-        l = "ls -al";
-        cat = "bat";
-        lg = "lazygit";
-      };
-      initExtra = ''
-        export PATH=$HOME/.cargo/bin:$HOME/go/bin:$PATH
-        stty -ixon
-      '';
-    };
-    wezterm.enable = true;
-  };
-
-  services = {
-    flameshot = {
-      enable = true;
-      settings = {
-        General = {
-          showStartupLaunchMessage = false;
-          showDesktopNotification = false;
-        };
-      };
     };
   };
 }

@@ -43,6 +43,10 @@ packer.startup({
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter" })
 
+    -- dependency
+    use("williamboman/mason.nvim")
+    use("williamboman/mason-lspconfig.nvim")
+
     -- lsp
     use("neovim/nvim-lspconfig")
     use("j-hui/fidget.nvim")

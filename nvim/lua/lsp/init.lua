@@ -1,8 +1,19 @@
+require("mason").setup()
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "cssls",
+    "html",
+    "rust_analyzer",
+  },
+})
+
 local servers = {
   "bashls",
+  "cssls",
   "clangd",
   "eslint",
   "gopls",
+  "html",
   "jsonls",
   "pyright",
   "rnix",

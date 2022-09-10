@@ -1,5 +1,5 @@
 {
-  description = "NixOS flake";
+  description = "Nix Flake";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -25,6 +25,22 @@
             ];
           };
         }
+      ];
+    };
+
+    homeConfigurations.fedora = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        ./fedora/home.nix
+        ./home.nix
+      ];
+    };
+
+    homeConfigurations.macos = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+      modules = [
+        ./macos/home.nix
+        ./home.nix
       ];
     };
   };

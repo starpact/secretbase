@@ -6,8 +6,6 @@
 
   home.stateVersion = "22.05";
 
-  # fonts.fontconfig.enable = true;
-
   imports = [
     ../home.nix
   ];

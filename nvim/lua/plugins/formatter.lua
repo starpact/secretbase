@@ -1,28 +1,28 @@
 local util = require("formatter.util")
 
+local function nixFormatter()
+  return {
+    exe = "nixpkgs-fmt",
+  }
+end
+
+local function protoFormatter()
+  return {
+    exe = "buf",
+    args = {
+      "format",
+      util.get_current_buffer_file_path(),
+    },
+    stdin = true,
+  }
+end
+
 require("formatter").setup({
   filetype = {
     css = { require("formatter.filetypes.css").prettier },
-    nix = {
-      function()
-        return {
-          exe = "nixpkgs-fmt",
-        }
-      end
-    },
+    nix = { nixFormatter },
     html = { require("formatter.filetypes.html").prettier },
-    proto = {
-      function()
-        return {
-          exe = "buf",
-          args = {
-            "format",
-            util.get_current_buffer_file_path(),
-          },
-          stdin = true,
-        }
-      end
-    },
+    proto = { protoFormatter },
     python = { require("formatter.filetypes.python").black },
     yaml = { require("formatter.filetypes.yaml").prettier },
   }

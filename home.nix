@@ -7,6 +7,8 @@
     ./tmux.nix
   ];
 
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     cmake
     clang-tools
@@ -16,9 +18,11 @@
     kubectl
     llvm_14
     mysql80
+    neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
     onefetch
+    openssl_3
     postgresql
     redis
     ripgrep
