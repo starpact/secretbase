@@ -9,7 +9,7 @@
 
   home.packages = with pkgs; [
     cmake
-    clang-tools_14
+    clang-tools
     fd
     gdb
     golangci-lint

@@ -95,7 +95,6 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
-    tdesktop
     vscode
     wl-clipboard
     wqy_microhei
@@ -119,7 +118,7 @@
         lg = "lazygit";
       };
       initExtra = ''
-        export PATH=$HOME./cargo/bin:$HOME/go/bin:$PATH
+        export PATH=$HOME/.cargo/bin:$HOME/go/bin:$PATH
         stty -ixon
       '';
     };
