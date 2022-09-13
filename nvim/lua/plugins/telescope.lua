@@ -19,9 +19,9 @@ map("<leader>gs", builtin.git_status)
 map("<leader>gc", builtin.git_commits)
 map("<leader>p", telescope.extensions.projects.projects)
 
-local function lsp_goto_picker(theme)
-  return {
-    theme = theme,
+local function lsp_picker(opts)
+  return vim.tbl_deep_extend("force", {
+    theme = "ivy",
     initial_mode = "normal",
     path_display = { "smart" },
     mappings = {
@@ -30,7 +30,7 @@ local function lsp_goto_picker(theme)
         ["q"] = actions.close,
       },
     },
-  }
+  }, opts or {})
 end
 
 telescope.setup({
@@ -46,11 +46,11 @@ telescope.setup({
     },
   },
   pickers = {
-    lsp_definitions = lsp_goto_picker("ivy"),
-    lsp_declarations = lsp_goto_picker("ivy"),
-    lsp_type_definitions = lsp_goto_picker("ivy"),
-    lsp_references = lsp_goto_picker("ivy"),
-    lsp_implementations = lsp_goto_picker("ivy"),
-    diagnostics = lsp_goto_picker("ivy"),
+    lsp_definitions = lsp_picker(),
+    lsp_declarations = lsp_picker(),
+    lsp_type_definitions = lsp_picker(),
+    lsp_references = lsp_picker({ include_current_line = true }),
+    lsp_implementations = lsp_picker(),
+    diagnostics = lsp_picker(),
   },
 })

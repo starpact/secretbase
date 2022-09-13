@@ -1,4 +1,6 @@
-local function on_attach(_, bufnr)
+local M = {}
+
+M.on_attach = function(_, bufnr)
   local telescope = require("telescope.builtin")
   local function map(mode, key, cmd, opts)
     opts = opts or {}
@@ -9,7 +11,7 @@ local function on_attach(_, bufnr)
   map("n", "gd", telescope.lsp_definitions)
   map("n", "gD", vim.lsp.buf.declaration)
   map("n", "gt", telescope.lsp_type_definitions)
-  map("n", "gr", function() telescope.lsp_references({ include_current_line = true }) end)
+  map("n", "gr", telescope.lsp_references)
   map("n", "gi", telescope.lsp_implementations)
   map("n", "<leader>a", vim.lsp.buf.code_action)
   map("n", "<leader>s", telescope.lsp_document_symbols)
@@ -19,11 +21,8 @@ local function on_attach(_, bufnr)
   map("n", "<leader>r", vim.lsp.buf.rename)
 end
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(
+M.capabilities = require("cmp_nvim_lsp").update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
-return {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+return M
