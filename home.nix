@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     cmake
     clang-tools
+    du-dust
     fd
     gdb
     golangci-lint
