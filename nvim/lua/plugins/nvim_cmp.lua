@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local compare = require("cmp.config.compare")
 
 local cmp_kinds = {
   Namespace = "",

@@ -47,6 +47,10 @@ end
 
 vim.opt.shortmess:append("c")
 
+-- Disable netrw.
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Diagnostics
 for type, icon in pairs({ Error = "", Warn = "", Hint = "", Info = "" }) do
   local hl = "DiagnosticSign" .. type
