@@ -16,6 +16,7 @@
     gdb
     golangci-lint
     kubectl
+    lldb
     llvm_14
     mysql80
     neofetch
