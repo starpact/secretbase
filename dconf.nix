@@ -22,7 +22,7 @@
       switch-to-application-4 = [ ];
     };
     "org/gnome/desktop/wm/keybindings" = {
-      close = [ "<Super>q" ];
+      close = [ "<Super>Q" ];
       toggle-maximized = [ "<Super>F" ];
       switch-to-workspace-1 = [ "<Super>1" ];
       switch-to-workspace-2 = [ "<Super>2" ];

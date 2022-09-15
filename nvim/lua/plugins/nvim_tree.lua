@@ -14,15 +14,8 @@ require("nvim-tree").setup({
     enable = true,
     show_on_dirs = true,
   },
-  update_focused_file = {
-    enable = true,
-    update_root = true,
-  },
   system_open = {
     cmd = "code",
-  },
-  view = {
-    adaptive_size = true,
   },
   renderer = {
     indent_markers = {
