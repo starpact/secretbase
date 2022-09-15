@@ -19,12 +19,12 @@ end
 
 require("formatter").setup({
   filetype = {
-    css = { require("formatter.filetypes.css").prettier },
+    css = { require("formatter.filetypes.css").prettierd },
     nix = { nixFormatter },
-    html = { require("formatter.filetypes.html").prettier },
+    html = { require("formatter.filetypes.html").prettierd },
     proto = { protoFormatter },
     python = { require("formatter.filetypes.python").black },
-    yaml = { require("formatter.filetypes.yaml").prettier },
+    yaml = { require("formatter.filetypes.yaml").prettierd },
   }
 })
 

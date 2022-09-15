@@ -10,8 +10,6 @@
       gopls
       nixpkgs-fmt
       nodePackages.bash-language-server
-      nodePackages.eslint
-      nodePackages.prettier
       nodePackages.typescript-language-server
       nodePackages.vscode-json-languageserver
       nodePackages.yaml-language-server
