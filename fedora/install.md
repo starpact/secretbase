@@ -14,6 +14,7 @@ sudo dnf install \
     * com.netease.CloudMusic
     * org.gimp.GIMP
     * us.zoom.Zoom
+    * org.wireshark.Wireshark
 
 # Netease Music
 ```bash

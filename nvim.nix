@@ -10,6 +10,7 @@
       gopls
       nixpkgs-fmt
       nodePackages.bash-language-server
+      nodePackages.pyright
       nodePackages.typescript-language-server
       nodePackages.vscode-json-languageserver
       nodePackages.yaml-language-server
