@@ -7,7 +7,7 @@ end)
 
 return {
   font = wezterm.font("VictorMono Nerd Font"),
-  font_size = 16,
+  font_size = 12,
 
   window_close_confirmation = "NeverPrompt",
   window_decorations = "RESIZE",
