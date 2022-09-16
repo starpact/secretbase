@@ -1,11 +1,9 @@
 require("mason").setup()
 require("mason-lspconfig").setup({
   ensure_installed = {
-    "cssls",
-    "eslint",
-    "html",
     "rust_analyzer",
-  },
+    "tsserver",
+  }
 })
 
 local servers = {

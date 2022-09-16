@@ -11,8 +11,7 @@
       nixpkgs-fmt
       nodePackages.bash-language-server
       nodePackages.pyright
-      nodePackages.typescript-language-server
-      nodePackages.vscode-json-languageserver
+      nodePackages.vscode-langservers-extracted
       nodePackages.yaml-language-server
       python310Packages.flake8
       rnix-lsp

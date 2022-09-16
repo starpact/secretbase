@@ -19,7 +19,7 @@ map("<leader>/", builtin.live_grep)
 map("<leader>gs", builtin.git_status)
 map("<leader>gc", builtin.git_commits)
 map("<leader>p", function()
-  telescope.extensions.projects.projects(themes.get_dropdown())
+  telescope.extensions.projects.projects(themes.get_ivy())
 end)
 
 local function lsp_picker(opts)
