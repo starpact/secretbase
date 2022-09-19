@@ -12,7 +12,6 @@
   home.packages = with pkgs; [
     clang_14
     liburing
-    nix-bash-completions
     wl-clipboard
     wqy_microhei
     wqy_zenhei
