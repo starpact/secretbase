@@ -1,9 +1,5 @@
-local function map(mod, keys, cmd)
-  vim.keymap.set(mod, keys, cmd, { noremap = true, silent = true })
-end
-
-map("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
 
 require("nvim-tree").setup({
   disable_netrw = true,
