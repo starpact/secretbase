@@ -5,7 +5,8 @@ sudo dnf install \
     flameshot \
     fcitx5 fcitx5-autostart fcitx5-chinese-addons fcitx5-configtool \
     google-chrome-stable \
-    gnome-tweaks
+    gnome-tweaks \
+    wireshark
 ```
 
 # flatpak
@@ -14,7 +15,6 @@ sudo dnf install \
     * com.netease.CloudMusic
     * org.gimp.GIMP
     * us.zoom.Zoom
-    * org.wireshark.Wireshark
 
 # Netease Music
 ```bash
