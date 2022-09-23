@@ -17,14 +17,11 @@
     gdb
     golangci-lint
     kubectl
-    lldb
-    llvm_14
     mysql80
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
     onefetch
-    openssl_3
     postgresql
     redis
     ripgrep

@@ -10,8 +10,8 @@
   ];
 
   home.packages = with pkgs; [
-    clang_14
     liburing
+    openssl_3
     wl-clipboard
     wqy_microhei
     wqy_zenhei
