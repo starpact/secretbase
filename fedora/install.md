@@ -15,6 +15,7 @@ sudo dnf install \
     * com.netease.CloudMusic
     * org.gimp.GIMP
     * us.zoom.Zoom
+    * com.valvesoftware.Steam
 
 # Netease Music
 ```bash
