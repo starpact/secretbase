@@ -11,6 +11,8 @@
 
   home.packages = with pkgs; [
     liburing
+    llvmPackages_latest.clang-manpages
+    llvmPackages_latest.llvm-manpages
     openssl_3
     wl-clipboard
     wqy_microhei

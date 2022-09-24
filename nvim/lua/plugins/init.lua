@@ -25,20 +25,24 @@ packer.startup({
     use("nvim-lua/plenary.nvim")
     use("kyazdani42/nvim-web-devicons")
 
-    -- ui enhancement
-    use("stevearc/dressing.nvim")
-
     -- colorscheme
     use("sainnhe/gruvbox-material")
 
-    -- util
-    use("windwp/nvim-autopairs")
-    use("windwp/nvim-ts-autotag")
-    use("kylechui/nvim-surround")
-    use("numToStr/Comment.nvim")
-    use("lewis6991/gitsigns.nvim")
-    use("ahmedkhalf/project.nvim")
-    use("ggandor/leap.nvim")
+    -- ui enhancement
+    use("stevearc/dressing.nvim")
+
+    -- file explorer
+    use("kyazdani42/nvim-tree.lua")
+
+    -- telescope
+    use("nvim-telescope/telescope.nvim")
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+
+    -- integrated terminal
+    use("akinsho/toggleterm.nvim")
+
+    -- status line
+    use("nvim-lualine/lualine.nvim")
 
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter" })
@@ -67,21 +71,21 @@ packer.startup({
     -- snippets
     use("L3MON4D3/LuaSnip")
 
-    -- telescope
-    use("nvim-telescope/telescope.nvim")
-    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-
-    -- integrated terminal
-    use("akinsho/toggleterm.nvim")
-
-    -- status line
-    use("nvim-lualine/lualine.nvim")
-
-    -- file explorer
-    use("kyazdani42/nvim-tree.lua")
-
     -- test runner
     use("vim-test/vim-test")
+
+    -- debug
+    use("mfussenegger/nvim-dap")
+    use("rcarriga/nvim-dap-ui")
+
+    -- util
+    use("windwp/nvim-autopairs")
+    use("windwp/nvim-ts-autotag")
+    use("kylechui/nvim-surround")
+    use("numToStr/Comment.nvim")
+    use("lewis6991/gitsigns.nvim")
+    use("ahmedkhalf/project.nvim")
+    use("ggandor/leap.nvim")
 
     if PACKER_BOOTSTRAP then
       require("packer").sync()
@@ -94,23 +98,24 @@ packer.startup({
   },
 })
 
-require("plugins.dressing")
 require("plugins.colorscheme")
+require("plugins.dressing")
+require("plugins.nvim_tree")
+require("plugins.telescope")
+require("plugins.toggleterm")
+require("plugins.lualine")
+require("plugins.treesitter")
+require("plugins.fidget")
+require("plugins.nvim_lint")
+require("plugins.formatter")
+require("plugins.snippets")
+require("plugins.nvim_cmp")
+require("plugins.test")
 require("plugins.autopairs")
 require("plugins.autotag")
 require("plugins.nvim_surround")
 require("plugins.nvim_comment")
 require("plugins.gitsigns")
 require("plugins.project")
+require("plugins.dap")
 require("plugins.leap")
-require("plugins.treesitter")
-require("plugins.fidget")
-require("plugins.formatter")
-require("plugins.nvim_lint")
-require("plugins.snippets")
-require("plugins.nvim_cmp")
-require("plugins.telescope")
-require("plugins.toggleterm")
-require("plugins.lualine")
-require("plugins.nvim_tree")
-require("plugins.test")

@@ -12,6 +12,7 @@
   home.packages = with pkgs; [
     cmake
     clang-tools
+    delve
     du-dust
     fd
     gdb
@@ -33,6 +34,10 @@
 
   programs = {
     bat.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
     exa.enable = true;
     go.enable = true;
     htop.enable = true;
