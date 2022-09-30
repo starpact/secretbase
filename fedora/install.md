@@ -16,6 +16,7 @@ sudo dnf install \
     * org.gimp.GIMP
     * us.zoom.Zoom
     * com.valvesoftware.Steam
+    * com.github.marktext.marktext
 
 # Netease Music
 ```bash

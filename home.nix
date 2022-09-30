@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     cmake
+    clang_14
     clang-tools
     delve
     du-dust
@@ -18,6 +19,7 @@
     gdb
     golangci-lint
     kubectl
+    mold
     mysql80
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
@@ -30,6 +32,7 @@
     sqlite
     unzip
     wget
+    wrangler
   ];
 
   programs = {
@@ -39,6 +42,10 @@
       nix-direnv.enable = true;
     };
     exa.enable = true;
+    fzf = {
+      enable = true;
+      historyWidgetOptions = [ "--reverse" ];
+    };
     go.enable = true;
     htop.enable = true;
     jq.enable = true;
