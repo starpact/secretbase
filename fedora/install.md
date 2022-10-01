@@ -3,10 +3,15 @@
 sudo dnf install \
     alacritty kitty \
     flameshot \
-    fcitx5 fcitx5-autostart fcitx5-chinese-addons fcitx5-configtool \
     google-chrome-stable \
     gnome-tweaks \
     wireshark
+```
+
+If use dnf to install fcitx5:
+```bash
+sudo dnf install \
+    fcitx5 fcitx5-autostart fcitx5-chinese-addons fcitx5-configtool
 ```
 
 # flatpak
