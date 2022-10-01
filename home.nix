@@ -11,9 +11,9 @@
 
   home.packages = with pkgs; [
     cmake
-    clang_14
     clang-tools
     delve
+    deno
     du-dust
     fd
     gdb
