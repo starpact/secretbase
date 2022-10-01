@@ -18,6 +18,7 @@
   };
 
   home.packages = with pkgs; [
+    clang_14
     liburing
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
