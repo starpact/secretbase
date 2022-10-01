@@ -26,6 +26,8 @@
       enable = true;
       sessionVariables = {
         EDITOR = "nvim";
+        XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
+        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
         vim = "nvim";
@@ -39,10 +41,6 @@
           home-manager switch --flake ~/workspace/dotfiles#fedora
         '';
       };
-      initExtra = ''
-        export PATH=$HOME/.cargo/bin:$HOME/go/bin:$PATH
-        export XDG_DATA_DIRS=$HOME/.nix-profile/share:$XDG_DATA_DIRS
-      '';
     };
   };
 }
