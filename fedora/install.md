@@ -5,13 +5,8 @@ sudo dnf install \
     flameshot \
     google-chrome-stable \
     gnome-tweaks \
+    fcitx5 fcitx5-autostart fcitx5-chinese-addons fcitx5-configtool \
     wireshark
-```
-
-If use dnf to install fcitx5:
-```bash
-sudo dnf install \
-    fcitx5 fcitx5-autostart fcitx5-chinese-addons fcitx5-configtool
 ```
 
 # flatpak

@@ -1,3 +1,23 @@
+local util = require("lsp.util")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go", "gomod", "gowork", "gotmpl" },
+  callback = function()
+    vim.lsp.start(
+      {
+        name = "gopls",
+        cmd = { "gopls" },
+        root_dir = util.get_root_dir({ ".git", "go.mod" }),
+        capabilities = util.capabilities,
+      },
+      {
+        reuse_client = function(client, config)
+          return client.name == config.name and util.buf_starts_with_any({ "/nix", "~/go" })
+        end
+      })
+  end,
+})
+
 local function go_organize_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" } }
@@ -13,18 +33,10 @@ local function go_organize_imports(wait_ms)
   end
 end
 
-local group = vim.api.nvim_create_augroup("GoOnSave", {})
-
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
-  callback = function() go_organize_imports(1000) end,
-  group = group,
+  callback = function()
+    go_organize_imports(1000)
+    vim.lsp.buf.format({ timeout_ms = 500 })
+  end,
 })
-
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.go" },
-  callback = function() vim.lsp.buf.formatting_sync(nil, 500) end,
-  group = group,
-})
-
-return {}

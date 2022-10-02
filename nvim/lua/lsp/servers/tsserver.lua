@@ -1,6 +1,5 @@
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+require("lsp.util").format_on_save({
   pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
-  callback = function() vim.lsp.buf.formatting_sync(nil, 500) end,
 })
 
 return {}

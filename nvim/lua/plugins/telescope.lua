@@ -5,7 +5,6 @@ telescope.load_extension("projects")
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
-local themes = require("telescope.themes")
 
 vim.keymap.set("n", "<leader>f", builtin.find_files)
 vim.keymap.set("n", "<leader>o", builtin.oldfiles)
@@ -14,9 +13,7 @@ vim.keymap.set("n", "<leader>d", builtin.diagnostics)
 vim.keymap.set("n", "<leader>/", builtin.live_grep)
 vim.keymap.set("n", "<leader>gs", builtin.git_status)
 vim.keymap.set("n", "<leader>gc", builtin.git_commits)
-vim.keymap.set("n", "<leader>p", function()
-  telescope.extensions.projects.projects(themes.get_ivy())
-end)
+vim.keymap.set("n", "<leader>p", telescope.extensions.projects.projects)
 
 local function lsp_picker(opts)
   return vim.tbl_deep_extend("force", {

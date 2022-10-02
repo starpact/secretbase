@@ -9,17 +9,10 @@
     ../dconf.nix
   ];
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-configtool
-    ];
-  };
-
   home.packages = with pkgs; [
     clang_14
     liburing
+    lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
     openssl_3

@@ -1,5 +1,3 @@
-local util = require("formatter.util")
-
 local function nixFormatter()
   return {
     exe = "nixpkgs-fmt",
@@ -11,7 +9,7 @@ local function protoFormatter()
     exe = "buf",
     args = {
       "format",
-      util.get_current_buffer_file_path(),
+      vim.api.nvim_buf_get_name(0),
     },
     stdin = true,
   }
@@ -19,12 +17,12 @@ end
 
 require("formatter").setup({
   filetype = {
-    css = { require("formatter.filetypes.css").prettierd },
+    css = { require("formatter.filetypes.css").prettier },
     nix = { nixFormatter },
-    html = { require("formatter.filetypes.html").prettierd },
+    html = { require("formatter.filetypes.html").prettier },
     proto = { protoFormatter },
     python = { require("formatter.filetypes.python").black },
-    yaml = { require("formatter.filetypes.yaml").prettierd },
+    yaml = { require("formatter.filetypes.yaml").prettier },
   }
 })
 

@@ -7,9 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
+  outputs = { nixpkgs, home-manager, neovim-nightly-overlay, ... }: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -29,7 +30,10 @@
     };
 
     homeConfigurations.fedora = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        overlays = [ neovim-nightly-overlay.overlay ];
+      };
       modules = [
         ./fedora/home.nix
         ./home.nix
@@ -37,7 +41,9 @@
     };
 
     homeConfigurations.macos = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+      pkgs = import nixpkgs {
+        system = "aarch64-darwin";
+      };
       modules = [
         ./macos/home.nix
         ./home.nix

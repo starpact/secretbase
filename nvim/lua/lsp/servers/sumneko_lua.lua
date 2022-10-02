@@ -1,7 +1,4 @@
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.lua" },
-  callback = function() vim.lsp.buf.formatting_sync(nil, 500) end,
-})
+require("lsp.util").format_on_save({ pattern = { "*.lua" }, })
 
 return {
   settings = {

@@ -47,10 +47,6 @@ packer.startup({
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter" })
 
-    -- dependency
-    use("williamboman/mason.nvim")
-    use("williamboman/mason-lspconfig.nvim")
-
     -- lsp
     use("neovim/nvim-lspconfig")
     use("j-hui/fidget.nvim")
@@ -73,6 +69,9 @@ packer.startup({
 
     -- test runner
     use("vim-test/vim-test")
+
+    -- task runner
+    use("stevearc/overseer.nvim")
 
     -- debug
     use("mfussenegger/nvim-dap")
