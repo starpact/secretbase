@@ -28,6 +28,9 @@ packer.startup({
     -- colorscheme
     use("sainnhe/gruvbox-material")
 
+    -- status line
+    use("nvim-lualine/lualine.nvim")
+
     -- ui enhancement
     use("stevearc/dressing.nvim")
 
@@ -40,9 +43,6 @@ packer.startup({
 
     -- integrated terminal
     use("akinsho/toggleterm.nvim")
-
-    -- status line
-    use("nvim-lualine/lualine.nvim")
 
     -- treesitter
     use({ "nvim-treesitter/nvim-treesitter" })
@@ -98,11 +98,11 @@ packer.startup({
 })
 
 require("plugins.colorscheme")
+require("plugins.lualine")
 require("plugins.dressing")
 require("plugins.nvim_tree")
 require("plugins.telescope")
 require("plugins.toggleterm")
-require("plugins.lualine")
 require("plugins.treesitter")
 require("plugins.fidget")
 require("plugins.nvim_lint")

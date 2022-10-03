@@ -7,14 +7,10 @@ vim.api.nvim_create_autocmd("FileType", {
       {
         name = "gopls",
         cmd = { "gopls" },
-        root_dir = util.get_root_dir({ ".git", "go.mod" }),
+        root_dir = util.get_buf_root_dir({ ".git", "go.mod" }),
         capabilities = util.capabilities,
       },
-      {
-        reuse_client = function(client, config)
-          return client.name == config.name and util.buf_starts_with_any({ "/nix", "~/go" })
-        end
-      })
+      { reuse_client = util.should_reuse_client_func({ "/nix", "~/go" }) })
   end,
 })
 

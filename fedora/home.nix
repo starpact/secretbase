@@ -37,6 +37,7 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
+        switch = "home-manager switch --flake ~/workspace/dotfiles#fedora";
         update = ''
           sudo dnf upgrade
           flatpak update

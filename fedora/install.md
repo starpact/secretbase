@@ -10,7 +10,6 @@ sudo dnf install \
 ```
 
 # flatpak
-    * org.telegram.desktop
     * com.dropbox.Client
     * com.netease.CloudMusic
     * org.gimp.GIMP

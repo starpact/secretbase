@@ -44,5 +44,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
-require("lsp.servers.rust_analyzer")
 require("lsp.servers.gopls")
+require("lsp.servers.rust_analyzer")
