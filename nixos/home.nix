@@ -40,6 +40,7 @@
       enable = true;
       sessionVariables = {
         EDITOR = "nvim";
+        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
         vim = "nvim";
@@ -48,12 +49,9 @@
         cat = "bat";
         lg = "lazygit";
       };
-      initExtra = ''
-        export PATH=$HOME/.cargo/bin:$HOME/go/bin:$PATH
-        stty -ixon
-      '';
     };
-    wezterm.enable = true;
+    kitty.enable = true;
+    wireshark.enable = true;
   };
 
   services = {
