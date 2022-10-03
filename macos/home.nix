@@ -24,12 +24,11 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        vim = "nvim";
         ls = "exa";
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
-        update = "home-manager switch --flake ~/workspace/dotfiles#macos";
+        switch = "home-manager switch --flake ~/workspace/dotfiles#macos";
       };
       initExtra = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
