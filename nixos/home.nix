@@ -26,6 +26,10 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
+    liburing
+    lldb
+    llvmPackages_latest.clang-manpages
+    llvmPackages_latest.llvm-manpages
     vscode
     wl-clipboard
     wqy_microhei
@@ -43,7 +47,6 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        vim = "nvim";
         ls = "exa";
         l = "ls -al";
         cat = "bat";
@@ -51,6 +54,7 @@
       };
     };
     kitty.enable = true;
+    steam.enable = true;
     wireshark.enable = true;
   };
 

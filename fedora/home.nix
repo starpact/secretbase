@@ -15,7 +15,7 @@
     lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
-    openssl_3
+    openssl_4
     wl-clipboard
     wqy_microhei
     wqy_zenhei
@@ -32,7 +32,6 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        vim = "nvim";
         ls = "exa";
         l = "ls -al";
         cat = "bat";
