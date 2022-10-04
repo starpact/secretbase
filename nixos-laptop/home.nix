@@ -2,9 +2,12 @@
 
 {
   home.stateVersion = "22.05";
+  home.username = "yhj";
+  home.homeDirectory = "/home/yhj";
 
   imports = [
-    ../dconf.nix
+    ../modules/dconf.nix
+    ../modules/git.nix
   ];
 
   i18n.inputMethod = {
@@ -18,6 +21,7 @@
   home.packages = with pkgs; [
     clang_14
     dropbox
+    firefox
     gimp
     google-chrome
     gnome.gnome-tweaks
@@ -26,7 +30,9 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
+    kitty
     liburing
+    libreoffice
     lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
@@ -51,11 +57,14 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
+        hs = "home-manager switch --flake ~/workspace/dotfiles#nixos-laptop";
+        update = ''
+          sudo nixos-rebuild switch --flake ~/workspace/dotfiles#nixos-laptop
+          hs
+        '';
       };
     };
-    kitty.enable = true;
-    steam.enable = true;
-    wireshark.enable = true;
+    home-manager.enable = true;
   };
 
   services = {

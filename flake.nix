@@ -10,37 +10,34 @@
   };
 
   outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      modules = [ ./nixos-laptop/configuration.nix ];
+    };
+    homeConfigurations.nixos-laptop = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
+      };
       modules = [
-        ./nixos/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.yhj = {
-            imports = [
-              ./nixos/home.nix
-              ./home.nix
-            ];
-          };
-        }
+        ./nixos-laptop/home.nix
+        ./modules/shared.nix
       ];
     };
 
-    homeConfigurations.fedora = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.fedora-laptop = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { system = "x86_64-linux"; };
       modules = [
-        ./fedora/home.nix
-        ./home.nix
+        ./fedora-laptop/home.nix
+        ./modules/shared.nix
       ];
     };
 
-    homeConfigurations.macos = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.mac-mini = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { system = "aarch64-darwin"; };
       modules = [
-        ./macos/home.nix
-        ./home.nix
+        ./mac-mini/home.nix
+        ./modules/shared.nix
       ];
     };
   };

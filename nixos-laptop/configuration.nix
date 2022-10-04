@@ -44,6 +44,10 @@
     ];
   };
 
+  programs = {
+    steam.enable = true;
+  };
+
   services = {
     flatpak.enable = true;
     pipewire = {
@@ -62,5 +66,9 @@
       desktopManager.xterm.enable = false;
       excludePackages = [ pkgs.xterm ];
     };
+  };
+
+  virtualisation = {
+    docker.enable = true;
   };
 }

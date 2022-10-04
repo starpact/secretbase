@@ -31,8 +31,6 @@
       nvim-ts-autotag
       nvim-web-devicons
       packer-nvim
-      plenary-nvim
-      popup-nvim
       project-nvim
       toggleterm-nvim
       vim-test

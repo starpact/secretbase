@@ -6,7 +6,7 @@
   home.homeDirectory = "/Users/yhj";
 
   imports = [
-    ../home.nix
+    ../modules/git.nix
   ];
 
   home.packages = with pkgs; [
@@ -28,7 +28,7 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
-        switch = "home-manager switch --flake ~/workspace/dotfiles#macos";
+        hs = "home-manager switch --flake ~/workspace/dotfiles#mac-mini";
       };
       initExtra = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"

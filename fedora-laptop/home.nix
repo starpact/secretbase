@@ -6,7 +6,8 @@
   home.homeDirectory = "/home/yhj";
 
   imports = [
-    ../dconf.nix
+    ../modules/dconf.nix
+    ../modules/git.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,7 +16,7 @@
     lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
-    openssl_4
+    openssl
     wl-clipboard
     wqy_microhei
     wqy_zenhei
@@ -23,7 +24,6 @@
   ];
 
   programs = {
-    home-manager.enable = true;
     bash = {
       enable = true;
       sessionVariables = {
@@ -36,13 +36,14 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
-        switch = "home-manager switch --flake ~/workspace/dotfiles#fedora";
+        hs = "home-manager switch --flake ~/workspace/dotfiles#fedora-laptop";
         update = ''
           sudo dnf upgrade
           flatpak update
-          home-manager switch --flake ~/workspace/dotfiles#fedora
+          hs
         '';
       };
     };
+    home-manager.enable = true;
   };
 }

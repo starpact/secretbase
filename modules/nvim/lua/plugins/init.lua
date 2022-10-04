@@ -1,6 +1,5 @@
 require("packer").startup({
   function(use)
-    use("stevearc/overseer.nvim")
     use("ggandor/leap.nvim")
   end,
   config = {

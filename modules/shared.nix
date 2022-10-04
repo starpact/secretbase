@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./git.nix
     ./nvim.nix
     ./tmux.nix
   ];
@@ -11,22 +10,21 @@
 
   home.packages = with pkgs; [
     cmake
+    cargo-nextest
     clang-tools
     delve
     deno
     du-dust
     fd
     gdb
+    gnumake
     golangci-lint
     kubectl
     mold
-    mysql80
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs
     onefetch
-    postgresql
-    redis
     ripgrep
     rustup
     sqlite
