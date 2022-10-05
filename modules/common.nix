@@ -1,17 +1,12 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./nvim.nix
-    ./tmux.nix
-  ];
-
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    cmake
     cargo-nextest
     clang-tools
+    cmake
     delve
     deno
     du-dust

@@ -49,7 +49,6 @@
   };
 
   services = {
-    flatpak.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -58,13 +57,13 @@
     };
     printing.enable = true;
     xserver = {
-      enable = true;
-      layout = "us";
-      xkbVariant = "";
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
       desktopManager.xterm.enable = false;
+      enable = true;
       excludePackages = [ pkgs.xterm ];
+      layout = "us";
+      xkbVariant = "";
     };
   };
 

@@ -6,8 +6,11 @@
   home.homeDirectory = "/home/yhj";
 
   imports = [
+    ../modules/common.nix
     ../modules/dconf.nix
     ../modules/git.nix
+    ../modules/nvim.nix
+    ../modules/tmux.nix
   ];
 
   i18n.inputMethod = {
@@ -21,7 +24,7 @@
   home.packages = with pkgs; [
     clang_14
     dropbox
-    firefox
+    flameshot
     gimp
     google-chrome
     gnome.gnome-tweaks
@@ -36,6 +39,7 @@
     lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
+    marktext
     vscode
     wl-clipboard
     wqy_microhei
@@ -50,6 +54,7 @@
       enable = true;
       sessionVariables = {
         EDITOR = "nvim";
+        MOZ_ENABLE_WAYLAND = "1";
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
@@ -64,18 +69,8 @@
         '';
       };
     };
+    firefox.enable = true;
     home-manager.enable = true;
-  };
-
-  services = {
-    flameshot = {
-      enable = true;
-      settings = {
-        General = {
-          showStartupLaunchMessage = false;
-          showDesktopNotification = false;
-        };
-      };
-    };
+    mpv.enable = true;
   };
 }

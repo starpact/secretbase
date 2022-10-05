@@ -6,8 +6,11 @@
   home.homeDirectory = "/home/yhj";
 
   imports = [
+    ../modules/common.nix
     ../modules/dconf.nix
     ../modules/git.nix
+    ../modules/nvim.nix
+    ../modules/tmux.nix
   ];
 
   home.packages = with pkgs; [
