@@ -21,7 +21,7 @@ local diagnostics = {
 
 require("lualine").setup({
   options = {
-    disabled_filetypes = { "NvimTree" },
+    disabled_filetypes = { winbar = { "toggleterm", "NvimTree" } },
     globalstatus = true,
   },
   sections = {
