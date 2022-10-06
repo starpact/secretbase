@@ -17,3 +17,36 @@ hl("TSNamespace", { link = "Fg" })
 hl("NvimTreeFolderIcon", { link = "Blue" })
 hl("FidgetTask", { link = "Comment" })
 hl("Search", { ctermfg = 235, ctermbg = 167, fg = "#282828", bg = "#ea6962" })
+
+for kind, color in pairs({
+  IconsFile = "Green",
+  IconsModule = "Green",
+  IconsNamespace = "Green",
+  IconsPackage = "Green",
+  IconsClass = "Green",
+  IconsMethod = "Green",
+  IconsProperty = "Green",
+  IconsField = "Green",
+  IconsConstructor = "Green",
+  IconsEnum = "Green",
+  IconsInterface = "Green",
+  IconsFunction = "Green",
+  IconsVariable = "Green",
+  IconsConstant = "Green",
+  IconsString = "Green",
+  IconsNumber = "Green",
+  IconsBoolean = "Green",
+  IconsArray = "Green",
+  IconsObject = "Green",
+  IconsKey = "Green",
+  IconsNull = "Green",
+  IconsEnumMember = "Green",
+  IconsStruct = "Green",
+  IconsEvent = "Green",
+  IconsOperator = "Green",
+  IconsTypeParameter = "Blue",
+  Separator = "Grey",
+  Text = "Grey"
+}) do
+  hl("Navic" .. kind, { link = color })
+end

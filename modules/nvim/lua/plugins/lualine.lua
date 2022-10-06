@@ -1,3 +1,5 @@
+local navic = require("nvim-navic")
+
 local diff = {
   "diff",
   symbols = {
@@ -20,21 +22,23 @@ local diagnostics = {
 require("lualine").setup({
   options = {
     disabled_filetypes = { "NvimTree" },
+    globalstatus = true,
   },
   sections = {
-    lualine_a = { { "filename", path = 1 } },
+    lualine_a = { "mode" },
     lualine_b = { "branch", diff },
     lualine_c = { diagnostics },
     lualine_x = { "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { { "filename", path = 1 } },
-    lualine_x = { "location" },
-    lualine_y = {},
-    lualine_z = {},
+  winbar = {
+    lualine_c = {
+      { "filename", path = 1 },
+      { navic.get_location, cond = navic.is_available },
+    },
+  },
+  inactive_winbar = {
+    lualine_c = { { "filename", path = 1 } }
   },
 })

@@ -5,9 +5,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -44,9 +42,7 @@
     ];
   };
 
-  programs = {
-    steam.enable = true;
-  };
+  programs.steam.enable = true;
 
   services = {
     pipewire = {

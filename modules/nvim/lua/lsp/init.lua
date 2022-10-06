@@ -1,3 +1,5 @@
+local navic = require("nvim-navic")
+
 local servers = {
   "bashls",
   "cssls",
@@ -17,6 +19,11 @@ for _, server in ipairs(servers) do
   local configured, config = pcall(require, "lsp.servers." .. server)
   if configured then
     config.capabilities = require("lsp.util").capabilities
+    config.on_attach = function(client, bufnr)
+      if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+      end
+    end
     require("lspconfig")[server].setup(config)
   end
 end

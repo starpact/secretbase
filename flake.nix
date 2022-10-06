@@ -8,20 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
-    nixos-cn = {
-      url = "github:nixos-cn/flakes";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
-    { nixpkgs, home-manager, nur, nixos-cn, ... }: {
-      nixosConfigurations.nixos-laptop = let system = "x86_64-linux"; in nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [
-          ./nixos-laptop/configuration.nix
-          # { environment.systemPackages = [ nixos-cn.legacyPackages.${system}.netease-cloud-music ]; }
-        ];
+    { nixpkgs, home-manager, nur, ... }: {
+      nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./nixos-laptop/configuration.nix ];
       };
       homeConfigurations.nixos-laptop = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {

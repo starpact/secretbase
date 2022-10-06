@@ -1,6 +1,7 @@
 require("packer").startup({
   function(use)
     use("ggandor/leap.nvim")
+    use("SmiteshP/nvim-navic")
   end,
   config = {
     display = {
@@ -30,3 +31,4 @@ require("plugins.gitsigns")
 require("plugins.project")
 require("plugins.dap")
 require("plugins.leap")
+require("plugins.navic")

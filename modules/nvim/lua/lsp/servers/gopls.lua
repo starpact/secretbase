@@ -1,4 +1,5 @@
 local util = require("lsp.util")
+local navic = require("nvim-navic")
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "go", "gomod", "gowork", "gotmpl" },
@@ -9,6 +10,7 @@ vim.api.nvim_create_autocmd("FileType", {
         cmd = { "gopls" },
         root_dir = util.get_buf_root_dir({ ".git", "go.mod" }),
         capabilities = util.capabilities,
+        on_attach = function(client, bufnr) navic.attach(client, bufnr) end,
       },
       { reuse_client = util.should_reuse_client_func({ "/nix", "~/go" }) })
   end,

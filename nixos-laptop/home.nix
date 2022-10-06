@@ -40,8 +40,10 @@
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
     marktext
+    nur.repos.eh5.netease-cloud-music
     vscode
     wl-clipboard
+    wireshark
     wqy_microhei
     wqy_zenhei
     xclip
@@ -73,4 +75,6 @@
     home-manager.enable = true;
     mpv.enable = true;
   };
+
+  services.syncthing.enable = true;
 }
