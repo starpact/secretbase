@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map("n", "gd", telescope.lsp_definitions)
     map("n", "gD", vim.lsp.buf.declaration)
     map("n", "gt", telescope.lsp_type_definitions)
-    map("n", "gr", telescope.lsp_references)
+    map("n", "gr", function() telescope.lsp_references({ include_current_line = false }) end)
     map("n", "gi", telescope.lsp_implementations)
     map("n", "<leader>a", vim.lsp.buf.code_action)
     map("n", "<leader>s", telescope.lsp_document_symbols)

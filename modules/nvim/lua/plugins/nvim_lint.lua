@@ -11,6 +11,7 @@ lint.linters.codespell.args = {
   table.concat({
     "crate",
     "hist",
+    "ser",
   }, ","),
 }
 

@@ -22,7 +22,6 @@ local diagnostics = {
 require("lualine").setup({
   options = {
     disabled_filetypes = { winbar = { "toggleterm", "NvimTree" } },
-    globalstatus = true,
   },
   sections = {
     lualine_a = { "mode" },
@@ -32,13 +31,23 @@ require("lualine").setup({
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = { "location" },
+    lualine_y = {},
+    lualine_z = {},
+  },
   winbar = {
     lualine_c = {
-      { "filename", path = 1 },
+      { "filename", path = 1, color = { bg = "None" } },
       { navic.get_location, cond = navic.is_available },
     },
   },
   inactive_winbar = {
-    lualine_c = { { "filename", path = 1 } }
+    lualine_c = {
+      { "filename", path = 1, color = { bg = "None" } },
+    }
   },
 })
