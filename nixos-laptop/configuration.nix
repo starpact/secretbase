@@ -53,17 +53,18 @@
     };
     printing.enable = true;
     xserver = {
+      enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
-      desktopManager.xterm.enable = false;
-      enable = true;
-      excludePackages = [ pkgs.xterm ];
       layout = "us";
       xkbVariant = "";
+      desktopManager.xterm.enable = false;
+      excludePackages = [ pkgs.xterm ];
     };
   };
 
   virtualisation = {
     docker.enable = true;
+    libvirtd.enable = true;
   };
 }

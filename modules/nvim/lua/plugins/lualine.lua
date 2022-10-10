@@ -41,7 +41,7 @@ require("lualine").setup({
   },
   winbar = {
     lualine_c = {
-      { "filename", path = 1, color = { bg = "None" } },
+      { "filename", path = 1, color = { bg = "None", gui = "bold" } },
       { navic.get_location, cond = navic.is_available },
     },
   },

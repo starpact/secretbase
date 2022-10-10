@@ -13,9 +13,19 @@
       favorite-apps = [
         "google-chrome.desktop"
         "Alacritty.desktop"
+        "code.desktop"
         "org.gnome.Nautilus.desktop"
+        "obsidian.desktop"
         "netease-cloud-music.desktop"
       ];
+    };
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [ "<Super>1" ];
+      switch-to-application-2 = [ "<Super>2" ];
+      switch-to-application-3 = [ "<Super>3" ];
+      switch-to-application-4 = [ "<Super>E" ];
+      switch-to-application-5 = [ "<Super>N" ];
+      switch-to-application-6 = [ "<Super>M" ];
     };
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>Q" ];
@@ -26,7 +36,6 @@
       move-to-workspace-right = [ "<Super><Shift>L" ];
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
-      home = [ "<Super>E" ];
       screensaver = [ ];
       custom-keybindings = [
         "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"

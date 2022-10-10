@@ -39,8 +39,10 @@
     lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
-    marktext
     nur.repos.eh5.netease-cloud-music
+    obs-studio
+    obsidian
+    virt-manager
     vscode
     wl-clipboard
     wireshark
