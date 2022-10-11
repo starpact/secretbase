@@ -12,27 +12,32 @@
 
   outputs =
     { nixpkgs, home-manager, nur, ... }: {
-      nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./nixos-laptop/configuration.nix ];
-      };
-      homeConfigurations.nixos-laptop = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+      nixosConfigurations = {
+        nixos-laptop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          config.allowUnfree = true;
-          overlays = [ nur.overlay ];
+          modules = [ ./nixos-laptop/configuration.nix ];
         };
-        modules = [ ./nixos-laptop/home.nix ];
       };
 
-      homeConfigurations.fedora-laptop = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-        modules = [ ./fedora-laptop/home.nix ];
-      };
+      homeConfigurations = {
+        nixos-laptop = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+            overlays = [ nur.overlay ];
+          };
+          modules = [ ./nixos-laptop/home.nix ];
+        };
 
-      homeConfigurations.mac-mini = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [ ./mac-mini/home.nix ];
+        fedora-laptop = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { system = "x86_64-linux"; };
+          modules = [ ./fedora-laptop/home.nix ];
+        };
+
+        mac-mini = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs { system = "aarch64-darwin"; };
+          modules = [ ./mac-mini/home.nix ];
+        };
       };
     };
 }
