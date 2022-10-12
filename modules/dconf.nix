@@ -11,12 +11,12 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "google-chrome.desktop"
-        "Alacritty.desktop"
-        "code.desktop"
-        "org.gnome.Nautilus.desktop"
-        "obsidian.desktop"
-        "netease-cloud-music.desktop"
+        "google-chrome.desktop" # 1
+        "Alacritty.desktop" # 2
+        "code.desktop" # 3
+        "org.gnome.Nautilus.desktop" # 4
+        "obsidian.desktop" # 5
+        "netease-cloud-music.desktop" # 6
       ];
     };
     "org/gnome/shell/keybindings" = {

@@ -38,8 +38,6 @@
       '';
     };
   };
-
-  services.syncthing.enable = true;
 }
 
 # bindkey -e
