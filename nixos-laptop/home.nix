@@ -13,14 +13,6 @@
     ../modules/tmux.nix
   ];
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-chinese-addons
-      fcitx5-configtool
-    ];
-  };
-
   home.packages = with pkgs; [
     clang_14
     dropbox
@@ -66,6 +58,7 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
+        grep = "rg";
         hs = "home-manager switch --flake ~/workspace/dotfiles#nixos-laptop";
         update = ''
           sudo nixos-rebuild switch --flake ~/workspace/dotfiles#nixos-laptop

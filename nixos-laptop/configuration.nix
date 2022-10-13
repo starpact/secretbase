@@ -12,6 +12,7 @@
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
     loader.efi.efiSysMountPoint = "/boot/efi";
+    supportedFilesystems = [ "ntfs" ];
   };
 
   networking = {
@@ -21,7 +22,16 @@
 
   time.timeZone = "Asia/Singapore";
 
-  i18n.defaultLocale = "en_SG.utf8";
+  i18n = {
+    defaultLocale = "en_SG.utf8";
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-chinese-addons
+        fcitx5-configtool
+      ];
+    };
+  };
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -36,9 +46,10 @@
 
   environment = {
     systemPackages = [ ];
-    gnome.excludePackages = [
-      pkgs.gnome.cheese
-      pkgs.gnome-tour
+    gnome.excludePackages = with pkgs; [
+      epiphany
+      gnome.cheese
+      gnome-tour
     ];
   };
 

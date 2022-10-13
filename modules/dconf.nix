@@ -2,6 +2,9 @@
 
 {
   dconf.settings = {
+    "org/gnome/desktop/session" = {
+      idle-delay = lib.hm.gvariant.mkUint32 900;
+    };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
     };
@@ -26,6 +29,7 @@
       switch-to-application-4 = [ "<Super>E" ];
       switch-to-application-5 = [ "<Super>N" ];
       switch-to-application-6 = [ "<Super>M" ];
+      focus-active-notification = [ ];
     };
     "org/gnome/desktop/wm/keybindings" = {
       close = [ "<Super>Q" ];
