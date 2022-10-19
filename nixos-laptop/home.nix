@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "22.05";
@@ -13,10 +13,13 @@
     ../modules/tmux.nix
   ];
 
+  manual.manpages.enable = false;
+
   home.packages = with pkgs; [
-    clang_14
     dropbox
+    ffmpeg
     flameshot
+    gcc
     gimp
     google-chrome
     gnome.gnome-tweaks
@@ -34,6 +37,8 @@
     nur.repos.eh5.netease-cloud-music
     obs-studio
     obsidian
+    tdesktop
+    video-trimmer
     virt-manager
     vscode
     wl-clipboard

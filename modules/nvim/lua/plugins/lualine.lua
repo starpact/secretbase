@@ -2,11 +2,18 @@ local navic = require("nvim-navic")
 
 require("lualine").setup({
   options = {
-    disabled_filetypes = { winbar = { "toggleterm", "NvimTree" } },
+    disabled_filetypes = {
+      "NvimTree",
+      winbar = { "toggleterm" }
+    },
   },
 
   sections = {
-    lualine_a = { "mode" },
+    lualine_a = { function()
+      local cwd = vim.fn.getcwd()
+      local index = string.find(cwd, "/[^/]*$") or 0
+      return string.sub(cwd, index + 1)
+    end },
     lualine_b = {
       "branch",
       { "diff", symbols = { added = " ", modified = " ", removed = " " } },

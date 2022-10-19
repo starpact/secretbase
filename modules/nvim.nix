@@ -27,7 +27,7 @@
       telescope-nvim
       telescope-fzf-native-nvim
       nvim-tree-lua
-      (nvim-treesitter.withPlugins (plugins: pkgs.tree-sitter.allGrammars))
+      (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       nvim-ts-autotag
       nvim-web-devicons
       packer-nvim

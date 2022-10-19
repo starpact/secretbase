@@ -12,6 +12,8 @@ local options = {
   relativenumber = true,
   cursorline = true,
 
+  jumpoptions = "stack",
+
   hlsearch = true,
   incsearch = true,
   ignorecase = true,
@@ -23,7 +25,6 @@ local options = {
   pumheight = 10, -- pop up menu height
   showmode = false,
   wrap = false,
-  scrolloff = 10,
 
   smartindent = true,
   expandtab = true, -- convert tabs to spaces

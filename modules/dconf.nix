@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ lib, ... }:
 
 {
   dconf.settings = {
@@ -7,6 +7,13 @@
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
+    };
+    "org/gnome/desktop/interface" = {
+      font-name = "JetbrainsMono Nerd Font 11";
+      document-font-name = "JetbrainsMono Nerd Font 11";
+      monospace-font-name = "JetbrainsMono Nerd Font 11";
+      clock-show-weekday = true;
+      enable-hot-corners = false;
     };
     "org/gnome/desktop/peripherals/keyboard" = {
       delay = lib.hm.gvariant.mkUint32 300;
@@ -20,6 +27,7 @@
         "org.gnome.Nautilus.desktop" # 4
         "obsidian.desktop" # 5
         "netease-cloud-music.desktop" # 6
+        "telegramdesktop.desktop" # 7
       ];
     };
     "org/gnome/shell/keybindings" = {
@@ -29,6 +37,7 @@
       switch-to-application-4 = [ "<Super>E" ];
       switch-to-application-5 = [ "<Super>N" ];
       switch-to-application-6 = [ "<Super>M" ];
+      switch-to-application-7 = [ "<Super>C" ];
       focus-active-notification = [ ];
     };
     "org/gnome/desktop/wm/keybindings" = {

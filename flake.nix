@@ -19,24 +19,29 @@
     };
 
     homeConfigurations = {
-      nixos-laptop = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
+      nixos-laptop =
+        let
           system = "x86_64-linux";
-          config.allowUnfree = true;
-          overlays = [ nur.overlay ];
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [ nur.overlay ];
+          };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./nixos-laptop/home.nix ];
         };
-        modules = [ ./nixos-laptop/home.nix ];
-      };
 
-      fedora-laptop = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
-        modules = [ ./fedora-laptop/home.nix ];
-      };
-
-      mac-mini = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin"; };
-        modules = [ ./mac-mini/home.nix ];
-      };
+      mac-mini =
+        let
+          system = "aarch64-darwin";
+          pkgs = import nixpkgs { inherit system; };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./mac-mini/home.nix ];
+        };
     };
   };
 }
