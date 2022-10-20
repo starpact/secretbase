@@ -13,8 +13,6 @@
     ../modules/tmux.nix
   ];
 
-  manual.manpages.enable = false;
-
   home.packages = with pkgs; [
     dropbox
     ffmpeg
