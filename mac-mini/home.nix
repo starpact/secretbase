@@ -35,6 +35,7 @@
       };
       initExtra = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
+        source /opt/homebrew/completions/bash/brew
       '';
     };
   };
