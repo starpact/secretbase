@@ -35,6 +35,7 @@
     nur.repos.eh5.netease-cloud-music
     obs-studio
     obsidian
+    slack
     tdesktop
     video-trimmer
     virt-manager

@@ -8,9 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nur.url = "github:nix-community/NUR";
+    fenix = {
+      url = "github:nix-community/fenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, nur, ... }: {
+  outputs = { nixpkgs, home-manager, nur, fenix, ... }: {
     nixosConfigurations = {
       nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -22,10 +26,10 @@
       nixos-laptop =
         let
           system = "x86_64-linux";
+          overlays = [ nur.overlay fenix.overlay ];
           pkgs = import nixpkgs {
-            inherit system;
+            inherit system overlays;
             config.allowUnfree = true;
-            overlays = [ nur.overlay ];
           };
         in
         home-manager.lib.homeManagerConfiguration {

@@ -1,15 +1,3 @@
-require("packer").startup({
-  function(use)
-    use("ggandor/leap.nvim")
-    use("SmiteshP/nvim-navic")
-  end,
-  config = {
-    display = {
-      open_fn = require("packer.util").float,
-    },
-  },
-})
-
 require("plugins.colorscheme")
 require("plugins.lualine")
 require("plugins.dressing")

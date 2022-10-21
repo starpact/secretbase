@@ -15,7 +15,6 @@
     gnumake
     golangci-lint
     kubectl
-    mold
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs

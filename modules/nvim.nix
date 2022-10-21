@@ -15,6 +15,7 @@
       formatter-nvim
       gitsigns-nvim
       gruvbox-material
+      leap-nvim
       lualine-nvim
       luasnip
       nvim-autopairs
@@ -24,13 +25,13 @@
       nvim-lint
       nvim-lspconfig
       nvim-surround
+      nvim-navic
       telescope-nvim
       telescope-fzf-native-nvim
       nvim-tree-lua
       (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
       nvim-ts-autotag
       nvim-web-devicons
-      packer-nvim
       project-nvim
       toggleterm-nvim
       vim-test
@@ -48,7 +49,7 @@
       nodePackages.yaml-language-server
       python310Packages.flake8
       rnix-lsp
-      rust-analyzer
+      rust-analyzer-nightly
       sumneko-lua-language-server
       taplo
     ];
