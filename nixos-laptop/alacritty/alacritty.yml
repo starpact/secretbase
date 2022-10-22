@@ -74,7 +74,7 @@ window:
   #   - SimpleFullscreen
   startup_mode: Windowed
 
-  opacity: 0.9
+  # opacity: 0.9
 
   # Allow terminal applications to change Alacritty's window title.
   # dynamic_title: true

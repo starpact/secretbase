@@ -1,7 +1,9 @@
 local M = {}
 
-M.capabilities = require("cmp_nvim_lsp").default_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
+M.capabilities = vim.tbl_deep_extend(
+  "force",
+  vim.lsp.protocol.make_client_capabilities(),
+  require("cmp_nvim_lsp").default_capabilities()
 )
 
 local function buf_starts_with_any(prefixes)
