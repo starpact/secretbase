@@ -49,7 +49,7 @@
       nodePackages.yaml-language-server
       python310Packages.flake8
       rnix-lsp
-      rust-analyzer-nightly
+      rust-analyzer
       sumneko-lua-language-server
       taplo
     ];

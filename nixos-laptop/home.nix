@@ -15,7 +15,6 @@
 
   home.packages = with pkgs; [
     dropbox
-    ffmpeg
     flameshot
     gcc
     gimp
