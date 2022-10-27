@@ -14,11 +14,11 @@
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./nixos/desktop/configuration.nix ];
+        modules = [ ./nixos-desktop/configuration.nix ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./nixos/laptop/configuration.nix ];
+        modules = [ ./nixos-laptop/configuration.nix ];
       };
     };
 
@@ -34,7 +34,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./nixos/home.nix ];
+          modules = [ ./nixos-desktop/home.nix ];
         };
 
       nixos-laptop =
@@ -48,7 +48,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./nixos/home.nix ];
+          modules = [ ./nixos-laptop/home.nix ];
         };
 
       mac-mini =
@@ -58,7 +58,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./mac/mini/home.nix ];
+          modules = [ ./mac-mini/home.nix ];
         };
 
       mac-work =
@@ -68,7 +68,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./mac/work/home.nix ];
+          modules = [ ./mac-work/home.nix ];
         };
     };
   };

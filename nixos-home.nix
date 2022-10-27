@@ -6,14 +6,15 @@
   home.homeDirectory = "/home/yhj";
 
   imports = [
-    ../modules/common.nix
-    ../modules/dconf.nix
-    ../modules/git.nix
-    ../modules/nvim.nix
-    ../modules/tmux.nix
+    ./modules/common.nix
+    ./modules/dconf.nix
+    ./modules/git.nix
+    ./modules/nvim.nix
+    ./modules/tmux.nix
   ];
 
   home.packages = with pkgs; [
+    cpu-x
     discord
     dropbox
     flameshot
@@ -63,11 +64,6 @@
         cat = "bat";
         lg = "lazygit";
         grep = "rg";
-        hs = "home-manager switch --flake ~/workspace/dotfiles#nixos-laptop";
-        update = ''
-          sudo nixos-rebuild switch --flake ~/workspace/dotfiles#nixos-laptop
-          hs
-        '';
       };
     };
     firefox.enable = true;

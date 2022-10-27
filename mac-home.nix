@@ -6,10 +6,10 @@
   home.homeDirectory = "/Users/yhj";
 
   imports = [
-    ../modules/common.nix
-    ../modules/git.nix
-    ../modules/nvim.nix
-    ../modules/tmux.nix
+    ./modules/common.nix
+    ./modules/git.nix
+    ./modules/nvim.nix
+    ./modules/tmux.nix
   ];
 
   home.packages = with pkgs; [
@@ -31,7 +31,6 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
-        hs = "home-manager switch --flake ~/workspace/dotfiles#mac-mini";
       };
       initExtra = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
