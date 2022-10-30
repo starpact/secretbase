@@ -38,6 +38,7 @@
       switch-to-application-5 = [ "<Super>N" ];
       switch-to-application-6 = [ "<Super>M" ];
       switch-to-application-7 = [ "<Super>C" ];
+      toggle-message-tray = [ ];
       focus-active-notification = [ ];
     };
     "org/gnome/desktop/wm/keybindings" = {
