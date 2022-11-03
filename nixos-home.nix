@@ -16,7 +16,6 @@
   home.packages = with pkgs; [
     cpu-x
     discord
-    dropbox
     flameshot
     gcc
     gimp
