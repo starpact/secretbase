@@ -5,29 +5,29 @@ window:
   padding:
     x: 5
   # decorations: none
-  opacity: 0.9
+  # opacity: 0.9
   dynamic_padding: true
 font:
-  # size: 17.0
-  # normal:
-  #   family: Iosevka Nerd Font
-  #   style: Light
-  # bold:
-  #   family: Iosevka Nerd Font
-  #   style: Bold
-  # italic:
-  #   family: Iosevka Nerd Font
-  #   style: Italic
-  size: 16.0
+  size: 17.0
   normal:
-    family: VictorMono Nerd Font
+    family: Iosevka Nerd Font
     style: Light
   bold:
-    family: VictorMono Nerd Font
+    family: Iosevka Nerd Font
     style: Bold
   italic:
-    family: VictorMono Nerd Font
-    style: Oblique
+    family: Iosevka Nerd Font
+    style: Italic
+  # size: 16.0
+  # normal:
+  #   family: VictorMono Nerd Font
+  #   style: Light
+  # bold:
+  #   family: VictorMono Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: VictorMono Nerd Font
+  #   style: Oblique
 
 draw_bold_text_with_bright_colors: true
 colors:
