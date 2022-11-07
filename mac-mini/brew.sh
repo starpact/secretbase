@@ -1,2 +1,2 @@
 brew install \
-    alacritty kitty snipaste alfred dropbox scroll-reverser telegram-desktop
+    alacritty kitty snipaste alfred manico dropbox scroll-reverser telegram-desktop
