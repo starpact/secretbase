@@ -4,7 +4,7 @@
   home.username = "hongjie.yan";
   home.homeDirectory = "/Users/hongjie.yan";
 
-  home.packets = with pkgs; [
+  home.packages = with pkgs; [
     redis
   ];
 
