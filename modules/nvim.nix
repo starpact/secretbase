@@ -22,6 +22,7 @@
       nvim-cmp
       nvim-dap
       nvim-dap-ui
+      nvim-jdtls
       nvim-lint
       nvim-lspconfig
       nvim-surround
