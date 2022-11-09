@@ -14,6 +14,7 @@
     gnumake
     golangci-lint
     gotools
+    jdk
     kubectl
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })

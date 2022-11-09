@@ -66,6 +66,7 @@
       black
       codespell
       gopls
+      jdt-language-server
       nixpkgs-fmt
       nodePackages.bash-language-server
       nodePackages.prettier

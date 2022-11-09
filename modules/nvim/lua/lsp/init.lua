@@ -6,6 +6,7 @@ local servers = {
   "clangd",
   "eslint",
   "html",
+  "jdtls",
   "jsonls",
   "pyright",
   "rnix",
