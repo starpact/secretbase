@@ -14,6 +14,7 @@
     gnumake
     golangci-lint
     gotools
+    gradle
     jdk
     kubectl
     neofetch

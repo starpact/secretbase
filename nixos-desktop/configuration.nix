@@ -13,6 +13,9 @@
     loader.efi.canTouchEfiVariables = true;
     loader.efi.efiSysMountPoint = "/boot/efi";
     supportedFilesystems = [ "ntfs" ];
+    extraModprobeConfig = ''
+      options hid_apple fnmode=0
+    '';
   };
 
   networking = {
