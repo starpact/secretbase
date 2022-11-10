@@ -9,3 +9,5 @@ local config = {
 }
 
 require("jdtls").start_or_attach(config)
+
+util.format_on_save({ pattern = { "*.java" } })

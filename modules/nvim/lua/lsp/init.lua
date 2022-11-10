@@ -50,6 +50,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map("n", "<leader>r", vim.lsp.buf.rename)
   end
 })
-
-require("lsp.servers.gopls")
-require("lsp.servers.rust_analyzer")

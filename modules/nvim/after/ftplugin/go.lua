@@ -1,20 +1,16 @@
 local util = require("lsp.util")
 local navic = require("nvim-navic")
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go", "gomod", "gowork", "gotmpl" },
-  callback = function()
-    vim.lsp.start(
-      {
-        name = "gopls",
-        cmd = { "gopls" },
-        root_dir = util.get_buf_root_dir({ ".git", "go.mod" }),
-        capabilities = util.capabilities,
-        on_attach = function(client, bufnr) navic.attach(client, bufnr) end,
-      },
-      { reuse_client = util.should_reuse_client_func({ "/nix", "~/go" }) })
-  end,
-})
+local config = {
+  name = "gopls",
+  cmd = { "gopls" },
+  root_dir = util.get_buf_root_dir({ ".git", "go.mod" }),
+  capabilities = util.capabilities,
+  on_attach = function(client, bufnr) navic.attach(client, bufnr) end,
+}
+local reuse_patterns = { "/nix", "~/go" }
+
+vim.lsp.start(config, { reuse_client = util.should_reuse_client_func(reuse_patterns) })
 
 local function go_organize_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
@@ -31,7 +27,7 @@ local function go_organize_imports(wait_ms)
   end
 end
 
-util.format_on_save({
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.go" },
   callback = function()
     go_organize_imports(1000)

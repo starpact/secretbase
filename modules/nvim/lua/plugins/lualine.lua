@@ -35,13 +35,13 @@ require("lualine").setup({
   },
   winbar = {
     lualine_c = {
-      { "filename", path = 1, color = { bg = "None", gui = "bold" } },
+      { "filename", color = { bg = "None", gui = "bold" } },
       { navic.get_location, cond = navic.is_available },
     },
   },
   inactive_winbar = {
     lualine_c = {
-      { "filename", path = 1, color = { bg = "None" } },
+      { "filename", color = { bg = "None" } },
     }
   },
 })

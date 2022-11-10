@@ -20,7 +20,8 @@ local function lsp_picker(opts)
   return vim.tbl_deep_extend("force", {
     theme = "ivy",
     initial_mode = "normal",
-    path_display = { "smart" },
+    -- path_display = { "smart" },
+    show_line = false,
     mappings = {
       n = {
         ["o"] = actions.select_default,
@@ -41,6 +42,11 @@ telescope.setup({
         ["<C-k>"] = actions.cycle_history_prev,
       },
     },
+    layout_config = {
+      horizontal = {
+        width = 0.9,
+      }
+    }
   },
   pickers = {
     lsp_definitions = lsp_picker(),

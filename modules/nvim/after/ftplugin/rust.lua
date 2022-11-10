@@ -30,22 +30,16 @@ local settings = {
     },
   },
 }
+local config = {
+  name = name,
+  cmd = { name },
+  root_dir = util.get_buf_root_dir("Cargo.toml"),
+  capabilities = util.capabilities,
+  on_attach = function(client, bufnr) navic.attach(client, bufnr) end,
+  settings = settings,
+}
+local reuse_patterns = { "/nix", "~/.cargo" }
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "rust" },
-  callback = function()
-    vim.lsp.start(
-      {
-        name = name,
-        cmd = { name },
-        root_dir = util.get_buf_root_dir("Cargo.toml"),
-        capabilities = util.capabilities,
-        on_attach = function(client, bufnr) navic.attach(client, bufnr) end,
-        settings = settings,
-      },
-      { reuse_client = util.should_reuse_client_func({ "/nix", "~/.cargo" }) }
-    )
-  end,
-})
+vim.lsp.start(config, { reuse_client = util.should_reuse_client_func(reuse_patterns) })
 
 util.format_on_save({ pattern = { "*.rs" } })
