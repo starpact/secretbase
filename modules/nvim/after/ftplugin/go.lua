@@ -27,7 +27,7 @@ local function go_organize_imports(wait_ms)
   end
 end
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+util.format_on_save({
   pattern = { "*.go" },
   callback = function()
     go_organize_imports(1000)
