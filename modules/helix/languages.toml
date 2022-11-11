@@ -1,0 +1,11 @@
+[[language]]
+name = "java"
+language-server = { command = "jdt-language-server", args = [
+  "-data",
+  "/Users/hongjie.yan/.cache/jdtls/workspace",
+] }
+roots = ["gradlew", "pom.xml"]
+
+[[language]]
+name = "toml"
+auto-format = true

@@ -27,6 +27,6 @@ vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h")
 vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j")
 vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k")
 
-vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next)
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float)

@@ -15,8 +15,10 @@
     golangci-lint
     gotools
     gradle
+    helix
     jdk
     kubectl
+    lldb
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
     nodejs

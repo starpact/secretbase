@@ -9,6 +9,7 @@
     ./modules/common.nix
     ./modules/dconf.nix
     ./modules/git.nix
+    ./modules/lsp.nix
     ./modules/nvim.nix
     ./modules/tmux.nix
   ];

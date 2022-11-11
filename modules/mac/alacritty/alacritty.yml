@@ -9,7 +9,7 @@ window:
   dynamic_padding: true
   # startup_mode: Maximized
 font:
-  size: 20.0
+  size: 17.0
   normal:
     family: Iosevka Nerd Font
     style: Light
@@ -117,5 +117,8 @@ key_bindings:
   - { key: F, mods: Alt, chars: "\x1bf" }
   - { key: B, mods: Alt, chars: "\x1bb" }
   - { key: C, mods: Alt, chars: "\x1bc" }
+  - { key: O, mods: Command, chars: "\x1bo" }
+  - { key: N, mods: Command, chars: "\x1bn" }
+  - { key: P, mods: Command, chars: "\x1bp" }
   - { key: J, mods: Command, chars: "\x1bj" }
   - { key: F, mods: Shift|Option, action: ToggleMaximized }
