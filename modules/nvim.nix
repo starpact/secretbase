@@ -4,14 +4,16 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
-    plugins = with pkgs.vimPlugins;[
+    plugins = with pkgs.vimPlugins; [
       comment-nvim
       cmp-nvim-lsp
       cmp-buffer
+      cmp-nvim-lsp-signature-help
       cmp-path
       cmp_luasnip
       dressing-nvim
       fidget-nvim
+      friendly-snippets
       formatter-nvim
       gitsigns-nvim
       gruvbox-material

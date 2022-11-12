@@ -4,6 +4,7 @@ require("project_nvim").setup(
       ".git",
       "Cargo.toml",
       "go.mod",
+      "gradlew",
       "Makefile",
       "package.json",
     }

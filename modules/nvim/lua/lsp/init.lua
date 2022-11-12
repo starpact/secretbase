@@ -1,4 +1,5 @@
 local navic = require("nvim-navic")
+local util = require("lsp.util")
 
 local servers = {
   "bashls",
@@ -17,16 +18,25 @@ local servers = {
 
 for _, server in ipairs(servers) do
   local configured, config = pcall(require, "lsp.servers." .. server)
-  if configured then
-    config.capabilities = require("lsp.util").capabilities
-    config.on_attach = function(client, bufnr)
-      if client.server_capabilities.documentSymbolProvider then
-        navic.attach(client, bufnr)
-      end
+  if not configured then config = {} end
+  config.capabilities = util.capabilities
+  config.on_attach = function(client, bufnr)
+    if client.server_capabilities.documentSymbolProvider then
+      navic.attach(client, bufnr)
     end
-    require("lspconfig")[server].setup(config)
   end
+  require("lspconfig")[server].setup(config)
 end
+
+util.format_on_save({
+  pattern = {
+    "*.c", "*.cpp", ".h",
+    "*.json",
+    "*.lua",
+    "*.toml",
+    "*.js", "*.jsx", "*.ts", "*.tsx",
+  },
+})
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -50,3 +60,5 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map("n", "<leader>r", vim.lsp.buf.rename)
   end
 })
+
+require("lsp.servers.rust_analyzer")

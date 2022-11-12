@@ -5,12 +5,10 @@ local function nixFormatter()
 end
 
 local function protoFormatter()
+  local filename = vim.api.nvim_buf_get_name(0)
   return {
     exe = "buf",
-    args = {
-      "format",
-      vim.api.nvim_buf_get_name(0),
-    },
+    args = { "format", filename },
     stdin = true,
   }
 end

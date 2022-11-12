@@ -33,7 +33,6 @@
     lldb
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
-    nur.repos.eh5.netease-cloud-music
     obs-studio
     obsidian
     slack

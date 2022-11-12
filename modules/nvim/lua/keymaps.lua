@@ -29,4 +29,4 @@ vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k")
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float)
+vim.keymap.set("n", "go", vim.diagnostic.open_float)

@@ -7,10 +7,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { nixpkgs, home-manager, nur, ... }: {
+  outputs = { nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -26,9 +25,8 @@
       nixos-desktop =
         let
           system = "x86_64-linux";
-          overlays = [ nur.overlay ];
           pkgs = import nixpkgs {
-            inherit system overlays;
+            inherit system;
             config.allowUnfree = true;
           };
         in
@@ -40,9 +38,8 @@
       nixos-laptop =
         let
           system = "x86_64-linux";
-          overlays = [ nur.overlay ];
           pkgs = import nixpkgs {
-            inherit system overlays;
+            inherit system;
             config.allowUnfree = true;
           };
         in
@@ -68,7 +65,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./mac-work/home.nix ];
+          modules = [ ./mac/work/home.nix ];
         };
     };
   };

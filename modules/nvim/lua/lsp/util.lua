@@ -35,7 +35,7 @@ function M.should_reuse_client_func(prefixes)
   return function(client, config)
     return client.name == config.name and
         (buf_starts_with_any(prefixes) or
-            M.get_buf_root_dir(".git") == M.get_root_dir(".git", config.root_dir))
+            M.get_buf_root_dir(".git") == M.get_root_dir(".git", client.config.root_dir))
   end
 end
 

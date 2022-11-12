@@ -27,6 +27,7 @@
     rustup
     sqlite
     unzip
+    wasmtime
     wget
     wrangler
   ];

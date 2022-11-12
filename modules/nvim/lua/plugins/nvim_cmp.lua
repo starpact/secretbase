@@ -1,6 +1,8 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local cmp_kinds = {
   Namespace = "",
   Text = " ",
@@ -105,6 +107,7 @@ cmp.setup({
   },
   sources = {
     { name = "nvim_lsp" },
+    { name = "nvim_lsp_signature_help" },
     { name = "luasnip" },
     { name = "buffer", keyword_length = 5 },
     { name = "path" },

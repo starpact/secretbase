@@ -1,5 +1,3 @@
-require("lsp.util").format_on_save({ pattern = { "*.lua" }, })
-
 return {
   settings = {
     Lua = {

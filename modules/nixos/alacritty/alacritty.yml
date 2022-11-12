@@ -9,26 +9,26 @@ window:
   startup_mode: Windowed
   # opacity: 0.9
 font:
-  # size: 13.0
-  # normal:
-  #   family: Iosevka Nerd Font
-  #   style: Regular
-  # bold:
-  #   family: Iosevka Nerd Font
-  #   style: Bold
-  # italic:
-  #   family: Iosevka Nerd Font
-  #   style: italic
-  size: 12.0
+  size: 13.0
   normal:
-    family: VictorMono Nerd Font
+    family: Iosevka Nerd Font
     style: Regular
   bold:
-    family: VictorMono Nerd Font
+    family: Iosevka Nerd Font
     style: Bold
   italic:
-    family: VictorMono Nerd Font
-    style: Oblique
+    family: Iosevka Nerd Font
+    style: italic
+  # size: 12.0
+  # normal:
+  #   family: VictorMono Nerd Font
+  #   style: Regular
+  # bold:
+  #   family: VictorMono Nerd Font
+  #   style: Bold
+  # italic:
+  #   family: VictorMono Nerd Font
+  #   style: Oblique
 draw_bold_text_with_bright_colors: true
 colors:
   primary:
@@ -98,9 +98,8 @@ hints:
       binding:
         key: U
         mods: Control|Shift
-    # copy url or absolute path
     - regex:
-        "(/\\S+)|(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
+        "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
         [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
       action: Copy
       post_processing: true
