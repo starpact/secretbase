@@ -7,7 +7,7 @@ local function get_workspace_name()
 end
 
 local function get_relative_filepath()
-  local filepath = vim.fn.expand("%")
+  local filepath = vim.fn.expand("%:~:.")
   if vim.bo.filetype == "java" then
     local index = string.find(filepath, "?")
     if index then
@@ -21,10 +21,10 @@ require("lualine").setup({
   options = {
     disabled_filetypes = {
       "NvimTree",
-      winbar = { "toggleterm" }
+      winbar = { "toggleterm" },
     },
     section_separators = { left = "", right = "" },
-    component_separators = { left = "", right = "" }
+    component_separators = { left = "", right = "" },
   },
 
   sections = {
@@ -52,6 +52,6 @@ require("lualine").setup({
   inactive_winbar = {
     lualine_c = {
       { get_relative_filepath, color = { bg = "None" } },
-    }
+    },
   },
 })

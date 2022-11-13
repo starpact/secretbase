@@ -1,12 +1,10 @@
-require("project_nvim").setup(
-  {
-    patterns = {
-      ".git",
-      "Cargo.toml",
-      "go.mod",
-      "gradlew",
-      "Makefile",
-      "package.json",
-    }
-  }
-)
+require("project_nvim").setup({
+  patterns = {
+    ".git",
+    "Cargo.toml",
+    "go.mod",
+    "gradlew",
+    "Makefile",
+    "package.json",
+  },
+})

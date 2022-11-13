@@ -9,7 +9,7 @@
     ./modules/common.nix
     ./modules/dconf.nix
     ./modules/git.nix
-    ./modules/lsp.nix
+    ./modules/languages.nix
     ./modules/nvim.nix
     ./modules/tmux.nix
   ];
@@ -18,7 +18,6 @@
     cpu-x
     discord
     flameshot
-    gcc
     gimp
     google-chrome
     gnome.gnome-tweaks
@@ -30,9 +29,6 @@
     kitty
     liburing
     libreoffice
-    lldb
-    llvmPackages_latest.clang-manpages
-    llvmPackages_latest.llvm-manpages
     obs-studio
     obsidian
     slack

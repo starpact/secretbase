@@ -5,6 +5,6 @@ local telescope = require("telescope.themes").get_cursor({
 
 dressing.setup({
   select = {
-    telescope = telescope
+    telescope = telescope,
   },
 })

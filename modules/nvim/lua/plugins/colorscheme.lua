@@ -46,7 +46,7 @@ for kind, color in pairs({
   IconsOperator = "Green",
   IconsTypeParameter = "Blue",
   Separator = "Grey",
-  Text = "Grey"
+  Text = "Grey",
 }) do
   hl("Navic" .. kind, { link = color })
 end

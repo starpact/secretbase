@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd("WinEnter", {
     if term then
       term:set_mode(terms.mode.INSERT)
     end
-  end
+  end,
 })
 
 vim.cmd(string.format("autocmd! TermOpen %s lua set_terminal_keymaps()", toggleterm_pattern))

@@ -26,8 +26,7 @@
         "code.desktop" # 3
         "org.gnome.Nautilus.desktop" # 4
         "obsidian.desktop" # 5
-        "netease-cloud-music.desktop" # 6
-        "telegramdesktop.desktop" # 7
+        "telegramdesktop.desktop" # 6
       ];
     };
     "org/gnome/shell/keybindings" = {
@@ -36,8 +35,7 @@
       switch-to-application-3 = [ "<Super>3" ];
       switch-to-application-4 = [ "<Super>E" ];
       switch-to-application-5 = [ "<Super>N" ];
-      switch-to-application-6 = [ "<Super>M" ];
-      switch-to-application-7 = [ "<Super>C" ];
+      switch-to-application-6 = [ "<Super>C" ];
       toggle-message-tray = [ ];
       focus-active-notification = [ ];
     };

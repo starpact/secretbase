@@ -29,5 +29,5 @@ vim.api.nvim_create_autocmd({ "BufAdd", "BufWritePost" }, {
   callback = function()
     auto_add_codespell_linter()
     lint.try_lint()
-  end
+  end,
 })

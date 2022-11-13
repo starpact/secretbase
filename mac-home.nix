@@ -4,7 +4,7 @@
   imports = [
     ./modules/common.nix
     ./modules/git.nix
-    ./modules/lsp.nix
+    ./modules/languages.nix
     ./modules/nvim.nix
     ./modules/tmux.nix
   ];

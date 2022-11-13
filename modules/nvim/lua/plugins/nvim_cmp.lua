@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local types = require("cmp.types")
 local luasnip = require("luasnip")
 
 require("luasnip.loaders.from_vscode").lazy_load()
@@ -112,5 +113,7 @@ cmp.setup({
     { name = "buffer", keyword_length = 5 },
     { name = "path" },
   },
-  confirm_opts = { behavior = cmp.ConfirmBehavior.Replace },
+  confirmation = {
+    default_behavior = types.cmp.ConfirmBehavior.Replace,
+  },
 })

@@ -1,11 +1,17 @@
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = {
-    "*.html", "*.css", "*.js", "*.jsx", "*.ts", "*.tsx",
+    "*.html",
+    "*.css",
+    "*.js",
+    "*.jsx",
+    "*.ts",
+    "*.tsx",
     "*.lua",
     "*.json",
     "*.proto",
     "*.toml",
-    "*.yml", "*.yaml",
+    "*.yml",
+    "*.yaml",
   },
   command = "setlocal ts=2 sw=2",
 })

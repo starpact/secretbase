@@ -4,27 +4,15 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    clang-tools
-    cmake
-    delve
-    deno
     du-dust
     fd
-    gdb
-    gnumake
-    golangci-lint
-    gotools
-    gradle
+    graphviz
     helix
-    jdk
     kubectl
-    lldb
     neofetch
     (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
-    nodejs
     onefetch
     ripgrep
-    rustup
     sqlite
     unzip
     wasmtime
