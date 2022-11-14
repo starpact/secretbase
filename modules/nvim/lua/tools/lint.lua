@@ -2,8 +2,10 @@ local lint = require("lint")
 
 lint.linters_by_ft = {
   c = { "clangtidy" },
+  cpp = { "cppcheck" },
   go = { "golangcilint" },
   python = { "flake8" },
+  yaml = { "yamllint" },
 }
 
 lint.linters.codespell.args = {

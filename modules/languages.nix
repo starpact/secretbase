@@ -16,6 +16,7 @@
     clang-tools
     cmake
     gcc
+    cppcheck
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
 
@@ -45,7 +46,7 @@
     stylua
 
     # Nix
-    rnix-lsp
+    nil
     nixpkgs-fmt
 
     # Protobuf
@@ -81,5 +82,6 @@
 
     # YAML
     nodePackages.yaml-language-server
+    yamllint
   ];
 }
