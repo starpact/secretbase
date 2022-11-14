@@ -23,8 +23,6 @@ require("lualine").setup({
       "NvimTree",
       winbar = { "toggleterm" },
     },
-    section_separators = { left = "", right = "" },
-    component_separators = { left = "", right = "" },
   },
 
   sections = {

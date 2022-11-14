@@ -95,8 +95,6 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = cmp_kinds[vim_item.kind] or ""
-      -- Temporary solution for Iosevka and rust-analzyer.
-      vim_item.abbr = string.gsub(vim_item.abbr, "…", "… ", 1)
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",

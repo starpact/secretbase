@@ -4,13 +4,25 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
+    awscli
     du-dust
     fd
     graphviz
     helix
     kubectl
+    kubernetes-helm
     neofetch
-    (nerdfonts.override { fonts = [ "Iosevka" "VictorMono" "JetBrainsMono" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FantasqueSansMono"
+        "Inconsolata"
+        "Iosevka"
+        "JetBrainsMono"
+        "RobotoMono"
+        "SpaceMono"
+        "VictorMono"
+      ];
+    })
     onefetch
     ripgrep
     sqlite

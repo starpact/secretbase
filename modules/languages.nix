@@ -28,32 +28,35 @@
     # HTML/CSS/JSON/ESLint
     nodePackages.vscode-langservers-extracted
 
-    # Lua
-    sumneko-lua-language-server
-    stylua
-
     # Java
     jdk
     gradle
+    gradle-completion
     jdt-language-server
     google-java-format
+
+    # JavaScript/TypeScript
+    nodejs
+    deno
+    nodePackages.typescript-language-server
+
+    # Lua
+    sumneko-lua-language-server
+    stylua
 
     # Nix
     rnix-lsp
     nixpkgs-fmt
 
+    # Protobuf
+    protobuf
+    buf
+
     # Python
+    python310Packages.virtualenv
     nodePackages.pyright
     black
     python310Packages.flake8
-
-    # JavaScript/TypeScript
-    deno
-    nodejs
-    nodePackages.typescript-language-server
-
-    # SQL
-    pgformatter
 
     # Rust
     rustup
@@ -62,8 +65,14 @@
     cargo-expand
     cargo-udeps
 
+    # SQL
+    pgformatter
+
     # TOML
     taplo
+
+    # Wasm
+    wasmtime
 
     # YAML
     nodePackages.yaml-language-server

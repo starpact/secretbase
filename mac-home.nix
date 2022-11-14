@@ -1,9 +1,10 @@
+{ pkgs, ... }:
+
 {
   home.stateVersion = "22.05";
 
   imports = [
     ./modules/common.nix
-    ./modules/git.nix
     ./modules/languages.nix
     ./modules/nvim.nix
     ./modules/tmux.nix
@@ -12,6 +13,7 @@
   home.packages = with pkgs; [
     bashInteractive
     inetutils
+    nix
   ];
 
   programs = {

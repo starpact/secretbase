@@ -65,7 +65,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./mac/work/home.nix ];
+          modules = [ ./mac-work/home.nix ];
         };
     };
   };
