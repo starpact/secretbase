@@ -34,6 +34,7 @@
     gradle
     gradle-completion
     jdt-language-server
+    checkstyle
     google-java-format
 
     # JavaScript/TypeScript

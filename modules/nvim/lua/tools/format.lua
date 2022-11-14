@@ -1,14 +1,23 @@
-local function nixFormatter()
+local function nix_formatter()
   return {
     exe = "nixpkgs-fmt",
   }
 end
 
-local function protoFormatter()
+local function proto_formatter()
   local filename = vim.api.nvim_buf_get_name(0)
   return {
     exe = "buf",
     args = { "format", filename },
+    stdin = true,
+  }
+end
+
+local function java_formatter()
+  local filename = vim.api.nvim_buf_get_name(0)
+  return {
+    exe = "google-java-format",
+    args = { filename },
     stdin = true,
   }
 end
@@ -18,8 +27,9 @@ require("formatter").setup({
     css = { require("formatter.filetypes.css").prettier },
     html = { require("formatter.filetypes.html").prettier },
     lua = { require("formatter.filetypes.lua").stylua },
-    nix = { nixFormatter },
-    proto = { protoFormatter },
+    java = { java_formatter },
+    nix = { nix_formatter },
+    proto = { proto_formatter },
     python = { require("formatter.filetypes.python").black },
     sql = { require("formatter.filetypes.sql").pgformat },
     yaml = { require("formatter.filetypes.yaml").prettier },
@@ -31,7 +41,9 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = {
     "*.css",
     "*.html",
+    "*.java",
     "*.lua",
+    "*.java",
     "*.nix",
     "*.proto",
     "*.py",
@@ -50,7 +62,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     ".h",
     "*.json",
     "*.toml",
-    "*.java",
     "*.js",
     "*.jsx",
     "*.ts",

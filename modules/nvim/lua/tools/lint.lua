@@ -4,6 +4,7 @@ lint.linters_by_ft = {
   c = { "clangtidy" },
   cpp = { "cppcheck" },
   go = { "golangcilint" },
+  java = { "checkstyle" },
   python = { "flake8" },
   yaml = { "yamllint" },
 }
