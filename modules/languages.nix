@@ -50,6 +50,7 @@
 
     # Protobuf
     protobuf
+    buf-language-server
     buf
 
     # Python
@@ -67,6 +68,10 @@
 
     # SQL
     pgformatter
+
+    # Terraform
+    terraform
+    terraform-ls
 
     # TOML
     taplo

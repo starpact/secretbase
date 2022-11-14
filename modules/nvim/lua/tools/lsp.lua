@@ -3,12 +3,14 @@ local lspconfig = require("lspconfig")
 
 local unconfigured_servers = {
   "bashls",
+  "bufls",
   "cssls",
   "eslint",
   "html",
   "jsonls",
   "pyright",
   "rnix",
+  "terraformls",
   "tsserver",
   "yamlls",
 }

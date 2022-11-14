@@ -4,13 +4,10 @@
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
-    awscli
     du-dust
     fd
     graphviz
     helix
-    kubectl
-    kubernetes-helm
     neofetch
     (nerdfonts.override {
       fonts = [
@@ -27,7 +24,6 @@
     ripgrep
     sqlite
     unzip
-    wasmtime
     wget
     wrangler
   ];

@@ -1,2 +1,4 @@
 brew install \
-    alacritty kitty snipaste alfred manico scroll-reverser telegram-desktop obsidian visual-studio-code doll
+    alacritty kitty \
+    snipaste alfred manico scroll-reverser doll \
+    telegram-desktop obsidian visual-studio-code dbeaver-community
