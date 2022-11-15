@@ -18,6 +18,11 @@ lint.linters.codespell.args = {
   }, ","),
 }
 
+lint.linters.yamllint.args = {
+  "--format=parsable",
+  "--config-data=relaxed",
+}
+
 local function auto_add_codespell_linter()
   local ft = vim.bo.filetype
   local linters = lint.linters_by_ft[ft]
