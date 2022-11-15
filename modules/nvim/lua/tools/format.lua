@@ -41,17 +41,15 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   pattern = {
     "*.css",
     "*.html",
-    "*.java",
     "*.lua",
     "*.java",
     "*.nix",
     "*.proto",
     "*.py",
-    "*.sql",
     "*.yaml",
     "*.yml",
   },
-  command = "FormatWrite",
+  command = "FormatWriteLock",
 })
 
 -- Use language servers.
@@ -61,9 +59,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     "*.cpp",
     ".h",
     "*.json",
-    "*.toml",
     "*.js",
     "*.jsx",
+    "*.toml",
     "*.ts",
     "*.tsx",
     "*.rs",

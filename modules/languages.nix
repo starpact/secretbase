@@ -33,6 +33,7 @@
     jdk
     gradle
     gradle-completion
+    maven
     jdt-language-server
     checkstyle
     google-java-format

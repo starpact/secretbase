@@ -12,6 +12,7 @@
       cmp-path
       cmp_luasnip
       dressing-nvim
+      editorconfig-nvim
       fidget-nvim
       friendly-snippets
       formatter-nvim

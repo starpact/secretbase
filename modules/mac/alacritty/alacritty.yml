@@ -5,9 +5,8 @@ window:
   padding:
     x: 5
   decorations: none
-  # opacity: 0.9
+  opacity: 0.9
   dynamic_padding: true
-  # startup_mode: Maximized
 font:
   # size: 17.0
   # normal:
@@ -127,4 +126,3 @@ key_bindings:
   - { key: B, mods: Alt, chars: "\x1bb" }
   - { key: C, mods: Alt, chars: "\x1bc" }
   - { key: J, mods: Command, chars: "\x1bj" }
-  - { key: F, mods: Shift|Option, action: ToggleMaximized }

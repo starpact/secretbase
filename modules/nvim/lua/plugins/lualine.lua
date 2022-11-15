@@ -8,11 +8,8 @@ end
 
 local function get_relative_filepath()
   local filepath = vim.fn.expand("%:~:.")
-  if vim.bo.filetype == "java" then
-    local index = string.find(filepath, "?")
-    if index then
-      return string.sub(filepath, 16, index - 1)
-    end
+  if string.sub(filepath, 1, 3) == "jdt" then
+    return string.sub(filepath, 16, string.find(filepath, "?") - 1)
   end
   return filepath
 end
@@ -45,7 +42,7 @@ require("lualine").setup({
   },
   winbar = {
     lualine_c = {
-      { get_relative_filepath, color = { bg = "None", gui = "bold" } },
+      { get_relative_filepath, max_length = 0, color = { bg = "None", gui = "bold" } },
       { navic.get_location, cond = navic.is_available },
     },
   },
