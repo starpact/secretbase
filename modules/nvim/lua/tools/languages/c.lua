@@ -3,7 +3,7 @@ local util = require("tools.util")
 
 local M = {}
 
-function M.setup_lsp()
+M.setup_lsp = function()
   lspconfig.clangd.setup({
     cmd = { "clangd", "--function-arg-placeholders=0" },
     capabilities = util.capabilities,

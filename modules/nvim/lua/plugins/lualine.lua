@@ -1,17 +1,14 @@
 local navic = require("nvim-navic")
+local util = require("plugins.util")
 
-local function get_workspace_name()
+local function workspace_name()
   local cwd = vim.fn.getcwd()
   local index = string.find(cwd, "/[^/]*$") or 0
   return string.sub(cwd, index + 1)
 end
 
-local function get_relative_filepath()
-  local filepath = vim.fn.expand("%:~:.")
-  if string.sub(filepath, 1, 3) == "jdt" then
-    return string.sub(filepath, 16, string.find(filepath, "?") - 1)
-  end
-  return filepath
+local function buf_name_display()
+  return util.path_display(vim.api.nvim_buf_get_name(0))
 end
 
 require("lualine").setup({
@@ -25,7 +22,7 @@ require("lualine").setup({
   },
 
   sections = {
-    lualine_a = { get_workspace_name },
+    lualine_a = { workspace_name },
     lualine_b = { "branch", { "diff", symbols = { added = " ", modified = " ", removed = " " } } },
     lualine_c = { { "diagnostics", sections = { "error", "warn", "info" } } },
     lualine_x = { "filetype" },
@@ -42,13 +39,13 @@ require("lualine").setup({
   },
   winbar = {
     lualine_c = {
-      { get_relative_filepath, max_length = 0, color = { bg = "None", gui = "bold" } },
+      { buf_name_display, max_length = 0, color = { bg = "None", gui = "bold" } },
       { navic.get_location, cond = navic.is_available },
     },
   },
   inactive_winbar = {
     lualine_c = {
-      { get_relative_filepath, color = { bg = "None" } },
+      { buf_name_display, color = { bg = "None" } },
     },
   },
 })

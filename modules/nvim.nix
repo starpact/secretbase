@@ -15,18 +15,17 @@
       editorconfig-nvim
       fidget-nvim
       friendly-snippets
-      formatter-nvim
       gitsigns-nvim
       gruvbox-material
       leap-nvim
       lualine-nvim
       luasnip
+      null-ls-nvim
       nvim-autopairs
       nvim-cmp
       nvim-dap
       nvim-dap-ui
       nvim-jdtls
-      nvim-lint
       nvim-lspconfig
       nvim-surround
       nvim-navic

@@ -1,3 +1,4 @@
+local lsputil = require("lspconfig").util
 local util = require("tools.util")
 
 local M = {}
@@ -21,22 +22,22 @@ local function start_or_attach()
   vim.lsp.start({
     name = "gopls",
     cmd = { "gopls" },
-    root_dir = util.get_buf_root_dir({ ".git", "go.mod" }),
+    root_dir = lsputil.root_pattern(".git", "go.mod")(vim.api.nvim_buf_get_name(0)),
     capabilities = util.capabilities,
     on_attach = util.on_attach,
   }, {
-    reuse_client = util.reuse_client({ "/nix", "~/go" }),
+    reuse_client = util.reuse_client("/nix", "~/go"),
   })
 end
 
-function M.setup_lsp()
+M.setup_lsp = function()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "go", "gomod", "gowork", "gotmpl" },
     callback = start_or_attach,
   })
 end
 
-function M.update_dap(dap)
+M.update_dap = function(dap)
   dap.adapters.delve = {
     type = "server",
     port = "${port}",
@@ -69,7 +70,7 @@ function M.update_dap(dap)
   }
 end
 
-function M.format()
+M.format = function()
   go_organize_imports(1000)
   vim.lsp.buf.format({ timeout_ms = 500 })
 end

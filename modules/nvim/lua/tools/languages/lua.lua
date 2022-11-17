@@ -17,7 +17,7 @@ local settings = {
   },
 }
 
-function M.setup_lsp()
+M.setup_lsp = function()
   lspconfig.sumneko_lua.setup({
     capabilities = util.capabilities,
     on_attach = util.on_attach,

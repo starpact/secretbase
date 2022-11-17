@@ -11,6 +11,8 @@
 
     # Bash
     nodePackages.bash-language-server
+    shfmt
+    shellcheck
 
     # C/C++
     clang-tools
@@ -19,6 +21,9 @@
     cppcheck
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages
+
+    # Cue
+    cue
 
     # Go
     gopls
@@ -70,7 +75,7 @@
     cargo-udeps
 
     # SQL
-    pgformatter
+    nodePackages.sql-formatter
 
     # Terraform
     terraform

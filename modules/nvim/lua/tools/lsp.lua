@@ -1,5 +1,5 @@
-local util = require("tools.util")
 local lspconfig = require("lspconfig")
+local util = require("tools.util")
 
 local unconfigured_servers = {
   "bashls",
@@ -8,9 +8,8 @@ local unconfigured_servers = {
   "eslint",
   "html",
   "jsonls",
-  "pyright",
-  -- "rnix",
   "nil_ls",
+  "pyright",
   "terraformls",
   "tsserver",
   "yamlls",
