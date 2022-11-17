@@ -1,5 +1,5 @@
 require("options")
 require("keymaps")
 require("plugins")
-require("indentations")
+require("indents")
 require("tools")

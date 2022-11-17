@@ -34,7 +34,7 @@
       switch-to-application-2 = [ "<Super>2" ];
       switch-to-application-3 = [ "<Super>3" ];
       switch-to-application-4 = [ "<Super>E" ];
-      switch-to-application-5 = [ "<Super>N" ];
+      switch-to-application-5 = [ "<Super>D" ];
       switch-to-application-6 = [ "<Super>C" ];
       toggle-message-tray = [ ];
       focus-active-notification = [ ];
