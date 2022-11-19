@@ -5,7 +5,7 @@ local M = {}
 local config = [[{
   extends: default,
   rules: {
-    line-length: { max: 100 },
+    line-length: disable,
     document-start: disable,
     braces: { max-spaces-inside: 1 }
   }
