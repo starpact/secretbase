@@ -40,7 +40,7 @@ M.reuse_client = function(...)
   local prefixes = vim.tbl_flatten({ ... })
   local find_git_ancestor = require("lspconfig").util.find_git_ancestor
   return function(client, config)
-    if not client.name == config.name then
+    if client.name ~= config.name then
       return false
     end
 
