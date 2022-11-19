@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  home.file.".editorconfig".source = ../.editorconfig;
+
   home.packages = with pkgs; [
     # General
     codespell

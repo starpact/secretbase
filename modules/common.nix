@@ -7,7 +7,6 @@
     du-dust
     fd
     graphviz
-    helix
     neofetch
     (nerdfonts.override {
       fonts = [
@@ -15,8 +14,6 @@
         "Inconsolata"
         "Iosevka"
         "JetBrainsMono"
-        "RobotoMono"
-        "SpaceMono"
         "VictorMono"
       ];
     })

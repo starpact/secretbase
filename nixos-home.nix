@@ -29,7 +29,6 @@
     kitty
     liburing
     libreoffice
-    obs-studio
     obsidian
     slack
     tdesktop

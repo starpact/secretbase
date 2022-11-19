@@ -22,7 +22,6 @@ null_ls.setup({
     diagnostics.shellcheck,
     require("tools.languages.any").linter,
     require("tools.languages.java").linter,
-    require("tools.languages.yaml").linter,
   },
 })
 
