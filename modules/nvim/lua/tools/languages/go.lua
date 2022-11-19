@@ -3,10 +3,10 @@ local util = require("tools.util")
 
 local M = {}
 
-local function go_organize_imports(wait_ms)
+local function go_organize_imports(timeout_ms)
   local params = vim.lsp.util.make_range_params()
   params.context = { only = { "source.organizeImports" } }
-  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
+  local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, timeout_ms)
   for _, res in pairs(result or {}) do
     for _, r in pairs(res.result or {}) do
       if r.edit then
@@ -72,7 +72,7 @@ end
 
 M.format = function()
   go_organize_imports(1000)
-  vim.lsp.buf.format({ timeout_ms = 500 })
+  vim.lsp.buf.format()
 end
 
 return M

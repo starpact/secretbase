@@ -72,15 +72,6 @@
       desktopManager.xterm.enable = false;
       excludePackages = [ pkgs.xterm ];
     };
-    create_ap = {
-      enable = true;
-      settings = {
-        INTERNET_IFACE = "wlp1s0";
-        PASSPHRASE = "starpact";
-        SSID = "for the first time in forever";
-        WIFI_IFACE = "wlp1s0";
-      };
-    };
   };
 
   virtualisation = {

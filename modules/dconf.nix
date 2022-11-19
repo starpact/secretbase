@@ -9,9 +9,9 @@
       tap-to-click = true;
     };
     "org/gnome/desktop/interface" = {
-      font-name = "JetbrainsMono Nerd Font 11";
-      document-font-name = "JetbrainsMono Nerd Font 11";
-      monospace-font-name = "JetbrainsMono Nerd Font 11";
+      font-name = "FantasqueSansMono Nerd Font 12";
+      document-font-name = "FantasqueSansMono Nerd Font 12";
+      monospace-font-name = "FantasqueSansMono Nerd Font 12";
       clock-show-weekday = true;
       enable-hot-corners = false;
     };

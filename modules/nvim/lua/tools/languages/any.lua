@@ -8,6 +8,7 @@ M.linter = null_ls.builtins.diagnostics.codespell.with({
     table.concat({
       "crate",
       "ser",
+      "wit",
     }, ","),
   },
 })
