@@ -1,0 +1,7 @@
+[[language]]
+name = "lua"
+auto-format = true
+
+[[language]]
+name = "toml"
+auto-format = true

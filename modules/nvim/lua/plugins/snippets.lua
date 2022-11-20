@@ -13,7 +13,6 @@ ls.add_snippets("go", {
       i(2, "err"),
     })
   ),
-  s("fp", fmt("fmt.Println({})", { i(1, "") })),
   s("todo", t([[panic("unimplemented")]])),
 })
 

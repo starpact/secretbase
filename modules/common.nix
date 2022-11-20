@@ -1,11 +1,21 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   fonts.fontconfig.enable = true;
 
+  home.file = {
+    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/nvim";
+    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/helix";
+    ".config/tmux/tmux.conf".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/tmux/tmux.conf";
+  };
+
   home.packages = with pkgs; [
     du-dust
     fd
+    helix
     graphviz
     neofetch
     (nerdfonts.override {
@@ -20,6 +30,7 @@
     onefetch
     ripgrep
     sqlite
+    tmux
     unzip
     wget
     wrangler

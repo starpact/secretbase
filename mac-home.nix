@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.stateVersion = "22.05";
@@ -7,7 +7,6 @@
     ./modules/common.nix
     ./modules/languages.nix
     ./modules/nvim.nix
-    ./modules/tmux.nix
   ];
 
   home.packages = with pkgs; [
@@ -15,6 +14,13 @@
     inetutils
     nix
   ];
+
+  home.file = {
+    ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/alacritty/alacritty_mac.yml";
+    ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/kitty/kitty_mac.conf";
+  };
 
   programs = {
     home-manager.enable = true;

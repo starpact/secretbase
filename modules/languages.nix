@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
-  home.file.".editorconfig".source = ../.editorconfig;
+  home.file.".editorconfig".source = config.lib.file.mkOutOfStoreSymlink ../.editorconfig;
 
   home.packages = with pkgs; [
     # General

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   home.stateVersion = "22.05";
@@ -11,10 +11,17 @@
     ./modules/git.nix
     ./modules/languages.nix
     ./modules/nvim.nix
-    ./modules/tmux.nix
   ];
 
+  home.file = {
+    ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/alacritty/alacritty_linux.yml";
+    ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/workspace/dotfiles/modules/kitty/kitty_linux.conf";
+  };
+
   home.packages = with pkgs; [
+    alacritty
     cpu-x
     discord
     flameshot
@@ -44,7 +51,6 @@
   ];
 
   programs = {
-    alacritty.enable = true;
     bash = {
       enable = true;
       sessionVariables = {

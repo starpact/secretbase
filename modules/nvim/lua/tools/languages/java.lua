@@ -28,10 +28,11 @@ M.setup_lsp = function()
 end
 
 local function find_config()
-  if vim.fn.filereadable("google_checks.xml") == 1 then
-    return "google_checks.xml"
+  local filename = "checkstyle.xml"
+  if vim.fn.filereadable(filename) == 1 then
+    return filename
   end
-  return vim.fs.normalize("~/.config/nvim/bundles/google_checks.xml")
+  return vim.fs.normalize("~/.config/nvim/bundles/" .. filename)
 end
 
 M.linter = null_ls.builtins.diagnostics.checkstyle.with({
