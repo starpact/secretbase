@@ -15,8 +15,6 @@ hl("VirtualTextHint", { ctermfg = 142, fg = "#6c782e" })
 hl("TSField", { link = "Fg" })
 hl("TSNamespace", { link = "Fg" })
 hl("NvimTreeFolderIcon", { link = "Blue" })
-hl("FidgetTask", { link = "Comment" })
-hl("Search", { ctermfg = 235, ctermbg = 167, fg = "#282828", bg = "#ea6962" })
 
 for kind, color in pairs({
   IconsFile = "Green",

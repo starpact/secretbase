@@ -1,6 +1,8 @@
 local navic = require("nvim-navic")
 local util = require("plugins.util")
 
+navic.setup({ highlight = true })
+
 local function workspace_name()
   local cwd = vim.fn.getcwd()
   local index = string.find(cwd, "/[^/]*$") or 0
@@ -17,20 +19,21 @@ require("lualine").setup({
       "NvimTree",
       winbar = { "toggleterm" },
     },
-    section_separators = { left = "", right = "" },
-    component_separators = { left = "", right = "" },
   },
 
   sections = {
-    lualine_a = { workspace_name },
-    lualine_b = { "branch", { "diff", symbols = { added = " ", modified = " ", removed = " " } } },
+    lualine_a = { buf_name_display },
+    lualine_b = {
+      "branch",
+      { "diff", symbols = { added = " ", modified = " ", removed = " " } },
+    },
     lualine_c = { { "diagnostics", sections = { "error", "warn", "info" } } },
     lualine_x = { "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = { buf_name_display },
     lualine_b = {},
     lualine_c = {},
     lualine_x = { "location" },
@@ -39,13 +42,11 @@ require("lualine").setup({
   },
   winbar = {
     lualine_c = {
-      { buf_name_display, max_length = 0, color = { bg = "None", gui = "bold" } },
+      { workspace_name, color = { bg = "None", gui = "bold" } },
       { navic.get_location, cond = navic.is_available },
     },
   },
   inactive_winbar = {
-    lualine_c = {
-      { buf_name_display, color = { bg = "None" } },
-    },
+    lualine_c = { { workspace_name, color = { bg = "None" } } },
   },
 })

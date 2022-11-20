@@ -31,9 +31,6 @@
       nvim-lspconfig
       nvim-surround
       nvim-navic
-      telescope-nvim
-      telescope-fzf-native-nvim
-      nvim-tree-lua
       (nvim-treesitter.withPlugins (plugins: with plugins; [
         tree-sitter-bash
         tree-sitter-c
@@ -61,9 +58,14 @@
         tree-sitter-tsx
         tree-sitter-yaml
       ]))
+      nvim-tree-lua
+      nvim-treesitter-textobjects
+      nvim-ts-context-commentstring
       nvim-ts-autotag
       nvim-web-devicons
       project-nvim
+      telescope-nvim
+      telescope-fzf-native-nvim
       toggleterm-nvim
       vim-test
     ];

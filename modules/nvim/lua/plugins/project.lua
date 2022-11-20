@@ -6,6 +6,7 @@ require("project_nvim").setup({
     "go.mod",
     "gradlew",
     "Makefile",
+    "mvnw",
     "package.json",
   },
 })
