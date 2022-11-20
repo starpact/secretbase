@@ -1,7 +1,8 @@
 { pkgs, config, ... }:
 
 {
-  home.file.".editorconfig".source = config.lib.file.mkOutOfStoreSymlink ../.editorconfig;
+  home.file.".editorconfig".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/workspace/dotfiles/.editorconfig";
 
   home.packages = with pkgs; [
     # General
