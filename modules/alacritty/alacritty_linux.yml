@@ -436,12 +436,12 @@ key_bindings:
   # - { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   # - { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   # - { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
-  - { key: Key1, mods: Command, chars: "\x01\x31" }
-  - { key: Key2, mods: Command, chars: "\x01\x32" }
-  - { key: Key3, mods: Command, chars: "\x01\x33" }
-  - { key: Key4, mods: Command, chars: "\x01\x34" }
-  - { key: Key5, mods: Command, chars: "\x01\x35" }
-  - { key: Key6, mods: Command, chars: "\x01\x36" }
-  - { key: Key7, mods: Command, chars: "\x01\x37" }
-  - { key: Key8, mods: Command, chars: "\x01\x38" }
-  - { key: Key9, mods: Command, chars: "\x01\x39" }
+  - { key: Key1, mods: Alt, chars: "\x01\x31" }
+  - { key: Key2, mods: Alt, chars: "\x01\x32" }
+  - { key: Key3, mods: Alt, chars: "\x01\x33" }
+  - { key: Key4, mods: Alt, chars: "\x01\x34" }
+  - { key: Key5, mods: Alt, chars: "\x01\x35" }
+  - { key: Key6, mods: Alt, chars: "\x01\x36" }
+  - { key: Key7, mods: Alt, chars: "\x01\x37" }
+  - { key: Key8, mods: Alt, chars: "\x01\x38" }
+  - { key: Key9, mods: Alt, chars: "\x01\x39" }
