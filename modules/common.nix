@@ -15,8 +15,8 @@
   home.packages = with pkgs; [
     du-dust
     fd
-    helix
     graphviz
+    helix
     neofetch
     (nerdfonts.override {
       fonts = [

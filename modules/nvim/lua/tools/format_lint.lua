@@ -20,6 +20,7 @@ null_ls.setup({
     diagnostics.flake8,
     diagnostics.golangci_lint,
     diagnostics.shellcheck,
+    diagnostics.yamllint,
     require("tools.languages.any").linter,
     require("tools.languages.java").linter,
   },

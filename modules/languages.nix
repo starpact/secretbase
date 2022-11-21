@@ -3,6 +3,8 @@
 {
   home.file.".editorconfig".source = config.lib.file.mkOutOfStoreSymlink
     "${config.home.homeDirectory}/workspace/dotfiles/.editorconfig";
+  home.file.".config/yamllint/config".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.homeDirectory}/workspace/dotfiles/.yamllint.yaml";
 
   home.packages = with pkgs; [
     # General
@@ -89,6 +91,7 @@
 
     # Wasm
     wasmtime
+    wabt
 
     # YAML
     nodePackages.yaml-language-server

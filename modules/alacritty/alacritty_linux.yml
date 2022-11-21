@@ -340,51 +340,6 @@ key_bindings:
   - { key: 5, mods: Shift, mode: Vi|~Search, action: Last }
   - { key: 6, mods: Shift, mode: Vi|~Search, action: Bracket }
   - { key: 7, mods: Shift, mode: Vi|~Search, action: FirstOccupied }
-  - {
-      key: Key1,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 1"] },
-    }
-  - {
-      key: Key2,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 2"] },
-    }
-  - {
-      key: Key3,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 3"] },
-    }
-  - {
-      key: Key4,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 4"] },
-    }
-  - {
-      key: Key5,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 5"] },
-    }
-  - {
-      key: Key6,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 6"] },
-    }
-  - {
-      key: Key7,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 7"] },
-    }
-  - {
-      key: Key8,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 8"] },
-    }
-  - {
-      key: Key9,
-      mods: Alt,
-      command: { program: "tmux", args: ["select-window", "-t 9"] },
-    }
   # - { key: Space,  mods: Shift|Control, mode: ~Search,    action: ToggleViMode            }
   # - { key: Space,  mods: Shift|Control, mode: Vi|~Search, action: ScrollToBottom          }
   # - { key: Escape,                      mode: Vi|~Search, action: ClearSelection          }
@@ -481,3 +436,12 @@ key_bindings:
   # - { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   # - { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   # - { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
+  - { key: Key1, mods: Command, chars: "\x01\x31" }
+  - { key: Key2, mods: Command, chars: "\x01\x32" }
+  - { key: Key3, mods: Command, chars: "\x01\x33" }
+  - { key: Key4, mods: Command, chars: "\x01\x34" }
+  - { key: Key5, mods: Command, chars: "\x01\x35" }
+  - { key: Key6, mods: Command, chars: "\x01\x36" }
+  - { key: Key7, mods: Command, chars: "\x01\x37" }
+  - { key: Key8, mods: Command, chars: "\x01\x38" }
+  - { key: Key9, mods: Command, chars: "\x01\x39" }

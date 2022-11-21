@@ -5,7 +5,7 @@ M.path_display = function(path)
 
   local nix_store = "/nix/store/"
   if vim.startswith(path, nix_store) then
-    local str = string.match(path, "/nix/store/[0-9a-z]+")
+    local str = string.match(path, nix_store .. "[0-9a-z]+")
     return str and "NIX/" .. string.sub(path, #str + 2) or path
   end
 
@@ -28,7 +28,7 @@ M.path_display = function(path)
     return "~/" .. string.sub(path, #home + 1)
   end
 
-  if string.sub(path, 1, 3) == "jdt" then
+  if vim.startswith(path, "jdt") then
     return string.sub(path, 16, string.find(path, "?") - 1)
   end
 
