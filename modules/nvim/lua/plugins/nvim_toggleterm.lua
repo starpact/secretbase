@@ -1,7 +1,3 @@
-local function map(keys, cmd)
-  vim.keymap.set("t", keys, cmd, { noremap = true })
-end
-
 require("toggleterm").setup({
   size = vim.o.lines * 0.4,
   open_mapping = "<A-j>",
@@ -9,25 +5,13 @@ require("toggleterm").setup({
   shade_terminals = false,
 })
 
-local toggleterm_pattern = "term://*#toggleterm#*"
-
-vim.api.nvim_create_autocmd("WinEnter", {
-  pattern = toggleterm_pattern,
-  callback = function()
-    local terms = require("toggleterm.terminal")
-    local _, term = terms.identify()
-    if term then
-      term:set_mode(terms.mode.INSERT)
-    end
-  end,
-})
-
 function _G.set_terminal_keymaps()
-  map("<Esc>", "<C-\\><C-n>")
-  map("jk", "<C-\\><C-n>")
-  map("<C-h>", "<C-\\><C-n><C-W>h")
-  map("<C-j>", "<C-\\><C-n><C-W>j")
-  map("<C-k>", "<C-\\><C-n><C-W>k")
+  local opts = { buffer = 0 }
+  vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+  vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
 end
 
-vim.cmd(string.format("autocmd! TermOpen %s lua set_terminal_keymaps()", toggleterm_pattern))
+vim.cmd(string.format("autocmd! TermOpen term://*#toggleterm#* lua set_terminal_keymaps()"))

@@ -28,7 +28,6 @@ require("nvim-treesitter.configs").setup({
     },
     move = {
       enable = true,
-      set_jumps = false,
       goto_next_start = {
         ["]f"] = "@function.outer",
         ["]c"] = "@class.outer",
