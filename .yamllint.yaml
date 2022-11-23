@@ -3,5 +3,6 @@ extends: default
 rules:
   line-length: disable
   document-start: disable
+  new-line-at-end-of-file: disable
   braces:
     max-spaces-inside: 1

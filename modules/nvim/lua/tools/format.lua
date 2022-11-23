@@ -1,28 +1,19 @@
 local null_ls = require("null-ls")
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
 
 null_ls.setup({
   sources = {
-    formatting.black,
-    formatting.buf,
-    formatting.cue_fmt,
-    formatting.google_java_format,
-    formatting.nixpkgs_fmt,
-    formatting.prettier.with({ filetypes = { "css", "yaml" } }),
-    formatting.shfmt,
-    formatting.sql_formatter,
-    formatting.stylua,
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.buf,
+    null_ls.builtins.formatting.cue_fmt,
+    null_ls.builtins.formatting.google_java_format,
+    null_ls.builtins.formatting.nixpkgs_fmt,
+    null_ls.builtins.formatting.prettier.with({ filetypes = { "css", "yaml" } }),
+    null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.formatting.sql_formatter,
+    null_ls.builtins.formatting.stylua,
 
-    diagnostics.clang_check,
-    diagnostics.cppcheck,
-    diagnostics.cue_fmt,
-    diagnostics.flake8,
-    diagnostics.golangci_lint,
-    diagnostics.shellcheck,
-    diagnostics.yamllint,
+    null_ls.builtins.diagnostics.cue_fmt,
     require("tools.languages.any").linter,
-    require("tools.languages.java").linter,
   },
 })
 

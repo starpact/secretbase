@@ -1,4 +1,3 @@
-local null_ls = require("null-ls")
 local util = require("tools.util")
 
 local M = {}
@@ -27,19 +26,21 @@ M.setup_lsp = function()
   })
 end
 
-local function find_config()
-  local filename = "checkstyle.xml"
-  if vim.fn.filereadable(filename) == 1 then
-    return filename
+local function checkstyle_config_path()
+  for _, path in ipairs({ "checkstyle.xml" }) do
+    if vim.fn.filereadable(path) == 1 then
+      return path
+    end
   end
-  return vim.fs.normalize("~/.config/nvim/bundles/" .. filename)
+
+  return "google_checks.xml"
 end
 
-M.linter = null_ls.builtins.diagnostics.checkstyle.with({
-  extra_args = {
+M.update_linter = function(linters)
+  linters.checkstyle.args = {
     "-c",
-    find_config(),
-  },
-})
+    checkstyle_config_path,
+  }
+end
 
 return M
