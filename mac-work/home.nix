@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     apacheKafka
-    awscli
+    awscli2
     git
     grafana
     kubectl

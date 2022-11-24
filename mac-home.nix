@@ -36,6 +36,7 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
+        grep = "rg";
       };
       initExtra = ''
         eval "$(/opt/homebrew/bin/brew shellenv)"
