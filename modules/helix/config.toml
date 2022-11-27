@@ -2,6 +2,7 @@ theme = "everforest_dark"
 
 [editor]
 line-number = "relative"
+color-modes = true
 cursorline = true
 idle-timeout = 0
 completion-trigger-len = 1

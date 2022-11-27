@@ -23,9 +23,9 @@
       favorite-apps = [
         "google-chrome.desktop" # 1
         "Alacritty.desktop" # 2
-        "code.desktop" # 3
-        "org.gnome.Nautilus.desktop" # 4
-        "obsidian.desktop" # 5
+        "obsidian.desktop" # 3
+        "code.desktop" # 4
+        "org.gnome.Nautilus.desktop" # 5
         "telegramdesktop.desktop" # 6
       ];
     };
@@ -33,8 +33,8 @@
       switch-to-application-1 = [ "<Super>1" ];
       switch-to-application-2 = [ "<Super>2" ];
       switch-to-application-3 = [ "<Super>3" ];
-      switch-to-application-4 = [ "<Super>E" ];
-      switch-to-application-5 = [ "<Super>D" ];
+      switch-to-application-4 = [ "<Super>4" ];
+      switch-to-application-5 = [ "<Super>E" ];
       switch-to-application-6 = [ "<Super>C" ];
       toggle-message-tray = [ ];
       focus-active-notification = [ ];

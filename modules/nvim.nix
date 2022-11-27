@@ -32,34 +32,8 @@
       nvim-lspconfig
       nvim-surround
       nvim-navic
-      (nvim-treesitter.withPlugins (plugins: with plugins; [
-        tree-sitter-bash
-        tree-sitter-c
-        tree-sitter-cmake
-        tree-sitter-comment
-        tree-sitter-css
-        tree-sitter-dockerfile
-        tree-sitter-go
-        tree-sitter-gomod
-        tree-sitter-html
-        tree-sitter-javascript
-        tree-sitter-java
-        tree-sitter-json
-        tree-sitter-lua
-        tree-sitter-make
-        tree-sitter-markdown
-        tree-sitter-markdown-inline
-        tree-sitter-nix
-        tree-sitter-python
-        tree-sitter-regex
-        tree-sitter-rust
-        tree-sitter-sql
-        tree-sitter-toml
-        tree-sitter-typescript
-        tree-sitter-tsx
-        tree-sitter-yaml
-      ]))
       nvim-tree-lua
+      nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       nvim-ts-context-commentstring
       nvim-ts-autotag
