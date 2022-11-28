@@ -27,7 +27,7 @@ M.setup_lsp = function()
 end
 
 local function checkstyle_config_path()
-  for _, path in ipairs({ "checkstyle.xml" }) do
+  for _, path in ipairs({ "checkstyle.xml", "scripts/google_style_check.xml" }) do
     if vim.fn.filereadable(path) == 1 then
       return path
     end
