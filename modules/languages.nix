@@ -67,7 +67,9 @@
     buf
 
     # Python
+    python310
     python310Packages.virtualenv
+    python310Packages.requests
     nodePackages.pyright
     black
     python310Packages.flake8
