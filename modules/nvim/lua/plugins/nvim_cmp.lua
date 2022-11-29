@@ -17,6 +17,7 @@ cmp.setup({
   completion = {
     completeopt = "menu,menuone,noinsert",
   },
+  preselect = cmp.PreselectMode.None,
   confirmation = {
     default_behavior = types.cmp.ConfirmBehavior.Replace,
   },

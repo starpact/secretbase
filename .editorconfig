@@ -12,5 +12,5 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-[{*.go,Makefile}]
+[{*.{cue,go},Makefile}]
 indent_style = tab

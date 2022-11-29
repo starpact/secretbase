@@ -51,7 +51,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     "*.nix", -- nixpkgs_fmt
     "*.proto", -- buf
     "*.py", -- black
-    "*.sh", -- shfmt
     "*.yaml", -- prettier
     "*.yml", -- prettier
   },
@@ -62,4 +61,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
       end,
     })
   end,
+})
+
+-- cue is recognized as conf now.
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*.cue",
+  command = "set filetype=cue",
 })
