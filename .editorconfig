@@ -8,7 +8,7 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[*.{html,css,js,ts,jsx,tsx,json,lua,nix,proto,yml,yaml}]
+[*.{html,css,js,ts,jsx,tsx,json,java,lua,nix,proto,yml,yaml}]
 indent_style = space
 indent_size = 2
 

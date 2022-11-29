@@ -31,6 +31,7 @@ M.on_attach = function(client, bufnr)
   map("n", "K", vim.lsp.buf.hover)
   map("i", "<C-k>", vim.lsp.buf.signature_help)
   map("n", "<leader>r", vim.lsp.buf.rename)
+  map("n", "<leader><leader>f", vim.lsp.buf.format)
 end
 
 -- Reuse client when:

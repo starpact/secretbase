@@ -9,7 +9,6 @@
       cmp-nvim-lsp
       cmp-buffer
       cmp-nvim-lsp-signature-help
-      cmp-nvim-lua
       cmp-path
       cmp_luasnip
       dressing-nvim

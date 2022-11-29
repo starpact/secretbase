@@ -10,7 +10,17 @@ local function workspace_name()
 end
 
 local function buf_name_display()
-  return util.path_display(vim.api.nvim_buf_get_name(0))
+  local name = util.path_display(vim.api.nvim_buf_get_name(0))
+  if name == "" then
+    return ""
+  end
+  local status = ""
+  if not vim.bo.modifiable or vim.bo.readonly then
+    status = " [-]"
+  elseif vim.bo.modified then
+    status = " [+]"
+  end
+  return name .. status
 end
 
 require("lualine").setup({
@@ -49,6 +59,6 @@ require("lualine").setup({
     },
   },
   inactive_winbar = {
-    lualine_c = { buf_name_display },
+    lualine_c = { "filename" },
   },
 })
