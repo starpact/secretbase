@@ -14,37 +14,6 @@ hl("VirtualTextInfo", { ctermfg = 109, fg = "#45707a" })
 hl("VirtualTextHint", { ctermfg = 142, fg = "#6c782e" })
 hl("TSField", { link = "Fg" })
 hl("TSNamespace", { link = "Fg" })
+hl("TSProperty", { link = "Fg" })
+hl("TSTypeDefinition", { link = "Yellow" })
 hl("NvimTreeFolderIcon", { link = "Blue" })
-
-for kind, color in pairs({
-  IconsFile = "Green",
-  IconsModule = "Green",
-  IconsNamespace = "Green",
-  IconsPackage = "Green",
-  IconsClass = "Green",
-  IconsMethod = "Green",
-  IconsProperty = "Green",
-  IconsField = "Green",
-  IconsConstructor = "Green",
-  IconsEnum = "Green",
-  IconsInterface = "Green",
-  IconsFunction = "Green",
-  IconsVariable = "Green",
-  IconsConstant = "Green",
-  IconsString = "Green",
-  IconsNumber = "Green",
-  IconsBoolean = "Green",
-  IconsArray = "Green",
-  IconsObject = "Green",
-  IconsKey = "Green",
-  IconsNull = "Green",
-  IconsEnumMember = "Green",
-  IconsStruct = "Green",
-  IconsEvent = "Green",
-  IconsOperator = "Green",
-  IconsTypeParameter = "Blue",
-  Separator = "Grey",
-  Text = "Grey",
-}) do
-  hl("Navic" .. kind, { link = color })
-end

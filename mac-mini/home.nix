@@ -8,6 +8,6 @@
   ];
 
   programs.bash.shellAliases = {
-    hs = "home-manager switch --flake ~/workspace/dotfiles#mac-mini";
+    hs = "home-manager switch --flake ~/dotfiles#mac-mini";
   };
 }

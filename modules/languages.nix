@@ -2,9 +2,9 @@
 
 {
   home.file.".editorconfig".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/workspace/dotfiles/.editorconfig";
+    "${config.home.homeDirectory}/dotfiles/.editorconfig";
   home.file.".config/yamllint/config".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.homeDirectory}/workspace/dotfiles/.yamllint.yaml";
+    "${config.home.homeDirectory}/dotfiles/.yamllint.yaml";
 
   home.packages = with pkgs; [
     # General

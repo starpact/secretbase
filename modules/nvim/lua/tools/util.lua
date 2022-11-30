@@ -6,11 +6,7 @@ M.capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 
-M.on_attach = function(client, bufnr)
-  if client.server_capabilities.documentSymbolProvider then
-    require("nvim-navic").attach(client, bufnr)
-  end
-
+M.on_attach = function(_, bufnr)
   local telescope = require("telescope.builtin")
   local function map(mode, key, cmd, opts)
     opts = opts or {}

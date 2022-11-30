@@ -11,7 +11,7 @@ M.path_display = function(path)
 
   local cwd = vim.fn.getcwd()
   if vim.startswith(path, cwd .. "/") then
-    return string.sub(path, #cwd + 2)
+    return string.sub(path, #cwd - #vim.fs.basename(cwd) + 1)
   end
 
   local home = vim.fs.normalize("~/")

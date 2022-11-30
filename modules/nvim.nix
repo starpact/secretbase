@@ -30,7 +30,6 @@
       nvim-lint
       nvim-lspconfig
       nvim-surround
-      nvim-navic
       nvim-tree-lua
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects

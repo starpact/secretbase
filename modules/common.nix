@@ -5,11 +5,11 @@
 
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/workspace/dotfiles/modules/nvim";
+      "${config.home.homeDirectory}/dotfiles/modules/nvim";
     ".config/helix".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/workspace/dotfiles/modules/helix";
+      "${config.home.homeDirectory}/dotfiles/modules/helix";
     ".config/tmux/tmux.conf".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/workspace/dotfiles/modules/tmux/tmux.conf";
+      "${config.home.homeDirectory}/dotfiles/modules/tmux/tmux.conf";
   };
 
   home.packages = with pkgs; [

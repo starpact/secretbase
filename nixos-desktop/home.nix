@@ -8,7 +8,7 @@
   ];
 
   programs.bash.shellAliases = {
-    update = "sudo nixos-rebuild switch --flake ~/workspace/dotfiles#nixos-desktop";
-    hs = "home-manager switch --flake ~/workspace/dotfiles#nixos-desktop";
+    update = "sudo nixos-rebuild switch --flake ~/dotfiles#nixos-desktop";
+    hs = "home-manager switch --flake ~/dotfiles#nixos-desktop";
   };
 }

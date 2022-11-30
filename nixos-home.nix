@@ -15,9 +15,9 @@
 
   home.file = {
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/workspace/dotfiles/modules/alacritty/alacritty_linux.yml";
+      "${config.home.homeDirectory}/dotfiles/modules/alacritty/alacritty_linux.yml";
     ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/workspace/dotfiles/modules/kitty/kitty_linux.conf";
+      "${config.home.homeDirectory}/dotfiles/modules/kitty/kitty_linux.conf";
   };
 
   home.packages = with pkgs; [
