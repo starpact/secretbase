@@ -13,6 +13,10 @@ vim.keymap.set("n", "<C-d>", "10j")
 vim.keymap.set("v", "<C-u>", "10k")
 vim.keymap.set("v", "<C-d>", "10j")
 
+vim.keymap.set("i", "<C-k>", "<C-o>D")
+vim.keymap.set("i", "<C-a>", "<C-o>^")
+vim.keymap.set("i", "<C-e>", "<C-o>$")
+
 vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -5<CR>")
 vim.keymap.set("n", "<M-Down>", "<cmd>resize +5<CR>")
 vim.keymap.set("n", "<M-Up>", "<cmd>resize -5<CR>")

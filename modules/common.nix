@@ -34,6 +34,7 @@
     unzip
     wget
     wrangler
+    yq
   ];
 
   programs = {

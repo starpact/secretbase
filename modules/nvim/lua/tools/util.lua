@@ -29,7 +29,7 @@ M.on_attach = function(client, bufnr)
   map("n", "<leader>s", telescope.lsp_document_symbols)
   map("n", "<leader>S", telescope.lsp_dynamic_workspace_symbols)
   map("n", "K", vim.lsp.buf.hover)
-  map("i", "<C-k>", vim.lsp.buf.signature_help)
+  map("i", "<C-s>", vim.lsp.buf.signature_help)
   map("n", "<leader>r", vim.lsp.buf.rename)
   map("n", "<leader><leader>f", vim.lsp.buf.format)
 end
