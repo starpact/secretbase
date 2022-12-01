@@ -16,10 +16,6 @@ end
 
 require("lualine").setup({
   options = {
-    disabled_filetypes = {
-      "NvimTree",
-      winbar = { "toggleterm" },
-    },
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
     globalstatus = true,
@@ -27,10 +23,7 @@ require("lualine").setup({
 
   sections = {
     lualine_a = { buf_name_display },
-    lualine_b = {
-      "branch",
-      { "diff", symbols = { added = " ", modified = " ", removed = " " } },
-    },
+    lualine_b = { "branch", "diff" },
     lualine_c = { { "diagnostics", sections = { "error", "warn", "info" } } },
     lualine_x = { "filetype" },
     lualine_y = { "location" },

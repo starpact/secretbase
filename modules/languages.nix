@@ -8,6 +8,7 @@
 
   home.packages = with pkgs; [
     # General
+    bazel_5
     codespell
     gdb
     gnumake
@@ -69,7 +70,6 @@
     # Python
     python310
     python310Packages.virtualenv
-    python310Packages.requests
     nodePackages.pyright
     black
     python310Packages.flake8
