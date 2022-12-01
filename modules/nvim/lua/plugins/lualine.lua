@@ -18,14 +18,16 @@ require("lualine").setup({
   options = {
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
+    disabled_filetypes = { "TelescopePrompt" },
     globalstatus = true,
   },
-
   sections = {
     lualine_a = { buf_name_display },
     lualine_b = { "branch", "diff" },
-    lualine_c = { { "diagnostics", sections = { "error", "warn", "info" } } },
-    lualine_x = { "filetype" },
+    lualine_c = {
+      { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
+    },
+    lualine_x = { "searchcount", "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },

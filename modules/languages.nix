@@ -68,7 +68,11 @@
     buf
 
     # Python
-    python310
+    (python3.withPackages (ps: with ps; [
+      mysql-connector
+      pyyaml
+      requests
+    ]))
     python310Packages.virtualenv
     nodePackages.pyright
     black
