@@ -5,20 +5,18 @@ local function buf_name_display()
   if name == "" then
     return ""
   end
-  local status = ""
   if not vim.bo.modifiable or vim.bo.readonly then
-    status = " [-]"
+    return name .. " [-]"
   elseif vim.bo.modified then
-    status = " [+]"
+    return name .. " [+]"
   end
-  return name .. status
+  return name
 end
 
 require("lualine").setup({
   options = {
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
-    disabled_filetypes = { "TelescopePrompt" },
     globalstatus = true,
   },
   sections = {
@@ -27,7 +25,7 @@ require("lualine").setup({
     lualine_c = {
       { "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
     },
-    lualine_x = { "searchcount", "filetype" },
+    lualine_x = { "filetype" },
     lualine_y = { "location" },
     lualine_z = { "progress" },
   },

@@ -16,7 +16,6 @@ local options = {
   ignorecase = true,
   smartcase = true,
   mouse = "a",
-  cmdheight = 0,
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   pumheight = 10, -- pop up menu height
   showmode = false,
@@ -53,3 +52,5 @@ vim.diagnostic.config({
   severity_sort = true,
   float = { source = "always" },
 })
+
+vim.cmd([[autocmd CursorMoved * echo ""]])

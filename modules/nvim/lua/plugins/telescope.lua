@@ -42,7 +42,7 @@ telescope.setup({
   }),
   pickers = {
     buffers = { ignore_current_buffer = true, sort_mru = true },
-    diagnostics = picker_init_normal(),
+    diagnostics = picker_init_normal({ no_sign = true }),
     lsp_definitions = picker_init_normal(),
     lsp_declarations = picker_init_normal(),
     lsp_type_definitions = picker_init_normal(),
