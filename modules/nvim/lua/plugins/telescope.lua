@@ -22,8 +22,6 @@ end
 
 telescope.setup({
   defaults = themes.get_ivy({
-    prompt_prefix = " ",
-    selection_caret = " ",
     dynamic_preview_title = true,
     show_line = false,
     path_display = path_display,

@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     du-dust
     fd
+    gh
     graphviz
     helix
     neofetch

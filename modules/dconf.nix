@@ -26,7 +26,7 @@
         "obsidian.desktop" # 3
         "code.desktop" # 4
         "org.gnome.Nautilus.desktop" # 5
-        "telegramdesktop.desktop" # 6
+        "org.telegram.desktop.desktop" # 6
       ];
     };
     "org/gnome/shell/keybindings" = {

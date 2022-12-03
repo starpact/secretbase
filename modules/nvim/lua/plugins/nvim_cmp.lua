@@ -2,7 +2,6 @@ local cmp = require("cmp")
 local types = require("cmp.types")
 local compare = require("cmp.config.compare")
 local luasnip = require("luasnip")
-local lspkind = require("lspkind")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -39,20 +38,15 @@ cmp.setup({
     },
   },
   formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = lspkind.cmp_format({
-      mode = "symbol",
-      before = function(entry, vim_item)
-        vim_item.abbr = string.sub(vim_item.abbr, 1, 80)
-        vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          luasnip = "[Snippet]",
-          buffer = "[Buffer]",
-          path = "[Path]",
-        })[entry.source.name]
-        return vim_item
-      end,
-    }),
+    format = function(entry, vim_item)
+      vim_item.menu = ({
+        nvim_lsp = "[LSP]",
+        luasnip = "[Snippet]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+      })[entry.source.name]
+      return vim_item
+    end,
   },
   mapping = {
     ["<C-Space>"] = cmp.mapping.complete(),

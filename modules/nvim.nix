@@ -18,7 +18,6 @@
       gitsigns-nvim
       gruvbox-material
       leap-nvim
-      lspkind-nvim
       lualine-nvim
       luasnip
       null-ls-nvim
@@ -35,7 +34,6 @@
       nvim-treesitter-textobjects
       nvim-ts-context-commentstring
       nvim-ts-autotag
-      nvim-web-devicons
       project-nvim
       telescope-nvim
       telescope-fzf-native-nvim

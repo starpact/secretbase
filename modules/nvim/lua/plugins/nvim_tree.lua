@@ -1,6 +1,3 @@
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
-vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
-
 require("nvim-tree").setup({
   disable_netrw = true,
   sync_root_with_cwd = true,
@@ -9,12 +6,7 @@ require("nvim-tree").setup({
   diagnostics = {
     enable = true,
     show_on_dirs = true,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    },
+    icons = { hint = "", info = "", warning = "", error = "" },
   },
   system_open = {
     cmd = "code",
@@ -26,8 +18,10 @@ require("nvim-tree").setup({
     },
     group_empty = true,
     icons = {
+      git_placement = "after",
       show = {
-        folder_arrow = false,
+        file = false,
+        folder = false,
       },
     },
   },
@@ -35,3 +29,6 @@ require("nvim-tree").setup({
     adaptive_size = true,
   },
 })
+
+vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<C-n>", "<cmd>NvimTreeToggle<CR>")
