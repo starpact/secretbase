@@ -15,15 +15,10 @@ local options = {
   incsearch = true,
   ignorecase = true,
   smartcase = true,
-  mouse = "a",
   signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
   pumheight = 10, -- pop up menu height
   showmode = false,
   wrap = false,
-  smartindent = true,
-  expandtab = true, -- convert tabs to spaces
-  shiftwidth = 4, -- the number of spaces inserted for each indentation
-  tabstop = 4, -- insert 4 spaces for a tab
   splitbelow = true, -- force all horizontal splits to go below current window
   splitright = true, -- force all vertical splits to go to the right of current window
   termguicolors = true, -- set term gui colors (most terminals support this)
@@ -53,4 +48,4 @@ vim.diagnostic.config({
   float = { source = "always" },
 })
 
-vim.cmd([[autocmd CursorMoved * echo ""]])
+vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })

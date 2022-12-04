@@ -18,7 +18,7 @@ null_ls.setup({
   },
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {
     "*.c",
     "*.cpp",
@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {
     "*.cue", -- cue_fmt
     "*.css", -- prettier
@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- cue is recognized as conf now.
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.cue",
   command = "set filetype=cue",
 })

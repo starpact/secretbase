@@ -8,16 +8,25 @@
       "${config.home.homeDirectory}/dotfiles/modules/nvim";
     ".config/helix".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/helix";
-    ".config/tmux/tmux.conf".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/tmux/tmux.conf";
+    ".newsboat/config".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/modules/newsboat/config";
+    ".newsboat/urls".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/modules/newsboat/urls";
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/modules/tmux";
   };
 
   home.packages = with pkgs; [
+    bat
     du-dust
+    exa
     fd
     gh
     graphviz
     helix
+    htop
+    jq
+    lazygit
     neofetch
     (nerdfonts.override {
       fonts = [
@@ -28,9 +37,11 @@
         "VictorMono"
       ];
     })
+    newsboat
     onefetch
     ripgrep
     sqlite
+    tealdeer
     tmux
     unzip
     wget
@@ -39,22 +50,15 @@
   ];
 
   programs = {
-    bat.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
-    exa.enable = true;
     fzf = {
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
     };
-    go.enable = true;
-    htop.enable = true;
-    jq.enable = true;
-    lazygit.enable = true;
     starship.enable = true;
-    tealdeer.enable = true;
     zoxide.enable = true;
   };
 }

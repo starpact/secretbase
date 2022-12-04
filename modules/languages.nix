@@ -32,6 +32,7 @@
     cue
 
     # Go
+    go
     gopls
     golangci-lint
     gotools
@@ -68,11 +69,7 @@
     buf
 
     # Python
-    (python3.withPackages (ps: with ps; [
-      mysql-connector
-      pyyaml
-      requests
-    ]))
+    python3
     python310Packages.virtualenv
     nodePackages.pyright
     black

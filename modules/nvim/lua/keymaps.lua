@@ -23,13 +23,10 @@ vim.keymap.set("n", "<M-Up>", "<cmd>resize -5<CR>")
 vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +5<CR>")
 
 vim.keymap.set("n", "<leader>h", "<cmd>noh<CR>")
+vim.keymap.set("n", "<leader><Tab>", "<C-^>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
-
-vim.keymap.set("t", "<C-h>", "<C-\\><C-N><C-w>h")
-vim.keymap.set("t", "<C-j>", "<C-\\><C-N><C-w>j")
-vim.keymap.set("t", "<C-k>", "<C-\\><C-N><C-w>k")
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)

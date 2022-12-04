@@ -23,7 +23,6 @@
   ];
 
   programs = {
-    home-manager.enable = true;
     bash = {
       enable = true;
       sessionVariables = {
@@ -43,5 +42,6 @@
         source /opt/homebrew/completions/bash/brew
       '';
     };
+    home-manager.enable = true;
   };
 }

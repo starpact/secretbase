@@ -24,6 +24,7 @@
     alacritty
     cpu-x
     discord
+    firefox
     flameshot
     gimp
     google-chrome
@@ -36,6 +37,7 @@
     kitty
     liburing
     libreoffice
+    mpv
     obsidian
     slack
     tdesktop
@@ -66,9 +68,7 @@
         grep = "rg";
       };
     };
-    firefox.enable = true;
     home-manager.enable = true;
-    mpv.enable = true;
   };
 
   services.syncthing.enable = true;
