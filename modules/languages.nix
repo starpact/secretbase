@@ -80,6 +80,7 @@
     rust-analyzer
     cargo-deny
     cargo-expand
+    cargo-nextest
     cargo-udeps
 
     # SQL
