@@ -2,14 +2,11 @@ local M = {}
 
 M.path_display = function(path)
   path = string.gsub(path, "src/main/java/", "J/", 1)
+  path = string.gsub(path, "/NvimTree_1", "", 1)
 
-  local nvim_tree
-  path, nvim_tree = string.gsub(path, "NvimTree_1", "", 1)
-  if nvim_tree ~= 1 then
-    local cwd = vim.fn.getcwd()
-    if vim.startswith(path, cwd .. "/") then
-      return string.sub(path, #cwd - #vim.fs.basename(cwd) + 1)
-    end
+  local cwd = vim.fn.getcwd()
+  if vim.startswith(path, cwd .. "/") then
+    return string.sub(path, #cwd - #vim.fs.basename(cwd) + 1)
   end
 
   local nix_store = "/nix/store/"

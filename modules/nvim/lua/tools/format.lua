@@ -52,8 +52,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.proto", -- buf
     "*.py", -- black
     -- "*.sh", -- shfmt
-    "*.yaml", -- prettier
-    "*.yml", -- prettier
+    -- "*.yaml", -- prettier
+    -- "*.yml", -- prettier
   },
   callback = function()
     vim.lsp.buf.format({

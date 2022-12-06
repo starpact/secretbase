@@ -65,7 +65,6 @@
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
-        grep = "rg";
       };
     };
     home-manager.enable = true;
