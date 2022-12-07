@@ -10,7 +10,6 @@
     apacheKafka
     awscli2
     git
-    grafana
     kubectl
     kubernetes-helm
     mysql80

@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.nix", -- nixpkgs_fmt
     "*.proto", -- buf
     "*.py", -- black
-    -- "*.sh", -- shfmt
+    "*.sh", -- shfmt
     -- "*.yaml", -- prettier
     -- "*.yml", -- prettier
   },
