@@ -13,6 +13,7 @@ local unconfigured_servers = {
   "terraformls",
   "tsserver",
   "yamlls",
+  "zls",
 }
 for _, server in ipairs(unconfigured_servers) do
   lspconfig[server].setup({
