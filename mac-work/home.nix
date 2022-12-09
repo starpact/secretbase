@@ -8,7 +8,7 @@
 
   home.packages = with pkgs; [
     apacheKafka
-    awscli2
+    # awscli2
     git
     kubectl
     kubernetes-helm
