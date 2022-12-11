@@ -23,7 +23,6 @@ end
 telescope.setup({
   defaults = themes.get_ivy({
     dynamic_preview_title = true,
-    show_line = false,
     path_display = path_display,
     results_title = "",
     mappings = {
@@ -44,12 +43,11 @@ telescope.setup({
     lsp_definitions = picker_init_normal(),
     lsp_declarations = picker_init_normal(),
     lsp_type_definitions = picker_init_normal(),
-    lsp_references = picker_init_normal({ jump_type = "never" }), -- FIXME: #2218
+    lsp_references = picker_init_normal({ jump_type = "never" }),
     lsp_implementations = picker_init_normal(),
   },
 })
 
-vim.keymap.set("n", "<leader>T", builtin.builtin)
 vim.keymap.set("n", "<leader>f", builtin.find_files)
 vim.keymap.set("n", "<leader>o", builtin.oldfiles)
 vim.keymap.set("n", "<leader>b", builtin.buffers)
@@ -59,4 +57,5 @@ vim.keymap.set("n", "<leader>d", function()
   builtin.diagnostics({ severity = vim.diagnostic.severity.ERROR })
 end)
 vim.keymap.set("n", "<leader>D", builtin.diagnostics)
+vim.keymap.set("n", "<leader>q", builtin.quickfix)
 vim.keymap.set("n", "<leader>p", extensions.projects.projects)

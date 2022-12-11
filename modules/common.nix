@@ -6,8 +6,6 @@
   home.file = {
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/nvim";
-    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/helix";
     ".newsboat/config".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/newsboat/config";
     ".newsboat/urls".source = config.lib.file.mkOutOfStoreSymlink
@@ -23,7 +21,6 @@
     fd
     gh
     graphviz
-    helix
     htop
     jq
     lazygit

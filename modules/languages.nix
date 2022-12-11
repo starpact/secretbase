@@ -70,7 +70,6 @@
 
     # Python
     python3
-    python310Packages.virtualenv
     nodePackages.pyright
     black
     python310Packages.flake8

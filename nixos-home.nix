@@ -39,7 +39,6 @@
     libreoffice
     mpv
     obsidian
-    slack
     tdesktop
     video-trimmer
     virt-manager
