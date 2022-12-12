@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     bat
     du-dust
+    duckdb
     exa
     fd
     gh
