@@ -24,6 +24,7 @@
     htop
     jq
     lazygit
+    lf
     neofetch
     (nerdfonts.override {
       fonts = [
