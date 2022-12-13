@@ -68,18 +68,22 @@ cmp.setup({
         luasnip.jump(-1)
       end
     end, { "i", "s" }),
-    ["<C-n>"] = cmp.mapping(function()
+    ["<C-n>"] = cmp.mapping(function(fallback)
       if luasnip.choice_active() then
         luasnip.change_choice(1)
-      else
+      elseif cmp.visible() then
         cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      else
+        fallback()
       end
     end, { "i", "s" }),
-    ["<C-p>"] = cmp.mapping(function()
+    ["<C-p>"] = cmp.mapping(function(fallback)
       if luasnip.choice_active() then
         luasnip.change_choice(-1)
-      else
+      elseif cmp.visible() then
         cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+      else
+        fallback()
       end
     end, { "i", "s" }),
     ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
