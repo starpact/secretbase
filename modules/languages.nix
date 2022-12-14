@@ -42,7 +42,7 @@
     nodePackages.vscode-langservers-extracted
 
     # Java
-    jdk
+    jdk17
     gradle
     gradle-completion
     maven
