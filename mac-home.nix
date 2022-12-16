@@ -29,6 +29,7 @@
         EDITOR = "nvim";
         XDG_DATA_DIRS = "$HOME/.nix-profile/share:$XDG_DATA_DIRS";
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
+        LANG = "en_US.UTF-8";
       };
       shellAliases = {
         ls = "exa";

@@ -65,8 +65,10 @@
 
     # Protobuf
     protobuf
-    buf-language-server
+    protoc-gen-go
+    protoc-gen-go-grpc
     buf
+    buf-language-server
 
     # Python
     python3
