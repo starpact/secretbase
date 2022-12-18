@@ -128,6 +128,8 @@ key_bindings:
   - { key: B, mods: Option, chars: "\x1bb" }
   - { key: C, mods: Option, chars: "\x1bc" }
   - { key: J, mods: Command, chars: "\x1bj" }
+  - { key: P, mods: Command, chars: "\x1bp" }
+  - { key: N, mods: Command, chars: "\x1bn" }
   - { key: Key1, mods: Command, chars: "\x01\x31" }
   - { key: Key2, mods: Command, chars: "\x01\x32" }
   - { key: Key3, mods: Command, chars: "\x01\x33" }
