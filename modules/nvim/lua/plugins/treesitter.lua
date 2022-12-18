@@ -2,6 +2,15 @@ require("nvim-treesitter.configs").setup({
   autotag = { enable = true },
   context_commentstring = { enable = true },
   highlight = { enable = true },
+  indent = { enable = true },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<C-Up>",
+      node_incremental = "<C-Up>",
+      node_decremental = "<C-Down>",
+    },
+  },
   textobjects = {
     select = {
       enable = true,

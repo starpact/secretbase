@@ -39,6 +39,7 @@
     newsboat
     onefetch
     ripgrep
+    scc
     sqlite
     tealdeer
     tmux
