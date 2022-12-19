@@ -129,8 +129,6 @@ key_bindings:
   - { key: D, mods: Alt, chars: "\x1bd" }
   - { key: C, mods: Alt, chars: "\x1bc" }
   - { key: J, mods: Command, chars: "\x1bj" }
-  - { key: LBracket, mods: Command, chars: "\x1b[" }
-  - { key: RBracket, mods: Command, chars: "\x1b]" }
   - { key: Key1, mods: Command, chars: "\x01\x31" }
   - { key: Key2, mods: Command, chars: "\x01\x32" }
   - { key: Key3, mods: Command, chars: "\x01\x33" }
