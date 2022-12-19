@@ -37,10 +37,6 @@
         cat = "bat";
         lg = "lazygit";
       };
-      initExtra = ''
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-        source /opt/homebrew/completions/bash/brew
-      '';
     };
     home-manager.enable = true;
   };

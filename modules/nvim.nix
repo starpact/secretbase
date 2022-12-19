@@ -15,6 +15,7 @@
       editorconfig-nvim
       fidget-nvim
       friendly-snippets
+      fzf-lua
       gitsigns-nvim
       gruvbox-material
       leap-nvim

@@ -3,8 +3,7 @@ require("fidget").setup({
     blend = 0,
   },
   sources = {
-    ["null-ls"] = {
-      ignore = true,
-    },
+    jdtls = { ignore = true },
+    ["null-ls"] = { ignore = true },
   },
 })

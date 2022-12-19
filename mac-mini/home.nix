@@ -7,7 +7,13 @@
     ../modules/git.nix
   ];
 
-  programs.bash.shellAliases = {
-    hs = "home-manager switch --flake ~/dotfiles#mac-mini";
+  programs.bash = {
+    initExtra = ''
+      eval "$(/opt/homebrew/bin/brew shellenv)"
+      source /opt/homebrew/completions/bash/brew
+    '';
+    shellAliases = {
+      hs = "home-manager switch --flake ~/dotfiles#mac-mini";
+    };
   };
 }

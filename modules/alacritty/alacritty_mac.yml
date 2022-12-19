@@ -124,12 +124,13 @@ hints:
 key_bindings:
   - { key: Q, mode: Vi|~Search, action: ToggleViMode }
   - { key: Q, mode: Vi|~Search, action: ScrollToBottom }
-  - { key: F, mods: Option, chars: "\x1bf" }
-  - { key: B, mods: Option, chars: "\x1bb" }
-  - { key: C, mods: Option, chars: "\x1bc" }
+  - { key: F, mods: Alt, chars: "\x1bf" }
+  - { key: B, mods: Alt, chars: "\x1bb" }
+  - { key: D, mods: Alt, chars: "\x1bd" }
+  - { key: C, mods: Alt, chars: "\x1bc" }
   - { key: J, mods: Command, chars: "\x1bj" }
-  - { key: P, mods: Command, chars: "\x1bp" }
-  - { key: N, mods: Command, chars: "\x1bn" }
+  - { key: LBracket, mods: Command, chars: "\x1b[" }
+  - { key: RBracket, mods: Command, chars: "\x1b]" }
   - { key: Key1, mods: Command, chars: "\x01\x31" }
   - { key: Key2, mods: Command, chars: "\x01\x32" }
   - { key: Key3, mods: Command, chars: "\x01\x33" }
