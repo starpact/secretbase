@@ -1,4 +1,4 @@
-local util = require("tools.util")
+local common = require("tools.common")
 
 local M = {}
 
@@ -12,16 +12,16 @@ local function start_or_attach()
       vim.fs.normalize("~/.cache/jdtls/workspace/") .. root_dir_name,
     },
     root_dir = root_dir,
-    capabilities = util.capabilities,
-    on_attach = util.on_attach,
+    capabilities = common.capabilities,
+    on_attach = common.on_attach,
   }
 
   require("jdtls").start_or_attach(config)
 end
 
 M.setup_lsp = function()
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "java",
+  vim.api.nvim_create_autocmd("BufReadPost", {
+    pattern = "*.java",
     callback = start_or_attach,
   })
 end

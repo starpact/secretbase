@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
-local util = require("tools.util")
+local common = require("tools.common")
 
-local unconfigured_servers = {
+local servers_default = {
   "bashls",
   "bufls",
   "cssls",
@@ -15,10 +15,10 @@ local unconfigured_servers = {
   "yamlls",
   "zls",
 }
-for _, server in ipairs(unconfigured_servers) do
+for _, server in ipairs(servers_default) do
   lspconfig[server].setup({
-    capabilities = util.capabilities,
-    on_attach = util.on_attach,
+    capabilities = common.capabilities,
+    on_attach = common.on_attach,
   })
 end
 

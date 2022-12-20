@@ -1,13 +1,13 @@
 local lspconfig = require("lspconfig")
-local util = require("tools.util")
+local common = require("tools.common")
 
 local M = {}
 
 M.setup_lsp = function()
   lspconfig.taplo.setup({
     root_dir = lspconfig.util.find_git_ancestor,
-    capabilities = util.capabilities,
-    on_attach = util.on_attach,
+    capabilities = common.capabilities,
+    on_attach = common.on_attach,
   })
 end
 

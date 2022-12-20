@@ -16,10 +16,7 @@ M.on_attach = function(_, bufnr)
 
   local jump_to_single = function(command)
     return function()
-      command({
-        jump_to_single_result = true,
-        winopts = { hl = { cursorline = "visual" } },
-      })
+      command({ jump_to_single_result = true })
     end
   end
 

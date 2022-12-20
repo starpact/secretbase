@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local util = require("tools.util")
+local common = require("tools.common")
 
 local M = {}
 
@@ -14,8 +14,8 @@ local settings = {
 
 M.setup_lsp = function()
   lspconfig.sumneko_lua.setup({
-    capabilities = util.capabilities,
-    on_attach = util.on_attach,
+    capabilities = common.capabilities,
+    on_attach = common.on_attach,
     settings = settings,
   })
 end

@@ -65,8 +65,6 @@
 
     # Protobuf
     protobuf
-    protoc-gen-go
-    protoc-gen-go-grpc
     buf
     buf-language-server
 

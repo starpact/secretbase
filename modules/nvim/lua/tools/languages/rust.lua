@@ -1,5 +1,5 @@
-local lsputil = require("lspconfig").util
-local util = require("tools.util")
+local lspconfig = require("lspconfig")
+local common = require("tools.common")
 
 local M = {}
 
@@ -23,23 +23,11 @@ local settings = {
   },
 }
 
-local function start_or_attach()
-  vim.lsp.start({
-    name = "rust-analyzer",
-    cmd = { "rust-analyzer" },
-    root_dir = lsputil.root_pattern("Cargo.toml")(vim.api.nvim_buf_get_name(0)),
-    capabilities = util.capabilities,
-    on_attach = util.on_attach,
-    settings = settings,
-  }, {
-    reuse_client = util.reuse_client("/nix", "~/.cargo"),
-  })
-end
-
 M.setup_lsp = function()
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "rust",
-    callback = start_or_attach,
+  lspconfig.rust_analyzer.setup({
+    capabilities = common.capabilities,
+    on_attach = common.on_attach,
+    settings = settings,
   })
 end
 
