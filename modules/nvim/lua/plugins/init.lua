@@ -1,6 +1,5 @@
 require("plugins.colorscheme")
 require("plugins.lualine")
-require("plugins.dressing")
 require("plugins.nvim_tree")
 require("plugins.fzf")
 require("plugins.nvim_toggleterm")

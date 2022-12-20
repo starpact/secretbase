@@ -20,8 +20,8 @@ local function start_or_attach()
 end
 
 M.setup_lsp = function()
-  vim.api.nvim_create_autocmd("BufReadPost", {
-    pattern = "*.java",
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "java",
     callback = start_or_attach,
   })
 end

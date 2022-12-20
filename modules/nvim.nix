@@ -11,7 +11,6 @@
       cmp-nvim-lsp-signature-help
       cmp-path
       cmp_luasnip
-      dressing-nvim
       editorconfig-nvim
       fidget-nvim
       friendly-snippets
@@ -36,8 +35,6 @@
       nvim-ts-context-commentstring
       nvim-ts-autotag
       project-nvim
-      telescope-nvim
-      telescope-fzf-native-nvim
       toggleterm-nvim
       vim-test
     ];
