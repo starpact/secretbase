@@ -42,12 +42,12 @@ fzf.setup({
     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
     ["--no-separator"] = "",
   },
+  files = { git_icons = false },
   git = {
     status = { preview_pager = "delta" },
     commits = { preview_pager = "delta" },
     bcommits = { preview_pager = "delta" },
   },
-  lsp = { code_actions = { ui_select = false } },
   keymap = {
     fzf = {
       ["ctrl-n"] = "down",

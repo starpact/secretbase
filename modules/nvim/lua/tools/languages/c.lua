@@ -10,6 +10,7 @@ local capabilities = vim.tbl_deep_extend("force", common.capabilities, {
 M.setup_lsp = function()
   lspconfig.clangd.setup({
     cmd = { "clangd", "--function-arg-placeholders=0" },
+    filetypes = { "c", "cpp" },
     capabilities = capabilities,
     on_attach = common.on_attach,
   })
