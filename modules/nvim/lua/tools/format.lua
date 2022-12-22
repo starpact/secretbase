@@ -50,11 +50,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.java", -- google_java_format
     "*.lua", -- stylua
     "*.nix", -- nixpkgs_fmt
-    "*.proto", -- buf
     "*.py", -- black
-    -- "*.sh", -- shfmt
     "*.yaml", -- prettier
     "*.yml", -- prettier
+
+    -- Manually format.
+    -- "*.proto", -- buf
+    -- "*.sh", -- shfmt
   },
   callback = function()
     vim.lsp.buf.format({

@@ -5,7 +5,7 @@ local M = {}
 
 M.setup_lsp = function()
   lspconfig.gopls.setup({
-    autostart = false,
+    -- autostart = false,
     capabilities = common.capabilities,
     on_attach = common.on_attach,
   })
