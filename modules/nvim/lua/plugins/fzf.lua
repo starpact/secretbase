@@ -45,6 +45,7 @@ fzf.setup({
   buffers = { winopts = no_preview_winopts },
   grep = { git_icons = false },
   git = { status = git_opt, commits = git_opt, bcommits = git_opt },
+  lsp = { async_or_timeout = 10000 },
   keymap = {
     fzf = {
       ["ctrl-n"] = "down",

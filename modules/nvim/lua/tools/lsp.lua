@@ -10,6 +10,7 @@ local servers_default = {
   "jsonls",
   "nil_ls",
   "pyright",
+  "taplo",
   "terraformls",
   "tsserver",
   "yamlls",
@@ -27,4 +28,3 @@ require("tools.languages.go").setup_lsp()
 require("tools.languages.java").setup_lsp()
 require("tools.languages.lua").setup_lsp()
 require("tools.languages.rust").setup_lsp()
-require("tools.languages.toml").setup_lsp()

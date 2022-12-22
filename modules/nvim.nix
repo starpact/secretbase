@@ -34,7 +34,6 @@
       nvim-treesitter-textobjects
       nvim-ts-context-commentstring
       nvim-ts-autotag
-      project-nvim
       toggleterm-nvim
       vim-test
     ];
