@@ -51,6 +51,21 @@
   ];
 
   programs = {
+    bash = {
+      enable = true;
+      sessionVariables = {
+        EDITOR = "nvim";
+        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
+      };
+      shellAliases = {
+        ls = "exa";
+        l = "ls -al";
+        cat = "bat";
+        lg = "lazygit";
+        gp = "git pull";
+        gs = "git status";
+      };
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;

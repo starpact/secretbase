@@ -53,17 +53,8 @@
 
   programs = {
     bash = {
-      enable = true;
       sessionVariables = {
-        EDITOR = "nvim";
         MOZ_ENABLE_WAYLAND = "1";
-        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
-      };
-      shellAliases = {
-        ls = "exa";
-        l = "ls -al";
-        cat = "bat";
-        lg = "lazygit";
       };
     };
     home-manager.enable = true;
