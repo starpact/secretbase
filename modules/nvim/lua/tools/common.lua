@@ -14,17 +14,17 @@ M.on_attach = function(_, bufnr)
     vim.keymap.set(mode, key, cmd, opts)
   end
 
-  local jump_to_single = function(command)
+  local with_opts = function(command, opts)
     return function()
-      command({ jump_to_single_result = true })
+      command(opts)
     end
   end
 
-  map("n", "gd", jump_to_single(fzf.lsp_definitions))
-  map("n", "gD", jump_to_single(fzf.lsp_declarations))
-  map("n", "gy", jump_to_single(fzf.lsp_typedefs))
-  map("n", "gr", jump_to_single(fzf.lsp_references))
-  map("n", "gi", jump_to_single(fzf.lsp_implementations))
+  map("n", "gd", with_opts(fzf.lsp_definitions, { jump_to_single_result = true }))
+  map("n", "gD", with_opts(fzf.lsp_declarations, { jump_to_single_result = true }))
+  map("n", "gy", with_opts(fzf.lsp_typedefs, { jump_to_single_result = true }))
+  map("n", "gr", with_opts(fzf.lsp_references, { jump_to_single_result = true, ignore_current_line = true }))
+  map("n", "gi", with_opts(fzf.lsp_implementations, { jump_to_single_result = true }))
   map("n", "<leader>a", vim.lsp.buf.code_action)
   map("n", "<leader>s", fzf.lsp_document_symbols)
   map("n", "<leader>S", fzf.lsp_live_workspace_symbols)
