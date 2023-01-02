@@ -12,11 +12,11 @@
       cmp-path
       cmp_luasnip
       editorconfig-nvim
+      everforest
       fidget-nvim
       friendly-snippets
       fzf-lua
       gitsigns-nvim
-      gruvbox-material
       leap-nvim
       lualine-nvim
       luasnip

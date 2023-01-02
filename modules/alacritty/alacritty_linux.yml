@@ -7,9 +7,8 @@ window:
   dynamic_padding: true
   decorations: none
   startup_mode: Windowed
-  opacity: 0.9
 font:
-  size: 13.0
+  size: 13
   normal:
     family: Iosevka Term
     style: Regular
@@ -19,55 +18,28 @@ font:
   italic:
     family: Iosevka Term
     style: italic
-# size: 12.0
-# normal:
-#   family: VictorMono Nerd Font
-#   style: Regular
-# bold:
-#   family: VictorMono Nerd Font
-#   style: Bold
-# italic:
-#   family: VictorMono Nerd Font
-#   style: Oblique
-# size: 13.0
-# normal:
-#   family: FantasqueSansMono Nerd Font
-#   style: Regular
-# bold:
-#   family: FantasqueSansMono Nerd Font
-#   style: Bold
-# italic:
-#   family: FantasqueSansMono Nerd Font
-#   style: italic
-draw_bold_text_with_bright_colors: true
 colors:
   primary:
-    background: "#282828"
-    foreground: "#d4be98"
+    background: "#272e33"
+    foreground: "#d3c6aa"
   normal:
-    black: "#665c54"
-    red: "#ea6962"
-    green: "#a9b665"
-    yellow: "#d8a657"
-    blue: "#7daea3"
-    magenta: "#d3869b"
-    cyan: "#89b482"
-    white: "#d4be98"
+    black: "#414b50"
+    red: "#e67e80"
+    green: "#a7c080"
+    yellow: "#dbbc7f"
+    blue: "#7fbbb3"
+    magenta: "#d699b6"
+    cyan: "#83c092"
+    white: "#d3c6aa"
   bright:
-    black: "#928374"
-    red: "#ea6962"
-    green: "#a9b665"
-    yellow: "#d8a657"
-    blue: "#7daea3"
-    magenta: "#d3869b"
-    cyan: "#89b482"
-    white: "#d4be98"
-  cursor:
-    text: "#101010"
-    cursor: "#d4be98"
-  vi_mode_cursor:
-    text: "#101010"
-    cursor: "#d4be98"
+    black: "#475258"
+    red: "#e67e80"
+    green: "#a7c080"
+    yellow: "#dbbc7f"
+    blue: "#7fbbb3"
+    magenta: "#d699b6"
+    cyan: "#83c092"
+    white: "#d3c6aa"
 selection:
   semantic_escape_chars: "/,│`|:\"' ()[]{}<>\t"
 hints:

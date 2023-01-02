@@ -13,7 +13,7 @@ local no_preview_winopts = {
   hl = { cursorline = "" },
   preview = { hidden = "hidden" },
 }
-local git_opt = {
+local git_opts = {
   winopts = {
     fullscreen = true,
     preview = { horizontal = "up:70%" },
@@ -44,8 +44,8 @@ fzf.setup({
   oldfiles = { winopts = no_preview_winopts },
   buffers = { winopts = no_preview_winopts },
   grep = { git_icons = false },
-  git = { status = git_opt, commits = git_opt, bcommits = git_opt },
-  lsp = { async_or_timeout = 10000 },
+  git = { status = git_opts, commits = git_opts, bcommits = git_opts },
+  lsp = { async_or_timeout = 20000 },
   keymap = {
     fzf = {
       ["ctrl-n"] = "down",
