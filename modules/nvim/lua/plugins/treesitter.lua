@@ -1,6 +1,6 @@
 require("nvim-treesitter.configs").setup({
   highlight = { enable = true, disable = { "proto" } },
-  indent = { enable = true },
+  indent = { enable = true, disable = { "python" } },
   autotag = { enable = true },
   context_commentstring = { enable = true },
   incremental_selection = {
