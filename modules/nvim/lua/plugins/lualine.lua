@@ -43,6 +43,7 @@ require("lualine").setup({
     section_separators = "",
     component_separators = "│",
     globalstatus = true,
+    icons_enabled = false,
   },
   sections = {
     lualine_a = { buf_name_display },

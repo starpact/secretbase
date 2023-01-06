@@ -4,14 +4,16 @@
   fonts.fontconfig.enable = true;
 
   home.file = {
+    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/modules/helix";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/nvim";
+    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/dotfiles/modules/tmux";
     ".newsboat/config".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/newsboat/config";
     ".newsboat/urls".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/newsboat/urls";
-    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/tmux";
   };
 
   home.packages = with pkgs; [
@@ -23,6 +25,7 @@
     fd
     gh
     graphviz
+    helix
     htop
     jq
     lazygit
