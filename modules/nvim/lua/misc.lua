@@ -7,7 +7,7 @@ require("Comment").setup()
 
 require("leap").set_default_keymaps()
 
-require("harpoon").setup({ global_settings = { enter_on_sendcmd = true } })
+require("harpoon").setup()
 vim.keymap.set("n", "<leader>m", require("harpoon.mark").add_file)
 vim.keymap.set("n", "<C-p>", require("harpoon.ui").toggle_quick_menu)
 vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)

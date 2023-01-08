@@ -1,10 +1,11 @@
 vim.g["test#custom_strategies"] = {
-  tmux_pane = function(cmd)
-    require("harpoon.tmux").sendCommand("{next}", cmd)
+  tmux_window = function(cmd)
+    vim.fn.jobstart({ "tmux", "send-key", "-t:2", cmd .. "\n" })
+    vim.fn.jobstart({ "tmux", "select-window", "-t:2" })
   end,
 }
 
-vim.g["test#strategy"] = "tmux_pane"
+vim.g["test#strategy"] = "tmux_window"
 
 vim.g["test#go#runner"] = "gotest"
 vim.g["test#go#gotest#options"] = "-v -race -failfast --count=1"
