@@ -1,3 +1,7 @@
+-- Disable netrw.
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("nvim-tree").setup({
   disable_netrw = true,
   sync_root_with_cwd = true,

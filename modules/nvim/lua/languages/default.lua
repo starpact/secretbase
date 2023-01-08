@@ -34,26 +34,4 @@ M.on_attach = function(_, bufnr)
   map("n", "<leader><leader>f", vim.lsp.buf.format)
 end
 
--- Reuse client when:
--- 1. file belongs to std/3rd libs(/nix, ~/.cargo, ~/go, etc) or
--- 2. file has the same git ancestor
-M.reuse_client = function(...)
-  local prefixes = vim.tbl_flatten({ ... })
-  local find_git_ancestor = require("lspconfig").util.find_git_ancestor
-  return function(client, config)
-    if client.name ~= config.name then
-      return false
-    end
-
-    local buf_name = vim.api.nvim_buf_get_name(0)
-    for _, prefix in ipairs(prefixes) do
-      if vim.startswith(buf_name, vim.fs.normalize(prefix)) then
-        return true
-      end
-    end
-
-    return find_git_ancestor(buf_name) == find_git_ancestor(client.config.root_dir)
-  end
-end
-
 return M

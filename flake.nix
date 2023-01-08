@@ -9,64 +9,65 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations = {
-      nixos-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./nixos-desktop/configuration.nix ];
+  outputs = { nixpkgs, ... }@inputs:
+    {
+      nixosConfigurations = {
+        nixos-desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./nixos-desktop/configuration.nix ];
+        };
+        nixos-laptop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./nixos-laptop/configuration.nix ];
+        };
       };
-      nixos-laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./nixos-laptop/configuration.nix ];
+
+      homeConfigurations = {
+        nixos-desktop =
+          let
+            system = "x86_64-linux";
+            pkgs = import nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+          inputs.home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./nixos-desktop/home.nix ];
+          };
+
+        nixos-laptop =
+          let
+            system = "x86_64-linux";
+            pkgs = import nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+          inputs.home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./nixos-laptop/home.nix ];
+          };
+
+        mac-mini =
+          let
+            system = "aarch64-darwin";
+            pkgs = import nixpkgs { inherit system; };
+          in
+          inputs.home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./mac-mini/home.nix ];
+          };
+
+        mac-work =
+          let
+            system = "aarch64-darwin";
+            pkgs = import nixpkgs { inherit system; };
+          in
+          inputs.home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./mac-work/home.nix ];
+          };
       };
     };
-
-    homeConfigurations = {
-      nixos-desktop =
-        let
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./nixos-desktop/home.nix ];
-        };
-
-      nixos-laptop =
-        let
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./nixos-laptop/home.nix ];
-        };
-
-      mac-mini =
-        let
-          system = "aarch64-darwin";
-          pkgs = import nixpkgs { inherit system; };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./mac-mini/home.nix ];
-        };
-
-      mac-work =
-        let
-          system = "aarch64-darwin";
-          pkgs = import nixpkgs { inherit system; };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./mac-work/home.nix ];
-        };
-    };
-  };
 }

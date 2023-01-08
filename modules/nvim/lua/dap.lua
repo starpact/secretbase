@@ -10,4 +10,4 @@ vim.keymap.set("n", "<F11>", dap.step_into)
 vim.keymap.set("n", "<F12>", dap.step_out)
 vim.keymap.set("n", "<F8>", dapui.toggle)
 
-require("tools.languages.go").update_dap(dap)
+require("languages.go").update_dap(dap)

@@ -1,10 +1,10 @@
 vim.g["test#custom_strategies"] = {
-  tterm = function(cmd)
-    require("toggleterm").exec(cmd)
+  tmux_pane = function(cmd)
+    require("harpoon.tmux").sendCommand("{next}", cmd)
   end,
 }
 
-vim.g["test#strategy"] = "tterm"
+vim.g["test#strategy"] = "tmux_pane"
 
 vim.g["test#go#runner"] = "gotest"
 vim.g["test#go#gotest#options"] = "-v -race -failfast --count=1"

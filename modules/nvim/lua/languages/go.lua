@@ -1,15 +1,4 @@
-local lspconfig = require("lspconfig")
-local common = require("tools.common")
-
 local M = {}
-
-M.setup_lsp = function()
-  lspconfig.gopls.setup({
-    -- autostart = false,
-    capabilities = common.capabilities,
-    on_attach = common.on_attach,
-  })
-end
 
 M.update_dap = function(dap)
   dap.adapters.delve = {

@@ -9,7 +9,7 @@ lint.linters_by_ft = {
   yaml = { "yamllint" },
 }
 
-require("tools.languages.java").update_linter(lint.linters)
+require("languages.java").update_linter(lint.linters)
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()

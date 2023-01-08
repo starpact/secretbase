@@ -1,4 +1,4 @@
-local common = require("tools.common")
+local default = require("languages.default")
 
 local M = {}
 
@@ -12,8 +12,8 @@ local function start_or_attach()
       vim.fs.normalize("~/.cache/jdtls/workspace/") .. root_dir_name,
     },
     root_dir = root_dir,
-    capabilities = common.capabilities,
-    on_attach = common.on_attach,
+    capabilities = default.capabilities,
+    on_attach = default.on_attach,
   }
 
   require("jdtls").start_or_attach(config)

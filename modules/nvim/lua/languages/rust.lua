@@ -1,5 +1,4 @@
-local lspconfig = require("lspconfig")
-local common = require("tools.common")
+local default = require("languages.default")
 
 local M = {}
 
@@ -23,12 +22,10 @@ local settings = {
   },
 }
 
-M.setup_lsp = function()
-  lspconfig.rust_analyzer.setup({
-    capabilities = common.capabilities,
-    on_attach = common.on_attach,
-    settings = settings,
-  })
-end
+M.lsp_config = {
+  capabilities = default.capabilities,
+  on_attach = default.on_attach,
+  settings = settings,
+}
 
 return M

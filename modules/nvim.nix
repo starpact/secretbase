@@ -17,8 +17,8 @@
       friendly-snippets
       fzf-lua
       gitsigns-nvim
+      harpoon
       leap-nvim
-      lualine-nvim
       luasnip
       null-ls-nvim
       nvim-autopairs
@@ -34,7 +34,6 @@
       nvim-treesitter-textobjects
       nvim-ts-context-commentstring
       nvim-ts-autotag
-      toggleterm-nvim
       vim-test
     ];
   };

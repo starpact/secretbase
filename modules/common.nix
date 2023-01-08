@@ -4,8 +4,6 @@
   fonts.fontconfig.enable = true;
 
   home.file = {
-    ".config/helix".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/helix";
     ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/nvim";
     ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink
@@ -25,7 +23,6 @@
     fd
     gh
     graphviz
-    helix
     htop
     jq
     lazygit
