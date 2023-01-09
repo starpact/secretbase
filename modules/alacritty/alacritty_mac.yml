@@ -5,10 +5,9 @@ window:
   padding:
     x: 5
   decorations: none
-  # opacity: 0.9
   dynamic_padding: true
 font:
-  size: 22.0
+  size: 18.0
   normal:
     family: Iosevka Nerd Font Mono
     style: Light
@@ -110,3 +109,4 @@ key_bindings:
   - { key: Key7, mods: Command, chars: "\x01\x37" }
   - { key: Key8, mods: Command, chars: "\x01\x38" }
   - { key: Key9, mods: Command, chars: "\x01\x39" }
+  - { key: S, mods: Command, chars: "\x01\x73" }

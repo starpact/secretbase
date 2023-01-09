@@ -1,7 +1,8 @@
 vim.g["test#custom_strategies"] = {
   tmux_window = function(cmd)
-    vim.fn.jobstart({ "tmux", "send-key", "-t:2", cmd .. "\n" })
-    vim.fn.jobstart({ "tmux", "select-window", "-t:2" })
+    vim.fn.jobstart({ "tmux", "new-window", "-t:+1", "-d" })
+    vim.fn.jobstart({ "tmux", "send-key", "-t:+1", cmd .. "\n" })
+    vim.fn.jobstart({ "tmux", "select-window", "-t:+1" })
   end,
 }
 
