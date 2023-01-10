@@ -1,4 +1,4 @@
-local default = require("languages.default")
+local default = require("modules.languages.default")
 
 local M = {}
 

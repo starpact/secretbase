@@ -73,6 +73,7 @@
     nodePackages.pyright
     black
     python310Packages.flake8
+    ruff
 
     # Rust
     rustup

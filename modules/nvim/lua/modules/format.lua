@@ -14,7 +14,7 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua,
 
     null_ls.builtins.diagnostics.cue_fmt,
-    require("languages.any").linter,
+    require("modules.languages.any").linter,
   },
 })
 

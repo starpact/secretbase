@@ -5,11 +5,11 @@ lint.linters_by_ft = {
   cpp = { "clangtidy", "cppcheck" },
   go = { "golangcilint" },
   java = { "checkstyle" },
-  python = { "flake8" },
+  python = { "ruff" },
   yaml = { "yamllint" },
 }
 
-require("languages.java").update_linter(lint.linters)
+require("modules.languages.java").update_linter(lint.linters)
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()

@@ -64,6 +64,7 @@
         lg = "lazygit";
         gp = "git pull";
         gs = "git status";
+        ta = "tmux a";
       };
     };
     direnv = {

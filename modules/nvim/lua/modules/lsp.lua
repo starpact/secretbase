@@ -1,10 +1,10 @@
 local lspconfig = require("lspconfig")
-local default = require("languages.default")
+local default = require("modules.languages.default")
 
 local server_configs = {
   bashls = {},
   bufls = {},
-  clangd = require("languages.c").lsp_config,
+  clangd = require("modules.languages.c").lsp_config,
   cssls = {},
   eslint = {},
   gopls = {},
@@ -12,8 +12,8 @@ local server_configs = {
   jsonls = {},
   nil_ls = {},
   pyright = {},
-  rust_analyzer = require("languages.rust").lsp_config,
-  sumneko_lua = require("languages.lua").lsp_config,
+  rust_analyzer = require("modules.languages.rust").lsp_config,
+  sumneko_lua = require("modules.languages.lua").lsp_config,
   taplo = {},
   terraformls = {},
   tsserver = {},
@@ -27,12 +27,10 @@ for server, config in pairs(server_configs) do
   }))
 end
 
-require("languages.java").setup_lsp()
+require("modules.languages.java").setup_lsp()
 
 require("fidget").setup({
-  window = {
-    blend = 0,
-  },
+  window = { blend = 0 },
   sources = {
     jdtls = { ignore = true },
     ["null-ls"] = { ignore = true },
