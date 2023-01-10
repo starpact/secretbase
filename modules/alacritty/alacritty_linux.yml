@@ -416,3 +416,6 @@ key_bindings:
   - { key: Key7, mods: Alt, chars: "\x01\x37" }
   - { key: Key8, mods: Alt, chars: "\x01\x38" }
   - { key: Key9, mods: Alt, chars: "\x01\x39" }
+  - { key: S, mods: Alt, chars: "\x01\x73" }
+  - { key: Key9, mods: Control|Alt, chars: "\x01\x28" }
+  - { key: Key0, mods: Control|Alt, chars: "\x01\x29" }
