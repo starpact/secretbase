@@ -19,7 +19,6 @@ local options = {
   splitbelow = true,
   splitright = true,
   termguicolors = true,
-  timeoutlen = 300,
   foldmethod = "indent",
   foldlevelstart = 99,
   laststatus = 3,
