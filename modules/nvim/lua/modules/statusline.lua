@@ -76,7 +76,7 @@ end
 _G.Statusline = function()
   local left = " %-20.(" .. get_git_status() .. " " .. get_diagnostics() .. "%)"
   local center = get_filepath() .. " %m%r"
-  local right = "%-10.(" .. get_filetype() .. "%)%-10.(%l:%c%)"
+  local right = "%20.(%l:%c   " .. get_filetype() .. "%)%  "
   return left .. "%=" .. center .. "%=" .. right
 end
 
