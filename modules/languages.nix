@@ -10,7 +10,6 @@
     # General
     bazel_5
     codespell
-    gdb
     gnumake
     lldb
     nodePackages.prettier
