@@ -56,7 +56,7 @@ local function get_diagnostics()
   for _, diagnostic in ipairs(vim.diagnostic.get(0)) do
     cnts[diagnostic.severity] = (cnts[diagnostic.severity] or 0) + 1
   end
-  if #cnts == 0 then
+  if next(cnts) == nil then
     return ""
   end
 
@@ -74,9 +74,9 @@ local function get_filetype()
 end
 
 _G.Statusline = function()
-  local left = " %-20.(" .. get_git_status() .. " " .. get_diagnostics() .. "%)"
+  local left = "%-20.(" .. get_git_status() .. " " .. get_diagnostics() .. "%)"
   local center = get_filepath() .. " %m%r"
-  local right = "%20.(%l:%c   " .. get_filetype() .. "%)%  "
+  local right = "%20.(%l,%c   " .. get_filetype() .. "%)%"
   return left .. "%=" .. center .. "%=" .. right
 end
 

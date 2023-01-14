@@ -10,16 +10,14 @@
       cmp-buffer
       cmp-nvim-lsp-signature-help
       cmp-path
-      cmp_luasnip
+      cmp-snippy
       editorconfig-nvim
       everforest
       fidget-nvim
-      friendly-snippets
       fzf-lua
       gitsigns-nvim
       harpoon
       leap-nvim
-      luasnip
       null-ls-nvim
       nvim-autopairs
       nvim-cmp
@@ -28,11 +26,13 @@
       nvim-jdtls
       nvim-lint
       nvim-lspconfig
+      nvim-snippy
       nvim-surround
       nvim-tree-lua
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
       nvim-ts-context-commentstring
+      vim-snippets
       nvim-ts-autotag
       vim-test
     ];

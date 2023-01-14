@@ -2,7 +2,9 @@ vim.g["test#custom_strategies"] = {
   tmux_window = function(cmd)
     vim.fn.jobstart({ "tmux", "new-window", "-t:+1", "-d" })
     vim.fn.jobstart({ "tmux", "send-key", "-t:+1", cmd .. "\n" })
-    vim.fn.jobstart({ "tmux", "select-window", "-t:+1" })
+    if not vim.startswith(cmd, "cargo") then
+      vim.fn.jobstart({ "tmux", "select-window", "-t:+1" })
+    end
   end,
 }
 
