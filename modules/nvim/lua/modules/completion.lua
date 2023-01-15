@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local types = require("cmp.types")
-local compare = require("cmp.config.compare")
 local snippy = require("snippy")
 
 cmp.setup({
@@ -23,18 +22,6 @@ cmp.setup({
       require("snippy").expand_snippet(args.body)
     end,
   },
-  sorting = {
-    comparators = {
-      compare.offset,
-      compare.exact,
-      compare.score,
-      compare.recently_used,
-      compare.locality,
-      compare.sort_text,
-      compare.length,
-      compare.order,
-    },
-  },
   formatting = {
     format = function(entry, vim_item)
       vim_item.menu = ({
@@ -55,8 +42,8 @@ cmp.setup({
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.confirm()
-      elseif snippy.can_expand_or_advance() then
-        snippy.expand_or_advance()
+      elseif snippy.can_jump(1) then
+        snippy.next()
       else
         fallback()
       end
@@ -66,20 +53,8 @@ cmp.setup({
         snippy.previous()
       end
     end, { "i", "s" }),
-    ["<C-n>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
-    ["<C-p>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-      else
-        fallback()
-      end
-    end, { "i", "s" }),
+    ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+    ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
     ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
   },

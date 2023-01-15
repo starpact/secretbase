@@ -60,18 +60,6 @@
             inherit pkgs;
             modules = [ ./mac-work/home.nix ];
           };
-
-        mac-mini =
-          let
-            system = "aarch64-darwin";
-            pkgs = import nixpkgs {
-              inherit system;
-            };
-          in
-          inputs.home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [ ./mac-mini/home.nix ];
-          };
       };
     };
 }

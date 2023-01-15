@@ -48,7 +48,7 @@ end
 
 local function get_diagnostics()
   local mode = vim.api.nvim_get_mode().mode
-  if mode == "i" or mode == "ic" then
+  if mode == "i" or mode == "ic" or mode == "s" then
     return ""
   end
 
