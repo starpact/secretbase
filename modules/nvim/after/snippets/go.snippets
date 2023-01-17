@@ -1,7 +1,7 @@
-snippet fp "fmt println"
-	fmt.Println("${1}")
+snippet pl "fmt.Println()"
+    fmt.Println(${1})
 
-snippet ife "if error not nil, return err"
+snippet ir "if error not nil, return err"
 	if err != nil {
 		${1:return err}
 	}
