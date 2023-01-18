@@ -18,7 +18,7 @@ vim.keymap.set("i", "<C-f>", "<Right>")
 vim.keymap.set("i", "<C-a>", "<C-o>^")
 vim.keymap.set("i", "<C-e>", "<End>")
 vim.keymap.set("i", "<M-b>", "<S-Left>")
-vim.keymap.set("i", "<M-f>", "<S-Right>")
+vim.keymap.set("i", "<M-f>", "<Esc>ea")
 
 vim.keymap.set("n", "<M-Left>", "<cmd>vertical resize -5<CR>")
 vim.keymap.set("n", "<M-Down>", "<cmd>resize +5<CR>")
