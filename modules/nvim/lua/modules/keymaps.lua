@@ -17,6 +17,7 @@ vim.keymap.set("i", "<C-b>", "<Left>")
 vim.keymap.set("i", "<C-f>", "<Right>")
 vim.keymap.set("i", "<C-a>", "<C-o>^")
 vim.keymap.set("i", "<C-e>", "<End>")
+vim.keymap.set("i", "<C-k>", "<C-o>D")
 vim.keymap.set("i", "<M-b>", "<S-Left>")
 vim.keymap.set("i", "<M-f>", "<Esc>ea")
 

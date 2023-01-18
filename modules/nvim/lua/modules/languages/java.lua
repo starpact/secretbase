@@ -15,11 +15,10 @@ local function start_or_attach()
     capabilities = default.capabilities,
     on_attach = default.on_attach,
   }
-
   require("jdtls").start_or_attach(config)
 end
 
-M.setup_lsp = function()
+function M.setup_lsp()
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "java",
     callback = start_or_attach,
@@ -32,11 +31,10 @@ local function checkstyle_config_path()
       return path
     end
   end
-
   return "google_checks.xml"
 end
 
-M.update_linter = function(linters)
+function M.update_linter(linters)
   linters.checkstyle.args = {
     "-c",
     checkstyle_config_path,

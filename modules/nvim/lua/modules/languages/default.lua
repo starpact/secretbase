@@ -6,7 +6,7 @@ M.capabilities = vim.tbl_deep_extend(
   require("cmp_nvim_lsp").default_capabilities()
 )
 
-M.on_attach = function(_, bufnr)
+function M.on_attach(_, bufnr)
   local fzf = require("fzf-lua")
   local function map(mode, key, cmd, opts)
     opts = opts or {}
@@ -14,7 +14,7 @@ M.on_attach = function(_, bufnr)
     vim.keymap.set(mode, key, cmd, opts)
   end
 
-  local with_opts = function(command, opts)
+  local function with_opts(command, opts)
     return function()
       command(opts)
     end
