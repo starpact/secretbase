@@ -1,28 +1,34 @@
 local function get_filepath()
   local path = vim.api.nvim_buf_get_name(0)
 
-  path = string.gsub(path, "src/main/java/", "J/", 1)
-  path = string.gsub(path, "/NvimTree_1", "", 1)
-
+  -- Shorten java path.
+  path = path:gsub("src/main/java/", "J/", 1)
+  local basename = vim.fs.basename(path)
+  -- Show absolute path in nvim tree.
+  if basename == "NvimTree_1" then
+    return path:sub(1, #path - 11)
+  end
+  -- Highlight basename.
+  path = path:sub(1, #path - #basename) .. "%#NormalFloat#" .. basename .. "%#Statusline#"
+  -- Path starts from current dir.
   local cwd = vim.fn.getcwd()
   if vim.startswith(path, cwd .. "/") then
-    return string.sub(path, #cwd - #vim.fs.basename(cwd) + 1)
+    return path:sub(#cwd - #vim.fs.basename(cwd) + 1)
   end
-
+  -- Shorten nix path.
   local nix_store = "/nix/store/"
   if vim.startswith(path, nix_store) then
-    return "NIX/" .. string.sub(path, 45)
+    return "NIX/" .. path:sub(45)
   end
-
+  -- Shorten home path.
   local home = vim.fs.normalize("~/")
   if vim.startswith(path, home) then
-    return "~/" .. string.sub(path, #home + 1)
+    return "~/" .. path:sub(#home + 1)
   end
-
+  -- Shorten jdt url.
   if vim.startswith(path, "jdt") then
-    return string.sub(path, 16, string.find(path, "?") - 1)
+    return path:sub(16, path:find("?") - 1)
   end
-
   return path
 end
 
@@ -61,12 +67,11 @@ local function get_diagnostics()
   end
 
   local severity = vim.diagnostic.severity
-  return
-    (cnts[severity.ERROR] and "%#ErrorFloat#" .. cnts[severity.ERROR] .. " " or "")
-      .. (cnts[severity.WARN] and "%#WarningFloat#" .. cnts[severity.WARN] .. " " or "")
-      .. (cnts[severity.INFO] and "%#InfoFloat#" .. cnts[severity.INFO] .. " " or "")
-      .. (cnts[severity.HINT] and "%#HintFloat#" .. cnts[severity.HINT] .. " " or "")
-      .. "%#Statusline#"
+  return (cnts[severity.ERROR] and "%#ErrorFloat#" .. cnts[severity.ERROR] .. " " or "")
+    .. (cnts[severity.WARN] and "%#WarningFloat#" .. cnts[severity.WARN] .. " " or "")
+    .. (cnts[severity.INFO] and "%#InfoFloat#" .. cnts[severity.INFO] .. " " or "")
+    .. (cnts[severity.HINT] and "%#HintFloat#" .. cnts[severity.HINT] .. " " or "")
+    .. "%#Statusline#"
 end
 
 local function get_filetype()
