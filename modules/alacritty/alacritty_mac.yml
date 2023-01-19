@@ -6,7 +6,6 @@ window:
     x: 5
   decorations: none
   dynamic_padding: true
-  opacity: 0.9
 font:
   size: 22.0
   normal:

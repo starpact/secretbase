@@ -38,7 +38,7 @@
       ];
     })
     newsboat
-    onefetch
+    # onefetch
     ripgrep
     scc
     sqlite
