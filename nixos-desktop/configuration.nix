@@ -72,8 +72,6 @@
       desktopManager.gnome.enable = true;
       layout = "us";
       xkbVariant = "";
-      desktopManager.xterm.enable = false;
-      excludePackages = [ pkgs.xterm ];
     };
   };
 

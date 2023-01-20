@@ -1,34 +1,37 @@
 local function get_filepath()
   local path = vim.api.nvim_buf_get_name(0)
-
-  -- Shorten java path.
-  path = path:gsub("src/main/java/", "J/", 1)
+  -- Shorten jdt url.
+  if vim.startswith(path, "jdt") then
+    path = path:sub(16, path:find("?") - 1)
+  end
   local basename = vim.fs.basename(path)
+
   -- Show absolute path in nvim tree.
   if basename == "NvimTree_1" then
     return path:sub(1, #path - 11)
   end
+
   -- Highlight basename.
   path = path:sub(1, #path - #basename) .. "%#NormalFloat#" .. basename .. "%#Statusline#"
+
   -- Path starts from current dir.
   local cwd = vim.fn.getcwd()
   if vim.startswith(path, cwd .. "/") then
     return path:sub(#cwd - #vim.fs.basename(cwd) + 1)
   end
+
   -- Shorten nix path.
   local nix_store = "/nix/store/"
   if vim.startswith(path, nix_store) then
     return "NIX/" .. path:sub(45)
   end
+
   -- Shorten home path.
   local home = vim.fs.normalize("~/")
   if vim.startswith(path, home) then
     return "~/" .. path:sub(#home + 1)
   end
-  -- Shorten jdt url.
-  if vim.startswith(path, "jdt") then
-    return path:sub(16, path:find("?") - 1)
-  end
+
   return path
 end
 
