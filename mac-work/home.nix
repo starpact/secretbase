@@ -4,10 +4,14 @@
   home.username = "hongjie.yan";
   home.homeDirectory = "/Users/hongjie.yan";
 
-  imports = [ ../mac-home.nix ];
+  imports = [
+    ../modules/mac-home.nix
+    ../modules/common.nix
+    ../modules/languages.nix
+    ../modules/nvim.nix
+  ];
 
   home.packages = with pkgs; [
-    apacheKafka
     awscli2
     git
     kubectl
@@ -15,7 +19,6 @@
     mysql80
     postgresql
     redis
-    vector
   ];
 
   programs.bash = {

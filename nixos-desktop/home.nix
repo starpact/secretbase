@@ -1,10 +1,13 @@
 { pkgs, ... }:
 
 {
-  imports = [ ../nixos-home.nix ];
-
-  home.packages = with pkgs; [
-    dropbox
+  imports = [
+    ../modules/nixos-home.nix
+    ../modules/common.nix
+    ../modules/dconf.nix
+    ../modules/git.nix
+    ../modules/languages.nix
+    ../modules/nvim.nix
   ];
 
   programs.bash.shellAliases = {

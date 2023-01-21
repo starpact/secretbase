@@ -1,17 +1,9 @@
 { pkgs, config, ... }:
 
 {
-  home.stateVersion = "22.05";
+  home.stateVersion = "22.11";
   home.username = "yhj";
   home.homeDirectory = "/home/yhj";
-
-  imports = [
-    ./modules/common.nix
-    ./modules/dconf.nix
-    ./modules/git.nix
-    ./modules/languages.nix
-    ./modules/nvim.nix
-  ];
 
   home.file = {
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
@@ -24,6 +16,7 @@
     alacritty
     cpu-x
     discord
+    dropbox
     firefox
     flameshot
     gimp

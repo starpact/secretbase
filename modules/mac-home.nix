@@ -1,13 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  home.stateVersion = "22.05";
-
-  imports = [
-    ./modules/common.nix
-    ./modules/languages.nix
-    ./modules/nvim.nix
-  ];
+  home.stateVersion = "22.11";
 
   home.file = {
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink

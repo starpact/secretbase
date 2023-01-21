@@ -28,17 +28,8 @@
     lazygit
     lf
     neofetch
-    (nerdfonts.override {
-      fonts = [
-        "FantasqueSansMono"
-        "Inconsolata"
-        "Iosevka"
-        "JetBrainsMono"
-        "VictorMono"
-      ];
-    })
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
     newsboat
-    # onefetch
     ripgrep
     scc
     sqlite
@@ -46,7 +37,6 @@
     tmux
     unzip
     wget
-    wrangler
     yq-go
   ];
 
