@@ -57,6 +57,7 @@
   programs.steam.enable = true;
 
   services = {
+    expressvpn.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;

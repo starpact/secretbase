@@ -11,13 +11,13 @@ window:
 font:
   size: 13
   normal:
-    family: IosevkaTerm NF
-    style: Light
+    family: IosevkaTerm Nerd Font
+    style: Regular
   bold:
-    family: IosevkaTerm NF
+    family: IosevkaTerm Nerd Font
     style: Bold
   italic:
-    family: IosevkaTerm NF
+    family: IosevkaTerm Nerd Font
     style: italic
 colors:
   primary:
