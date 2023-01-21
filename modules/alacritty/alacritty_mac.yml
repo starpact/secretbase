@@ -9,13 +9,13 @@ window:
 font:
   size: 22.0
   normal:
-    family: Iosevka Nerd Font Mono
+    family: IosevkaTerm Nerd Font
     style: Light
   bold:
-    family: Iosevka Nerd Font Mono
+    family: IosevkaTerm Nerd Font
     style: Bold
   italic:
-    family: Iosevka Nerd Font Mono
+    family: IosevkaTerm Nerd Font
     style: Italic
 
 colors:
