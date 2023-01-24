@@ -14,9 +14,11 @@
 
   home.packages = with pkgs; [
     alacritty
+    bookworm
     cpu-x
     discord
     dropbox
+    expressvpn
     firefox
     flameshot
     gimp

@@ -23,7 +23,7 @@ local function get_filepath()
   -- Shorten nix path.
   local nix_store = "/nix/store/"
   if vim.startswith(path, nix_store) then
-    return "NIX/" .. path:sub(45)
+    return "NIX-" .. path:sub(45)
   end
 
   -- Shorten home path.
