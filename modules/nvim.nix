@@ -31,10 +31,11 @@
       nvim-tree-lua
       nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
-      nvim-ts-context-commentstring
-      vim-snippets
       nvim-ts-autotag
+      nvim-ts-context-commentstring
+      playground
       vim-test
+      vim-snippets
     ];
   };
 }

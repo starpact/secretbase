@@ -11,6 +11,7 @@ require("nvim-treesitter.configs").setup({
       node_decremental = "<S-Down>",
     },
   },
+  playground = { enable = true },
   textobjects = {
     select = {
       enable = true,
