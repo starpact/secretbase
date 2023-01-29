@@ -5,18 +5,29 @@ local default_winopts = {
   width = 1,
   row = 1,
   col = 0,
-  hl = { cursorline = "visual" },
+  hl = {
+    cursorline = "visual",
+  },
   border = { "─", "─", "─", "", "", "", "", "" },
-  preview = { delay = 0, horizontal = "right:50%" },
+  preview = {
+    delay = 0,
+    horizontal = "right:50%",
+  },
 }
 local no_preview_winopts = {
-  hl = { cursorline = "" },
-  preview = { hidden = "hidden" },
+  hl = {
+    cursorline = "",
+  },
+  preview = {
+    hidden = "hidden",
+  },
 }
 local git_opts = {
   winopts = {
     fullscreen = true,
-    preview = { horizontal = "up:70%" },
+    preview = {
+      horizontal = "up:70%",
+    },
   },
   preview_pager = "delta -s --width=$FZF_PREVIEW_COLUMNS",
 }
@@ -43,12 +54,29 @@ fzf.setup({
     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
     ["--no-separator"] = "",
   },
-  files = { winopts = no_preview_winopts, git_icons = false },
-  oldfiles = { winopts = no_preview_winopts },
-  buffers = { winopts = no_preview_winopts },
-  grep = { git_icons = false },
-  git = { status = git_opts, commits = git_opts, bcommits = git_opts },
-  lsp = { async_or_timeout = 20000 },
+  files = {
+    winopts = no_preview_winopts,
+    git_icons = false,
+  },
+  oldfiles = {
+    winopts = no_preview_winopts,
+  },
+  buffers = {
+    winopts = no_preview_winopts,
+  },
+  grep = {
+    git_icons = false,
+  },
+  git = {
+    status = git_opts,
+    commits = git_opts,
+    bcommits = git_opts,
+  },
+  lsp = {
+    async_or_timeout = 20000,
+    jump_to_single_result = true,
+    ignore_current_line = true,
+  },
   keymap = {
     fzf = {
       ["ctrl-n"] = "down",

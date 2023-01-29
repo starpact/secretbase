@@ -1,9 +1,11 @@
 local function get_filepath()
   local path = vim.api.nvim_buf_get_name(0)
+
   -- Shorten jdt url.
   if vim.startswith(path, "jdt") then
     path = path:sub(16, path:find("?") - 1)
   end
+
   local basename = vim.fs.basename(path)
 
   -- Show absolute path in nvim tree.

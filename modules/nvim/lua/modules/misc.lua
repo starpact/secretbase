@@ -13,6 +13,16 @@ vim.keymap.set("n", "<C-s>", require("harpoon.ui").toggle_quick_menu)
 vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
 vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
 
+require("fidget").setup({
+  window = {
+    blend = 0,
+  },
+  sources = {
+    jdtls = { ignore = true },
+    ["null-ls"] = { ignore = true },
+  },
+})
+
 vim.keymap.set("n", "<leader>w", function()
   local dir = vim.fs.dirname(vim.fs.find({
     "build.zig",

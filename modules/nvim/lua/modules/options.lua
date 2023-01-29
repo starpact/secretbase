@@ -1,4 +1,4 @@
-local options = {
+for k, v in pairs({
   fileencoding = "UTF-8",
   swapfile = false,
   backup = false,
@@ -16,21 +16,15 @@ local options = {
   pumheight = 10,
   showmode = false,
   wrap = false,
-  splitbelow = true,
-  splitright = true,
   termguicolors = true,
   foldmethod = "indent",
   foldlevelstart = 99,
   laststatus = 3,
-}
-
-for k, v in pairs(options) do
+}) do
   vim.opt[k] = v
 end
 
-vim.opt.shortmess:append("c")
-
-for _, type in pairs({ "Error", "Warn", "Hint", "Info" }) do
+for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = "", texthl = hl })
 end

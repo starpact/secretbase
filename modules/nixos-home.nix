@@ -29,7 +29,7 @@
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
-    # kitty
+    kitty
     liburing
     libreoffice
     mpv

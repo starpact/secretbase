@@ -1,8 +1,18 @@
 require("nvim-treesitter.configs").setup({
-  highlight = { enable = true, disable = { "proto" } },
-  indent = { enable = true, disable = { "python" } },
-  autotag = { enable = true },
-  context_commentstring = { enable = true },
+  highlight = {
+    enable = true,
+    disable = { "proto" },
+  },
+  indent = {
+    enable = true,
+    disable = { "python" },
+  },
+  autotag = {
+    enable = true,
+  },
+  context_commentstring = {
+    enable = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -11,7 +21,9 @@ require("nvim-treesitter.configs").setup({
       node_decremental = "<S-Down>",
     },
   },
-  playground = { enable = true },
+  playground = {
+    enable = true,
+  },
   textobjects = {
     select = {
       enable = true,

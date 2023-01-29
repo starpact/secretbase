@@ -28,11 +28,3 @@ for server, config in pairs(server_configs) do
 end
 
 require("modules.languages.java").setup_lsp()
-
-require("fidget").setup({
-  window = { blend = 0 },
-  sources = {
-    jdtls = { ignore = true },
-    ["null-ls"] = { ignore = true },
-  },
-})
