@@ -1,7 +1,7 @@
 local lspconfig = require("lspconfig")
 local default = require("modules.languages.default")
 
-local server_configs = {
+for server, config in pairs({
   bashls = {},
   bufls = {},
   clangd = require("modules.languages.c").lsp_config,
@@ -19,8 +19,7 @@ local server_configs = {
   tsserver = {},
   yamlls = {},
   zls = {},
-}
-for server, config in pairs(server_configs) do
+}) do
   lspconfig[server].setup(vim.tbl_deep_extend("keep", config, {
     capabilities = default.capabilities,
     on_attach = default.on_attach,

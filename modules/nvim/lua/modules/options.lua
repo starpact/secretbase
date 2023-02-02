@@ -16,6 +16,8 @@ for k, v in pairs({
   pumheight = 10,
   showmode = false,
   wrap = false,
+  splitbelow = true,
+  splitright = true,
   termguicolors = true,
   foldmethod = "indent",
   foldlevelstart = 99,

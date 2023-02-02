@@ -1,10 +1,27 @@
 vim.g["test#custom_strategies"] = {
   tmux_window = function(cmd)
-    vim.fn.jobstart({ "tmux", "new-window", "-t:+1", "-d" })
-    vim.fn.jobstart({ "tmux", "send-key", "-t:+1", cmd .. "\n" })
-    if not vim.startswith(cmd, "cargo") then
-      vim.fn.jobstart({ "tmux", "select-window", "-t:+1" })
+    local function sendCommand()
+      vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd, "Enter" }, {
+        on_stdout = function()
+          if not vim.startswith(cmd, "cargo") then
+            vim.fn.jobstart({ "tmux", "select-pane", "-t", ".2" })
+          end
+        end,
+      })
     end
+
+    vim.fn.jobstart({ "tmux", "list-panes" }, {
+      stdout_buffered = true, -- get all stdout rather than line by line
+      on_stdout = function(_, data)
+        if #data >= 3 then -- 2 lines of panes and 1 empty string for EOF
+          sendCommand()
+        else
+          vim.fn.jobstart({ "tmux", "split-window" }, {
+            on_stdout = sendCommand,
+          })
+        end
+      end,
+    })
   end,
 }
 

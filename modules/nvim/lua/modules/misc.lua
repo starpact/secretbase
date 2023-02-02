@@ -24,7 +24,7 @@ require("fidget").setup({
 })
 
 vim.keymap.set("n", "<leader>w", function()
-  local dir = vim.fs.dirname(vim.fs.find({
+  local path = vim.fs.find({
     "build.zig",
     ".git",
     "Cargo.toml",
@@ -37,8 +37,8 @@ vim.keymap.set("n", "<leader>w", function()
   }, {
     path = vim.api.nvim_buf_get_name(0),
     upward = true,
-  })[1])
-  if dir then
-    vim.api.nvim_set_current_dir(dir)
+  })[1]
+  if path then
+    vim.api.nvim_set_current_dir(vim.fs.dirname(path))
   end
 end)
