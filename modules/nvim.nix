@@ -5,12 +5,12 @@
     enable = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [
-      comment-nvim
       cmp-nvim-lsp
       cmp-buffer
       cmp-nvim-lsp-signature-help
       cmp-path
       cmp-snippy
+      comment-nvim
       editorconfig-nvim
       everforest
       fidget-nvim
@@ -21,8 +21,6 @@
       null-ls-nvim
       nvim-autopairs
       nvim-cmp
-      nvim-dap
-      nvim-dap-ui
       nvim-jdtls
       nvim-lint
       nvim-lspconfig

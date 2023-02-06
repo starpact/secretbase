@@ -9,11 +9,10 @@ vim.g["test#custom_strategies"] = {
         end,
       })
     end
-
     vim.fn.jobstart({ "tmux", "list-panes" }, {
       stdout_buffered = true, -- get all stdout rather than line by line
       on_stdout = function(_, data)
-        if #data >= 3 then -- 2 lines of panes and 1 empty string for EOF
+        if #data >= 3 then -- at least 2 lines for pane info and 1 empty string for EOF
           sendCommand()
         else
           vim.fn.jobstart({ "tmux", "split-window" }, {

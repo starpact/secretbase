@@ -33,7 +33,9 @@ end
 
 vim.diagnostic.config({
   severity_sort = true,
-  float = { source = "always" },
+  float = {
+    source = "always",
+  },
 })
 
 vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
