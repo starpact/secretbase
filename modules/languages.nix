@@ -22,7 +22,6 @@
     # C/C++
     clang-tools
     cmake
-    gcc
     cppcheck
     llvmPackages_latest.clang-manpages
     llvmPackages_latest.llvm-manpages

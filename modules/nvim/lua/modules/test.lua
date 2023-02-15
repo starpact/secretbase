@@ -1,13 +1,7 @@
 vim.g["test#custom_strategies"] = {
   tmux_window = function(cmd)
     local function sendCommand()
-      vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd, "Enter" }, {
-        on_stdout = function()
-          if not vim.startswith(cmd, "cargo") then
-            vim.fn.jobstart({ "tmux", "select-pane", "-t", ".2" })
-          end
-        end,
-      })
+      vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd, "Enter" })
     end
     vim.fn.jobstart({ "tmux", "list-panes" }, {
       stdout_buffered = true, -- get all stdout rather than line by line

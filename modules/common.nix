@@ -19,6 +19,7 @@
     delta
     du-dust
     duckdb
+    erdtree
     exa
     fd
     gh

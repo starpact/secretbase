@@ -12,12 +12,6 @@ require("nvim-tree").setup({
     show_on_dirs = true,
     icons = { hint = "", info = "", warning = "", error = "" },
   },
-  system_open = {
-    cmd = "code",
-  },
-  git = {
-    enable = false,
-  },
   renderer = {
     indent_markers = {
       enable = true,
