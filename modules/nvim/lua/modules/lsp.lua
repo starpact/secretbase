@@ -57,7 +57,7 @@ lspconfig.clangd.setup(extend_default({
   },
 }))
 
-lspconfig.sumneko_lua.setup(extend_default({
+lspconfig.lua_ls.setup(extend_default({
   settings = {
     Lua = {
       diagnostics = { globals = { "vim" } },

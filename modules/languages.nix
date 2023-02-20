@@ -54,7 +54,7 @@
     nodePackages.typescript-language-server
 
     # Lua
-    sumneko-lua-language-server
+    lua-language-server
     stylua
 
     # Nix
