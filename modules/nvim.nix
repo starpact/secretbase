@@ -12,10 +12,10 @@
       cmp-snippy
       comment-nvim
       editorconfig-nvim
-      everforest
       fidget-nvim
       fzf-lua
       gitsigns-nvim
+      gruvbox-material
       harpoon
       leap-nvim
       null-ls-nvim
