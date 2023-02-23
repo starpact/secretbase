@@ -5,7 +5,6 @@
     ../modules/nixos-home.nix
     ../modules/common.nix
     ../modules/dconf.nix
-    ../modules/git.nix
     ../modules/languages.nix
     ../modules/nvim.nix
   ];

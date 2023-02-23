@@ -53,6 +53,11 @@
         MOZ_ENABLE_WAYLAND = "1";
       };
     };
+    git = {
+      enable = true;
+      userName = "starpact";
+      userEmail = "yhj.await@gmail.com";
+    };
     home-manager.enable = true;
   };
 
