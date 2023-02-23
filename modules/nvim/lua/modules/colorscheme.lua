@@ -1,5 +1,6 @@
 vim.g.gruvbox_material_disable_italic_comment = 1
 vim.g.gruvbox_material_transparent_background = 1
+vim.g.gruvbox_material_visual = "red background"
 vim.cmd.colorscheme("gruvbox-material")
 
 vim.api.nvim_set_hl(0, "Statusline", { link = "FloatBorder" })
