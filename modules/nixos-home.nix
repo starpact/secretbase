@@ -21,6 +21,7 @@
     expressvpn
     firefox
     flameshot
+    gcc
     gimp
     google-chrome
     gnome.gnome-tweaks
