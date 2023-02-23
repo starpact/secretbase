@@ -24,6 +24,9 @@ require("fidget").setup({
     ["null-ls"] = {
       ignore = true,
     },
+    pyright = {
+      ignore = true,
+    },
   },
 })
 
