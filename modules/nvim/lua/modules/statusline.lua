@@ -42,19 +42,10 @@ local function get_git_status()
   if not dict then
     return ""
   end
-
-  local status = dict.head
-  if dict.added and dict.added > 0 then
-    status = status .. " +" .. dict.added
-  end
-  if dict.changed and dict.changed > 0 then
-    status = status .. " ~" .. dict.changed
-  end
-  if dict.removed and dict.removed > 0 then
-    status = status .. " -" .. dict.removed
-  end
-
-  return status
+  return dict.head
+    .. (dict.added and dict.added > 0 and " +" .. dict.added or "")
+    .. (dict.changed and dict.changed > 0 and " ~" .. dict.changed or "")
+    .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
 end
 
 local function get_diagnostics()
@@ -79,15 +70,10 @@ local function get_diagnostics()
     .. "%#Statusline#"
 end
 
-local function get_filetype()
-  return vim.bo.filetype
-end
-
 _G.Statusline = function()
-  local left = "%-20.(" .. get_git_status() .. " " .. get_diagnostics() .. "%)"
-  local center = get_filepath() .. " %m%r"
-  local right = "%20.(%l,%c   " .. get_filetype() .. "%)%"
-  return left .. "%=" .. center .. "%=" .. right
+  local left = get_filepath() .. " %m%r  " .. get_diagnostics()
+  local right = get_git_status() .. "%10.(%l,%c%)"
+  return left .. "%=" .. right
 end
 
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {

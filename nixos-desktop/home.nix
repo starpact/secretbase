@@ -9,8 +9,10 @@
     ../modules/nvim.nix
   ];
 
-  programs.bash.shellAliases = {
-    update = "sudo nixos-rebuild switch --flake ~/dotfiles#nixos-desktop";
-    hs = "home-manager switch --flake ~/dotfiles#nixos-desktop";
+  programs = {
+    bash.shellAliases = {
+      update = "sudo nixos-rebuild switch --flake ~/dotfiles#nixos-desktop";
+      hs = "home-manager switch --flake ~/dotfiles#nixos-desktop";
+    };
   };
 }
