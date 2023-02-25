@@ -5,10 +5,10 @@ vim.cmd.colorscheme("gruvbox-material")
 
 vim.api.nvim_set_hl(0, "Statusline", { link = "FloatBorder" })
 
-vim.api.nvim_set_hl(0, "VirtualTextError", { fg = "#e67e80" })
-vim.api.nvim_set_hl(0, "VirtualTextWarning", { fg = "#dbbc7f" })
-vim.api.nvim_set_hl(0, "VirtualTextInfo", { fg = "#7fbbb3" })
-vim.api.nvim_set_hl(0, "VirtualTextHint", { fg = "#a7c080" })
+vim.api.nvim_set_hl(0, "VirtualTextError", { ctermfg = 167, fg = "#c14a4a" })
+vim.api.nvim_set_hl(0, "VirtualTextWarning", { ctermfg = 214, fg = "#b47109" })
+vim.api.nvim_set_hl(0, "VirtualTextInfo", { ctermfg = 109, fg = "#45707a" })
+vim.api.nvim_set_hl(0, "VirtualTextHint", { ctermfg = 142, fg = "#6c782e" })
 
 vim.api.nvim_set_hl(0, "@constant.builtin.go", { link = "@constant.builtin" })
 vim.api.nvim_set_hl(0, "@field", { link = "@variable" })

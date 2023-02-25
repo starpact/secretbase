@@ -100,7 +100,7 @@
     yamllint
 
     # Zig
-    # zig
-    # zls
+    zig
+    zls
   ];
 }
