@@ -71,9 +71,7 @@ local function get_diagnostics()
 end
 
 _G.Statusline = function()
-  local left = get_filepath() .. " %m%r  " .. get_diagnostics()
-  local right = get_git_status() .. "%10.(%l,%c%)"
-  return left .. "%=" .. right
+  return get_filepath() .. " %m%r  " .. get_diagnostics() .. "%=" .. get_git_status() .. "%10.(%l,%c%)"
 end
 
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {

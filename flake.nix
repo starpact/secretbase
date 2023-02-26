@@ -9,7 +9,7 @@
     };
   };
 
-  outputs = { nixpkgs, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }:
     {
       nixosConfigurations = {
         nixos-desktop = nixpkgs.lib.nixosSystem {
@@ -31,7 +31,7 @@
               config.allowUnfree = true;
             };
           in
-          inputs.home-manager.lib.homeManagerConfiguration {
+          home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ ./nixos-desktop/home.nix ];
           };
@@ -44,7 +44,7 @@
               config.allowUnfree = true;
             };
           in
-          inputs.home-manager.lib.homeManagerConfiguration {
+          home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ ./nixos-laptop/home.nix ];
           };
@@ -56,7 +56,7 @@
               inherit system;
             };
           in
-          inputs.home-manager.lib.homeManagerConfiguration {
+          home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
             modules = [ ./mac-work/home.nix ];
           };
