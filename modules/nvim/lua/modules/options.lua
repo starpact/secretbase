@@ -21,7 +21,6 @@ for k, v in pairs({
   termguicolors = true,
   foldmethod = "indent",
   foldlevelstart = 99,
-  laststatus = 3,
 }) do
   vim.opt[k] = v
 end

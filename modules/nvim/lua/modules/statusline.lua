@@ -1,25 +1,24 @@
-local function get_filepath()
-  local path = vim.api.nvim_buf_get_name(0)
+local function is_current_buf(bufnr)
+  return bufnr == vim.api.nvim_buf_get_number(0)
+end
+
+local function _get_filepath(bufnr)
+  local path = vim.api.nvim_buf_get_name(bufnr)
 
   -- Shorten jdt url.
   if vim.startswith(path, "jdt") then
     path = path:sub(16, path:find("?") - 1)
   end
 
-  local basename = vim.fs.basename(path)
-
   -- Show absolute path in nvim tree.
-  if basename == "NvimTree_1" then
-    return path:sub(1, #path - 11)
+  if vim.fs.basename(path) == "NvimTree_1" then
+    return ""
   end
-
-  -- Highlight basename.
-  path = path:sub(1, #path - #basename) .. "%#NormalFloat#" .. basename .. "%#Statusline#"
 
   -- Path starts from current dir.
   local cwd = vim.fn.getcwd()
   if vim.startswith(path, cwd .. "/") then
-    return path:sub(#cwd - #vim.fs.basename(cwd) + 1)
+    return vim.fs.basename(cwd) .. path:sub(#cwd + 1)
   end
 
   -- Shorten nix path.
@@ -37,7 +36,16 @@ local function get_filepath()
   return path
 end
 
-local function get_git_status()
+local function get_filepath(bufnr)
+  local filepath = _get_filepath(bufnr)
+  return filepath == "" and filepath or filepath .. " %m%r"
+end
+
+local function get_git_status(bufnr)
+  if not is_current_buf(bufnr) then
+    return ""
+  end
+
   local dict = vim.b.gitsigns_status_dict
   if not dict then
     return ""
@@ -48,34 +56,46 @@ local function get_git_status()
     .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
 end
 
-local function get_diagnostics()
+local function get_diagnostics(bufnr)
   local mode = vim.api.nvim_get_mode().mode
   if mode == "i" or mode == "ic" or mode == "s" then
     return ""
   end
 
   local cnts = {}
-  for _, diagnostic in ipairs(vim.diagnostic.get(0)) do
+  for _, diagnostic in ipairs(vim.diagnostic.get(bufnr)) do
     cnts[diagnostic.severity] = (cnts[diagnostic.severity] or 0) + 1
   end
   if next(cnts) == nil then
     return ""
   end
 
-  local severity = vim.diagnostic.severity
-  return (cnts[severity.ERROR] and "%#ErrorFloat#" .. cnts[severity.ERROR] .. " " or "")
-    .. (cnts[severity.WARN] and "%#WarningFloat#" .. cnts[severity.WARN] .. " " or "")
-    .. (cnts[severity.INFO] and "%#InfoFloat#" .. cnts[severity.INFO] .. " " or "")
-    .. (cnts[severity.HINT] and "%#HintFloat#" .. cnts[severity.HINT] .. " " or "")
-    .. "%#Statusline#"
+  local diagnostics = ""
+  for severity, color in pairs({
+    [vim.diagnostic.severity.ERROR] = "%#StatuslineError#",
+    [vim.diagnostic.severity.WARN] = "%#StatuslineWarning#",
+    [vim.diagnostic.severity.INFO] = "%#StatuslineInfo#",
+    [vim.diagnostic.severity.HINT] = "%#StatuslineHint#",
+  }) do
+    if cnts[severity] then
+      diagnostics = diagnostics .. " " .. color .. cnts[severity]
+    end
+  end
+  if diagnostics == "" then
+    return ""
+  end
+
+  return diagnostics .. (is_current_buf(bufnr) and "%#Statusline#" or "%#StatuslineNC#")
 end
 
-_G.Statusline = function()
-  return get_filepath() .. " %m%r  " .. get_diagnostics() .. "%=" .. get_git_status() .. "%10.(%l,%c%)"
+_G.Statusline = function(bufnr)
+  local left = get_filepath(bufnr) .. get_diagnostics(bufnr)
+  local right = get_git_status(bufnr) .. "%8.(%l,%c%)"
+  return left .. "%=" .. right
 end
 
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-  callback = function()
-    vim.opt.statusline = "%!v:lua.Statusline()"
+  callback = function(opt)
+    vim.opt_local.statusline = string.format("%%!v:lua.Statusline(%d)", opt.buf)
   end,
 })

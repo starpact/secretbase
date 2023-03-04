@@ -52,9 +52,6 @@ end
 lspconfig.clangd.setup(extend_default({
   cmd = { "clangd", "--function-arg-placeholders=0" },
   filetypes = { "c", "cpp" },
-  capabilities = {
-    offsetEncoding = { "utf-16" },
-  },
 }))
 
 lspconfig.lua_ls.setup(extend_default({

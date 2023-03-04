@@ -81,7 +81,7 @@ hints:
       binding:
         key: U
         mods: Control|Shift
-    - regex: "\\S+\\.[a-z]{1,10}"
+    - regex: "(/\\S+)+\\S+"
       action: Copy
       post_processing: true
       mouse:

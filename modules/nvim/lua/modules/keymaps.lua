@@ -28,6 +28,7 @@ vim.keymap.set("n", "<M-Right>", "<cmd>vertical resize +5<CR>")
 
 vim.keymap.set("n", "<Backspace>", "<cmd>noh<CR>")
 vim.keymap.set("n", "<leader><Tab>", "<C-^>")
+vim.keymap.set("n", "<C-g>", "1<C-g>")
 
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
