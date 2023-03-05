@@ -98,5 +98,8 @@
     # YAML
     nodePackages.yaml-language-server
     yamllint
+
+    # Zig
+    zig
   ];
 }

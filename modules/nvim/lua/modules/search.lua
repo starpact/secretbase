@@ -66,6 +66,7 @@ fzf.setup({
   },
   grep = {
     git_icons = false,
+    rg_glob = true,
   },
   git = {
     status = git_opts,

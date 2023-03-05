@@ -8,10 +8,8 @@ vim.api.nvim_set_hl(0, "VirtualTextWarning", { fg = "#b47109" })
 vim.api.nvim_set_hl(0, "VirtualTextInfo", { fg = "#45707a" })
 vim.api.nvim_set_hl(0, "VirtualTextHint", { fg = "#6c782e" })
 
-vim.api.nvim_set_hl(0, "StatuslineError", { fg = "#ea6962", bg = "#32302f" })
-vim.api.nvim_set_hl(0, "StatuslineWarning", { fg = "#d8a657", bg = "#32302f" })
-vim.api.nvim_set_hl(0, "StatuslineInfo", { fg = "#7daea3", bg = "#32302f" })
-vim.api.nvim_set_hl(0, "StatuslineHint", { fg = "#a9b665", bg = "#32302f" })
+vim.api.nvim_set_hl(0, "Statusline", { link = "NormalFLoat" })
+vim.api.nvim_set_hl(0, "StatuslineNC", { link = "FloatBorder" })
 
 vim.api.nvim_set_hl(0, "@constant.builtin.go", { link = "@constant.builtin" })
 vim.api.nvim_set_hl(0, "@field", { link = "@variable" })

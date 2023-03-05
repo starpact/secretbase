@@ -4,6 +4,7 @@
   programs.neovim = {
     enable = true;
     vimAlias = true;
+    defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp
       cmp-buffer
@@ -32,8 +33,8 @@
       nvim-ts-autotag
       nvim-ts-context-commentstring
       playground
-      vim-test
       vim-snippets
+      vim-test
     ];
   };
 }

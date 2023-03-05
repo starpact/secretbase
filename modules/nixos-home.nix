@@ -21,6 +21,8 @@
     expressvpn
     firefox
     flameshot
+    gcc
+    gdb
     gimp
     google-chrome
     gnome.gnome-tweaks
@@ -45,8 +47,6 @@
     xclip
     zoom-us
 
-    gcc
-    zig
     zls
   ];
 

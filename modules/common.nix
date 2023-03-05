@@ -45,7 +45,6 @@
     bash = {
       enable = true;
       sessionVariables = {
-        EDITOR = "nvim";
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
