@@ -79,6 +79,9 @@ vim.api.nvim_create_autocmd("FileType", {
               command = "clippy",
             },
             completion = {
+              postfix = {
+                enable = false,
+              },
               callable = {
                 snippets = "add_parentheses",
               },
@@ -87,8 +90,8 @@ vim.api.nvim_create_autocmd("FileType", {
         },
       }),
       {
-        reuse_client = function()
-          return true
+        reuse_client = function(client, config)
+          return client.config.name == config.name
         end,
       }
     )
