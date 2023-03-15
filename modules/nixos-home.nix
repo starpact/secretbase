@@ -16,6 +16,7 @@
     alacritty
     bookworm
     cpu-x
+    clickhouse
     discord
     dropbox
     expressvpn
