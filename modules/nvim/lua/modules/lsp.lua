@@ -39,7 +39,7 @@ for _, server in ipairs({
   "taplo",
   "terraformls",
   "tsserver",
-  "yamlls",
+  -- "yamlls",
   "zls",
 }) do
   lspconfig[server].setup(default_config)
