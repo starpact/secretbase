@@ -19,7 +19,6 @@
     clickhouse
     discord
     dropbox
-    expressvpn
     firefox
     flameshot
     gimp
