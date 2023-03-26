@@ -101,10 +101,10 @@
 
     # Zig
     zig
+    zls
   ] ++ (
-    if stdenv.isLinux then
-      [ gcc gdb zls ]
-    else
-      [ ]
+    if stdenv.isLinux
+    then [ gcc gdb ]
+    else [ ]
   );
 }

@@ -15,31 +15,31 @@
   home.packages = with pkgs; [
     alacritty
     bookworm
-    cpu-x
     clickhouse
+    cpu-x
     discord
     dropbox
     firefox
     flameshot
     gimp
-    google-chrome
     gnome.gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.gsconnect
     gnomeExtensions.just-perfection
+    google-chrome
     kitty
-    liburing
     libreoffice
+    liburing
     mpv
     obsidian
     tdesktop
     video-trimmer
     virt-manager
     vscode
-    wl-clipboard
     wireshark
+    wl-clipboard
     wqy_microhei
     wqy_zenhei
     xclip

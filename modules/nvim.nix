@@ -6,8 +6,8 @@
     vimAlias = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      cmp-nvim-lsp
       cmp-buffer
+      cmp-nvim-lsp
       cmp-nvim-lsp-signature-help
       cmp-path
       cmp-snippy
@@ -28,8 +28,8 @@
       nvim-snippy
       nvim-surround
       nvim-tree-lua
-      nvim-treesitter.withAllGrammars
       nvim-treesitter-textobjects
+      nvim-treesitter.withAllGrammars
       nvim-ts-autotag
       nvim-ts-context-commentstring
       playground
