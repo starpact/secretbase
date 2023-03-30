@@ -1,11 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   system.stateVersion = "22.11";
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     log-lines = 25;
-    auto-optimise-store = true;
     connect-timeout = 5;
     fallback = true;
   };

@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     alacritty
     bookworm
+    bpftool
     clickhouse
     cpu-x
     discord
@@ -31,7 +32,6 @@
     google-chrome
     kitty
     libreoffice
-    liburing
     mpv
     obsidian
     tdesktop
