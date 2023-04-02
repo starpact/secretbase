@@ -15,6 +15,7 @@
   };
 
   home.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "Iosevka" ]; })
     bat
     delta
     du-dust
@@ -29,7 +30,6 @@
     lazygit
     lf
     neofetch
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
     newsboat
     ripgrep
     scc

@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     alacritty
+    bcc
     bookworm
     bpftool
     clickhouse
