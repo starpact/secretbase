@@ -68,7 +68,7 @@ lspconfig.lua_ls.setup(extend_default({
 }))
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "go",
+  pattern = { "go", "gomod", "gotmpl" },
   callback = function()
     vim.lsp.start(
       extend_default({
