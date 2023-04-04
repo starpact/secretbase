@@ -6,6 +6,7 @@ window:
     x: 5
   decorations: none
   dynamic_padding: true
+  option_as_alt: Both
 font:
   size: 17.0
   normal:
@@ -93,10 +94,6 @@ hints:
 key_bindings:
   - { key: Q, mode: Vi|~Search, action: ToggleViMode }
   - { key: Q, mode: Vi|~Search, action: ScrollToBottom }
-  - { key: F, mods: Alt, chars: "\x1bf" }
-  - { key: B, mods: Alt, chars: "\x1bb" }
-  - { key: D, mods: Alt, chars: "\x1bd" }
-  - { key: C, mods: Alt, chars: "\x1bc" }
   - { key: J, mods: Command, chars: "\x1bj" }
   - { key: K, mods: Command, chars: "\x1bk" }
   - { key: Z, mods: Command, chars: "\x1bz" }
