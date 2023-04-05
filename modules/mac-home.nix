@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     bashInteractive
     inetutils
+    zstd
   ];
 
   programs = {

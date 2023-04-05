@@ -26,6 +26,7 @@
     gh
     graphviz
     htop
+    hyperfine
     jq
     lazygit
     lf
