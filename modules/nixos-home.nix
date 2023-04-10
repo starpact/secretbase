@@ -32,7 +32,7 @@
     gnomeExtensions.just-perfection
     google-chrome
     kitty
-    libreoffice
+    # libreoffice
     mpv
     obsidian
     tdesktop

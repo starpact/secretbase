@@ -7,7 +7,8 @@ local default_config = {
     vim.lsp.protocol.make_client_capabilities(),
     require("cmp_nvim_lsp").default_capabilities()
   ),
-  on_attach = function(_, bufnr)
+  on_attach = function(client, bufnr)
+    client.server_capabilities.semanticTokensProvider = nil
     local opts = { buffer = bufnr }
     vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
     vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
@@ -59,7 +60,6 @@ lspconfig.clangd.setup(extend_default({
 lspconfig.lua_ls.setup(extend_default({
   settings = {
     Lua = {
-      diagnostics = { globals = { "vim" } },
       workspace = {
         library = { vim.fn.expand("$VIMRUNTIME/lua") },
       },

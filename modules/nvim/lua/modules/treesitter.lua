@@ -1,11 +1,9 @@
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
-    disable = { "proto" },
   },
   indent = {
     enable = true,
-    disable = { "python" },
   },
   autotag = {
     enable = true,
@@ -16,13 +14,10 @@ require("nvim-treesitter.configs").setup({
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = "<S-Up>",
-      node_incremental = "<S-Up>",
-      node_decremental = "<S-Down>",
+      init_selection = "<A-o>",
+      node_incremental = "<A-o>",
+      node_decremental = "<A-i>",
     },
-  },
-  playground = {
-    enable = true,
   },
   textobjects = {
     select = {
@@ -42,10 +37,10 @@ require("nvim-treesitter.configs").setup({
     swap = {
       enable = true,
       swap_next = {
-        ["<leader><leader>a"] = "@parameter.inner",
+        ["<A-a>"] = "@parameter.inner",
       },
       swap_previous = {
-        ["<leader><leader>A"] = "@parameter.inner",
+        ["<A-A>"] = "@parameter.inner",
       },
     },
     move = {

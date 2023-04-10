@@ -49,3 +49,16 @@ vim.keymap.set("n", "<leader>w", function()
     vim.api.nvim_set_current_dir(vim.fs.dirname(path))
   end
 end)
+
+local diagnostic_config = {
+  severity_sort = true,
+  float = {
+    source = "always",
+  },
+  virtual_text = true,
+}
+vim.diagnostic.config(diagnostic_config)
+vim.keymap.set("n", "<A-D>", function()
+  diagnostic_config.virtual_text = not diagnostic_config.virtual_text
+  vim.diagnostic.config(diagnostic_config)
+end)

@@ -12,7 +12,6 @@
       cmp-path
       cmp-snippy
       comment-nvim
-      editorconfig-nvim
       fidget-nvim
       fzf-lua
       gitsigns-nvim
@@ -32,7 +31,6 @@
       nvim-treesitter.withAllGrammars
       nvim-ts-autotag
       nvim-ts-context-commentstring
-      playground
       vim-snippets
       vim-test
     ];

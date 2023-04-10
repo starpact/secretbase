@@ -30,6 +30,7 @@
     jq
     lazygit
     lf
+    lsof
     neofetch
     newsboat
     ripgrep
