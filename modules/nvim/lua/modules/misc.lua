@@ -30,6 +30,7 @@ require("fidget").setup({
   },
 })
 
+-- Set pwd to project root.
 vim.keymap.set("n", "<leader>w", function()
   local path = vim.fs.find({
     "build.zig",
@@ -50,6 +51,7 @@ vim.keymap.set("n", "<leader>w", function()
   end
 end)
 
+-- Toggle diagnostic virtual text.
 local diagnostic_config = {
   severity_sort = true,
   float = {

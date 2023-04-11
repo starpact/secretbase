@@ -59,11 +59,6 @@ fzf.setup({
     git_icons = false,
     rg_glob = true,
   },
-  git = {
-    status = { winopts = { fullscreen = true } },
-    commits = { winopts = { fullscreen = true } },
-    bcommits = { winopts = { fullscreen = true } },
-  },
   lsp = {
     async_or_timeout = 20000,
     jump_to_single_result = true,

@@ -1,7 +1,3 @@
-local function is_current_buf(bufnr)
-  return bufnr == vim.api.nvim_buf_get_number(0)
-end
-
 local function get_filepath(bufnr)
   local filepath = (function()
     local path = vim.api.nvim_buf_get_name(bufnr)
@@ -16,10 +12,10 @@ local function get_filepath(bufnr)
       return ""
     end
 
-    -- Path starts from current dir.
+    -- File in current directory.
     local cwd = vim.fn.getcwd()
     if vim.startswith(path, cwd .. "/") then
-      return vim.fs.basename(cwd) .. path:sub(#cwd + 1)
+      return path:sub(#cwd + 2)
     end
 
     -- Shorten nix path.
@@ -29,9 +25,9 @@ local function get_filepath(bufnr)
     end
 
     -- Shorten home path.
-    local home = vim.fs.normalize("~/")
+    local home = vim.fs.normalize("~")
     if vim.startswith(path, home) then
-      return "~/" .. path:sub(#home + 1)
+      return "~" .. path:sub(#home + 1)
     end
 
     return path
@@ -51,7 +47,14 @@ local function get_git_status()
     .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
 end
 
-local function get_diagnostics(bufnr)
+local colormap = {
+  [vim.diagnostic.severity.ERROR] = "%#StatusLineError#",
+  [vim.diagnostic.severity.WARN] = "%#StatusLineWarn#",
+  [vim.diagnostic.severity.INFO] = "%#StatusLineInfo#",
+  [vim.diagnostic.severity.HINT] = "%#StatusLineHint#",
+}
+
+local function get_diagnostics(bufnr, active)
   local mode = vim.api.nvim_get_mode().mode
   if mode == "i" or mode == "ic" or mode == "s" then
     return ""
@@ -66,31 +69,36 @@ local function get_diagnostics(bufnr)
   end
 
   local diagnostics = ""
-  for severity, color in pairs({
-    [vim.diagnostic.severity.ERROR] = "%#StatusLineError#",
-    [vim.diagnostic.severity.WARN] = "%#StatusLineWarn#",
-    [vim.diagnostic.severity.INFO] = "%#StatusLineInfo#",
-    [vim.diagnostic.severity.HINT] = "%#StatusLineHint#",
+  for _, severity in ipairs({
+    vim.diagnostic.severity.ERROR,
+    vim.diagnostic.severity.WARN,
+    vim.diagnostic.severity.INFO,
+    vim.diagnostic.severity.HINT,
   }) do
     if cnts[severity] then
-      diagnostics = diagnostics .. " " .. color .. cnts[severity]
+      diagnostics = diagnostics .. " " .. colormap[severity] .. cnts[severity]
     end
   end
   if diagnostics == "" then
     return ""
   end
 
-  return diagnostics .. (is_current_buf(bufnr) and "%#Statusline#" or "%#StatuslineNC#")
+  return diagnostics .. (active == 1 and "%#StatusLine#" or "%#StatusLineNC#")
 end
 
-_G.Statusline = function(bufnr)
-  local left = get_filepath(bufnr) .. get_diagnostics(bufnr)
-  local right = (is_current_buf(bufnr) and get_git_status() or "") .. "%8.(%l,%c%)"
+_G.StatusLine = function(bufnr, active)
+  local left = get_filepath(bufnr) .. get_diagnostics(bufnr, active)
+  local right = (active == 1 and get_git_status() or "") .. "%8.(%l,%c%)"
   return left .. "%=" .. right
 end
 
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
   callback = function(opt)
-    vim.opt_local.statusline = string.format("%%!v:lua.Statusline(%d)", opt.buf)
+    vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 1)", opt.buf)
+  end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+  callback = function(opt)
+    vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf)
   end,
 })
