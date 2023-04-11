@@ -15,9 +15,9 @@
       fidget-nvim
       fzf-lua
       gitsigns-nvim
-      gruvbox-material
       harpoon
       leap-nvim
+      lush-nvim
       null-ls-nvim
       nvim-autopairs
       nvim-cmp
@@ -33,6 +33,7 @@
       nvim-ts-context-commentstring
       vim-snippets
       vim-test
+      zenbones-nvim
     ];
   };
 }

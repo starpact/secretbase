@@ -17,7 +17,6 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
     bat
-    delta
     du-dust
     duckdb
     erdtree
@@ -38,6 +37,7 @@
     sqlite
     tealdeer
     tmux
+    typst
     unzip
     wget
     yq-go

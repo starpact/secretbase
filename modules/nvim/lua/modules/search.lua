@@ -22,15 +22,6 @@ local no_preview_winopts = {
     hidden = "hidden",
   },
 }
-local git_opts = {
-  winopts = {
-    fullscreen = true,
-    preview = {
-      horizontal = "up:70%",
-    },
-  },
-  preview_pager = "delta -s --width=$FZF_PREVIEW_COLUMNS",
-}
 
 vim.keymap.set("n", "<leader>f", fzf.files)
 vim.keymap.set("n", "<leader>o", fzf.oldfiles)
@@ -69,9 +60,9 @@ fzf.setup({
     rg_glob = true,
   },
   git = {
-    status = git_opts,
-    commits = git_opts,
-    bcommits = git_opts,
+    status = { winopts = { fullscreen = true } },
+    commits = { winopts = { fullscreen = true } },
+    bcommits = { winopts = { fullscreen = true } },
   },
   lsp = {
     async_or_timeout = 20000,

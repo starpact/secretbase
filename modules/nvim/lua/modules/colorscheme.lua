@@ -1,24 +1,15 @@
-vim.g.gruvbox_material_disable_italic_comment = 1
-vim.g.gruvbox_material_transparent_background = 1
-vim.g.gruvbox_material_visual = "red background"
-vim.cmd.colorscheme("gruvbox-material")
+-- vim.o.background = "light"
+vim.g.zenbones_italic_comments = false
+vim.g.zenbones_transparent_background = true
+vim.cmd.colorscheme("zenbones")
 
-vim.api.nvim_set_hl(0, "VirtualTextError", { fg = "#c14a4a" })
-vim.api.nvim_set_hl(0, "VirtualTextWarning", { fg = "#b47109" })
-vim.api.nvim_set_hl(0, "VirtualTextInfo", { fg = "#45707a" })
-vim.api.nvim_set_hl(0, "VirtualTextHint", { fg = "#6c782e" })
-
-vim.api.nvim_set_hl(0, "Statusline", { link = "NormalFLoat" })
-vim.api.nvim_set_hl(0, "StatuslineNC", { link = "FloatBorder" })
-
-vim.api.nvim_set_hl(0, "@constant.builtin.go", { link = "@constant.builtin" })
-vim.api.nvim_set_hl(0, "@field", { link = "@variable" })
-vim.api.nvim_set_hl(0, "@include.go", { link = "@include" })
-vim.api.nvim_set_hl(0, "@include.javascript", { link = "@include" })
-vim.api.nvim_set_hl(0, "@namespace", { link = "@variable" })
-vim.api.nvim_set_hl(0, "@property", { link = "@variable" })
-vim.api.nvim_set_hl(0, "@property.go", { link = "@property" })
+local z = require("zenbones")
+vim.api.nvim_set_hl(0, "Constant", { fg = z.Constant.fg.hex })
+vim.api.nvim_set_hl(0, "Number", { fg = z.Number.fg.hex })
+vim.api.nvim_set_hl(0, "Special", { fg = z.Special.fg.hex })
 vim.api.nvim_set_hl(0, "@storageclass", { link = "@keyword" })
-vim.api.nvim_set_hl(0, "@type.definition", { link = "@type" })
-vim.api.nvim_set_hl(0, "@type.qualifier", { link = "@keyword" })
-vim.api.nvim_set_hl(0, "@variable.builtin", { link = "Blue" })
+vim.api.nvim_set_hl(0, "@constant", { link = "Identifier" })
+vim.api.nvim_set_hl(0, "StatusLineError", { fg = z.DiagnosticError.fg.hex, bg = z.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = z.DiagnosticWarn.fg.hex, bg = z.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = z.DiagnosticInfo.fg.hex, bg = z.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineHint", { fg = z.DiagnosticHint.fg.hex, bg = z.StatusLine.bg.hex })

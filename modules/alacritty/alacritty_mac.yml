@@ -21,26 +21,29 @@ font:
 
 colors:
   primary:
-    background: "0x282828"
-    foreground: "0xd4be98"
+    foreground: "#B4BDC3"
+    background: "#1C1917"
+  cursor:
+    cursor: "#C4CACF"
+    text: "#1C1917"
   normal:
-    black: "0x3c3836"
-    red: "0xea6962"
-    green: "0xa9b665"
-    yellow: "0xd8a657"
-    blue: "0x7daea3"
-    magenta: "0xd3869b"
-    cyan: "0x89b482"
-    white: "0xd4be98"
+    black: "#1C1917"
+    red: "#DE6E7C"
+    green: "#819B69"
+    yellow: "#B77E64"
+    blue: "#6099C0"
+    magenta: "#B279A7"
+    cyan: "#66A5AD"
+    white: "#B4BDC3"
   bright:
-    black: "0x3c3836"
-    red: "0xea6962"
-    green: "0xa9b665"
-    yellow: "0xd8a657"
-    blue: "0x7daea3"
-    magenta: "0xd3869b"
-    cyan: "0x89b482"
-    white: "0xd4be98"
+    black: "#403833"
+    red: "#E8838F"
+    green: "#8BAE68"
+    yellow: "#D68C67"
+    blue: "#61ABDA"
+    magenta: "#CF86C1"
+    cyan: "#65B8C1"
+    white: "#888F94"
 selection:
   semantic_escape_chars: "/,│`|:\"' ()[]{}<>\t"
 hints:

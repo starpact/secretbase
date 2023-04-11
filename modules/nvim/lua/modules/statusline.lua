@@ -67,10 +67,10 @@ local function get_diagnostics(bufnr)
 
   local diagnostics = ""
   for severity, color in pairs({
-    [vim.diagnostic.severity.ERROR] = "%#ErrorFloat#",
-    [vim.diagnostic.severity.WARN] = "%#WarningFloat#",
-    [vim.diagnostic.severity.INFO] = "%#InfoFloat#",
-    [vim.diagnostic.severity.HINT] = "%#HintFloat#",
+    [vim.diagnostic.severity.ERROR] = "%#StatusLineError#",
+    [vim.diagnostic.severity.WARN] = "%#StatusLineWarn#",
+    [vim.diagnostic.severity.INFO] = "%#StatusLineInfo#",
+    [vim.diagnostic.severity.HINT] = "%#StatusLineHint#",
   }) do
     if cnts[severity] then
       diagnostics = diagnostics .. " " .. color .. cnts[severity]

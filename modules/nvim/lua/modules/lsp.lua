@@ -67,23 +67,23 @@ lspconfig.lua_ls.setup(extend_default({
   },
 }))
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go", "gomod", "gotmpl" },
-  callback = function()
-    vim.lsp.start(
-      extend_default({
-        name = "gopls",
-        cmd = { "gopls" },
-        root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, { upward = true })[1]),
-      }),
-      {
-        reuse_client = function(client, config)
-          return client.config.name == config.name
-        end,
-      }
-    )
-  end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = { "go", "gomod", "gotmpl" },
+--   callback = function()
+--     vim.lsp.start(
+--       extend_default({
+--         name = "gopls",
+--         cmd = { "gopls" },
+--         root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, { upward = true })[1]),
+--       }),
+--       {
+--         reuse_client = function(client, config)
+--           return client.config.name == config.name
+--         end,
+--       }
+--     )
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "rust",
