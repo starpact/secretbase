@@ -15,7 +15,7 @@ local function get_filepath(bufnr)
     -- File in current directory.
     local cwd = vim.fn.getcwd()
     if vim.startswith(path, cwd .. "/") then
-      return path:sub(#cwd + 2)
+      return vim.fs.basename(cwd) .. path:sub(#cwd + 1)
     end
 
     -- Shorten nix path.
