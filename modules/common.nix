@@ -18,7 +18,7 @@
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
     bat
     du-dust
-    duckdb
+    # duckdb
     erdtree
     exa
     fd

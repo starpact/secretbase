@@ -8,7 +8,6 @@
 
   home.packages = with pkgs; [
     # General
-    bazel_5
     codespell
     gnumake
     lldb
