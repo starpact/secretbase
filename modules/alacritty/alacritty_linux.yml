@@ -7,7 +7,6 @@ window:
   dynamic_padding: true
   decorations: none
   startup_mode: Windowed
-  opacity: 0.9
 font:
   size: 13
   normal:

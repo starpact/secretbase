@@ -37,3 +37,5 @@ vim.keymap.set("x", ">", ">gv")
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "go", vim.diagnostic.open_float)
+
+vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format)

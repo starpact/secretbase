@@ -23,7 +23,6 @@ local default_config = {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format, opts)
   end,
 }
 
@@ -36,7 +35,6 @@ for _, server in ipairs({
   "jsonls",
   "nil_ls",
   "pyright",
-  -- "taplo",
   "terraformls",
   "tsserver",
   -- "yamlls",

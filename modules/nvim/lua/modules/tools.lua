@@ -14,6 +14,7 @@ null_ls.setup({
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.sql_formatter,
     null_ls.builtins.formatting.stylua,
+    null_ls.builtins.formatting.taplo,
     -- linters
     null_ls.builtins.diagnostics.cue_fmt,
     null_ls.builtins.diagnostics.codespell.with({
@@ -21,6 +22,7 @@ null_ls.setup({
         "-L",
         table.concat({
           "crate",
+          "inout",
           "ser",
           "te",
           "wit",
@@ -60,6 +62,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.lua", -- stylua
     "*.nix", -- nixpkgs_fmt
     "*.py", -- black
+    "*.toml",
     "*.yaml", -- prettier
     "*.yml", -- prettier
 
@@ -88,7 +91,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.ts",
     "*.tsx",
     "*.rs",
-    "*.toml",
     "*.zig",
   },
   callback = function()
