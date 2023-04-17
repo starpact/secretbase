@@ -62,7 +62,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.lua", -- stylua
     "*.nix", -- nixpkgs_fmt
     "*.py", -- black
-    "*.toml",
+    "*.toml", -- taplo
     "*.yaml", -- prettier
     "*.yml", -- prettier
 
