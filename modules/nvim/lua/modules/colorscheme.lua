@@ -4,6 +4,7 @@ vim.g.zenbones_italic_comments = false
 vim.g.zenbones_transparent_background = true
 vim.cmd.colorscheme("zenbones")
 
+vim.api.nvim_set_hl(0, "Statement", { fg = "#d8a657" })
 vim.api.nvim_set_hl(0, "Constant", { fg = z.Constant.fg.hex })
 vim.api.nvim_set_hl(0, "Number", { fg = z.Number.fg.hex })
 vim.api.nvim_set_hl(0, "Special", { fg = z.Special.fg.hex })
