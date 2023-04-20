@@ -8,7 +8,7 @@ window:
   decorations: none
   startup_mode: Windowed
 font:
-  size: 13
+  size: 12
   normal:
     family: IosevkaTerm Nerd Font
     style: Regular

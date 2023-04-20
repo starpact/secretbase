@@ -1,5 +1,4 @@
 local cmp = require("cmp")
-local types = require("cmp.types")
 local snippy = require("snippy")
 
 cmp.setup({
@@ -14,9 +13,6 @@ cmp.setup({
     completeopt = "menu,menuone,noinsert",
   },
   preselect = cmp.PreselectMode.None,
-  confirmation = {
-    default_behavior = types.cmp.ConfirmBehavior.Replace,
-  },
   snippet = {
     expand = function(args)
       require("snippy").expand_snippet(args.body)

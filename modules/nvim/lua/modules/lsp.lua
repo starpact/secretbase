@@ -128,6 +128,17 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.fs.normalize("~/.cache/jdtls/workspace/") .. root_dir_name,
       },
       root_dir = root_dir,
+      capabilities = {
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = false,
+            },
+          },
+        },
+      },
     }))
   end,
 })
+
+vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format)

@@ -103,7 +103,7 @@
     zls
   ] ++ (
     if stdenv.isLinux
-    then [ gcc gdb ]
+    then [ gcc gdb cgdb ]
     else [ ]
   );
 }

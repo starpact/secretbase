@@ -7,6 +7,18 @@ require("Comment").setup()
 
 require("leap").set_default_keymaps()
 
+local gitsigns = require("gitsigns")
+gitsigns.setup({
+  on_attach = function(bufnr)
+    local opts = { buffer = bufnr }
+    vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
+    vim.keymap.set("n", "<leader>gb", gitsigns.toggle_current_line_blame, opts)
+    vim.keymap.set("n", "<leader>gd", gitsigns.diffthis, opts)
+    vim.keymap.set("n", "[g", gitsigns.prev_hunk, opts)
+    vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
+  end,
+})
+
 require("harpoon").setup()
 vim.keymap.set("n", "<leader>m", require("harpoon.mark").add_file)
 vim.keymap.set("n", "<C-s>", require("harpoon.ui").toggle_quick_menu)
@@ -64,3 +76,10 @@ vim.keymap.set("n", "<A-D>", function()
   diagnostic_config.virtual_text = not diagnostic_config.virtual_text
   vim.diagnostic.config(diagnostic_config)
 end)
+
+vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
+
+for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = "", texthl = hl })
+end
