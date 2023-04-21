@@ -33,12 +33,12 @@ for _, server in ipairs({
   "eslint",
   "html",
   "jsonls",
+  "leanls",
   "nil_ls",
   "pyright",
-  "terraformls",
   "tsserver",
-  -- "yamlls",
   "zls",
+  -- "yamlls",
 }) do
   lspconfig[server].setup(default_config)
 end

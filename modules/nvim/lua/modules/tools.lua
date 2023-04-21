@@ -15,20 +15,13 @@ null_ls.setup({
     null_ls.builtins.formatting.sql_formatter,
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.taplo,
+    null_ls.builtins.formatting.terraform_fmt,
     -- linters
     null_ls.builtins.diagnostics.cue_fmt,
     null_ls.builtins.diagnostics.codespell.with({
-      extra_args = {
-        "-L",
-        table.concat({
-          "crate",
-          "inout",
-          "ser",
-          "te",
-          "wit",
-        }, ","),
-      },
+      extra_args = { "-L", "crate,inout,ser,wit" },
     }),
+    null_ls.builtins.diagnostics.terraform_validate,
   },
 })
 
@@ -69,6 +62,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     -- Manually format.
     -- "*.proto", -- buf
     -- "*.sh", -- shfmt
+    -- "*.tf", -- terraform fmt
   },
   callback = function()
     vim.lsp.buf.format({
