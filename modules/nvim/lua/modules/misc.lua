@@ -67,7 +67,7 @@ end)
 local diagnostic_config = {
   severity_sort = true,
   float = {
-    source = "always",
+    source = true,
   },
   virtual_text = true,
 }

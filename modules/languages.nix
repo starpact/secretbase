@@ -52,9 +52,6 @@
     deno
     nodePackages.typescript-language-server
 
-    # Lean4
-    elan
-
     # Lua
     lua-language-server
     stylua
@@ -78,6 +75,7 @@
     # Rust
     rustup
     rust-analyzer
+    cargo-audit
     cargo-deny
     cargo-expand
     cargo-nextest

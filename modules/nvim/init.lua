@@ -3,9 +3,8 @@ vim.loader.enable()
 vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "UTF-8"
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevelstart = 99
-vim.o.foldmethod = "expr"
+vim.o.foldmethod = "indent"
 vim.o.hlsearch = true
 vim.o.ignorecase = true
 vim.o.incsearch = true

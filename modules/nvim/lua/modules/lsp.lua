@@ -33,7 +33,6 @@ for _, server in ipairs({
   "eslint",
   "html",
   "jsonls",
-  "leanls",
   "nil_ls",
   "pyright",
   "tsserver",
