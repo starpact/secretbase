@@ -14,7 +14,10 @@
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot = {
+      enable = true;
+      configurationLimit = 10;
+    };
     loader.efi.canTouchEfiVariables = true;
     loader.efi.efiSysMountPoint = "/boot/efi";
     supportedFilesystems = [ "ntfs" ];
