@@ -46,6 +46,13 @@ local function extend_default(config)
   return vim.tbl_deep_extend("force", default_config, config)
 end
 
+local function find_root_dir(pattern)
+  return vim.fs.dirname(vim.fs.find(pattern, {
+    upward = true,
+    path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)),
+  })[1])
+end
+
 lspconfig.clangd.setup(extend_default({
   cmd = { "clangd", "--function-arg-placeholders=0" },
   filetypes = { "c", "cpp" },
@@ -71,7 +78,7 @@ vim.api.nvim_create_autocmd("FileType", {
       extend_default({
         name = "gopls",
         cmd = { "gopls" },
-        root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, { upward = true })[1]),
+        root_dir = find_root_dir({ "go.mod" }),
       }),
       {
         reuse_client = function(client, config)
@@ -89,7 +96,7 @@ vim.api.nvim_create_autocmd("FileType", {
       extend_default({
         name = "rust_analyzer",
         cmd = { "rust-analyzer" },
-        root_dir = vim.fs.dirname(vim.fs.find({ "Cargo.toml" }, { upward = true })[1]),
+        root_dir = find_root_dir({ "Cargo.toml" }),
         settings = {
           ["rust-analyzer"] = {
             checkOnSave = {
