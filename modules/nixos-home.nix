@@ -33,6 +33,7 @@
     google-chrome
     kitty
     libreoffice
+    linuxPackages_latest.perf
     mpv
     obsidian
     tdesktop

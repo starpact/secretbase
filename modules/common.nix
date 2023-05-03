@@ -18,7 +18,7 @@
     (nerdfonts.override { fonts = [ "Iosevka" ]; })
     bat
     du-dust
-    # duckdb
+    duckdb
     erdtree
     exa
     fd
@@ -32,6 +32,7 @@
     lsof
     neofetch
     newsboat
+    postgresql
     ripgrep
     scc
     sqlite
