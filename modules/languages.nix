@@ -96,7 +96,6 @@
     wabt
 
     # YAML
-    nodePackages.yaml-language-server
     yamllint
 
     # Zig

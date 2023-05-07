@@ -15,7 +15,7 @@
   };
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
     bat
     du-dust
     duckdb
@@ -32,6 +32,7 @@
     lsof
     neofetch
     newsboat
+    pkg-config
     postgresql
     ripgrep
     scc

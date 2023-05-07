@@ -37,7 +37,6 @@ for _, server in ipairs({
   "pyright",
   "tsserver",
   "zls",
-  -- "yamlls",
 }) do
   lspconfig[server].setup(default_config)
 end

@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   imports = [
     ../modules/nixos-home.nix
