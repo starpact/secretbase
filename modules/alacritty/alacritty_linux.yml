@@ -17,7 +17,7 @@ font:
     style: Bold
   italic:
     family: IosevkaTerm Nerd Font
-    style: Light Oblique
+    style: Oblique
 colors:
   primary:
     foreground: "#B4BDC3"

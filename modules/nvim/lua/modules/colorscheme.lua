@@ -1,21 +1,46 @@
-local z = require("zenbones")
+local lush = require("lush")
+local hsluv = lush.hsluv
 
-vim.g.zenbones_italic_comments = false
-vim.g.zenbones_transparent_background = true
-vim.cmd.colorscheme("zenbones")
+local palette = {
+  bg = hsluv("#1D1C19"),
+  fg = hsluv("#c5c9c5"),
+  rose = hsluv("#c4746e"),
+  leaf = hsluv("#8a9a7b"),
+  wood = hsluv("#c4b28a"),
+  water = hsluv("#8ea4a2"),
+  blossom = hsluv("#a292a3"),
+  sky = hsluv("#8ba4b0"),
+}
 
-vim.api.nvim_set_hl(0, "Statement", { fg = "#d8a657" })
-vim.api.nvim_set_hl(0, "Constant", { fg = z.Constant.fg.hex })
-vim.api.nvim_set_hl(0, "Number", { fg = z.Number.fg.hex })
-vim.api.nvim_set_hl(0, "Special", { fg = z.Special.fg.hex })
+local base_specs = require("zenbones.specs").generate(palette, "dark", {
+  transparent_background = true,
+  italic_comments = false,
+})
+local specs = lush.extends({ base_specs }).with(function()
+  ---@diagnostic disable: undefined-global
+  return {
+    Statement({ fg = palette.rose }),
+    Function({ fg = palette.leaf }),
+    Type({ fg = palette.wood }),
+    Number({ fg = palette.sky }),
+    Constant({ fg = palette.sky }),
+    Special({ fg = palette.blossom }),
+  }
+end)
+
+lush(specs)
+
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
 vim.api.nvim_set_hl(0, "@constant", { link = "Constant" })
+vim.api.nvim_set_hl(0, "@namespace", { link = "Identifier" })
 vim.api.nvim_set_hl(0, "@function.macro", { link = "Function" })
+vim.api.nvim_set_hl(0, "@function.builtin", { link = "Function" })
+vim.api.nvim_set_hl(0, "@constructor", { link = "Function" })
 vim.api.nvim_set_hl(0, "@storageclass", { link = "Statement" })
 vim.api.nvim_set_hl(0, "@type.qualifier", { link = "Statement" })
 
-vim.api.nvim_set_hl(0, "StatusLineNC", { fg = z.FloatBorder.fg.hex, bg = z.StatusLine.bg.hex })
-vim.api.nvim_set_hl(0, "StatusLineError", { fg = z.DiagnosticError.fg.hex, bg = z.StatusLine.bg.hex })
-vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = z.DiagnosticWarn.fg.hex, bg = z.StatusLine.bg.hex })
-vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = z.DiagnosticInfo.fg.hex, bg = z.StatusLine.bg.hex })
-vim.api.nvim_set_hl(0, "StatusLineHint", { fg = z.DiagnosticHint.fg.hex, bg = z.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineNC", { fg = specs.FloatBorder.fg.hex, bg = specs.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineError", { fg = specs.DiagnosticError.fg.hex, bg = specs.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = specs.DiagnosticWarn.fg.hex, bg = specs.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = specs.DiagnosticInfo.fg.hex, bg = specs.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "StatusLineHint", { fg = specs.DiagnosticHint.fg.hex, bg = specs.StatusLine.bg.hex })
