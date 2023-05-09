@@ -24,6 +24,7 @@
     fd
     gh
     graphviz
+    grpcurl
     htop
     hyperfine
     jq

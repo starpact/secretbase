@@ -8,7 +8,7 @@ window:
   dynamic_padding: true
   option_as_alt: Both
 font:
-  size: 20.0
+  size: 16.0
   normal:
     family: IosevkaTerm Nerd Font
     style: Light
@@ -17,7 +17,7 @@ font:
     style: Bold
   italic:
     family: IosevkaTerm Nerd Font
-    style: Italic
+    style: Light Oblique
 colors:
   primary:
     foreground: "#B4BDC3"
