@@ -27,6 +27,9 @@ require("nvim-tree").setup({
   view = {
     adaptive_size = true,
   },
+  system_open = {
+    cmd = "inlyne",
+  },
 })
 
 vim.keymap.set("n", "<leader>e", function()

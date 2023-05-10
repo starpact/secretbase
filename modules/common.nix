@@ -27,6 +27,7 @@
     grpcurl
     htop
     hyperfine
+    inlyne
     jq
     lazygit
     lf
