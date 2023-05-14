@@ -22,8 +22,8 @@
     clang-tools
     cmake
     cppcheck
-    llvmPackages_latest.clang-manpages
-    llvmPackages_latest.llvm-manpages
+    llvmPackages_16.libllvm
+    llvmPackages_16.llvm-manpages
 
     # Cue
     cue
@@ -78,6 +78,7 @@
     cargo-audit
     cargo-deny
     cargo-expand
+    cargo-generate
     cargo-nextest
     cargo-udeps
 

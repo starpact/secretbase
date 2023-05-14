@@ -7,9 +7,9 @@ local palette = {
   rose = hsluv("#c4746e"),
   leaf = hsluv("#8a9a7b"),
   wood = hsluv("#c4b28a"),
-  water = hsluv("#8ea4a2"),
+  water = hsluv("#8ba4b0"),
   blossom = hsluv("#a292a3"),
-  sky = hsluv("#8ba4b0"),
+  sky = hsluv("#8ea4a2"),
 }
 
 local base_specs = require("zenbones.specs").generate(palette, "dark", {
@@ -22,16 +22,19 @@ local specs = lush.extends({ base_specs }).with(function()
     Statement({ fg = palette.rose }),
     Function({ fg = palette.leaf }),
     Type({ fg = palette.wood }),
-    Number({ fg = palette.sky }),
-    Constant({ fg = palette.sky }),
+    Number({ fg = palette.water }),
+    String({ fg = palette.water }),
     Special({ fg = palette.blossom }),
   }
+  ---@diagnostic enable: undefined-global
 end)
 
 lush(specs)
 
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
+vim.api.nvim_set_hl(0, "Constant", { link = "Identifier" })
 vim.api.nvim_set_hl(0, "@constant", { link = "Constant" })
+vim.api.nvim_set_hl(0, "@string", { link = "String" })
 vim.api.nvim_set_hl(0, "@namespace", { link = "Identifier" })
 vim.api.nvim_set_hl(0, "@function.macro", { link = "Function" })
 vim.api.nvim_set_hl(0, "@function.builtin", { link = "Function" })
