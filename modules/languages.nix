@@ -74,7 +74,6 @@
 
     # Rust
     rustup
-    rust-analyzer
     cargo-audit
     cargo-deny
     cargo-expand
