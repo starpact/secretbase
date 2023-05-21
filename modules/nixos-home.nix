@@ -17,7 +17,7 @@
     bcc
     bookworm
     bpftool
-    clickhouse
+    # clickhouse
     cpu-x
     discord
     dropbox

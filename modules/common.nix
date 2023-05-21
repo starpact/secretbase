@@ -16,6 +16,7 @@
 
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
+    awscli2
     bat
     du-dust
     duckdb
@@ -29,9 +30,12 @@
     hyperfine
     inlyne
     jq
+    kubectl
+    kubernetes-helm
     lazygit
     lf
     lsof
+    minikube
     neofetch
     newsboat
     pkg-config

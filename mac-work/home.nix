@@ -12,11 +12,8 @@
   ];
 
   home.packages = with pkgs; [
-    awscli2
     colima
     git
-    kubectl
-    kubernetes-helm
     mysql80
   ];
 

@@ -51,7 +51,7 @@
   users.users.yhj = {
     isNormalUser = true;
     description = "yhj";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = [ ];
   };
 

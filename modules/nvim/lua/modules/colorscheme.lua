@@ -2,7 +2,7 @@ local lush = require("lush")
 local hsluv = lush.hsluv
 
 local palette = {
-  bg = hsluv("#1D1C19"),
+  bg = hsluv("#1d1c19"),
   fg = hsluv("#c5c9c5"),
   rose = hsluv("#c4746e"),
   leaf = hsluv("#8a9a7b"),
