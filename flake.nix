@@ -54,6 +54,7 @@
             system = "aarch64-darwin";
             pkgs = import nixpkgs {
               inherit system;
+              config.permittedInsecurePackages = [ "openssl-1.1.1t" ];
             };
           in
           home-manager.lib.homeManagerConfiguration {

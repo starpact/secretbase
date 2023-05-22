@@ -33,7 +33,6 @@
       nvim-ts-context-commentstring
       vim-snippets
       vim-test
-      zenbones-nvim
     ];
   };
 }
