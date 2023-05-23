@@ -10,7 +10,6 @@
     # General
     codespell
     gnumake
-    lldb
     nodePackages.prettier
 
     # Bash
@@ -19,11 +18,13 @@
     shellcheck
 
     # C/C++
-    clang-tools
+    clang-tools_16
     cmake
     cppcheck
     llvmPackages_16.libllvm
     llvmPackages_16.llvm-manpages
+    llvmPackages_16.lldb
+    llvmPackages_16.lldb-manpages
 
     # Cue
     cue
