@@ -19,7 +19,7 @@ null_ls.setup({
     -- linters
     null_ls.builtins.diagnostics.cue_fmt,
     null_ls.builtins.diagnostics.codespell.with({
-      extra_args = { "-L", "crate,inout,ot,ser,wit" },
+      extra_args = { "-L", "crate,flate,inout,ot,ser,wit" },
     }),
     null_ls.builtins.diagnostics.terraform_validate,
   },
@@ -30,6 +30,7 @@ lint.linters_by_ft = {
   cpp = { "clangtidy", "cppcheck" },
   go = { "golangcilint" },
   java = { "checkstyle" },
+  proto = { "buf_lint" },
   python = { "ruff" },
   yaml = { "yamllint" },
 }
@@ -38,9 +39,7 @@ lint.linters.checkstyle.args = {
   "-c",
   function()
     for _, path in ipairs({ "checkstyle.xml", "scripts/google_style_check.xml" }) do
-      if vim.fn.filereadable(path) == 1 then
-        return path
-      end
+      if vim.fn.filereadable(path) == 1 then return path end
     end
     return "google_checks.xml"
   end,
@@ -50,7 +49,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {
     "*.cue", -- cue_fmt
     "*.css", -- prettier
-    "*.go", -- goimports
     "*.java", -- google_java_format
     "*.lua", -- stylua
     "*.nix", -- nixpkgs_fmt
@@ -66,7 +64,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   },
   callback = function()
     vim.lsp.buf.format({
-      timeout_ms = 5000,
       filter = function(client)
         return client.name == "null-ls"
       end,
@@ -90,7 +87,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   },
   callback = function()
     vim.lsp.buf.format({
-      timeout_ms = 5000,
       filter = function(client)
         return client.name ~= "null-ls"
       end,

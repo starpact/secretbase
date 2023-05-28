@@ -45,9 +45,7 @@ cmp.setup({
       end
     end, { "i", "s" }),
     ["<S-Tab>"] = cmp.mapping(function()
-      if snippy.can_jump(-1) then
-        snippy.previous()
-      end
+      if snippy.can_jump(-1) then snippy.previous() end
     end, { "i", "s" }),
     ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
     ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),

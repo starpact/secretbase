@@ -46,6 +46,7 @@ fzf.setup({
     ["--no-separator"] = "",
   },
   files = {
+    cwd_prompt = false,
     winopts = no_preview_winopts,
     git_icons = false,
   },

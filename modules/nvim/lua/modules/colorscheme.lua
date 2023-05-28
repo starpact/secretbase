@@ -158,6 +158,8 @@ lush(lush(function(injected_functions)
     DiagnosticUnderlineInfo    { gui = "undercurl", sp = DiagnosticInfo.fg },
     DiagnosticUnderlineHint    { gui = "undercurl", sp = DiagnosticHint.fg },
 
+    DiagnosticUnnecessary      { DiagnosticUnderlineWarn },
+
     StatusLineError            { fg = DiagnosticError.fg, bg = StatusLine.bg },
     StatusLineWarn             { fg = DiagnosticWarn.fg, bg = StatusLine.bg },
     StatusLineInfo             { fg = DiagnosticInfo.fg, bg = StatusLine.bg },

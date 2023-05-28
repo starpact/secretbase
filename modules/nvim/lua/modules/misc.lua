@@ -3,7 +3,9 @@ require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp")
 
 require("nvim-surround").setup()
 
-require("Comment").setup()
+require("Comment").setup({
+  pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+})
 
 require("leap").set_default_keymaps()
 
@@ -58,9 +60,7 @@ vim.keymap.set("n", "<leader>w", function()
     path = vim.api.nvim_buf_get_name(0),
     upward = true,
   })[1]
-  if path then
-    vim.api.nvim_set_current_dir(vim.fs.dirname(path))
-  end
+  if path then vim.api.nvim_set_current_dir(vim.fs.dirname(path)) end
 end)
 
 -- Toggle diagnostic virtual text.
