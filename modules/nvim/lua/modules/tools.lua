@@ -49,6 +49,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {
     "*.cue", -- cue_fmt
     "*.css", -- prettier
+    "*.go", -- goimports
     "*.java", -- google_java_format
     "*.lua", -- stylua
     "*.nix", -- nixpkgs_fmt
@@ -87,6 +88,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   },
   callback = function()
     vim.lsp.buf.format({
+      timeout_ms = 5000,
       filter = function(client)
         return client.name ~= "null-ls"
       end,
