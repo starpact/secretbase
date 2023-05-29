@@ -103,18 +103,7 @@ lush(lush(function(injected_functions)
     Function        { fg = p.green }, -- function name (also: methods for classes)
 
     Statement       { fg = p.red }, -- (preferred) any statement
-    -- Conditional  { }, --  if, then, else, endif, switch, etc.
-    -- Repeat       { }, --   for, do, while, etc.
-    -- Label        { }, --    case, default, etc.
-    -- Operator     { }, -- "sizeof", "+", "*", etc.
-    -- Keyword      { }, --  any other keyword
-    -- Exception    { }, --  try, catch, throw
-
     PreProc         { Statement }, -- (preferred) generic Preprocessor
-    -- Include      { }, --  preprocessor #include
-    -- Define       { }, --   preprocessor #define
-    -- Macro        { }, --    same as Define
-    -- PreCondit    { }, --  preprocessor #if, #else, #endif, etc.
 
     Type            { fg = p.yellow }, -- (preferred) int, long, char, etc.
     StorageClass    { Statement }, -- static, register, volatile, etc.
@@ -131,8 +120,6 @@ lush(lush(function(injected_functions)
     -- ("Ignore", below, may be invisible...)
     -- Ignore       { }, -- (preferred) left blank, hidden  |hl-Ignore|
 
-    Todo            { gui = "bold,underline" }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
-
     LspReferenceText           { ColorColumn }, -- used for highlighting "text" references
     LspReferenceRead           { ColorColumn }, -- used for highlighting "read" references
     LspReferenceWrite          { ColorColumn }, -- used for highlighting "write" references
@@ -141,7 +128,7 @@ lush(lush(function(injected_functions)
     DiagnosticError            { Error },
     DiagnosticWarn             { WarningMsg },
     DiagnosticInfo             { fg = p.blue },
-    DiagnosticHint             { fg = p.pink },
+    DiagnosticHint             { fg = p.green },
 
     DiagnosticSignError        { SignColumn, fg = DiagnosticError.fg },
     DiagnosticSignWarn         { SignColumn, fg = DiagnosticWarn.fg },
@@ -157,8 +144,9 @@ lush(lush(function(injected_functions)
     DiagnosticUnderlineWarn    { gui = "undercurl", sp = DiagnosticWarn.fg },
     DiagnosticUnderlineInfo    { gui = "undercurl", sp = DiagnosticInfo.fg },
     DiagnosticUnderlineHint    { gui = "undercurl", sp = DiagnosticHint.fg },
-
     DiagnosticUnnecessary      { DiagnosticUnderlineWarn },
+
+    Todo                       { DiagnosticWarn }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     StatusLineError            { fg = DiagnosticError.fg, bg = StatusLine.bg },
     StatusLineWarn             { fg = DiagnosticWarn.fg, bg = StatusLine.bg },
