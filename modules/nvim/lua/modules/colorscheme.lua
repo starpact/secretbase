@@ -146,7 +146,7 @@ lush(lush(function(injected_functions)
     DiagnosticUnderlineHint    { gui = "undercurl", sp = DiagnosticHint.fg },
     DiagnosticUnnecessary      { DiagnosticUnderlineWarn },
 
-    Todo                       { DiagnosticWarn }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+    Todo                       { DiagnosticInfo }, -- (preferred) anything that needs extra attention; mostly the keywords TODO FIXME and XXX
 
     StatusLineError            { fg = DiagnosticError.fg, bg = StatusLine.bg },
     StatusLineWarn             { fg = DiagnosticWarn.fg, bg = StatusLine.bg },
