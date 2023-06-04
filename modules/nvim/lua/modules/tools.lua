@@ -14,7 +14,6 @@ null_ls.setup({
     null_ls.builtins.formatting.shfmt,
     null_ls.builtins.formatting.sql_formatter,
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.taplo,
     null_ls.builtins.formatting.terraform_fmt,
     -- linters
     null_ls.builtins.diagnostics.cue_fmt,
@@ -54,7 +53,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.lua", -- stylua
     "*.nix", -- nixpkgs_fmt
     "*.py", -- black
-    "*.toml", -- taplo
     "*.yaml", -- prettier
     "*.yml", -- prettier
 
@@ -81,6 +79,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     "*.json",
     "*.js",
     "*.jsx",
+    "*.toml",
     "*.ts",
     "*.tsx",
     "*.rs",
@@ -96,14 +95,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format)
+
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
     lint.try_lint()
   end,
-})
-
--- cue is recognized as conf now.
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*.cue",
-  command = "set filetype=cue",
 })

@@ -30,9 +30,9 @@ local function get_git_status()
   local dict = vim.b.gitsigns_status_dict
   if not dict then return "" end
   return dict.head
-      .. (dict.added and dict.added > 0 and " +" .. dict.added or "")
-      .. (dict.changed and dict.changed > 0 and " ~" .. dict.changed or "")
-      .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
+    .. (dict.added and dict.added > 0 and " +" .. dict.added or "")
+    .. (dict.changed and dict.changed > 0 and " ~" .. dict.changed or "")
+    .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
 end
 
 local colormap = {

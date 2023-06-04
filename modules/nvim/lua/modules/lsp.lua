@@ -35,6 +35,7 @@ for _, server in ipairs({
   "jsonls",
   "nil_ls",
   "pyright",
+  "taplo",
   "tsserver",
   "zls",
 }) do
@@ -145,5 +146,3 @@ vim.api.nvim_create_autocmd("FileType", {
     }))
   end,
 })
-
-vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format)

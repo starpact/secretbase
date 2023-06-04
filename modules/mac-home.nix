@@ -6,8 +6,6 @@
   home.file = {
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/dotfiles/modules/alacritty/alacritty_mac.yml";
-    ".config/kitty/kitty.conf".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/kitty/kitty_mac.conf";
   };
 
   home.packages = with pkgs; [
