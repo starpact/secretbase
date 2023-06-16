@@ -77,11 +77,11 @@ vim.keymap.set("n", "<A-D>", function()
   vim.diagnostic.config(diagnostic_config)
 end)
 
-vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
-
 for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = "", texthl = hl })
 end
 
-vim.keymap.set("n", "cp", [[<cmd>let @+ = expand('%:p') . ':' . line('.')<CR>]])
+vim.keymap.set("n", "cp", function()
+  vim.cmd([[let @+ = expand('%:p') . ':' . line('.')]])
+end)

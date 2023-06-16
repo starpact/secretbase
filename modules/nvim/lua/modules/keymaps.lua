@@ -26,7 +26,10 @@ vim.keymap.set("n", "<A-Down>", "<cmd>resize +5<CR>")
 vim.keymap.set("n", "<A-Up>", "<cmd>resize -5<CR>")
 vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +5<CR>")
 
-vim.keymap.set("n", "<leader>h", "<cmd>noh<CR>")
+vim.keymap.set("n", "<Esc>", function()
+  vim.cmd("noh")
+  vim.cmd("echo")
+end)
 vim.keymap.set("n", "<leader><Tab>", "<C-^>")
 vim.keymap.set("n", "<C-g>", "1<C-g>")
 

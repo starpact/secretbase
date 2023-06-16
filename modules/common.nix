@@ -16,6 +16,7 @@
 
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
+    ast-grep
     awscli2
     bat
     du-dust
