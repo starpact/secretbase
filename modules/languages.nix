@@ -38,6 +38,7 @@
 
     # HTML/CSS/JSON/ESLint
     nodePackages.vscode-langservers-extracted
+    nodePackages.eslint
 
     # Java
     jdk17
