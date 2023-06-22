@@ -37,6 +37,7 @@
     lf
     lsof
     minikube
+    moreutils
     neofetch
     newsboat
     pkg-config
