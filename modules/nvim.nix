@@ -12,7 +12,6 @@
       cmp-path
       cmp-snippy
       comment-nvim
-      fidget-nvim
       fzf-lua
       gitsigns-nvim
       harpoon
@@ -33,6 +32,16 @@
       nvim-ts-context-commentstring
       vim-snippets
       vim-test
+
+      (pkgs.vimUtils.buildVimPluginFrom2Nix {
+        name = "fidget-nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "j-hui";
+          repo = "fidget.nvim";
+          rev = "refs/tags/legacy";
+          hash = "sha256-rmJgfrEr/PYBq0S7j3tzRZvxi7PMMaAo0k528miXOQc=";
+        };
+      })
     ];
   };
 }

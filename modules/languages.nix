@@ -41,7 +41,7 @@
     nodePackages.eslint
 
     # Java
-    jdk17
+    jdk
     gradle
     gradle-completion
     maven

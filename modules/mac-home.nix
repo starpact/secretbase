@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  home.stateVersion = "22.11";
+  home.stateVersion = "23.05";
 
   home.file = {
     ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
