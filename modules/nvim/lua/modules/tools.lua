@@ -25,8 +25,8 @@ null_ls.setup({
 })
 
 lint.linters_by_ft = {
-  c = { "clangtidy", "cppcheck" },
-  cpp = { "clangtidy", "cppcheck" },
+  c = { "cppcheck" },
+  cpp = { "cppcheck" },
   go = { "golangcilint" },
   java = { "checkstyle" },
   proto = { "buf_lint" },
