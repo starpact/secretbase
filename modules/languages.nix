@@ -34,6 +34,7 @@
     gopls
     golangci-lint
     gotools
+    go-mockery
     delve
 
     # HTML/CSS/JSON/ESLint

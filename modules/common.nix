@@ -33,6 +33,7 @@
     jq
     kubectl
     kubernetes-helm
+    lab
     lazygit
     lf
     lsof
