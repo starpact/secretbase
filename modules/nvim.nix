@@ -12,6 +12,7 @@
       cmp-path
       cmp-snippy
       comment-nvim
+      diffview-nvim
       fzf-lua
       gitsigns-nvim
       harpoon
@@ -32,7 +33,6 @@
       nvim-ts-context-commentstring
       vim-snippets
       vim-test
-
       (pkgs.vimUtils.buildVimPluginFrom2Nix {
         name = "fidget-nvim";
         src = pkgs.fetchFromGitHub {
