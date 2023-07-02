@@ -7,8 +7,7 @@ local default_config = {
     vim.lsp.protocol.make_client_capabilities(),
     require("cmp_nvim_lsp").default_capabilities()
   ),
-  on_attach = function(client, bufnr)
-    client.server_capabilities.semanticTokensProvider = nil
+  on_attach = function(_, bufnr)
     local opts = { buffer = bufnr }
     vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
     vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)

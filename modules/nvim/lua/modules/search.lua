@@ -26,7 +26,15 @@ local no_preview_winopts = {
 vim.keymap.set("n", "<leader>f", fzf.files)
 vim.keymap.set("n", "<leader>o", fzf.oldfiles)
 vim.keymap.set("n", "<leader>b", fzf.buffers)
-vim.keymap.set("n", "<leader>/", fzf.live_grep)
+vim.keymap.set("n", "<leader>/", function()
+  local opts = {}
+  if vim.bo.filetype == "NvimTree" then
+    local node = require("nvim-tree.api").tree.get_node_under_cursor()
+    if node == nil then return end
+    opts.cwd = node.type == "directory" and node.absolute_path or node.parent.absolute_path
+  end
+  fzf.live_grep(opts)
+end)
 vim.keymap.set("n", "<leader>?", fzf.grep_cword)
 vim.keymap.set("n", "<leader>d", function()
   fzf.diagnostics_workspace({ severity_only = "error" })

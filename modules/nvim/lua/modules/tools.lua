@@ -18,15 +18,13 @@ null_ls.setup({
     -- linters
     null_ls.builtins.diagnostics.cue_fmt,
     null_ls.builtins.diagnostics.codespell.with({
-      extra_args = { "-L", "crate,flate,inout,ot,ser,wit" },
+      extra_args = { "-L", "crate,flate,inout,ot,ser,te,wit" },
     }),
     null_ls.builtins.diagnostics.terraform_validate,
   },
 })
 
 lint.linters_by_ft = {
-  c = { "cppcheck" },
-  cpp = { "cppcheck" },
   go = { "golangcilint" },
   java = { "checkstyle" },
   proto = { "buf_lint" },

@@ -28,10 +28,7 @@ vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +5<CR>")
 
 vim.keymap.set("n", "<Esc>", function()
   vim.cmd("noh")
-  vim.cmd("echo")
 end)
-vim.keymap.set("n", "<leader><Tab>", "<C-^>")
-vim.keymap.set("n", "<C-g>", "1<C-g>")
 
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
@@ -39,3 +36,7 @@ vim.keymap.set("x", ">", ">gv")
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "go", vim.diagnostic.open_float)
+
+vim.keymap.set("n", "cp", function()
+  vim.cmd([[let @+ = expand('%:p') . ':' . line('.')]])
+end)

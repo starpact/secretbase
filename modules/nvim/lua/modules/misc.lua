@@ -70,6 +70,4 @@ for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
   vim.fn.sign_define(hl, { text = "", texthl = hl })
 end
 
-vim.keymap.set("n", "cp", function()
-  vim.cmd([[let @+ = expand('%:p') . ':' . line('.')]])
-end)
+vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
