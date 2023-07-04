@@ -13,3 +13,4 @@ require("diffview").setup({
   use_icons = false,
 })
 vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
+vim.keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory %<CR>")
