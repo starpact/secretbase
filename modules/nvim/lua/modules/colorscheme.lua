@@ -287,3 +287,7 @@ lush(lush(function(injected_functions)
   -- stylua: ignore end
   ---@diagnostic enable: undefined-global
 end))
+
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+  vim.api.nvim_set_hl(0, group, {})
+end
