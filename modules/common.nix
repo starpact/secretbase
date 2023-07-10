@@ -19,6 +19,7 @@
     ast-grep
     awscli2
     bat
+    dig
     du-dust
     duckdb
     erdtree
@@ -29,6 +30,7 @@
     grpcurl
     htop
     hyperfine
+    inetutils
     inlyne
     jq
     kubectl
@@ -41,6 +43,7 @@
     moreutils
     neofetch
     newsboat
+    openssl
     pkg-config
     postgresql
     ripgrep
