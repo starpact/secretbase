@@ -283,6 +283,9 @@ lush(lush(function(injected_functions)
     CmpItemAbbrMatchFuzzy     { fg = p.fg, gui = "bold" },
     CmpItemKind               { fg = p.fg },
     CmpItemMenu               { fg = p.fg },
+
+    FzfLuaBufFlagCur          { fg = p.red },
+    FzfLuaHeaderText          { fg = p.red },
   }
   -- stylua: ignore end
   ---@diagnostic enable: undefined-global
