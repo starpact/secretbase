@@ -43,6 +43,7 @@
     moreutils
     neofetch
     newsboat
+    nix-index
     openssl
     pkg-config
     postgresql
