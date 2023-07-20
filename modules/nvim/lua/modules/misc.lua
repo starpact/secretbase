@@ -15,6 +15,23 @@ vim.keymap.set("n", "<C-s>", require("harpoon.ui").toggle_quick_menu)
 vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
 vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
 
+do
+  local gitsigns = require("gitsigns")
+  gitsigns.setup({
+    on_attach = function(bufnr)
+      local opts = { buffer = bufnr }
+      vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
+      vim.keymap.set("n", "<leader>gb", gitsigns.toggle_current_line_blame, opts)
+      vim.keymap.set("n", "[g", gitsigns.prev_hunk, opts)
+      vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
+    end,
+  })
+
+  require("diffview").setup()
+  vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
+  vim.keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory %<CR>")
+end
+
 require("fidget").setup({
   window = {
     blend = 0,
@@ -51,19 +68,21 @@ vim.keymap.set("n", "<leader>w", function()
   if path then vim.api.nvim_set_current_dir(vim.fs.dirname(path)) end
 end)
 
--- Toggle diagnostic virtual text.
-local diagnostic_config = {
-  severity_sort = true,
-  float = {
-    source = true,
-  },
-  virtual_text = true,
-}
-vim.diagnostic.config(diagnostic_config)
-vim.keymap.set("n", "<A-D>", function()
-  diagnostic_config.virtual_text = not diagnostic_config.virtual_text
+do
+  -- Toggle diagnostic virtual text.
+  local diagnostic_config = {
+    severity_sort = true,
+    float = {
+      source = true,
+    },
+    virtual_text = true,
+  }
   vim.diagnostic.config(diagnostic_config)
-end)
+  vim.keymap.set("n", "<A-D>", function()
+    diagnostic_config.virtual_text = not diagnostic_config.virtual_text
+    vim.diagnostic.config(diagnostic_config)
+  end)
+end
 
 for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
   local hl = "DiagnosticSign" .. type

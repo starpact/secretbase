@@ -30,7 +30,7 @@ vim.keymap.set("n", "<leader>/", function()
   local opts = {}
   if vim.bo.filetype == "NvimTree" then
     local node = require("nvim-tree.api").tree.get_node_under_cursor()
-    if node == nil then return end
+    if node == nil or node.type == nil then return end
     opts.cwd = node.type == "directory" and node.absolute_path or node.parent.absolute_path
   end
   fzf.live_grep(opts)

@@ -1,12 +1,7 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "23.05";
-
-  home.file = {
-    ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/alacritty/alacritty_mac.yml";
-  };
 
   home.packages = with pkgs; [
     bashInteractive

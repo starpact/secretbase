@@ -28,7 +28,7 @@ require("nvim-tree").setup({
     adaptive_size = true,
   },
   system_open = {
-    cmd = "inlyne",
+    cmd = "code",
   },
 })
 

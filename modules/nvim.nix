@@ -33,6 +33,7 @@
       nvim-ts-context-commentstring
       vim-snippets
       vim-test
+      zenbones-nvim
       (pkgs.vimUtils.buildVimPluginFrom2Nix {
         name = "fidget-nvim";
         src = pkgs.fetchFromGitHub {

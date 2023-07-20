@@ -14,7 +14,7 @@
   home.packages = with pkgs; [
     colima
     git
-    mysql80
+    gnutar
   ];
 
   programs.bash = {
@@ -24,7 +24,7 @@
       source ~/.work
     '';
     shellAliases = {
-      hs = "home-manager switch --flake ~/dotfiles#mac-work";
+      hs = "home-manager switch --flake .#mac-work";
     };
   };
 }

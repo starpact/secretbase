@@ -26,84 +26,59 @@ local default_config = {
   end,
 }
 
-for _, server in ipairs({
-  "bashls",
-  "bufls",
-  "cssls",
-  "eslint",
-  "gopls",
-  "html",
-  "jsonls",
-  "nil_ls",
-  "pyright",
-  "taplo",
-  "tsserver",
-  "zls",
-}) do
-  lspconfig[server].setup(default_config)
-end
-
 local function extend_default(config)
   return vim.tbl_deep_extend("force", default_config, config)
 end
 
-local function find_root_dir(pattern)
-  return vim.fs.dirname(vim.fs.find(pattern, {
-    upward = true,
-    path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)),
-  })[1])
-end
-
-lspconfig.clangd.setup(extend_default({
-  cmd = { "clangd", "--function-arg-placeholders=0" },
-  filetypes = { "c", "cpp" },
-  capabilities = {
-    offsetEncoding = { "utf-16" },
+for server, config in pairs({
+  ["bashls"] = {},
+  ["bufls"] = {},
+  ["clangd"] = {
+    cmd = { "clangd", "--function-arg-placeholders=0" },
+    filetypes = { "c", "cpp" },
+    capabilities = {
+      offsetEncoding = { "utf-16" },
+    },
   },
-}))
-
-lspconfig.lua_ls.setup(extend_default({
-  settings = {
-    Lua = {
-      workspace = {
-        library = { vim.fn.expand("$VIMRUNTIME/lua") },
+  ["cssls"] = {},
+  ["eslint"] = {},
+  ["gopls"] = {},
+  ["html"] = {},
+  ["jsonls"] = {},
+  ["lua_ls"] = {
+    settings = {
+      Lua = {
+        workspace = {
+          library = { vim.fn.expand("$VIMRUNTIME/lua") },
+        },
       },
     },
   },
-}))
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "rust",
-  callback = function()
-    vim.lsp.start(
-      extend_default({
-        name = "rust_analyzer",
-        cmd = { "rust-analyzer" },
-        root_dir = find_root_dir({ "Cargo.toml" }),
-        settings = {
-          ["rust-analyzer"] = {
-            checkOnSave = {
-              command = "clippy",
-            },
-            completion = {
-              postfix = {
-                enable = false,
-              },
-              callable = {
-                snippets = "add_parentheses",
-              },
-            },
+  ["nil_ls"] = {},
+  ["pyright"] = {},
+  ["rust_analyzer"] = {
+    settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          command = "clippy",
+        },
+        completion = {
+          postfix = {
+            enable = false,
+          },
+          callable = {
+            snippets = "add_parentheses",
           },
         },
-      }),
-      {
-        reuse_client = function(client, config)
-          return client.config.name == config.name
-        end,
-      }
-    )
-  end,
-})
+      },
+    },
+  },
+  ["taplo"] = {},
+  ["tsserver"] = {},
+  ["zls"] = {},
+}) do
+  lspconfig[server].setup(next(config) == nil and default_config or extend_default(config))
+end
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",

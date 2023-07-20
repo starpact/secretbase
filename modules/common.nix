@@ -3,27 +3,29 @@
 {
   fonts.fontconfig.enable = true;
 
-  home.file = {
-    ".config/nvim".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/nvim";
-    ".config/tmux".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/tmux";
-    ".newsboat/config".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/newsboat/config";
-    ".newsboat/urls".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/newsboat/urls";
-  };
+  home.file =
+    let
+      base = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/secretbase";
+      os = if pkgs.stdenv.isLinux then "linux" else "mac";
+    in
+    {
+      ".config/alacritty/alacritty.yml".source = "${base}/modules/alacritty/alacritty_${os}.yml";
+      ".config/nvim".source = "${base}/modules/nvim";
+      ".config/tmux".source = "${base}/modules/tmux";
+      ".config/yamllint/config".source = "${base}/.yamllint.yaml";
+      ".editorconfig".source = "${base}/.editorconfig";
+      ".newsboat/config".source = "${base}/modules/newsboat/config";
+      ".newsboat/urls".source = "${base}/modules/newsboat/urls";
+    };
 
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
-    ast-grep
     awscli2
     bat
     dig
     du-dust
     duckdb
     erdtree
-    exa
     fd
     gh
     graphviz
@@ -31,7 +33,6 @@
     htop
     hyperfine
     inetutils
-    inlyne
     jq
     kubectl
     kubernetes-helm
@@ -39,11 +40,10 @@
     lazygit
     lf
     lsof
-    minikube
     moreutils
+    mysql80
     neofetch
     newsboat
-    nix-index
     openssl
     pkg-config
     postgresql
@@ -65,7 +65,7 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        ls = "exa";
+        ls = "lsd";
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
@@ -82,6 +82,11 @@
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
     };
+    lsd = {
+      enable = true;
+      settings.icons.when = "never";
+    };
+    nix-index.enable = true;
     starship.enable = true;
     zoxide.enable = true;
   };

@@ -1,14 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "23.05";
   home.username = "yhj";
   home.homeDirectory = "/home/yhj";
-
-  home.file = {
-    ".config/alacritty/alacritty.yml".source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/dotfiles/modules/alacritty/alacritty_linux.yml";
-  };
 
   home.packages = with pkgs; [
     alacritty
