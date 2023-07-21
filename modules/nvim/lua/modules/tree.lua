@@ -1,7 +1,3 @@
--- Disable netrw.
-vim.g.loaded = 1
-vim.g.loaded_netrwPlugin = 1
-
 require("nvim-tree").setup({
   disable_netrw = true,
   sync_root_with_cwd = true,
@@ -11,6 +7,13 @@ require("nvim-tree").setup({
     enable = true,
     show_on_dirs = true,
     icons = { hint = "", info = "", warning = "", error = "" },
+  },
+  actions = {
+    open_file = {
+      window_picker = {
+        enable = false,
+      },
+    },
   },
   renderer = {
     indent_markers = {

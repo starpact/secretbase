@@ -27,15 +27,18 @@ vim.keymap.set("n", "<leader>f", fzf.files)
 vim.keymap.set("n", "<leader>o", fzf.oldfiles)
 vim.keymap.set("n", "<leader>b", fzf.buffers)
 vim.keymap.set("n", "<leader>/", function()
-  local opts = {}
+  local cwd
   if vim.bo.filetype == "NvimTree" then
     local node = require("nvim-tree.api").tree.get_node_under_cursor()
     if node == nil or node.type == nil then return end
-    opts.cwd = node.type == "directory" and node.absolute_path or node.parent.absolute_path
+    vim.cmd("wincmd l")
+    cwd = node.type == "directory" and node.absolute_path or node.parent.absolute_path
+  else
+    cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
   end
-  fzf.live_grep(opts)
+  fzf.live_grep({ cwd = cwd })
 end)
-vim.keymap.set("n", "<leader>?", fzf.grep_cword)
+vim.keymap.set("n", "<leader>?", fzf.live_grep)
 vim.keymap.set("n", "<leader>d", function()
   fzf.diagnostics_workspace({ severity_only = "error" })
 end)
