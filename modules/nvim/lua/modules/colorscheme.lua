@@ -9,7 +9,6 @@ local p = {
   wood = hsluv("#c4b28a"),
   water = hsluv("#8ba4b0"),
   blossom = hsluv("#a292a3"),
-  sky = hsluv("#7aa89f"),
 }
 
 local s = lush
