@@ -53,6 +53,7 @@
     tmux
     typst
     unzip
+    uutils-coreutils
     wget
     yq-go
   ];
@@ -64,8 +65,8 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        ls = "exa";
-        l = "ls -al";
+        ls = "uutils-ls --color";
+        l = "ls -ahl";
         cat = "bat";
         lg = "lazygit";
         gp = "git pull";
@@ -78,7 +79,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    exa.enable = true;
     fzf = {
       enable = true;
       historyWidgetOptions = [ "--reverse" ];

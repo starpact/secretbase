@@ -1,3 +1,4 @@
+vim.o.background = "light"
 local lush = require("lush")
 
 local light = require("zenbones.palette").light
@@ -47,4 +48,5 @@ vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = s.DiagnosticInfo.fg.hex, bg = s.
 vim.api.nvim_set_hl(0, "StatusLineHint", { fg = s.DiagnosticHint.fg.hex, bg = s.StatusLine.bg.hex })
 vim.api.nvim_set_hl(0, "FzfLuaBufFlagCur", { fg = p.rose.hex })
 vim.api.nvim_set_hl(0, "FzfLuaHeaderText", { fg = p.rose.hex })
+vim.api.nvim_set_hl(0, "FzfLuaHeaderBind", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
