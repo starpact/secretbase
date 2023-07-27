@@ -20,29 +20,26 @@ font:
     style: Light Oblique
 colors:
   primary:
-    background: "#1d1c19"
-    foreground: "#c5c9c5"
+    foreground: "#2c363c"
+    background: "#f0edec"
   normal:
-    black: "#1d1c19"
-    red: "#c4746e"
-    green: "#8a9a7b"
-    yellow: "#c4b28a"
-    blue: "#8ba4b0"
-    magenta: "#a292a3"
-    cyan: "#8ea4a2"
-    white: "#c8c093"
+    black: "#f0edec"
+    red: "#a8334c"
+    green: "#4f6c31"
+    yellow: "#944927"
+    blue: "#286486"
+    magenta: "#88507d"
+    cyan: "#3b8992"
+    white: "#2c363c"
   bright:
-    black: "#a6a69c"
-    red: "#e46876"
-    green: "#87a987"
-    yellow: "#e6c384"
-    blue: "#7fb4ca"
-    magenta: "#938aa9"
-    cyan: "#7aa89f"
-    white: "#c5c9c5"
-  selection:
-    background: "#2D4F67"
-    foreground: "#C8C093"
+    black: "#cfc1ba"
+    red: "#94253e"
+    green: "#3f5a22"
+    yellow: "#803d1c"
+    blue: "#1d5573"
+    magenta: "#7b3b70"
+    cyan: "#2b747c"
+    white: "#4f5e68"
 selection:
   semantic_escape_chars: "/,│`|:\"' ()[]{}<>\t"
 hints:

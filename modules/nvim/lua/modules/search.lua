@@ -30,9 +30,12 @@ vim.keymap.set("n", "<leader>/", function()
   local cwd
   if vim.bo.filetype == "NvimTree" then
     local node = require("nvim-tree.api").tree.get_node_under_cursor()
-    if node == nil or node.type == nil then return end
-    vim.cmd("wincmd l")
-    cwd = node.type == "directory" and node.absolute_path or node.parent.absolute_path
+    if node.type == "file" then
+      cwd = node.parent.absolute_path
+    elseif node.type == "directory" then
+      cwd = node.absolute_path
+    end
+    vim.cmd("wincmd l") -- avoid open file action from nvim-tree buffer
   else
     cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
   end

@@ -21,7 +21,6 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
     awscli2
-    bat
     dig
     du-dust
     duckdb
@@ -65,7 +64,7 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        ls = "lsd";
+        ls = "exa";
         l = "ls -al";
         cat = "bat";
         lg = "lazygit";
@@ -74,17 +73,15 @@
         ta = "tmux a";
       };
     };
+    bat.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
+    exa.enable = true;
     fzf = {
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
-    };
-    lsd = {
-      enable = true;
-      settings.icons.when = "never";
     };
     nix-index.enable = true;
     starship.enable = true;

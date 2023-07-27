@@ -1,29 +1,21 @@
-local function get_filepath(bufnr)
-  local filepath = (function()
-    local path = vim.api.nvim_buf_get_name(bufnr)
+local function get_filepath(bufname)
+  local path = bufname
+  -- Shorten jdt url.
+  if vim.startswith(path, "jdt") then path = path:sub(16, path:find("?") - 1) end
 
-    -- Shorten jdt url.
-    if vim.startswith(path, "jdt") then path = path:sub(16, path:find("?") - 1) end
+  -- File in current directory.
+  local cwd = vim.fn.getcwd()
+  if vim.startswith(path, cwd .. "/") then return vim.fs.basename(cwd) .. path:sub(#cwd + 1) end
 
-    -- Show absolute path in nvim tree.
-    if vim.fs.basename(path) == "NvimTree_1" then return "" end
+  -- Shorten nix path.
+  local nix_store = "/nix/store/"
+  if vim.startswith(path, nix_store) then return "NIX/" .. path:sub(45) end
 
-    -- File in current directory.
-    local cwd = vim.fn.getcwd()
-    if vim.startswith(path, cwd .. "/") then return vim.fs.basename(cwd) .. path:sub(#cwd + 1) end
+  -- Shorten home path.
+  local home = vim.fs.normalize("~")
+  if vim.startswith(path, home) then return "~" .. path:sub(#home + 1) end
 
-    -- Shorten nix path.
-    local nix_store = "/nix/store/"
-    if vim.startswith(path, nix_store) then return "NIX/" .. path:sub(45) end
-
-    -- Shorten home path.
-    local home = vim.fs.normalize("~")
-    if vim.startswith(path, home) then return "~" .. path:sub(#home + 1) end
-
-    return path
-  end)()
-
-  return filepath == "" and filepath or filepath .. " %m%r"
+  return path
 end
 
 local function get_git_status()
@@ -67,7 +59,10 @@ local function get_diagnostics(bufnr, active)
 end
 
 _G.StatusLine = function(bufnr, active)
-  local left = get_filepath(bufnr) .. get_diagnostics(bufnr, active)
+  local bufname = vim.api.nvim_buf_get_name(bufnr)
+  if vim.fs.basename(bufname) == "NvimTree_1" then return "" end
+
+  local left = get_filepath(bufname) .. " %m%r" .. get_diagnostics(bufnr, active)
   local right = (active == 1 and get_git_status() or "") .. "%8.(%l,%c%)"
   return left .. "%=" .. right
 end
