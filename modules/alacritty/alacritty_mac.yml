@@ -8,7 +8,7 @@ window:
   dynamic_padding: true
   option_as_alt: Both
 font:
-  size: 18.0
+  size: 15.0
   normal:
     family: IosevkaTerm Nerd Font
     style: Light
@@ -22,6 +22,9 @@ colors:
   primary:
     foreground: "#2c363c"
     background: "#f0edec"
+  cursor:
+    cursor: "#2c363c"
+    text: "#f0edec"
   normal:
     black: "#f0edec"
     red: "#a8334c"

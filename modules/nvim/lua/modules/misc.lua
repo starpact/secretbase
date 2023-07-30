@@ -27,7 +27,13 @@ do
     end,
   })
 
-  require("diffview").setup()
+  require("diffview").setup({
+    view = {
+      merge_tool = {
+        layout = "diff3_mixed",
+      },
+    },
+  })
   vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
   vim.keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory %<CR>")
 end

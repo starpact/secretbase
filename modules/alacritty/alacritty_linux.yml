@@ -22,6 +22,9 @@ colors:
   primary:
     foreground: "#2c363c"
     background: "#f0edec"
+  cursor:
+    cursor: "#2c363c"
+    text: "#f0edec"
   normal:
     black: "#f0edec"
     red: "#a8334c"

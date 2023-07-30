@@ -49,4 +49,6 @@ vim.api.nvim_set_hl(0, "StatusLineHint", { fg = s.DiagnosticHint.fg.hex, bg = s.
 vim.api.nvim_set_hl(0, "FzfLuaBufFlagCur", { fg = p.rose.hex })
 vim.api.nvim_set_hl(0, "FzfLuaHeaderText", { fg = p.rose.hex })
 vim.api.nvim_set_hl(0, "FzfLuaHeaderBind", { fg = p.wood.hex })
+vim.api.nvim_set_hl(0, "FzfLuaTabMarker", { fg = p.wood.hex })
+vim.api.nvim_set_hl(0, "FzfLuaBufNr", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
