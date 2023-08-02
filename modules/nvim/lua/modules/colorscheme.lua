@@ -1,20 +1,19 @@
-vim.o.background = "light"
 local lush = require("lush")
+local hsluv = lush.hsluv
 
-local light = require("zenbones.palette").light
 local p = {
-  bg = light.bg,
-  fg = light.fg,
-  rose = light.rose,
-  leaf = light.leaf,
-  wood = light.wood,
-  water = light.water,
-  blossom = light.blossom,
+  bg = hsluv("#1d1c19"),
+  fg = hsluv("#c5c9c5"),
+  rose = hsluv("#c4746e"),
+  leaf = hsluv("#8a9a7b"),
+  wood = hsluv("#c4b28a"),
+  water = hsluv("#8ba4b0"),
+  blossom = hsluv("#a292a3"),
 }
 
 local s = lush
   .extends({
-    require("zenbones.specs").generate(p, "light", {
+    require("zenbones.specs").generate(p, "dark", {
       transparent_background = true,
       italic_comments = false,
     }),

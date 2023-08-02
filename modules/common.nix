@@ -53,7 +53,6 @@
     tmux
     typst
     unzip
-    uutils-coreutils
     wget
     yq-go
   ];
@@ -63,10 +62,9 @@
       enable = true;
       sessionVariables = {
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
-        FZF_DEFAULT_OPTS = "--color=light";
       };
       shellAliases = {
-        ls = "uutils-ls --color";
+        ls = "lsd";
         l = "ls -ahl";
         cat = "bat";
         lg = "lazygit";
@@ -75,7 +73,10 @@
         ta = "tmux a";
       };
     };
-    bat.enable = true;
+    bat = {
+      enable = true;
+      config.theme = "Nord";
+    };
     direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -83,6 +84,10 @@
     fzf = {
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
+    };
+    lsd = {
+      enable = true;
+      settings.icons.when = "never";
     };
     nix-index.enable = true;
     starship.enable = true;
