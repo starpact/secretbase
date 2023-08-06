@@ -4,7 +4,6 @@ local default_winopts = {
   height = 0.3,
   width = 1,
   row = 1,
-  col = 0,
   hl = {
     cursorline = "visual",
   },
@@ -14,10 +13,8 @@ local default_winopts = {
     horizontal = "right:50%",
   },
 }
+
 local no_preview_winopts = {
-  hl = {
-    cursorline = "",
-  },
   preview = {
     hidden = "hidden",
   },

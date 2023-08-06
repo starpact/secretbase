@@ -21,7 +21,7 @@ do
     on_attach = function(bufnr)
       local opts = { buffer = bufnr }
       vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
-      vim.keymap.set("n", "<leader>gb", gitsigns.toggle_current_line_blame, opts)
+      vim.keymap.set("n", "<leader>gb", gitsigns.blame_line, opts)
       vim.keymap.set("n", "[g", gitsigns.prev_hunk, opts)
       vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
     end,
@@ -34,8 +34,10 @@ do
       },
     },
   })
-  vim.keymap.set("n", "<leader>gd", "<cmd>DiffviewOpen<CR>")
-  vim.keymap.set("n", "<leader>gH", "<cmd>DiffviewFileHistory %<CR>")
+  vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen HEAD<CR>")
+  vim.keymap.set("n", "<leader>gO", "<cmd>DiffviewOpen master<CR>")
+  vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
+  vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
 end
 
 require("fidget").setup({
