@@ -28,34 +28,17 @@ do
   })
 
   require("diffview").setup({
+    use_icons = false,
     view = {
       merge_tool = {
         layout = "diff3_mixed",
       },
     },
   })
-  vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen HEAD<CR>")
-  vim.keymap.set("n", "<leader>gO", "<cmd>DiffviewOpen master<CR>")
+  vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>")
   vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
   vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
 end
-
-require("fidget").setup({
-  window = {
-    blend = 0,
-  },
-  sources = {
-    jdtls = {
-      ignore = true,
-    },
-    ["null-ls"] = {
-      ignore = true,
-    },
-    pyright = {
-      ignore = true,
-    },
-  },
-})
 
 -- Set pwd to project root.
 vim.keymap.set("n", "<leader>w", function()

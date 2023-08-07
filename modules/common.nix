@@ -25,6 +25,7 @@
     du-dust
     duckdb
     erdtree
+    exa
     fd
     gh
     graphviz
@@ -64,7 +65,7 @@
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
       };
       shellAliases = {
-        ls = "lsd";
+        ls = "exa";
         l = "ls -ahl";
         cat = "bat";
         lg = "lazygit";
@@ -84,10 +85,6 @@
     fzf = {
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
-    };
-    lsd = {
-      enable = true;
-      settings.icons.when = "never";
     };
     nix-index.enable = true;
     starship.enable = true;
