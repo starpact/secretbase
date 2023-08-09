@@ -15,6 +15,18 @@ vim.keymap.set("n", "<leader>m", require("harpoon.ui").toggle_quick_menu)
 vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
 vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
 
+require("illuminate").configure({
+  delay = 500,
+  modes_allowlist = {
+    "n",
+  },
+  providers = {
+    "lsp",
+    "treesitter",
+  },
+  min_count_to_highlight = 2,
+})
+
 do
   local gitsigns = require("gitsigns")
   gitsigns.setup({

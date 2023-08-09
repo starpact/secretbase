@@ -31,6 +31,7 @@
       nvim-treesitter.withAllGrammars
       nvim-ts-autotag
       nvim-ts-context-commentstring
+      vim-illuminate
       vim-snippets
       vim-test
       zenbones-nvim

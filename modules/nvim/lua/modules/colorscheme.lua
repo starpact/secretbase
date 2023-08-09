@@ -4,7 +4,7 @@ local hsluv = lush.hsluv
 local p = {
   bg = hsluv("#1d1c19"),
   fg = hsluv("#c5c9c5"),
-  rose = hsluv("#c4746e"),
+  rose = hsluv("#bc7671"),
   leaf = hsluv("#8a9a7b"),
   wood = hsluv("#c4b28a"),
   water = hsluv("#8ba4b0"),
@@ -52,3 +52,7 @@ vim.api.nvim_set_hl(0, "FzfLuaTabMarker", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "FzfLuaBufNr", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
 vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
+
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })
