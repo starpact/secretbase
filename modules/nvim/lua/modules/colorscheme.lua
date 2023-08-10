@@ -52,7 +52,6 @@ vim.api.nvim_set_hl(0, "FzfLuaTabMarker", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "FzfLuaBufNr", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
 vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
-
 vim.api.nvim_set_hl(0, "IlluminatedWordText", { link = "Visual" })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { link = "Visual" })
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { link = "Visual" })

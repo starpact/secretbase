@@ -15,7 +15,6 @@ vim.o.incsearch = true
 vim.o.jumpoptions = "stack"
 vim.o.number = true
 vim.o.pumheight = 10
-vim.o.relativenumber = true
 vim.o.scrolloff = 3
 vim.o.showmode = false
 vim.o.signcolumn = "yes"

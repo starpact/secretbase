@@ -30,7 +30,9 @@ require("nvim-tree").setup({
     },
   },
   view = {
-    adaptive_size = true,
+    width = {
+      max = 60,
+    },
   },
   system_open = {
     cmd = "code",
