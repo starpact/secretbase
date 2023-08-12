@@ -3,9 +3,7 @@ require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp")
 
 require("nvim-surround").setup()
 
-require("Comment").setup({
-  pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-})
+require("Comment").setup()
 
 require("leap").set_default_keymaps()
 
@@ -14,18 +12,6 @@ vim.keymap.set("n", "<leader>M", require("harpoon.mark").add_file)
 vim.keymap.set("n", "<leader>m", require("harpoon.ui").toggle_quick_menu)
 vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
 vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
-
-require("illuminate").configure({
-  delay = 500,
-  modes_allowlist = {
-    "n",
-  },
-  providers = {
-    "lsp",
-    "treesitter",
-  },
-  min_count_to_highlight = 2,
-})
 
 do
   local gitsigns = require("gitsigns")

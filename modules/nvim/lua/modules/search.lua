@@ -38,8 +38,7 @@ fzf.setup({
   winopts = {
     height = 0.8,
     width = 0.6,
-    row = 0.5,
-    col = 0.5,
+    row = 0.4,
     border = "single",
     hl = {
       cursorline = "visual",
