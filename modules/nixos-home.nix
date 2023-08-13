@@ -10,7 +10,6 @@
     bcc
     bookworm
     bpftool
-    clickhouse
     cpu-x
     discord
     dropbox

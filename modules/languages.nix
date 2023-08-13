@@ -7,6 +7,10 @@
     gnumake
     nodePackages.prettier
 
+    # Ansible
+    ansible
+    ansible-lint
+
     # Bash
     nodePackages.bash-language-server
     shfmt

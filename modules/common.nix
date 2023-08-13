@@ -21,6 +21,7 @@
   home.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
     awscli2
+    clickhouse
     dig
     du-dust
     duckdb
