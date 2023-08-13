@@ -87,3 +87,9 @@ for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
 end
 
 vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
+  end,
+})
