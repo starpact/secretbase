@@ -49,10 +49,10 @@
     pkg-config
     postgresql
     ripgrep
-    scc
     sqlite
     tealdeer
     tmux
+    tokei
     typst
     universal-ctags
     unzip

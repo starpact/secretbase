@@ -9,6 +9,7 @@ vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "UTF-8"
 vim.o.foldlevelstart = 99
 vim.o.foldmethod = "indent"
+vim.o.ignorecase = true
 vim.o.jumpoptions = "stack"
 vim.o.number = true
 vim.o.pumheight = 10
