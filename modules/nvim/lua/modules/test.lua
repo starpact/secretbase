@@ -1,16 +1,16 @@
 vim.g["test#custom_strategies"] = {
   tmux_pane = function(cmd)
-    local function sendCommand()
-      vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd, "Enter" })
+    local function send_command()
+      vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd .. "\n" })
     end
     vim.fn.jobstart({ "tmux", "list-panes" }, {
       stdout_buffered = true, -- get all stdout rather than line by line
       on_stdout = function(_, data)
         if #data >= 3 then -- at least 2 lines for pane info and 1 empty string for EOF
-          sendCommand()
+          send_command()
         else
           vim.fn.jobstart({ "tmux", "split-window" }, {
-            on_stdout = sendCommand,
+            on_stdout = send_command,
           })
         end
       end,
