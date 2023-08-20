@@ -36,6 +36,7 @@ format_on_save(true, {
   "*.lua", -- stylua
   "*.nix", -- nixpkgs_fmt
   "*.py", -- black
+  "*.tf", -- terraform fmt
   "*.yaml", -- prettier
   "*.yml", -- prettier
 })
@@ -59,5 +60,4 @@ format_on_save(false, {
 -- "*.proto", -- buf
 -- "*.sh", -- shfmt
 -- "*.sql", -- sql-formatter
--- "*.tf", -- terraform fmt
 vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format)

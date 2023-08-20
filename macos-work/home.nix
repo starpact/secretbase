@@ -5,7 +5,7 @@
   home.homeDirectory = "/Users/hongjie.yan";
 
   imports = [
-    ../modules/mac-home.nix
+    ../modules/macos-home.nix
     ../modules/common.nix
     ../modules/languages.nix
     ../modules/nvim.nix
@@ -24,7 +24,7 @@
       source ~/.work
     '';
     shellAliases = {
-      hs = "home-manager switch --flake .#mac-work";
+      hs = "home-manager switch --flake .#macos-work";
     };
   };
 }

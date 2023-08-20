@@ -1,5 +1,5 @@
 vim.g["test#custom_strategies"] = {
-  tmux_window = function(cmd)
+  tmux_pane = function(cmd)
     local function sendCommand()
       vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd, "Enter" })
     end
@@ -18,7 +18,7 @@ vim.g["test#custom_strategies"] = {
   end,
 }
 
-vim.g["test#strategy"] = "tmux_window"
+vim.g["test#strategy"] = "tmux_pane"
 
 vim.g["test#go#runner"] = "gotest"
 vim.g["test#go#gotest#options"] = "-v -race -failfast --count=1"

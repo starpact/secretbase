@@ -49,7 +49,7 @@
             modules = [ ./nixos-laptop/home.nix ];
           };
 
-        mac-work =
+        macos-work =
           let
             system = "aarch64-darwin";
             pkgs = import nixpkgs {
@@ -59,7 +59,7 @@
           in
           home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            modules = [ ./mac-work/home.nix ];
+            modules = [ ./macos-work/home.nix ];
           };
       };
     };
