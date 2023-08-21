@@ -108,11 +108,11 @@ hints:
         key: U
         mods: Control|Shift
 key_bindings:
-  - { key: Q, mode: Vi|~Search, action: ToggleViMode }
-  - { key: Q, mode: Vi|~Search, action: ScrollToBottom }
   - { key: J, mods: Command, chars: "\x01j" }
   - { key: K, mods: Command, chars: "\x01k" }
   - { key: Z, mods: Command, chars: "\x01z" }
+  - { key: Q, mode: Vi|~Search, action: ToggleViMode }
+  - { key: Q, mode: Vi|~Search, action: ScrollToBottom }
   - { key: Key1, mods: Command, chars: "\x011" }
   - { key: Key2, mods: Command, chars: "\x012" }
   - { key: Key3, mods: Command, chars: "\x013" }
