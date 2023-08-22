@@ -1,51 +1,3 @@
-require("nvim-autopairs").setup({ check_ts = true })
-require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
-
-require("nvim-surround").setup()
-
-require("Comment").setup()
-
-require("leap").set_default_keymaps()
-
-require("harpoon").setup()
-vim.keymap.set("n", "<leader>M", require("harpoon.mark").add_file)
-vim.keymap.set("n", "<leader>m", require("harpoon.ui").toggle_quick_menu)
-vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
-vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
-
-do
-  local gitsigns = require("gitsigns")
-  gitsigns.setup({
-    on_attach = function(bufnr)
-      local opts = { buffer = bufnr }
-      vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
-      vim.keymap.set("n", "<leader>gb", gitsigns.blame_line, opts)
-      vim.keymap.set("n", "[g", gitsigns.prev_hunk, opts)
-      vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
-    end,
-  })
-
-  require("diffview").setup({
-    use_icons = false,
-    view = {
-      merge_tool = {
-        layout = "diff3_mixed",
-      },
-    },
-  })
-  vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>")
-  vim.keymap.set("n", "<leader>gO", function()
-    vim.fn.jobstart({ "git", "show-ref", "-q", "--heads", "main" }, {
-      on_exit = function(_, code)
-        local default_branch = code == 0 and "main" or "master"
-        vim.cmd("DiffviewOpen " .. default_branch)
-      end,
-    })
-  end)
-  vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
-  vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
-end
-
 -- Set pwd to project root.
 vim.keymap.set("n", "<leader>w", function()
   local path = vim.fs.find({
@@ -93,3 +45,51 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
   end,
 })
+
+require("nvim-autopairs").setup({ check_ts = true })
+require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
+
+require("nvim-surround").setup()
+
+require("Comment").setup()
+
+require("leap").set_default_keymaps()
+
+require("harpoon").setup()
+vim.keymap.set("n", "<leader>M", require("harpoon.mark").add_file)
+vim.keymap.set("n", "<leader>m", require("harpoon.ui").toggle_quick_menu)
+vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
+vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
+
+do
+  local gitsigns = require("gitsigns")
+  gitsigns.setup({
+    on_attach = function(bufnr)
+      local opts = { buffer = bufnr }
+      vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
+      vim.keymap.set("n", "<leader>gb", gitsigns.blame_line, opts)
+      vim.keymap.set("n", "[g", gitsigns.prev_hunk, opts)
+      vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
+    end,
+  })
+
+  require("diffview").setup({
+    use_icons = false,
+    view = {
+      merge_tool = {
+        layout = "diff3_mixed",
+      },
+    },
+  })
+  vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>")
+  vim.keymap.set("n", "<leader>gO", function()
+    vim.fn.jobstart({ "git", "show-ref", "-q", "--heads", "main" }, {
+      on_exit = function(_, code)
+        local default_branch = code == 0 and "main" or "master"
+        vim.cmd("DiffviewOpen " .. default_branch)
+      end,
+    })
+  end)
+  vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
+  vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
+end
