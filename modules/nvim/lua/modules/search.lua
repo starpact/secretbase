@@ -7,9 +7,13 @@ local no_preview_winopts = {
 }
 
 vim.keymap.set("n", "<leader>f", function()
-  local buf_name = vim.fn.expand("%p")
-  local cmd = buf_name ~= "" and "fd -t f | proximity-sort " .. buf_name
-  fzf.files({ cmd = cmd })
+  local opts = {}
+  local buf_name = vim.fn.expand("%:h")
+  if buf_name ~= "" then
+    opts.cmd = "fd -t f | proximity-sort " .. buf_name
+    opts.fzf_opts = { ["--tiebreak"] = "index" }
+  end
+  fzf.files(opts)
 end)
 vim.keymap.set("n", "<leader>o", fzf.oldfiles)
 vim.keymap.set("n", "<leader>b", fzf.buffers)
