@@ -1,17 +1,7 @@
 vim.o.background = "light"
 local lush = require("lush")
 
-local light = require("zenbones.palette").light
-local p = {
-  bg = light.bg,
-  fg = light.fg,
-  rose = light.rose,
-  leaf = light.leaf,
-  wood = light.wood,
-  water = light.water,
-  blossom = light.blossom,
-}
-
+local p = require("zenbones.palette").light
 local s = lush
   .extends({
     require("zenbones.specs").generate(p, "light", {
@@ -46,7 +36,10 @@ vim.api.nvim_set_hl(0, "StatusLineError", { fg = s.DiagnosticError.fg.hex, bg = 
 vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = s.DiagnosticWarn.fg.hex, bg = s.StatusLine.bg.hex })
 vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = s.DiagnosticInfo.fg.hex, bg = s.StatusLine.bg.hex })
 vim.api.nvim_set_hl(0, "StatusLineHint", { fg = s.DiagnosticHint.fg.hex, bg = s.StatusLine.bg.hex })
+vim.api.nvim_set_hl(0, "FzfLuaBufFlagCur", { fg = p.rose.hex })
 vim.api.nvim_set_hl(0, "FzfLuaHeaderText", { fg = p.rose.hex })
 vim.api.nvim_set_hl(0, "FzfLuaHeaderBind", { fg = p.wood.hex })
+vim.api.nvim_set_hl(0, "FzfLuaTabMarker", { fg = p.wood.hex })
+vim.api.nvim_set_hl(0, "FzfLuaBufNr", { fg = p.wood.hex })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
 vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })

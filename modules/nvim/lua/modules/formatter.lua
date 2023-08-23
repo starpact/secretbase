@@ -60,4 +60,6 @@ format_on_save(false, {
 -- "*.proto", -- buf
 -- "*.sh", -- shfmt
 -- "*.sql", -- sql-formatter
-vim.keymap.set("n", "<leader><leader>f", vim.lsp.buf.format)
+vim.api.nvim_create_user_command("Format", function()
+  vim.lsp.buf.format()
+end, {})
