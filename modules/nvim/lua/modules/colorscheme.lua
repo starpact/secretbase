@@ -1,40 +1,20 @@
+vim.o.background = "light"
 local lush = require("lush")
-local hsluv = lush.hsluv
 
--- https://www.nordtheme.com/docs/colors-and-palettes
-local nord = {
-  [0] = hsluv("#2e3440"),
-  [1] = hsluv("#3b4252"),
-  [2] = hsluv("#434c5e"),
-  [3] = hsluv("#4c566a"),
-  [4] = hsluv("#d8dee9"),
-  [5] = hsluv("#e5e9f0"),
-  [6] = hsluv("#eceff4"),
-  [7] = hsluv("#8fbcbb"),
-  [8] = hsluv("#88c0d0"),
-  [9] = hsluv("#81a1c1"),
-  [10] = hsluv("#5e81ac"),
-  [11] = hsluv("#bf616a"),
-  [12] = hsluv("#d08770"),
-  [13] = hsluv("#ebcb8b"),
-  [14] = hsluv("#a3be8c"),
-  [15] = hsluv("#b48ead"),
-}
-
+local light = require("zenbones.palette").light
 local p = {
-  bg = nord[0],
-  fg = nord[6],
-  rose = nord[11],
-  leaf = nord[14],
-  wood = nord[13],
-  water = nord[7],
-  blossom = nord[15],
-  sky = nord[8],
+  bg = light.bg,
+  fg = light.fg,
+  rose = light.rose,
+  leaf = light.leaf,
+  wood = light.wood,
+  water = light.water,
+  blossom = light.blossom,
 }
 
 local s = lush
   .extends({
-    require("zenbones.specs").generate(p, "dark", {
+    require("zenbones.specs").generate(p, "light", {
       transparent_background = true,
       italic_comments = false,
     }),
@@ -42,13 +22,11 @@ local s = lush
   .with(function()
     return {
       ---@diagnostic disable: undefined-global
-      Statement({ fg = nord[9] }),
-      Function({ fg = nord[8] }),
-      Type({ fg = nord[13] }),
-      String({ fg = nord[14] }),
-      Number({ fg = nord[15] }),
-      Constant({ fg = nord[15] }),
-      Special({ fg = nord[12] }),
+      Function({ fg = p.leaf }),
+      Type({ fg = p.wood }),
+      Number({ fg = p.water }),
+      Constant({ fg = p.water }),
+      Special({ fg = p.blossom }),
       ---@diagnostic enable: undefined-global
     }
   end)

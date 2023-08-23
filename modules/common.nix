@@ -66,7 +66,7 @@
       enable = true;
       sessionVariables = {
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
-        FZF_DEFAULT_OPTS = "--color=bg+:#3B4252,spinner:#81A1C1,hl:#616E88,fg:#D8DEE9,header:#616E88,info:#81A1C1,pointer:#81A1C1,marker:#81A1C1,fg+:#D8DEE9,prompt:#81A1C1,hl+:#81A1C1";
+        FZF_DEFAULT_OPTS = "--color=light";
       };
       shellAliases = {
         ls = "exa";
@@ -80,7 +80,7 @@
     };
     bat = {
       enable = true;
-      config.theme = "Nord";
+      config.theme = "base16-256";
     };
     direnv = {
       enable = true;
