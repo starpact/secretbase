@@ -25,7 +25,7 @@ vim.o.termguicolors = true
 vim.o.undofile = true
 
 require("modules.colorscheme")
-require("modules.keymaps")
+require("modules.keymap")
 require("modules.search")
 require("modules.statusline")
 require("modules.misc")
