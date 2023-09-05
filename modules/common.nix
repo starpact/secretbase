@@ -45,7 +45,6 @@
     mysql80
     neofetch
     newsboat
-    nushell
     openssl
     pkg-config
     postgresql

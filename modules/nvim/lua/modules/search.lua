@@ -1,5 +1,19 @@
 local fzf = require("fzf-lua")
 
+local default_winopts = {
+  height = 0.3,
+  width = 1,
+  row = 1,
+  border = { "─", "─", "─", "", "", "", "", "" },
+  hl = {
+    cursorline = "visual",
+  },
+  preview = {
+    delay = 0,
+    horizontal = "right:50%",
+  },
+}
+
 local no_preview_winopts = {
   preview = {
     hidden = "hidden",
@@ -43,22 +57,13 @@ vim.keymap.set("n", "<leader>l", fzf.builtin)
 
 fzf.register_ui_select()
 fzf.setup({
-  winopts = {
-    height = 0.8,
-    width = 0.6,
-    row = 0.4,
-    border = "single",
-    hl = {
-      cursorline = "visual",
-    },
-    preview = {
-      delay = 0,
-      layout = "vertical",
-      vertical = "down:60%",
-    },
-  },
+  winopts = default_winopts,
   fzf_opts = {
     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
+    ["--no-separator"] = "",
+  },
+  builtin = {
+    winopts = default_winopts,
   },
   files = {
     cwd_prompt = false,
