@@ -23,8 +23,8 @@ vim.g["test#strategy"] = "tmux_pane"
 vim.g["test#go#runner"] = "gotest"
 vim.g["test#go#gotest#options"] = "-v -race -failfast --count=1"
 
-vim.g["test#rust#runner"] = "cargonextest"
-vim.g["test#rust#cargonextest#options"] = "--no-capture --run-ignored all"
+vim.g["test#rust#runner"] = "cargotest"
+vim.g["test#rust#cargotest#options"] = "-- --nocapture --include-ignored"
 
 vim.g["test#python#runner"] = "pyunit"
 

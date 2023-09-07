@@ -28,6 +28,7 @@
     erdtree
     exa
     fd
+    ffmpeg
     gh
     graphviz
     grpcurl
@@ -39,7 +40,6 @@
     kubernetes-helm
     lab
     lazygit
-    lf
     lsof
     moreutils
     mysql80
@@ -55,7 +55,6 @@
     tmux
     tokei
     typst
-    universal-ctags
     unzip
     wget
     yq-go

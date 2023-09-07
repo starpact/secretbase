@@ -80,7 +80,6 @@
     cargo-deny
     cargo-expand
     cargo-generate
-    cargo-nextest
     cargo-udeps
 
     # SQL
