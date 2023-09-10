@@ -1,12 +1,11 @@
 local lspconfig = require("lspconfig")
 local fzf = require("fzf-lua")
 
+local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
+cmp_capabilities.textDocument.completion.completionItem.snippetSupport = false
+
 local default_config = {
-  capabilities = vim.tbl_deep_extend(
-    "force",
-    vim.lsp.protocol.make_client_capabilities(),
-    require("cmp_nvim_lsp").default_capabilities()
-  ),
+  capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp_capabilities),
   on_attach = function(client, bufnr)
     client.server_capabilities.semanticTokensProvider = nil
     local opts = { buffer = bufnr }
@@ -59,16 +58,8 @@ for server, config in pairs({
   ["rust_analyzer"] = {
     settings = {
       ["rust-analyzer"] = {
-        checkOnSave = {
+        check = {
           command = "clippy",
-        },
-        completion = {
-          postfix = {
-            enable = false,
-          },
-          callable = {
-            snippets = "add_parentheses",
-          },
         },
       },
     },

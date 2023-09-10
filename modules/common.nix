@@ -26,7 +26,7 @@
     du-dust
     duckdb
     erdtree
-    exa
+    eza
     fd
     ffmpeg
     gh
@@ -68,7 +68,7 @@
         FZF_DEFAULT_OPTS = "--color=light";
       };
       shellAliases = {
-        ls = "exa";
+        ls = "eza";
         l = "ls -ahl";
         cat = "bat";
         lg = "lazygit";

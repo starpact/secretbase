@@ -10,8 +10,6 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set({ "n", "x" }, "<C-u>", "10k")
 vim.keymap.set({ "n", "x" }, "<C-d>", "10j")
 
-vim.keymap.set("i", "<C-n>", "<Down>")
-vim.keymap.set("i", "<C-p>", "<Up>")
 vim.keymap.set("i", "<C-b>", "<Left>")
 vim.keymap.set("i", "<C-f>", "<Right>")
 vim.keymap.set("i", "<C-a>", "<C-o>^")

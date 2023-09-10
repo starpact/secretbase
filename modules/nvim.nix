@@ -6,10 +6,7 @@
     vimAlias = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      cmp-buffer
       cmp-nvim-lsp
-      cmp-nvim-lsp-signature-help
-      cmp-path
       cmp-snippy
       comment-nvim
       diffview-nvim
@@ -29,7 +26,6 @@
       nvim-tree-lua
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
-      vim-snippets
       vim-test
       zenbones-nvim
     ];

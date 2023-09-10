@@ -24,7 +24,7 @@ do
     float = {
       source = true,
     },
-    virtual_text = true,
+    virtual_text = false,
   }
   vim.diagnostic.config(diagnostic_config)
   vim.keymap.set("n", "<A-D>", function()
@@ -46,14 +46,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
-require("nvim-autopairs").setup({ check_ts = true })
-require("cmp").event:on("confirm_done", require("nvim-autopairs.completion.cmp").on_confirm_done())
-
 require("nvim-surround").setup()
 
 require("Comment").setup()
 
 require("leap").set_default_keymaps()
+
+require("nvim-autopairs").setup({ check_ts = true })
 
 require("harpoon").setup()
 vim.keymap.set("n", "<leader>M", require("harpoon.mark").add_file)
