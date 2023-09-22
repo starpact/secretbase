@@ -48,7 +48,6 @@
     openssl
     pkg-config
     postgresql
-    proximity-sort
     ripgrep
     sqlite
     tealdeer
