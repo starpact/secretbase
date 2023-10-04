@@ -19,7 +19,7 @@
     };
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" "FantasqueSansMono" "Terminus" ]; })
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" "Iosevka" "IosevkaTerm" ]; })
     awscli2
     clickhouse
     dig

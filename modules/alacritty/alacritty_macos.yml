@@ -17,7 +17,7 @@ font:
     style: Bold
   italic:
     family: FantasqueSansM Nerd Font
-    style: Light Oblique
+    style: Italic
 colors:
   primary:
     foreground: "#2c363c"
