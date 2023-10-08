@@ -3,9 +3,6 @@ local snippy = require("snippy")
 
 cmp.setup({
   sources = { { name = "snippy" } },
-  completion = {
-    completeopt = "menuone,noselect",
-  },
   preselect = cmp.PreselectMode.None,
   snippet = {
     expand = function(args)
