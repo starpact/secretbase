@@ -19,7 +19,7 @@
     };
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" "Iosevka" "IosevkaTerm" ]; })
+    (nerdfonts.override { fonts = [ "Iosevka" "IosevkaTerm" ]; })
     awscli2
     clickhouse
     dig
@@ -49,6 +49,7 @@
     pkg-config
     postgresql
     ripgrep
+    sarasa-gothic
     sqlite
     tealdeer
     tmux

@@ -10,13 +10,13 @@ window:
 font:
   size: 15
   normal:
-    family: FantasqueSansM Nerd Font
-    style: Regular
+    family: IosevkaTerm Nerd Font
+    style: Light
   bold:
-    family: FantasqueSansM Nerd Font
+    family: IosevkaTerm Nerd Font
     style: Bold
   italic:
-    family: FantasqueSansM Nerd Font
+    family: IosevkaTerm Nerd Font
     style: Italic
 colors:
   primary:
