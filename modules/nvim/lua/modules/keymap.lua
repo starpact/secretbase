@@ -27,6 +27,7 @@ vim.keymap.set("n", "<A-Right>", "<cmd>vertical resize +5<CR>")
 vim.keymap.set("n", "<Esc>", function()
   vim.cmd("nohlsearch")
 end)
+vim.keymap.set("i", "<C-Space>", "<nop>")
 
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")

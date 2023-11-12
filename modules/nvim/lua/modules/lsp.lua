@@ -14,7 +14,7 @@ do
       vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
       vim.keymap.set("n", "gy", fzf.lsp_typedefs, opts)
       vim.keymap.set("n", "gr", function()
-        fzf.lsp_references({ ignore_current_line = true })
+        fzf.lsp_references({ includeDeclaration = false })
       end, opts)
       vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
       vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)

@@ -25,11 +25,8 @@
     llvmPackages_16.lldb
     llvmPackages_16.lldb-manpages
 
-    # Cue
-    cue
-
     # Go
-    go
+    go_1_21
     gopls
     golangci-lint
     gotools
