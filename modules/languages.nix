@@ -48,7 +48,6 @@
 
     # JavaScript/TypeScript
     nodejs
-    deno
     nodePackages.typescript-language-server
 
     # Lua

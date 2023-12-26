@@ -19,8 +19,16 @@
     };
 
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" "Iosevka" "IosevkaTerm" ]; })
     awscli2
+    (nerdfonts.override {
+      fonts = [
+        "FantasqueSansMono"
+        "iA-Writer"
+        "Iosevka"
+        "IosevkaTerm"
+        "MartianMono"
+      ];
+    })
     clickhouse
     dig
     du-dust
@@ -29,7 +37,6 @@
     eza
     fd
     ffmpeg
-    pqrs
     gh
     graphviz
     grpcurl

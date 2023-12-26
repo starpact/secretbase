@@ -92,3 +92,9 @@ do
   vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
   vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
 end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function(ev)
+    vim.wo.wrap = vim.endswith(ev.file, ".md")
+  end,
+})

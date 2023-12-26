@@ -13,6 +13,7 @@
 
   home.packages = with pkgs; [
     colima
+    findutils
     git
     gnutar
   ];

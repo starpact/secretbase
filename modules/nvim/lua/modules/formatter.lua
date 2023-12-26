@@ -3,7 +3,6 @@ null_ls.setup({
   sources = {
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.buf,
-    null_ls.builtins.formatting.cue_fmt,
     null_ls.builtins.formatting.goimports,
     null_ls.builtins.formatting.google_java_format,
     null_ls.builtins.formatting.nixpkgs_fmt,
@@ -29,7 +28,6 @@ local function format_on_save(use_null_ls, pattern)
 end
 
 format_on_save(true, {
-  "*.cue", -- cue_fmt
   "*.css", -- prettier
   "*.go", -- goimports
   "*.java", -- google_java_format
