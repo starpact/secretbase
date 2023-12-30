@@ -9,7 +9,7 @@
       os = if pkgs.stdenv.isLinux then "linux" else "macos";
     in
     {
-      ".config/alacritty/alacritty.yml".source = "${base}/modules/alacritty/alacritty_${os}.yml";
+      ".config/alacritty/alacritty.toml".source = "${base}/modules/alacritty/alacritty_${os}.toml";
       ".config/nvim".source = "${base}/modules/nvim";
       ".config/tmux".source = "${base}/modules/tmux";
       ".config/yamllint/config".source = "${base}/.yamllint.yaml";
@@ -38,6 +38,7 @@
     fd
     ffmpeg
     gh
+    gitoxide
     graphviz
     grpcurl
     htop
@@ -49,6 +50,7 @@
     lab
     lazygit
     lsof
+    lz4
     moreutils
     mysql80
     neofetch
