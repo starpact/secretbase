@@ -7,7 +7,6 @@
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp
-      cmp-snippy
       comment-nvim
       diffview-nvim
       fzf-lua

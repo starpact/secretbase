@@ -17,13 +17,14 @@
     shellcheck
 
     # C/C++
-    clang-tools_16
+    clang-tools_17
     cmake
     cppcheck
-    llvmPackages_16.libllvm
-    llvmPackages_16.llvm-manpages
-    llvmPackages_16.lldb
-    llvmPackages_16.lldb-manpages
+    llvmPackages_17.libllvm
+    llvmPackages_17.llvm-manpages
+    llvmPackages_17.lldb
+    llvmPackages_17.lldb-manpages
+    lld_17
 
     # Go
     go_1_21
