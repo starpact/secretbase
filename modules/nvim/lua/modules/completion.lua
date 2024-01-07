@@ -1,6 +1,12 @@
 local cmp = require("cmp")
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
+  snippet = {
+    expand = function(args)
+      require("snippy").expand_snippet(args.body)
+    end,
+  },
   mapping = {
     ["<C-d>"] = cmp.mapping.scroll_docs(4),
     ["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -22,6 +28,7 @@ cmp.setup({
 
 vim.keymap.set("i", vim.api.nvim_replace_termcodes("<C-x><C-o>", true, false, true), function()
   cmp.complete({ config = { sources = { { name = "nvim_lsp" } } } })
+  cmp.select_next_item()
 end)
 
 require("snippy").setup({

@@ -23,7 +23,18 @@ vim.o.swapfile = false
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.undofile = true
-vim.o.wrap = false
+
+vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
+  end,
+})
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function(ev)
+    vim.wo.wrap = ev.file == "" or vim.endswith(ev.file, ".md")
+  end,
+})
 
 require("modules.colorscheme")
 require("modules.keymap")

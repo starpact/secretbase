@@ -33,9 +33,8 @@
     })
     clickhouse
     dig
-    du-dust
+    dua
     duckdb
-    erdtree
     eza
     fd
     ffmpeg
@@ -46,6 +45,7 @@
     htop
     hyperfine
     inetutils
+    jaq
     jq
     kubectl
     kubernetes-helm

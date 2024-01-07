@@ -38,14 +38,6 @@ for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
   vim.fn.sign_define(hl, { text = "", texthl = hl })
 end
 
-vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
-
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
-  end,
-})
-
 require("nvim-surround").setup()
 
 require("Comment").setup()
@@ -54,11 +46,22 @@ require("leap").set_default_keymaps()
 
 require("nvim-autopairs").setup({ check_ts = true })
 
-require("harpoon").setup()
-vim.keymap.set("n", "<leader>M", require("harpoon.mark").add_file)
-vim.keymap.set("n", "<leader>m", require("harpoon.ui").toggle_quick_menu)
-vim.keymap.set("n", "gn", require("harpoon.ui").nav_next)
-vim.keymap.set("n", "gp", require("harpoon.ui").nav_prev)
+do
+  local harpoon = require("harpoon")
+  harpoon.setup()
+  vim.keymap.set("n", "<leader>M", function()
+    harpoon:list():append()
+  end)
+  vim.keymap.set("n", "<leader>m", function()
+    harpoon.ui:toggle_quick_menu(harpoon:list())
+  end)
+  vim.keymap.set("n", "gn", function()
+    harpoon:list():next({ ui_nav_wrap = true })
+  end)
+  vim.keymap.set("n", "gp", function()
+    harpoon:list():prev({ ui_nav_wrap = true })
+  end)
+end
 
 do
   local gitsigns = require("gitsigns")
@@ -92,9 +95,3 @@ do
   vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
   vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
 end
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function(ev)
-    vim.wo.wrap = ev.file == "" or vim.endswith(ev.file, ".md")
-  end,
-})

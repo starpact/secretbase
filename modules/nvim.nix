@@ -11,7 +11,6 @@
       diffview-nvim
       fzf-lua
       gitsigns-nvim
-      harpoon
       leap-nvim
       lush-nvim
       markdown-preview-nvim
@@ -27,6 +26,15 @@
       nvim-treesitter.withAllGrammars
       vim-test
       zenbones-nvim
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "";
+        src = pkgs.fetchFromGitHub {
+          owner = "ThePrimeagen";
+          repo = "harpoon";
+          rev = "2cd4e03372f7ee5692c8caa220f479ea07970f17";
+          hash = "sha256-MUIGRoaFcCqqFatfnFJpnEOUmSYJgV2+teU/NXj6kgY=";
+        };
+      })
     ];
   };
 }
