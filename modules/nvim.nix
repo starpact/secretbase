@@ -27,7 +27,7 @@
       vim-test
       zenbones-nvim
       (pkgs.vimUtils.buildVimPlugin {
-        name = "";
+        name = "harpoon";
         src = pkgs.fetchFromGitHub {
           owner = "ThePrimeagen";
           repo = "harpoon";

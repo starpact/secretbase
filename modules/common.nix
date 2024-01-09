@@ -69,6 +69,18 @@
     unzip
     wget
     yq-go
+
+    (rustPlatform.buildRustPackage rec{
+      pname = "walkfromhere";
+      version = "2294fc78b861abc8d75dbddbe6de5fdaa5b25943";
+      src = fetchFromGitHub {
+        owner = "starpact";
+        repo = pname;
+        rev = version;
+        hash = "sha256-+tmFizAVsM2c3ufAAQwg02XsYyc7bLStXptvJv8gUik=";
+      };
+      cargoHash = "sha256-XyGtX09ZnEwpIGP1PCo3yBxSoQS8mOCZJcMuDNcdiNc=";
+    })
   ];
 
   programs = {

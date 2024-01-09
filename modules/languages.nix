@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   home.packages = with pkgs; [
@@ -99,9 +99,10 @@
     # Zig
     zig
     zls
-  ] ++ (
-    if stdenv.isLinux
-    then [ gcc gdb cgdb ]
-    else [ ]
-  );
+  ] ++ lib.optionals stdenv.isLinux [
+    cgdb
+    gcc
+    gdb
+    mold
+  ];
 }
