@@ -21,13 +21,16 @@ local no_preview_winopts = {
 }
 
 vim.keymap.set("n", "<leader>f", function()
-  local opts = {}
   local buf_name = vim.api.nvim_buf_get_name(0)
-  if buf_name ~= "" then
-    opts.cmd = "walkfromhere " .. buf_name
-    opts.fzf_opts = { ["--tiebreak"] = "index" }
+  if buf_name == "" then
+    fzf.files()
+    return
   end
-  fzf.files(opts)
+
+  fzf.files({
+    cmd = "wfh " .. buf_name,
+    fzf_opts = { ["--tiebreak"] = "index" },
+  })
 end)
 vim.keymap.set("n", "<leader>o", fzf.oldfiles)
 vim.keymap.set("n", "<leader>b", fzf.buffers)

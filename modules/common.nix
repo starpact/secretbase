@@ -19,7 +19,6 @@
       ".newsboat/urls".source = "${base}/modules/newsboat/urls";
     };
 
-
   home.packages = with pkgs; [
     awscli2
     (nerdfonts.override {
@@ -70,16 +69,16 @@
     wget
     yq-go
 
-    (rustPlatform.buildRustPackage rec{
-      pname = "walkfromhere";
-      version = "2294fc78b861abc8d75dbddbe6de5fdaa5b25943";
+    (rustPlatform.buildRustPackage rec {
+      pname = "wfh";
+      version = "d89583b17813a29b710c409dd518ffe0e513bc31";
       src = fetchFromGitHub {
         owner = "starpact";
-        repo = pname;
+        repo = "walkfromhere";
         rev = version;
-        hash = "sha256-+tmFizAVsM2c3ufAAQwg02XsYyc7bLStXptvJv8gUik=";
+        hash = "sha256-TImR6oGiiOz3qFgQeHuX4WVWFprG6NfXw7IORXRBSf8=";
       };
-      cargoHash = "sha256-XyGtX09ZnEwpIGP1PCo3yBxSoQS8mOCZJcMuDNcdiNc=";
+      cargoHash = "sha256-oGPdffsmNM9MRezEh5lN6TU5BJVpsQSnNmiEI/+vqNA=";
     })
   ];
 
