@@ -15,21 +15,10 @@
       ".config/tmux".source = "${base}/modules/tmux";
       ".config/yamllint/config".source = "${base}/.yamllint.yaml";
       ".editorconfig".source = "${base}/.editorconfig";
-      ".newsboat/config".source = "${base}/modules/newsboat/config";
-      ".newsboat/urls".source = "${base}/modules/newsboat/urls";
     };
 
   home.packages = with pkgs; [
     awscli2
-    (nerdfonts.override {
-      fonts = [
-        "FantasqueSansMono"
-        "iA-Writer"
-        "Iosevka"
-        "IosevkaTerm"
-        "MartianMono"
-      ];
-    })
     clickhouse
     dig
     dua
@@ -55,7 +44,6 @@
     moreutils
     mysql80
     neofetch
-    newsboat
     openssl
     pkg-config
     postgresql
@@ -68,6 +56,16 @@
     unzip
     wget
     yq-go
+
+    (nerdfonts.override {
+      fonts = [
+        "FantasqueSansMono"
+        "iA-Writer"
+        "Iosevka"
+        "IosevkaTerm"
+        "MartianMono"
+      ];
+    })
 
     (rustPlatform.buildRustPackage rec {
       pname = "wfh";
