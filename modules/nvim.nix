@@ -14,7 +14,6 @@
       leap-nvim
       lush-nvim
       markdown-preview-nvim
-      neogit
       none-ls-nvim
       nvim-autopairs
       nvim-cmp
@@ -25,6 +24,7 @@
       nvim-tree-lua
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
+      vim-fugitive
       vim-test
       zenbones-nvim
     ];

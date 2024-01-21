@@ -74,8 +74,4 @@ do
       vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
     end,
   })
-
-  local neogit = require("neogit")
-  neogit.setup()
-  vim.keymap.set("n", "<leader>n", neogit.open)
 end
