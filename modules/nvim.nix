@@ -8,12 +8,13 @@
     plugins = with pkgs.vimPlugins; [
       cmp-nvim-lsp
       comment-nvim
-      diffview-nvim
       fzf-lua
       gitsigns-nvim
+      harpoon2
       leap-nvim
       lush-nvim
       markdown-preview-nvim
+      neogit
       none-ls-nvim
       nvim-autopairs
       nvim-cmp
@@ -26,15 +27,6 @@
       nvim-treesitter.withAllGrammars
       vim-test
       zenbones-nvim
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "harpoon";
-        src = pkgs.fetchFromGitHub {
-          owner = "ThePrimeagen";
-          repo = "harpoon";
-          rev = "2cd4e03372f7ee5692c8caa220f479ea07970f17";
-          hash = "sha256-MUIGRoaFcCqqFatfnFJpnEOUmSYJgV2+teU/NXj6kgY=";
-        };
-      })
     ];
   };
 }

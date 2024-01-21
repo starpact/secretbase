@@ -38,7 +38,6 @@
     kubectl
     kubernetes-helm
     lab
-    lazygit
     lsof
     lz4
     moreutils
@@ -69,14 +68,14 @@
 
     (rustPlatform.buildRustPackage rec {
       pname = "wfh";
-      version = "d89583b17813a29b710c409dd518ffe0e513bc31";
+      version = "cbf9454da9326535d5cb193b69b137f2fe1a99e6";
       src = fetchFromGitHub {
         owner = "starpact";
         repo = "walkfromhere";
         rev = version;
-        hash = "sha256-TImR6oGiiOz3qFgQeHuX4WVWFprG6NfXw7IORXRBSf8=";
+        hash = "sha256-HMq0Tl1TTE9Fn7A6pyNw+WEC/kv+KReC4ArPVc71HE4=";
       };
-      cargoHash = "sha256-oGPdffsmNM9MRezEh5lN6TU5BJVpsQSnNmiEI/+vqNA=";
+      cargoHash = "sha256-CXEOsPe5IHv8D4VlQ2YYDwMmCdNrIYDXG3Sh2CyzlUM=";
     })
   ];
 
@@ -91,7 +90,6 @@
         ls = "eza";
         l = "ls -ahl";
         cat = "bat";
-        lg = "lazygit";
         gp = "git pull";
         gs = "git status";
         ta = "tmux a";

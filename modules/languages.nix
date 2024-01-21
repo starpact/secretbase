@@ -27,7 +27,7 @@
     lld_17
 
     # Go
-    go_1_21
+    go
     gopls
     golangci-lint
     gotools
