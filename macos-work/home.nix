@@ -15,6 +15,7 @@
     findutils
     git
     gnutar
+    ssm-session-manager-plugin
   ];
 
   programs.bash = {

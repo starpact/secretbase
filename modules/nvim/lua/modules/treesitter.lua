@@ -1,7 +1,7 @@
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
-    disable = { "sql" },
+    disable = { "sql", "xml" },
   },
   indent = {
     enable = true,

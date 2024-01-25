@@ -3,12 +3,13 @@ local fzf = require("fzf-lua")
 
 local default_config
 do
-  local cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-  cmp_capabilities.textDocument.completion.completionItem.snippetSupport = false
   default_config = {
-    capabilities = vim.tbl_deep_extend("force", vim.lsp.protocol.make_client_capabilities(), cmp_capabilities),
-    on_attach = function(client, bufnr)
-      client.server_capabilities.semanticTokensProvider = nil
+    capabilities = vim.tbl_deep_extend(
+      "force",
+      vim.lsp.protocol.make_client_capabilities(),
+      require("cmp_nvim_lsp").default_capabilities()
+    ),
+    on_attach = function(_, bufnr)
       local opts = { buffer = bufnr }
       vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
       vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)

@@ -24,7 +24,7 @@ lush(s)
 
 vim.api.nvim_set_hl(0, "@constant", { link = "Identifier" })
 vim.api.nvim_set_hl(0, "@string", { link = "String" })
-vim.api.nvim_set_hl(0, "@namespace", { link = "Identifier" })
+vim.api.nvim_set_hl(0, "@module", { link = "Identifier" })
 vim.api.nvim_set_hl(0, "@function.macro", { link = "Function" })
 vim.api.nvim_set_hl(0, "@function.builtin", { link = "Function" })
 vim.api.nvim_set_hl(0, "@constructor", { link = "Function" })

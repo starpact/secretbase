@@ -33,7 +33,6 @@
     htop
     hyperfine
     inetutils
-    jaq
     jq
     kubectl
     kubernetes-helm
@@ -56,15 +55,7 @@
     wget
     yq-go
 
-    (nerdfonts.override {
-      fonts = [
-        "FantasqueSansMono"
-        "iA-Writer"
-        "Iosevka"
-        "IosevkaTerm"
-        "MartianMono"
-      ];
-    })
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" "IosevkaTerm" ]; })
 
     (rustPlatform.buildRustPackage rec {
       pname = "wfh";
