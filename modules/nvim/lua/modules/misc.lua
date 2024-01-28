@@ -75,23 +75,10 @@ do
     end,
   })
 
-  require("diffview").setup({
-    use_icons = false,
-    view = {
-      merge_tool = {
-        layout = "diff3_mixed",
-      },
-    },
-  })
-  vim.keymap.set("n", "<leader>go", "<cmd>DiffviewOpen<CR>")
-  vim.keymap.set("n", "<leader>gO", function()
-    vim.fn.jobstart({ "git", "show-ref", "-q", "--heads", "main" }, {
-      on_exit = function(_, code)
-        local default_branch = code == 0 and "main" or "master"
-        vim.cmd("DiffviewOpen " .. default_branch)
-      end,
-    })
+  require("diffview").setup()
+  vim.cmd("cnoreabbrev D DiffviewOpen")
+  vim.keymap.set("n", "<leader>gf", function()
+    vim.cmd.DiffviewFileHistory("%")
   end)
-  vim.keymap.set("n", "<leader>gf", "<cmd>DiffviewFileHistory %<CR>")
-  vim.keymap.set("n", "<leader>gF", "<cmd>DiffviewFileHistory<CR>")
+  vim.keymap.set("n", "<leader>gF", vim.cmd.DiffviewFileHistory)
 end

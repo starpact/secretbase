@@ -28,7 +28,7 @@ vim.g["test#rust#cargotest#options"] = "-- --nocapture --include-ignored"
 
 vim.g["test#python#runner"] = "pyunit"
 
-vim.keymap.set("n", "<leader>tn", "<cmd>TestNearest<CR>")
-vim.keymap.set("n", "<leader>tf", "<cmd>TestFile<CR>")
-vim.keymap.set("n", "<leader>tl", "<cmd>TestLast<CR>")
-vim.keymap.set("n", "<leader>tv", "<cmd>TestVisit<CR>")
+vim.keymap.set("n", "<leader>tn", vim.cmd.TestNearest)
+vim.keymap.set("n", "<leader>tf", vim.cmd.TestFile)
+vim.keymap.set("n", "<leader>tl", vim.cmd.TestLast)
+vim.keymap.set("n", "<leader>tv", vim.cmd.TestVisit)
