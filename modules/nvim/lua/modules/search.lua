@@ -22,7 +22,7 @@ local no_preview_winopts = {
 
 vim.keymap.set("n", "<leader>f", function()
   local buf_name = vim.api.nvim_buf_get_name(0)
-  if buf_name == "" then
+  if vim.fn.filereadable(buf_name) == 0 then
     fzf.files()
     return
   end

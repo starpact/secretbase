@@ -59,14 +59,14 @@
 
     (rustPlatform.buildRustPackage rec {
       pname = "wfh";
-      version = "cbf9454da9326535d5cb193b69b137f2fe1a99e6";
+      version = "c36d27ca3aabd932e1efa71c519ab93148f7f714";
       src = fetchFromGitHub {
         owner = "starpact";
         repo = "walkfromhere";
         rev = version;
-        hash = "sha256-HMq0Tl1TTE9Fn7A6pyNw+WEC/kv+KReC4ArPVc71HE4=";
+        hash = "sha256-QJExLnd4dXicIZzVCuEgRJInZ9StFXsL0na7YdOMNZU=";
       };
-      cargoHash = "sha256-CXEOsPe5IHv8D4VlQ2YYDwMmCdNrIYDXG3Sh2CyzlUM=";
+      cargoHash = "sha256-nXzl159DvLLQcHxCiGQMmDTSb89g1PFBJgz3NyMHg5w=";
     })
   ];
 

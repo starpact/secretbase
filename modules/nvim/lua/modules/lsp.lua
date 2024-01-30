@@ -74,3 +74,29 @@ for server, config in pairs({
 }) do
   lspconfig[server].setup(next(config) == nil and default_config or extend_default(config))
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    print("xxxxxxxx")
+    local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
+    local root_dir_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
+    require("jdtls").start_or_attach(extend_default({
+      cmd = {
+        "jdtls",
+        "-data",
+        vim.fs.normalize("~/.cache/jdtls/workspace/") .. root_dir_name,
+      },
+      root_dir = root_dir,
+      capabilities = {
+        textDocument = {
+          completion = {
+            completionItem = {
+              snippetSupport = false,
+            },
+          },
+        },
+      },
+    }))
+  end,
+})

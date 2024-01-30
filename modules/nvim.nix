@@ -18,6 +18,7 @@
       none-ls-nvim
       nvim-autopairs
       nvim-cmp
+      nvim-jdtls
       nvim-lint
       nvim-lspconfig
       nvim-snippy
@@ -26,15 +27,7 @@
       nvim-treesitter-textobjects
       nvim-treesitter.withAllGrammars
       vim-test
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "";
-        src = pkgs.fetchFromGitHub {
-          owner = "mcchrish";
-          repo = "zenbones.nvim";
-          rev = "072b21d16cc1d5ae5701455fadaa47b1e8a61780";
-          hash = "sha256-XMIUjlADWyNadGgt6QGfRNGhq7SYizDG9QpGHIj3yQI=";
-        };
-      })
+      zenbones-nvim
     ];
   };
 }
