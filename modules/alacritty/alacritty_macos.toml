@@ -144,16 +144,6 @@ chars = "\u0001n"
 key = "RBracket"
 mods = "Command"
 
-[[keyboard.bindings]]
-chars = "\u0001("
-key = "LBracket"
-mods = "Control|Command"
-
-[[keyboard.bindings]]
-chars = "\u0001)"
-key = "RBracket"
-mods = "Control|Command"
-
 [selection]
 semantic_escape_chars = "/,│`|:\"' ()[]{}<>\t"
 

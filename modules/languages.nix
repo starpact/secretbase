@@ -31,7 +31,6 @@
     gopls
     golangci-lint
     gotools
-    go-mockery
     delve
 
     # HTML/CSS/JSON/ESLint
@@ -67,7 +66,6 @@
     # Python
     python3
     nodePackages.pyright
-    black
     python310Packages.flake8
     ruff
 

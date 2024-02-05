@@ -1,3 +1,5 @@
+-- ::LOOP::
+-- ::LOOP::
 local fzf = require("fzf-lua")
 
 local default_winopts = {
@@ -23,6 +25,12 @@ local no_preview_winopts = {
 vim.keymap.set("n", "<leader>f", function()
   local buf_name = vim.api.nvim_buf_get_name(0)
   if vim.fn.filereadable(buf_name) == 0 then
+    fzf.files()
+    return
+  end
+
+  local cwd = vim.fn.getcwd()
+  if not vim.startswith(buf_name, cwd) then
     fzf.files()
     return
   end

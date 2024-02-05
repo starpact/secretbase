@@ -4,11 +4,7 @@ local fzf = require("fzf-lua")
 local default_config
 do
   default_config = {
-    capabilities = vim.tbl_deep_extend(
-      "force",
-      vim.lsp.protocol.make_client_capabilities(),
-      require("cmp_nvim_lsp").default_capabilities()
-    ),
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
     on_attach = function(client, bufnr)
       client.server_capabilities.semanticTokensProvider.full = false
       local opts = { buffer = bufnr }
@@ -88,15 +84,6 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.fs.normalize("~/.cache/jdtls/workspace/") .. root_dir_name,
       },
       root_dir = root_dir,
-      capabilities = {
-        textDocument = {
-          completion = {
-            completionItem = {
-              snippetSupport = false,
-            },
-          },
-        },
-      },
     }))
   end,
 })

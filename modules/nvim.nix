@@ -6,8 +6,8 @@
     vimAlias = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      cmp-nvim-lsp
       comment-nvim
+      conform-nvim
       diffview-nvim
       fzf-lua
       gitsigns-nvim
@@ -15,9 +15,7 @@
       leap-nvim
       lush-nvim
       markdown-preview-nvim
-      none-ls-nvim
       nvim-autopairs
-      nvim-cmp
       nvim-jdtls
       nvim-lint
       nvim-lspconfig

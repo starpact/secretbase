@@ -15,6 +15,7 @@
     findutils
     git
     gnutar
+    lima
     ssm-session-manager-plugin
   ];
 
