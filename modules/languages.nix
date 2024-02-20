@@ -71,7 +71,6 @@
 
     # Rust
     rustup
-    cargo-audit
     cargo-deny
     cargo-expand
     cargo-generate

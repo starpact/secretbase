@@ -16,6 +16,7 @@ local s = lush
       Type({ fg = p.wood }),
       Number({ fg = p.water }),
       Constant({ fg = p.water }),
+      String({ fg = p.water }),
       Special({ fg = p.blossom }),
       ---@diagnostic enable: undefined-global
     }

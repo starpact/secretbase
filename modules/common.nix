@@ -36,7 +36,6 @@
     jq
     kubectl
     kubernetes-helm
-    lab
     lsof
     lz4
     moreutils
@@ -52,6 +51,7 @@
     tokei
     typst
     unzip
+    uv
     wget
     yq-go
 
@@ -98,7 +98,6 @@
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
     };
-    nix-index.enable = true;
     starship.enable = true;
     zoxide.enable = true;
   };
