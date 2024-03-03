@@ -17,14 +17,16 @@ telescope.setup({
         prompt_position = "top",
       },
       horizontal = {
+        height = vim.o.lines,
+        width = vim.o.columns,
         prompt_position = "top",
       },
     },
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
-        ["<C-Up>"] = actions.cycle_history_prev,
-        ["<C-Down>"] = actions.cycle_history_next,
+        ["<C-k>"] = actions.cycle_history_prev,
+        ["<C-j>"] = actions.cycle_history_next,
         ["<F2>"] = layout_actions.cycle_layout_next,
         ["<F4>"] = layout_actions.toggle_preview,
       },
