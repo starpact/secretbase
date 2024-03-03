@@ -1,30 +1,44 @@
 local telescope = require("telescope")
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+local layout_actions = require("telescope.actions.layout")
 
 telescope.setup({
   defaults = {
     sorting_strategy = "ascending",
     borderchars = { "─", "", "", "", "", "", "", "" },
     layout_strategy = "bottom_pane",
+    cycle_layout_list = { "horizontal", "bottom_pane" },
+    results_title = "",
     layout_config = {
-      height = 0.3,
-      prompt_position = "top",
       preview_width = 0.5,
+      bottom_pane = {
+        height = 20,
+        prompt_position = "top",
+      },
+      horizontal = {
+        prompt_position = "top",
+      },
     },
     mappings = {
       i = {
         ["<Esc>"] = actions.close,
-        ["<C-k>"] = actions.cycle_history_prev,
-        ["<C-j>"] = actions.cycle_history_next,
+        ["<C-Up>"] = actions.cycle_history_prev,
+        ["<C-Down>"] = actions.cycle_history_next,
+        ["<F2>"] = layout_actions.cycle_layout_next,
+        ["<F4>"] = layout_actions.toggle_preview,
       },
     },
   },
 })
 telescope.load_extension("fzf")
 
-vim.keymap.set("n", "<leader>f", builtin.find_files)
-vim.keymap.set("n", "<leader>o", builtin.oldfiles)
+vim.keymap.set("n", "<leader>f", function()
+  builtin.find_files({ previewer = false })
+end)
+vim.keymap.set("n", "<leader>o", function()
+  builtin.oldfiles({ previewer = false })
+end)
 vim.keymap.set("n", "<leader>b", builtin.buffers)
 vim.keymap.set("n", "<leader>/", function()
   local cwd

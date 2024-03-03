@@ -11,7 +11,7 @@ do
       vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
       vim.keymap.set("n", "gy", builtin.lsp_type_definitions, opts)
       vim.keymap.set("n", "gr", function()
-        builtin.lsp_references({ includeDeclaration = false })
+        builtin.lsp_references({ include_declaration = false })
       end, opts)
       vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
       vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
