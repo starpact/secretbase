@@ -10,7 +10,6 @@ vim.keymap.set("n", "<leader>w", function()
     "mvnw",
     "package.json",
     "requirements.txt",
-    ---@diagnostic disable-next-line: missing-fields
   }, {
     type = "file",
     path = vim.api.nvim_buf_get_name(0),

@@ -1,47 +1,31 @@
--- ::LOOP::
--- ::LOOP::
-local fzf = require("fzf-lua")
+local telescope = require("telescope")
+local builtin = require("telescope.builtin")
+local actions = require("telescope.actions")
 
-local default_winopts = {
-  height = 0.3,
-  width = 1,
-  row = 1,
-  border = { "─", "─", "─", "", "", "", "", "" },
-  hl = {
-    cursorline = "visual",
+telescope.setup({
+  defaults = {
+    sorting_strategy = "ascending",
+    borderchars = { "─", "", "", "", "", "", "", "" },
+    layout_strategy = "bottom_pane",
+    layout_config = {
+      height = 0.3,
+      prompt_position = "top",
+      preview_width = 0.5,
+    },
+    mappings = {
+      i = {
+        ["<Esc>"] = actions.close,
+        ["<C-k>"] = actions.cycle_history_prev,
+        ["<C-j>"] = actions.cycle_history_next,
+      },
+    },
   },
-  preview = {
-    delay = 0,
-    horizontal = "right:50%",
-  },
-}
+})
+telescope.load_extension("fzf")
 
-local no_preview_winopts = {
-  preview = {
-    hidden = "hidden",
-  },
-}
-
-vim.keymap.set("n", "<leader>f", function()
-  local buf_name = vim.api.nvim_buf_get_name(0)
-  if vim.fn.filereadable(buf_name) == 0 then
-    fzf.files()
-    return
-  end
-
-  local cwd = vim.fn.getcwd()
-  if not vim.startswith(buf_name, cwd) then
-    fzf.files()
-    return
-  end
-
-  fzf.files({
-    cmd = string.format("wfh '%s'", buf_name),
-    fzf_opts = { ["--tiebreak"] = "index" },
-  })
-end)
-vim.keymap.set("n", "<leader>o", fzf.oldfiles)
-vim.keymap.set("n", "<leader>b", fzf.buffers)
+vim.keymap.set("n", "<leader>f", builtin.find_files)
+vim.keymap.set("n", "<leader>o", builtin.oldfiles)
+vim.keymap.set("n", "<leader>b", builtin.buffers)
 vim.keymap.set("n", "<leader>/", function()
   local cwd
   if vim.bo.filetype == "NvimTree" then
@@ -55,52 +39,13 @@ vim.keymap.set("n", "<leader>/", function()
   else
     cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
   end
-  fzf.live_grep({ cwd = cwd })
+  builtin.live_grep({ cwd = cwd })
 end)
-vim.keymap.set("n", "<leader>?", fzf.live_grep)
+vim.keymap.set("n", "<leader>?", builtin.live_grep)
 vim.keymap.set("n", "<leader>d", function()
-  fzf.diagnostics_workspace({ severity_only = "error" })
+  builtin.diagnostics({ severity = vim.diagnostic.severity.ERROR })
 end)
-vim.keymap.set("n", "<leader>D", fzf.diagnostics_workspace)
-vim.keymap.set("n", "<leader>gs", fzf.git_status)
-vim.keymap.set("n", "<leader>gc", fzf.git_bcommits)
-vim.keymap.set("n", "<leader>l", fzf.builtin)
-
-fzf.register_ui_select()
-fzf.setup({
-  winopts = default_winopts,
-  fzf_opts = {
-    ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
-    ["--no-separator"] = "",
-  },
-  builtin = {
-    winopts = default_winopts,
-  },
-  files = {
-    cwd_prompt = false,
-    winopts = no_preview_winopts,
-    git_icons = false,
-  },
-  oldfiles = {
-    winopts = no_preview_winopts,
-  },
-  buffers = {
-    winopts = no_preview_winopts,
-  },
-  grep = {
-    git_icons = false,
-    rg_glob = true,
-  },
-  lsp = {
-    async_or_timeout = 20000,
-    jump_to_single_result = true,
-  },
-  keymap = {
-    fzf = {
-      ["ctrl-n"] = "down",
-      ["ctrl-p"] = "up",
-      ["ctrl-j"] = "next-history",
-      ["ctrl-k"] = "previous-history",
-    },
-  },
-})
+vim.keymap.set("n", "<leader>D", builtin.diagnostics)
+vim.keymap.set("n", "<leader>gs", builtin.git_status)
+vim.keymap.set("n", "<leader>gc", builtin.git_bcommits)
+vim.keymap.set("n", "<leader>l", builtin.builtin)

@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local fzf = require("fzf-lua")
+local builtin = require("telescope.builtin")
 
 local default_config
 do
@@ -8,16 +8,15 @@ do
     on_attach = function(client, bufnr)
       client.server_capabilities.semanticTokensProvider.full = false
       local opts = { buffer = bufnr }
-      vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
-      vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
-      vim.keymap.set("n", "gy", fzf.lsp_typedefs, opts)
+      vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
+      vim.keymap.set("n", "gy", builtin.lsp_type_definitions, opts)
       vim.keymap.set("n", "gr", function()
-        fzf.lsp_references({ includeDeclaration = false })
+        builtin.lsp_references({ includeDeclaration = false })
       end, opts)
-      vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
+      vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
       vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-      vim.keymap.set("n", "<leader>s", fzf.lsp_document_symbols, opts)
-      vim.keymap.set("n", "<leader>S", fzf.lsp_live_workspace_symbols, opts)
+      vim.keymap.set("n", "<leader>s", builtin.lsp_document_symbols, opts)
+      vim.keymap.set("n", "<leader>S", builtin.lsp_dynamic_workspace_symbols, opts)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
       vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
       vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
@@ -41,7 +40,6 @@ for server, config in pairs({
   },
   ["cssls"] = {},
   ["eslint"] = {},
-  ["gopls"] = {},
   ["html"] = {},
   ["jsonls"] = {},
   ["lua_ls"] = {
@@ -70,6 +68,24 @@ for server, config in pairs({
 }) do
   lspconfig[server].setup(next(config) == nil and default_config or extend_default(config))
 end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "go", "gomod", "gotmpl" },
+  callback = function()
+    vim.lsp.start(
+      extend_default({
+        name = "gopls",
+        cmd = { "gopls" },
+        root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, { upward = true })[1]),
+      }),
+      {
+        reuse_client = function(client, config)
+          return client.config.name == config.name
+        end,
+      }
+    )
+  end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",

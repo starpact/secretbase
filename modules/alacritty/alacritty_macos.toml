@@ -46,95 +46,27 @@ mods = "Control|Shift"
 enabled = true
 mods = "None"
 
-[[keyboard.bindings]]
-chars = "\u0001j"
-key = "J"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0001k"
-key = "K"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0001z"
-key = "Z"
-mods = "Command"
-
-[[keyboard.bindings]]
-action = "ToggleViMode"
-key = "Q"
-mode = "Vi|~Search"
-
-[[keyboard.bindings]]
-action = "ScrollToBottom"
-key = "Q"
-mode = "Vi|~Search"
-
-[[keyboard.bindings]]
-chars = "\u00011"
-key = "Key1"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00012"
-key = "Key2"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00013"
-key = "Key3"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00014"
-key = "Key4"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00015"
-key = "Key5"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00016"
-key = "Key6"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00017"
-key = "Key7"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00018"
-key = "Key8"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u00019"
-key = "Key9"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0001s"
-key = "S"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0001["
-key = "X"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-chars = "\u0001p"
-key = "LBracket"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u0001n"
-key = "RBracket"
-mods = "Command"
+[keyboard]
+bindings = [
+  { chars = "\u0001j", key = "J", mods = "Command" },
+  { chars = "\u0001k", key = "K", mods = "Command" },
+  { chars = "\u0001z", key = "Z", mods = "Command" },
+  { chars = "\u00011", key = "Key1", mods = "Command" },
+  { chars = "\u00012", key = "Key2", mods = "Command" },
+  { chars = "\u00013", key = "Key3", mods = "Command" },
+  { chars = "\u00014", key = "Key4", mods = "Command" },
+  { chars = "\u00015", key = "Key5", mods = "Command" },
+  { chars = "\u00016", key = "Key6", mods = "Command" },
+  { chars = "\u00017", key = "Key7", mods = "Command" },
+  { chars = "\u00018", key = "Key8", mods = "Command" },
+  { chars = "\u00019", key = "Key9", mods = "Command" },
+  { chars = "\u0001s", key = "S", mods = "Command" },
+  { chars = "\u0001[", key = "X", mods = "Control|Shift" },
+  { chars = "\u0001p", key = "LBracket", mods = "Command" },
+  { chars = "\u0001n", key = "RBracket", mods = "Command" },
+  { action = "ToggleViMode", key = "Q", mode = "Vi|~Search" },
+  { action = "ScrollToBottom", key = "Q", mode = "Vi|~Search" },
+]
 
 [selection]
 semantic_escape_chars = "/,│`|:\"' ()[]{}<>\t"
