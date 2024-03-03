@@ -7,9 +7,13 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay?rev=22225800f7c24e7460026a5b6c9c94187d67555f";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     {
       # ==================== nixos-desktop ====================
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
@@ -51,8 +55,9 @@
       homeConfigurations.macos-work =
         let
           system = "aarch64-darwin";
+          overlays = [ inputs.neovim-nightly-overlay.overlay ];
           pkgs = import nixpkgs {
-            inherit system;
+            inherit system overlays;
             config.allowUnfree = true;
           };
         in

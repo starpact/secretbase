@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>f", function()
   end
 
   fzf.files({
-    cmd = "wfh " .. buf_name,
+    cmd = string.format("wfh '%s'", buf_name),
     fzf_opts = { ["--tiebreak"] = "index" },
   })
 end)

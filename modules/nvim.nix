@@ -12,7 +12,6 @@
       fzf-lua
       gitsigns-nvim
       harpoon2
-      leap-nvim
       lush-nvim
       markdown-preview-nvim
       nvim-autopairs

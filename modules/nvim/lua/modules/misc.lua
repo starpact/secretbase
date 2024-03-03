@@ -10,7 +10,9 @@ vim.keymap.set("n", "<leader>w", function()
     "mvnw",
     "package.json",
     "requirements.txt",
+    ---@diagnostic disable-next-line: missing-fields
   }, {
+    type = "file",
     path = vim.api.nvim_buf_get_name(0),
     upward = true,
   })[1]
@@ -41,8 +43,6 @@ end
 require("nvim-surround").setup()
 
 require("Comment").setup()
-
-require("leap").set_default_keymaps()
 
 require("nvim-autopairs").setup({ check_ts = true })
 

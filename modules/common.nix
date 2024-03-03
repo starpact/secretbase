@@ -36,6 +36,7 @@
     jq
     kubectl
     kubernetes-helm
+    lab
     lsof
     lz4
     moreutils
@@ -55,7 +56,7 @@
     wget
     yq-go
 
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" "IosevkaTerm" ]; })
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" "IosevkaTerm" "VictorMono" ]; })
 
     (rustPlatform.buildRustPackage rec {
       pname = "wfh";
