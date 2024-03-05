@@ -74,7 +74,7 @@ do
     end,
   })
 
-  require("diffview").setup()
+  require("diffview").setup({ use_icons = false })
   vim.cmd("cnoreabbrev D DiffviewOpen")
   vim.keymap.set("n", "<leader>gf", function()
     vim.cmd.DiffviewFileHistory("%")
