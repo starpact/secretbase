@@ -56,19 +56,7 @@
     wget
     yq-go
 
-    (nerdfonts.override { fonts = [ "FantasqueSansMono" "IosevkaTerm" "VictorMono" ]; })
-
-    (rustPlatform.buildRustPackage rec {
-      pname = "wfh";
-      version = "b92df5cced6ba08ff719c97d66d3994bb8a6e5b9";
-      src = fetchFromGitHub {
-        owner = "starpact";
-        repo = "walkfromhere";
-        rev = version;
-        hash = "sha256-xiZtbgs4X632k54sjcweyk5DkOiMa3ypBdBIBju3RlE=";
-      };
-      cargoHash = "sha256-GNk6qzcfa5/eBCqKUwnD/OA1X4H9QyVmd9Y+1WyvR+g=";
-    })
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" "IosevkaTerm" ]; })
   ];
 
   programs = {
@@ -89,7 +77,7 @@
     };
     bat = {
       enable = true;
-      config.theme = "base16-256";
+      config.theme = "ansi";
     };
     direnv = {
       enable = true;

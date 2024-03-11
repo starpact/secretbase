@@ -39,3 +39,14 @@ vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = s.DiagnosticInfo.fg.hex, bg = s.
 vim.api.nvim_set_hl(0, "StatusLineHint", { fg = s.DiagnosticHint.fg.hex, bg = s.StatusLine.bg.hex })
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
 vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
+
+vim.api.nvim_set_hl(0, "FzfLuaBufFlagCur", { fg = p.rose.hex })
+vim.api.nvim_set_hl(0, "FzfLuaHeaderText", { fg = p.rose.hex })
+vim.api.nvim_set_hl(0, "FzfLuaLiveSym", { fg = p.rose.hex })
+vim.api.nvim_set_hl(0, "FzfLuaHeaderBind", { fg = p.wood.hex })
+vim.api.nvim_set_hl(0, "FzfLuaTabMarker", { fg = p.wood.hex })
+vim.api.nvim_set_hl(0, "FzfLuaBufNr", { fg = p.wood.hex })
+
+for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+  vim.api.nvim_set_hl(0, group, {})
+end

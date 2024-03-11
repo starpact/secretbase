@@ -4,7 +4,6 @@ vim.loader.enable()
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.o.backup = false
 vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "UTF-8"
 vim.o.foldlevelstart = 99
@@ -12,7 +11,6 @@ vim.o.foldmethod = "indent"
 vim.o.ignorecase = true
 vim.o.jumpoptions = "stack"
 vim.o.number = true
-vim.o.pumheight = 10
 vim.o.scrolloff = 3
 vim.o.showmode = false
 vim.o.signcolumn = "yes"

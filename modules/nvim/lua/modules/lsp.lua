@@ -1,34 +1,28 @@
 local lspconfig = require("lspconfig")
-local builtin = require("telescope.builtin")
+local fzf = require("fzf-lua")
 
-local default_config
-do
-  default_config = {
-    capabilities = vim.lsp.protocol.make_client_capabilities(),
-    on_attach = function(client, bufnr)
-      client.server_capabilities.semanticTokensProvider.full = false
-      local opts = { buffer = bufnr }
-      vim.keymap.set("n", "gd", builtin.lsp_definitions, opts)
-      vim.keymap.set("n", "gy", builtin.lsp_type_definitions, opts)
-      vim.keymap.set("n", "gr", function()
-        builtin.lsp_references({ include_declaration = false })
-      end, opts)
-      vim.keymap.set("n", "gi", builtin.lsp_implementations, opts)
-      vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-      vim.keymap.set("n", "<leader>s", function()
-        builtin.lsp_document_symbols({ symbol_width = 80 })
-      end, opts)
-      vim.keymap.set("n", "<leader>S", function()
-        builtin.lsp_dynamic_workspace_symbols({ symbol_width = 80 })
-      end, opts)
-      vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-      vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
-      vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
-    end,
-  }
-end
+local default_config = {
+  capabilities = vim.lsp.protocol.make_client_capabilities(),
+  on_attach = function(_, bufnr)
+    local opts = { buffer = bufnr }
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+    vim.keymap.set("n", "gy", vim.lsp.buf.type_definition, opts)
+    vim.keymap.set("n", "gr", function()
+      fzf.lsp_references({ includeDeclaration = false })
+    end, opts)
+    vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
+    vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
+    vim.keymap.set("n", "<leader>s", fzf.lsp_document_symbols, opts)
+    vim.keymap.set("n", "<leader>S", fzf.lsp_live_workspace_symbols, opts)
+    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+    vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
+    vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+  end,
+}
 
 local function extend_default(config)
+  if next(config) == nil then return default_config end
   return vim.tbl_deep_extend("force", default_config, config)
 end
 
@@ -70,19 +64,23 @@ for server, config in pairs({
   ["tsserver"] = {},
   ["zls"] = {},
 }) do
-  lspconfig[server].setup(next(config) == nil and default_config or extend_default(config))
+  lspconfig[server].setup(extend_default(config))
 end
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "go", "gomod", "gotmpl" },
-  callback = function()
+  callback = function(ev)
     vim.lsp.start(
       extend_default({
         name = "gopls",
         cmd = { "gopls" },
-        root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, { upward = true })[1]),
+        root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, {
+          path = vim.api.nvim_buf_get_name(0),
+          upward = true,
+        })[1]),
       }),
       {
+        bufnr = ev.buf,
         reuse_client = function(client, config)
           return client.config.name == config.name
         end,
