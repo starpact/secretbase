@@ -9,7 +9,6 @@
       os = if pkgs.stdenv.isLinux then "linux" else "macos";
     in
     {
-      ".config/alacritty/alacritty.yml".source = "${base}/modules/alacritty/alacritty_${os}.yml";
       ".config/alacritty/alacritty.toml".source = "${base}/modules/alacritty/alacritty_${os}.toml";
       ".config/nvim".source = "${base}/modules/nvim";
       ".config/tmux".source = "${base}/modules/tmux";
