@@ -30,8 +30,6 @@ for server, config in pairs({
   ["bashls"] = {},
   ["bufls"] = {},
   ["clangd"] = {
-    cmd = { "clangd", "--function-arg-placeholders=0" },
-    filetypes = { "c", "cpp" },
     capabilities = {
       offsetEncoding = { "utf-16" },
     },
