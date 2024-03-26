@@ -50,7 +50,6 @@
       userName = "starpact";
       userEmail = "yhj.await@gmail.com";
     };
-    home-manager.enable = true;
   };
 
   services.syncthing.enable = true;

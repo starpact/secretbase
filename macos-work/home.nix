@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-stable, ... }:
 
 {
   home.username = "hongjie.yan";
@@ -11,13 +11,12 @@
     ../modules/nvim.nix
   ];
 
-  home.packages = with pkgs; [
-    colima
-    docker
-    findutils
+  home.packages = with pkgs-stable; [
+    awscli2
     git
-    gnutar
-    lima
+    kubectl
+    kubernetes-helm
+    lab
     ssm-session-manager-plugin
   ];
 

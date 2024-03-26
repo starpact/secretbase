@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
     {
       # ==================== nixos-desktop ====================
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
@@ -55,9 +56,11 @@
             inherit system;
             config.allowUnfree = true;
           };
+          pkgs-stable = import nixpkgs-stable { inherit system; };
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit pkgs-stable; };
           modules = [ ./macos-work/home.nix ];
         };
     };

@@ -18,7 +18,7 @@ lint.linters.checkstyle.args = {
   end,
 }
 
-lint.linters.codespell.args = { "-L", "crate,flate,inout,ot,ser,te,wit" }
+lint.linters.codespell.args = { "-L", "crate,flate,inout,ot,ser,statics,te,wit" }
 
 vim.api.nvim_create_autocmd("FileType", {
   callback = function(ev)

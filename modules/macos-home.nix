@@ -1,11 +1,14 @@
-{ pkgs, ... }:
+{ pkgs-stable, ... }:
 
 {
   home.stateVersion = "23.11";
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs-stable; [
     bashInteractive
-    zstd
+    colima
+    docker
+    findutils
+    gnutar
   ];
 
   programs = {

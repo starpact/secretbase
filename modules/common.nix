@@ -17,7 +17,6 @@
     };
 
   home.packages = with pkgs; [
-    awscli2
     clickhouse
     dig
     dua
@@ -33,9 +32,6 @@
     hyperfine
     inetutils
     jq
-    kubectl
-    kubernetes-helm
-    lab
     lsof
     lz4
     moreutils
@@ -54,6 +50,7 @@
     uv
     wget
     yq-go
+    zstd
 
     (nerdfonts.override { fonts = [ "FantasqueSansMono" "IosevkaTerm" ]; })
   ];
@@ -86,6 +83,7 @@
       enable = true;
       historyWidgetOptions = [ "--reverse" ];
     };
+    home-manager.enable = true;
     starship.enable = true;
     zoxide.enable = true;
   };

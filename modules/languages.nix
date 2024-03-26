@@ -17,17 +17,18 @@
     shellcheck
 
     # C/C++
-    clang-tools_17
+    clang-tools
     cmake
     cppcheck
-    llvmPackages_17.libllvm
-    llvmPackages_17.llvm-manpages
-    llvmPackages_17.lldb
-    llvmPackages_17.lldb-manpages
-    lld_17
+    llvmPackages.libllvm
+    llvmPackages.llvm-manpages
+    llvmPackages.lldb
+    llvmPackages.lldb-manpages
+    lld
+    mold
 
     # Go
-    go_1_22
+    go
     gopls
     golangci-lint
     gotools
@@ -100,6 +101,5 @@
     cgdb
     gcc
     gdb
-    mold
   ];
 }
