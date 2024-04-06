@@ -21,9 +21,7 @@
     cmake
     cppcheck
     llvmPackages.libllvm
-    llvmPackages.llvm-manpages
     llvmPackages.lldb
-    llvmPackages.lldb-manpages
     lld
     mold
 
@@ -93,10 +91,6 @@
 
     # YAML
     yamllint
-
-    # Zig
-    zig
-    zls
   ] ++ lib.optionals stdenv.isLinux [
     cgdb
     gcc

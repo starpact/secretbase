@@ -36,6 +36,7 @@ for server, config in pairs({
   },
   ["cssls"] = {},
   ["eslint"] = {},
+  ["gopls"] = {},
   ["html"] = {},
   ["jsonls"] = {},
   ["lua_ls"] = {
@@ -64,28 +65,6 @@ for server, config in pairs({
 }) do
   lspconfig[server].setup(extend_default(config))
 end
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "go", "gomod", "gotmpl" },
-  callback = function(ev)
-    vim.lsp.start(
-      extend_default({
-        name = "gopls",
-        cmd = { "gopls" },
-        root_dir = vim.fs.dirname(vim.fs.find({ "go.mod" }, {
-          path = vim.api.nvim_buf_get_name(0),
-          upward = true,
-        })[1]),
-      }),
-      {
-        bufnr = ev.buf,
-        reuse_client = function(client, config)
-          return client.config.name == config.name
-        end,
-      }
-    )
-  end,
-})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
