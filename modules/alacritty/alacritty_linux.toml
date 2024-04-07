@@ -27,15 +27,7 @@ background = "#f0edec"
 foreground = "#2c363c"
 
 [font]
-size = 10
-
-[font.bold]
-family = "BerkeleyMono Nerd Font"
-style = "Bold"
-
-[font.italic]
-family = "BerkeleyMono Nerd Font"
-style = "Italic"
+size = 9
 
 [font.normal]
 family = "BerkeleyMono Nerd Font"

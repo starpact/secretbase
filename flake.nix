@@ -13,7 +13,7 @@
   outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
     {
       # ==================== nixos-desktop ====================
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./nixos-desktop/configuration.nix ];
       };
