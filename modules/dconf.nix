@@ -9,9 +9,9 @@
       tap-to-click = true;
     };
     "org/gnome/desktop/interface" = {
-      font-name = "Iosevka Nerd Font 12";
-      document-font-name = "Iosevka Nerd Font 12";
-      monospace-font-name = "Iosevka Nerd Font 12";
+      font-name = "BerkeleyMono Nerd Font 12";
+      document-font-name = "BerkeleyMono Nerd Font 12";
+      monospace-font-name = "BerkeleyMono Nerd Font 12";
       clock-show-weekday = true;
       enable-hot-corners = false;
     };
