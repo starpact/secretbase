@@ -50,6 +50,9 @@ vim.keymap.set("n", "<leader>l", fzf.builtin)
 fzf.register_ui_select()
 fzf.setup({
   winopts = default_winopts,
+  defaults = {
+    git_icons = false,
+  },
   fzf_opts = {
     ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
     ["--no-separator"] = "",
@@ -60,7 +63,6 @@ fzf.setup({
   files = {
     cwd_prompt = false,
     winopts = no_preview_winopts,
-    git_icons = false,
   },
   oldfiles = {
     winopts = no_preview_winopts,
@@ -69,7 +71,6 @@ fzf.setup({
     winopts = no_preview_winopts,
   },
   grep = {
-    git_icons = false,
     rg_glob = true,
   },
   lsp = {
@@ -82,6 +83,7 @@ fzf.setup({
       ["ctrl-p"] = "up",
       ["ctrl-j"] = "next-history",
       ["ctrl-k"] = "previous-history",
+      ["ctrl-q"] = "select-all+accept",
     },
   },
 })
