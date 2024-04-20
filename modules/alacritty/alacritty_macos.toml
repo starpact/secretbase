@@ -30,7 +30,7 @@ foreground = "#2c363c"
 size = 12
 
 [font.normal]
-family = "BerkeleyMono Nerd Font"
+family = "RecMonoLinear Nerd Font"
 style = "Regular"
 
 [[hints.enabled]]

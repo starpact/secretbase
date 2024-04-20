@@ -69,7 +69,6 @@ end
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",
   callback = function()
-    print("xxxxxxxx")
     local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
     local root_dir_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
     require("jdtls").start_or_attach(extend_default({

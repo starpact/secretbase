@@ -76,6 +76,7 @@ fzf.setup({
   lsp = {
     async_or_timeout = 20000,
     jump_to_single_result = true,
+    symbols = { symbol_style = 3 },
   },
   keymap = {
     fzf = {
