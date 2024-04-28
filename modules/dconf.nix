@@ -19,6 +19,9 @@
       delay = lib.hm.gvariant.mkUint32 300;
       repeat-interval = lib.hm.gvariant.mkUint32 30;
     };
+    "org/gnome/desktop/peripherals/mouse" = {
+      accel-profile = "flat";
+    };
     "org/gnome/shell" = {
       favorite-apps = [
         "google-chrome.desktop" # 1
