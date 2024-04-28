@@ -91,6 +91,10 @@
 
     # YAML
     yamllint
+
+    # Zig
+    zig
+    zls
   ] ++ lib.optionals stdenv.isLinux [
     cgdb
     gcc

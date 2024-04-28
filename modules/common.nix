@@ -54,12 +54,8 @@
 
     (nerdfonts.override {
       fonts = [
-        "CascadiaMono"
-        "ComicShannsMono"
         "CommitMono"
-        "D2Coding"
         "FantasqueSansMono"
-        "GeistMono"
         "Hermit"
         "IBMPlexMono"
         "InconsolataGo"

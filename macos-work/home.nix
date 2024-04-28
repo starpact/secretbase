@@ -1,4 +1,4 @@
-{ pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "hongjie.yan";
@@ -11,7 +11,7 @@
     ../modules/nvim.nix
   ];
 
-  home.packages = with pkgs-stable; [
+  home.packages = with pkgs; [
     awscli2
     git
     kubectl

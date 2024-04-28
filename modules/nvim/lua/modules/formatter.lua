@@ -57,4 +57,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- "*.proto", -- buf
 -- "*.sh", -- shfmt
 -- "*.sql", -- sql-formatter
-vim.keymap.set("n", "<A-F>", vim.lsp.buf.format)
+vim.keymap.set("n", "<A-F>", conform.format)

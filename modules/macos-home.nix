@@ -1,9 +1,9 @@
-{ pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   home.stateVersion = "23.11";
 
-  home.packages = with pkgs-stable; [
+  home.packages = with pkgs; [
     bashInteractive
     colima
     docker
