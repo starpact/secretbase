@@ -1,12 +1,6 @@
-[colors.bright]
-black = "#cfc1ba"
-blue = "#1d5573"
-cyan = "#2b747c"
-green = "#3f5a22"
-magenta = "#7b3b70"
-red = "#94253e"
-white = "#4f5e68"
-yellow = "#803d1c"
+[colors.primary]
+background = "#f0edec"
+foreground = "#2c363c"
 
 [colors.cursor]
 cursor = "#2c363c"
@@ -22,15 +16,21 @@ red = "#a8334c"
 white = "#2c363c"
 yellow = "#944927"
 
-[colors.primary]
-background = "#f0edec"
-foreground = "#2c363c"
+[colors.bright]
+black = "#cfc1ba"
+blue = "#1d5573"
+cyan = "#2b747c"
+green = "#3f5a22"
+magenta = "#7b3b70"
+red = "#94253e"
+white = "#4f5e68"
+yellow = "#803d1c"
 
 [font]
 size = 12
 
 [font.normal]
-family = "RecMonoLinear Nerd Font"
+family = "BerkeleyMono Nerd Font"
 style = "Regular"
 
 [[hints.enabled]]
