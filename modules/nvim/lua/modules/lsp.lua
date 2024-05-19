@@ -15,7 +15,6 @@ local default_config = {
     vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "<leader>s", fzf.lsp_document_symbols, opts)
     vim.keymap.set("n", "<leader>S", fzf.lsp_live_workspace_symbols, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("i", "<C-s>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
   end,

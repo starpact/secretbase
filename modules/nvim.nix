@@ -6,7 +6,6 @@
     vimAlias = true;
     defaultEditor = true;
     plugins = with pkgs.vimPlugins; [
-      comment-nvim
       conform-nvim
       diffview-nvim
       fzf-lua

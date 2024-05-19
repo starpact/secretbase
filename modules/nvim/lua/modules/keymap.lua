@@ -32,10 +32,6 @@ vim.keymap.set("i", "<C-Space>", "<nop>")
 vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
 
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "go", vim.diagnostic.open_float)
-
 vim.keymap.set("n", "cp", function()
   vim.fn.setreg("+", vim.api.nvim_buf_get_name(0) .. ":" .. vim.api.nvim_win_get_cursor(0)[1])
 end)

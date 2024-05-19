@@ -52,19 +52,7 @@
     yq-go
     zstd
 
-    (nerdfonts.override {
-      fonts = [
-        "CommitMono"
-        "FantasqueSansMono"
-        "Hermit"
-        "IBMPlexMono"
-        "InconsolataGo"
-        "IosevkaTerm"
-        "MartianMono"
-        "Recursive"
-        "Terminus"
-      ];
-    })
+    (nerdfonts.override { fonts = [ "IosevkaTerm" "Recursive" ]; })
   ];
 
   programs = {
