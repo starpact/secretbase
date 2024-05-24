@@ -7,10 +7,6 @@
     gnumake
     nodePackages.prettier
 
-    # Ansible
-    ansible
-    ansible-lint
-
     # Bash
     nodePackages.bash-language-server
     shfmt
@@ -60,13 +56,14 @@
     # Protobuf
     protobuf
     protoc-gen-go
+    protoc-gen-go-grpc
     buf
     buf-language-server
 
     # Python
     python3
     nodePackages.pyright
-    python310Packages.flake8
+    python311Packages.flake8
     ruff
 
     # Rust

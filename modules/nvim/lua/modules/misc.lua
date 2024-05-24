@@ -44,23 +44,6 @@ require("nvim-surround").setup()
 require("nvim-autopairs").setup({ check_ts = true })
 
 do
-  local harpoon = require("harpoon")
-  harpoon.setup()
-  vim.keymap.set("n", "<leader>M", function()
-    harpoon:list():append()
-  end)
-  vim.keymap.set("n", "<leader>m", function()
-    harpoon.ui:toggle_quick_menu(harpoon:list())
-  end)
-  vim.keymap.set("n", "gn", function()
-    harpoon:list():next({ ui_nav_wrap = true })
-  end)
-  vim.keymap.set("n", "gp", function()
-    harpoon:list():prev({ ui_nav_wrap = true })
-  end)
-end
-
-do
   local gitsigns = require("gitsigns")
   gitsigns.setup({
     on_attach = function(bufnr)
