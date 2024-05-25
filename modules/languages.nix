@@ -83,10 +83,6 @@
     # TOML
     taplo
 
-    # Wasm
-    wasmtime
-    wabt
-
     # YAML
     yamllint
 

@@ -60,6 +60,7 @@
       enable = true;
       sessionVariables = {
         PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
+        FZF_DEFAULT_OPTS = "--color=light";
       };
       shellAliases = {
         ls = "eza";
