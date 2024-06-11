@@ -62,7 +62,7 @@
 
     # Python
     python3
-    nodePackages.pyright
+    pyright
     python311Packages.flake8
     ruff
 
@@ -85,10 +85,6 @@
 
     # YAML
     yamllint
-
-    # Zig
-    zig
-    zls
   ] ++ lib.optionals stdenv.isLinux [
     cgdb
     gcc

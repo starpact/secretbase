@@ -22,6 +22,7 @@
     dua
     duckdb
     eza
+    fastfetch
     fd
     ffmpeg
     gh
@@ -36,7 +37,6 @@
     lz4
     moreutils
     mysql80
-    neofetch
     openssl
     pkg-config
     postgresql
