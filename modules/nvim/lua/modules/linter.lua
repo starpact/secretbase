@@ -18,22 +18,12 @@ lint.linters.checkstyle.args = {
   end,
 }
 
+lint.linters.codespell.stdin = false
 lint.linters.codespell.args = { "-L", "crate,flate,inout,ot,ser,statics,te,wit" }
-
-vim.api.nvim_create_autocmd("FileType", {
-  callback = function(ev)
-    local ft = ev.match
-    local ls = lint.linters_by_ft
-    if not ls[ft] then
-      ls[ft] = { "codespell" }
-    elseif not vim.tbl_contains(ls[ft], "codespell") then
-      table.insert(ls[ft], "codespell")
-    end
-  end,
-})
 
 vim.api.nvim_create_autocmd("BufWritePost", {
   callback = function()
     lint.try_lint()
+    lint.try_lint("codespell")
   end,
 })
