@@ -8,7 +8,7 @@
     nodePackages.prettier
 
     # Bash
-    nodePackages.bash-language-server
+    # nodePackages.bash-language-server
     shfmt
     shellcheck
 
