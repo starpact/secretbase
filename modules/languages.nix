@@ -8,7 +8,7 @@
     nodePackages.prettier
 
     # Bash
-    # nodePackages.bash-language-server
+    nodePackages.bash-language-server
     shfmt
     shellcheck
 
@@ -43,7 +43,6 @@
 
     # JavaScript/TypeScript
     nodejs
-    nodePackages.typescript-language-server
 
     # Lua
     lua-language-server
