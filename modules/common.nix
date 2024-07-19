@@ -66,7 +66,7 @@
     bash = {
       enable = true;
       sessionVariables = {
-        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH";
+        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
         FZF_DEFAULT_OPTS = "--color=light";
       };
       shellAliases = {

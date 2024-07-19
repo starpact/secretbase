@@ -59,7 +59,7 @@ for server, config in pairs({
     },
   },
   ["taplo"] = {},
-  ["tsserver"] = {},
+  ["vtsls"] = {},
   ["zls"] = {},
 }) do
   lspconfig[server].setup(extend_default(config))

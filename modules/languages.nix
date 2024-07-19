@@ -43,6 +43,7 @@
 
     # JavaScript/TypeScript
     nodejs
+    typescript
 
     # Lua
     lua-language-server
