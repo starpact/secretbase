@@ -36,7 +36,8 @@
   i18n = {
     defaultLocale = "en_SG.utf8";
     inputMethod = {
-      enabled = "fcitx5";
+      enable = true;
+      type = "fcitx5";
       fcitx5.addons = with pkgs; [
         fcitx5-chinese-addons
         fcitx5-configtool
@@ -44,7 +45,6 @@
     };
   };
 
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
 
@@ -59,7 +59,6 @@
     systemPackages = [ ];
     gnome.excludePackages = with pkgs; [
       epiphany
-      gnome.cheese
       gnome-tour
     ];
   };

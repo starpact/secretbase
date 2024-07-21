@@ -16,7 +16,7 @@
     firefox
     flameshot
     gimp
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.blur-my-shell
     gnomeExtensions.clipboard-indicator
