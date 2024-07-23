@@ -7,8 +7,6 @@
   imports = [
     ../modules/macos-home.nix
     ../modules/common.nix
-    ../modules/languages.nix
-    ../modules/nvim.nix
   ];
 
   home.packages = with pkgs; [
