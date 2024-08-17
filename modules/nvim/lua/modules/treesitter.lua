@@ -3,6 +3,9 @@ require("nvim-treesitter.configs").setup({
     enable = true,
     disable = { "xml" },
   },
+  indent = {
+    enable = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {

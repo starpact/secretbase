@@ -10,7 +10,6 @@
     in
     {
       ".config/alacritty/alacritty.toml".source = "${base}/modules/alacritty/alacritty_${os}.toml";
-      ".config/wezterm".source = "${base}/modules/wezterm";
       ".config/nvim".source = "${base}/modules/nvim";
       ".config/tmux".source = "${base}/modules/tmux";
       ".config/yamllint/config".source = "${base}/.yamllint.yaml";
