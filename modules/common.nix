@@ -17,12 +17,13 @@
     };
 
   home.packages = with pkgs; [
-    buf
+    stable.mysql80
+    stable.nodePackages.eslint
+    stable.postgresql
+    stable.terraform
+
+    bash-language-server
     buf-language-server
-    cargo-deny
-    cargo-expand
-    cargo-generate
-    cargo-udeps
     checkstyle
     clang-tools
     clickhouse
@@ -38,9 +39,8 @@
     fd
     ffmpeg
     gh
-    gitoxide
     gnumake
-    go
+    go_1_23
     golangci-lint
     google-java-format
     gopls
@@ -62,26 +62,19 @@
     lua-language-server
     lz4
     maven
-    mold
     moreutils
-    mysql80
     nil
     nixpkgs-fmt
-    nodePackages.bash-language-server
-    nodePackages.eslint
     nodePackages.prettier
     nodePackages.sql-formatter
-    nodePackages.vscode-langservers-extracted
     nodejs
-    openssl
     pkg-config
-    postgresql
+    poetry
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
     pyright
     python3
-    python311Packages.flake8
     ripgrep
     ruff
     rustup
@@ -91,14 +84,13 @@
     stylua
     taplo
     tealdeer
-    terraform
-    terraform-ls
     tmux
     tokei
     typescript
     typst
     unzip
     uv
+    vscode-langservers-extracted
     wget
     yamllint
     yq-go
@@ -108,7 +100,7 @@
 
     (nerdfonts.override {
       fonts = [
-        "InconsolataGo"
+        "CascadiaCode"
         "IosevkaTerm"
         "Recursive"
       ];
@@ -119,16 +111,18 @@
     gdb
   ];
 
+  home.sessionVariables = {
+    PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
+    FZF_DEFAULT_OPTS = "--color=light";
+  };
+
   programs = {
     bash = {
       enable = true;
-      sessionVariables = {
-        PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
-        FZF_DEFAULT_OPTS = "--color=light";
-      };
       shellAliases = {
         ls = "eza";
-        l = "ls -ahl";
+        l = "ls -hl";
+        la = "ls -ahl";
         cat = "bat";
         gp = "git pull";
         gs = "git status";

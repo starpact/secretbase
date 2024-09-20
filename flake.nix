@@ -3,13 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-24.05";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
     {
       # ==================== nixos-desktop ====================
       nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
@@ -22,6 +23,11 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                stable = import nixpkgs-stable { inherit (final) system config; };
+              })
+            ];
           };
         in
         home-manager.lib.homeManagerConfiguration {
@@ -30,16 +36,21 @@
         };
 
       # ==================== nixos-laptop ====================
-      nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
+      nixosConfigurations. nixos-laptop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./nixos-laptop/configuration.nix ];
       };
-      homeConfigurations.nixos-laptop =
+      homeConfigurations. nixos-laptop =
         let
           system = "x86_64-linux";
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                stable = import nixpkgs-stable { inherit (final) system config; };
+              })
+            ];
           };
         in
         home-manager.lib.homeManagerConfiguration {
@@ -54,6 +65,11 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                stable = import nixpkgs-stable { inherit (final) system config; };
+              })
+            ];
           };
         in
         home-manager.lib.homeManagerConfiguration {

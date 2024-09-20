@@ -40,11 +40,6 @@
   ];
 
   programs = {
-    bash = {
-      sessionVariables = {
-        MOZ_ENABLE_WAYLAND = "1";
-      };
-    };
     git = {
       enable = true;
       userName = "starpact";

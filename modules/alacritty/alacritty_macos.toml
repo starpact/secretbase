@@ -27,7 +27,7 @@ white = "#4f5e68"
 yellow = "#803d1c"
 
 [font]
-size = 15
+size = 14
 
 [font.normal]
 family = "BerkeleyMono Nerd Font"

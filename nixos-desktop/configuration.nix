@@ -7,6 +7,11 @@
     log-lines = 25;
     connect-timeout = 5;
     fallback = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 30d";
+    };
   };
   nixpkgs.config.allowUnfree = true;
 

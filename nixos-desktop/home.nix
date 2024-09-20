@@ -5,10 +5,8 @@
     ../modules/dconf.nix
   ];
 
-  programs = {
-    bash.shellAliases = {
-      update = "sudo nixos-rebuild switch --flake .#nixos-desktop";
-      hs = "home-manager switch --flake .#nixos-desktop";
-    };
+  programs.bash.shellAliases = {
+    update = "sudo nixos-rebuild switch --flake .#nixos-desktop";
+    hs = "home-manager switch --flake .#nixos-desktop";
   };
 }
