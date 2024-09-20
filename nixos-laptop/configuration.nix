@@ -2,11 +2,13 @@
 
 {
   system.stateVersion = "24.05";
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    log-lines = 25;
-    connect-timeout = 5;
-    fallback = true;
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      log-lines = 25;
+      connect-timeout = 5;
+      fallback = true;
+    };
     gc = {
       automatic = true;
       dates = "weekly";
