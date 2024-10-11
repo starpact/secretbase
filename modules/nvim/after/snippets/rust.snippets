@@ -1,18 +1,18 @@
-snippet pl "println!"
+snippet pl
     println!("${1}");
 
-snippet test "Unit test function"
+snippet test
     #[test]
-    fn test_${1:function_name}() {
+    fn test_${1}() {
         ${0}
     }
 
-snippet testmod "Test module" b
+snippet testmod
     #[cfg(test)]
     mod tests {
         use super::*;
 
-        fn test_${1:function_name}() {
+        fn test_${1}() {
             ${0}
         }
     }

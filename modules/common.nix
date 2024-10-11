@@ -23,6 +23,7 @@
     stable.terraform
 
     bash-language-server
+    biome
     buf-language-server
     checkstyle
     clang-tools

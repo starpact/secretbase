@@ -1,9 +1,11 @@
 local conform = require("conform")
 conform.setup({
   formatters_by_ft = {
-    css = { "prettier" },
+    css = { "biome" },
     go = { "goimports" },
     java = { "google-java-format" },
+    javascript = { "biome" },
+    javascriptreact = { "biome" },
     lua = { "stylua" },
     nix = { "nixpkgs_fmt" },
     proto = { "buf" },
@@ -11,45 +13,42 @@ conform.setup({
     sh = { "shfmt" },
     sql = { "sql_formatter" },
     terraform = { "terraform_fmt" },
+    typescript = { "biome" },
+    typescriptreact = { "biome" },
     yaml = { "prettier" },
   },
-  notify_on_error = false,
-})
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = {
-    "*.css",
-    "*.go",
-    "*.java",
-    "*.lua",
-    "*.nix",
-    "*.py",
-    "*.tf",
-    "*.yaml",
-    "*.yml",
+  format_on_save = {
+    lsp_format = "fallback",
   },
-  callback = function()
-    conform.format()
-  end,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = {
     "*.c",
     "*.cpp",
+    "*.css",
+    "*.go",
     "*.h",
     "*.html",
-    "*.json",
+    "*.java",
     "*.js",
+    "*.json",
+    "*.jsonc",
     "*.jsx",
+    "*.lua",
+    "*.nix",
+    "*.py",
+    "*.rs",
+    "*.tf",
     "*.toml",
     "*.ts",
     "*.tsx",
-    "*.rs",
+    "*.yaml",
+    "*.yml",
     "*.zig",
   },
   callback = function()
-    vim.lsp.buf.format()
+    conform.format()
   end,
 })
 
