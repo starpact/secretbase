@@ -30,8 +30,8 @@ yellow = "#803d1c"
 size = 12
 
 [font.normal]
-family = "BerkeleyMono Nerd Font"
-style = "Regular"
+family = "CaskaydiaCove Nerd Font"
+style = "SemiLight"
 
 [[hints.enabled]]
 command = "open"
