@@ -20,13 +20,16 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader.systemd-boot = {
-      enable = true;
-      configurationLimit = 10;
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 10;
+      };
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
     };
-    loader.efi.canTouchEfiVariables = true;
-    loader.efi.efiSysMountPoint = "/boot/efi";
     supportedFilesystems = [ "ntfs" ];
     extraModprobeConfig = ''
       options hid_apple fnmode=0

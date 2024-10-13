@@ -20,6 +20,7 @@ conform.setup({
   format_on_save = {
     lsp_format = "fallback",
   },
+  notify_on_error = false,
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {

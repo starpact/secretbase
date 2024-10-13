@@ -94,7 +94,6 @@
     vscode-langservers-extracted
     wget
     yamllint
-    yq-go
     zig
     zls
     zstd
