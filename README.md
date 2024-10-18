@@ -1,1 +1,1 @@
-# [Nix](https://nixos.org/)
+Just a bunch of dotfiles.

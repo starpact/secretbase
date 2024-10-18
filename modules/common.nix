@@ -18,7 +18,6 @@
 
   home.packages = with pkgs; [
     stable.mysql80
-    stable.nodePackages.eslint
     stable.postgresql
     stable.terraform
 
@@ -66,6 +65,7 @@
     moreutils
     nil
     nixpkgs-fmt
+    nodePackages.eslint
     nodePackages.prettier
     nodePackages.sql-formatter
     nodejs
@@ -127,6 +127,8 @@
         gp = "git pull";
         gs = "git status";
         ta = "tmux a";
+        urlencode = ''python -c "import sys; from urllib.parse import quote; print(quote(sys.argv[1]))"'';
+        urldecode = ''python -c "import sys; from urllib.parse import unquote; print(unquote(sys.argv[1]))"'';
       };
     };
     bat = {
