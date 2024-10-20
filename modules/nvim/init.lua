@@ -9,7 +9,7 @@ local function setup_basic()
   vim.o.fileencoding = "UTF-8"
   vim.o.foldenable = false
   vim.o.foldmethod = "expr"
-  vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  vim.o.foldexpr = "nvim_treesitter#foldexpr()"
   vim.o.ignorecase = true
   vim.o.jumpoptions = "stack"
   vim.o.number = true
@@ -505,46 +505,19 @@ local function setup_format()
       typescriptreact = { "biome" },
       yaml = { "prettier" },
     },
-    format_on_save = {
-      lsp_format = "fallback",
-    },
     notify_on_error = false,
   })
 
+  local fts_manual_format = { "proto", "sh", "sql" }
+
   vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = {
-      "*.c",
-      "*.cpp",
-      "*.css",
-      "*.go",
-      "*.h",
-      "*.html",
-      "*.java",
-      "*.js",
-      "*.json",
-      "*.jsonc",
-      "*.jsx",
-      "*.lua",
-      "*.nix",
-      "*.py",
-      "*.rs",
-      "*.tf",
-      "*.toml",
-      "*.ts",
-      "*.tsx",
-      "*.yaml",
-      "*.yml",
-      "*.zig",
-    },
+    pattern = "*",
     callback = function()
-      conform.format()
+      if vim.tbl_contains(fts_manual_format, vim.bo.filetype) then return end
+      conform.format({ lsp_format = "fallback" })
     end,
   })
 
-  -- Manually format.
-  -- "*.proto", -- buf
-  -- "*.sh", -- shfmt
-  -- "*.sql", -- sql-formatter
   vim.keymap.set("n", "<A-F>", conform.format)
 end
 
