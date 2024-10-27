@@ -40,7 +40,7 @@
     ffmpeg
     gh
     gnumake
-    go_1_23
+    go
     golangci-lint
     google-java-format
     gopls
@@ -166,6 +166,16 @@
         nvim-treesitter.withAllGrammars
         vim-test
         zenbones-nvim
+
+        (pkgs.vimUtils.buildVimPlugin {
+          name = "multicursor-nvim";
+          src = pkgs.fetchFromGitHub {
+            owner = "jake-stewart";
+            repo = "multicursor.nvim";
+            rev = "085fdb7433cf8775ca351f92fec8fdcd099cf630";
+            sha256 = "sha256-YQW37WsCLKnMM7SuXeRTy5Vcw2Y0BnHFFx/HNCFeu0o=";
+          };
+        })
       ];
     };
     starship.enable = true;

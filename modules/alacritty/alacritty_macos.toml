@@ -30,7 +30,7 @@ yellow = "#803d1c"
 size = 12
 
 [font.normal]
-family = "RecMonoLinear Nerd Font"
+family = "BerkeleyMono Nerd Font"
 style = "Regular"
 
 [[hints.enabled]]
