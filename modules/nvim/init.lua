@@ -141,13 +141,13 @@ local function setup_basic()
 end
 
 local function setup_colorscheme()
-  vim.o.background = "light"
+  local bg = "light"
+  vim.o.background = bg
   local lush = require("lush")
-
-  local p = require("zenbones.palette").light
-  local s = lush
+  local palette = require("zenbones.palette")[bg]
+  local specs = lush
     .extends({
-      require("zenbones.specs").generate(p, "light", {
+      require("zenbones.specs").generate(palette, bg, {
         transparent_background = true,
         italic_comments = false,
       }),
@@ -155,16 +155,17 @@ local function setup_colorscheme()
     .with(function()
       return {
         ---@diagnostic disable: undefined-global
-        Function({ fg = p.leaf }),
-        Type({ fg = p.wood }),
-        Number({ fg = p.water }),
-        Constant({ fg = p.water }),
-        String({ fg = p.water }),
-        Special({ fg = p.blossom }),
+        Function({ fg = palette.leaf }),
+        Type({ fg = palette.wood }),
+        Number({ fg = palette.water }),
+        Constant({ fg = palette.water }),
+        String({ fg = palette.water }),
+        Special({ fg = palette.blossom }),
         ---@diagnostic enable: undefined-global
       }
     end)
-  lush(s)
+
+  lush(specs)
 
   vim.api.nvim_set_hl(0, "CursorLine", {})
   vim.api.nvim_set_hl(0, "@constant", { link = "Identifier" })
@@ -174,11 +175,11 @@ local function setup_colorscheme()
   vim.api.nvim_set_hl(0, "@constructor", { link = "Function" })
   vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 
-  vim.api.nvim_set_hl(0, "StatusLineNC", { fg = s.FloatBorder.fg.hex, bg = s.StatusLine.bg.hex })
-  vim.api.nvim_set_hl(0, "StatusLineError", { fg = s.DiagnosticError.fg.hex, bg = s.StatusLine.bg.hex })
-  vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = s.DiagnosticWarn.fg.hex, bg = s.StatusLine.bg.hex })
-  vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = s.DiagnosticInfo.fg.hex, bg = s.StatusLine.bg.hex })
-  vim.api.nvim_set_hl(0, "StatusLineHint", { fg = s.DiagnosticHint.fg.hex, bg = s.StatusLine.bg.hex })
+  vim.api.nvim_set_hl(0, "StatusLineNC", { fg = specs.FloatBorder.fg.hex, bg = specs.StatusLine.bg.hex })
+  vim.api.nvim_set_hl(0, "StatusLineError", { fg = specs.DiagnosticError.fg.hex, bg = specs.StatusLine.bg.hex })
+  vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = specs.DiagnosticWarn.fg.hex, bg = specs.StatusLine.bg.hex })
+  vim.api.nvim_set_hl(0, "StatusLineInfo", { fg = specs.DiagnosticInfo.fg.hex, bg = specs.StatusLine.bg.hex })
+  vim.api.nvim_set_hl(0, "StatusLineHint", { fg = specs.DiagnosticHint.fg.hex, bg = specs.StatusLine.bg.hex })
 
   vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
   vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
