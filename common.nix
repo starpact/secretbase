@@ -18,96 +18,111 @@
       ".editorconfig".source = "${base}/.editorconfig";
     };
 
-  home.packages = with pkgs; [
-    bash-language-server
-    biome
-    buf-language-server
-    checkstyle
-    clang-tools
-    clickhouse
-    cmake
-    codespell
-    cppcheck
-    delve
-    dig
-    dua
-    duckdb
-    eza
-    fastfetch
-    fd
-    ffmpeg
-    gh
-    gnumake
-    go
-    golangci-lint
-    google-java-format
-    gopls
-    gotools
-    gradle
-    gradle-completion
-    graphviz
-    grpcurl
-    htop
-    hyperfine
-    inetutils
-    jdk
-    jdt-language-server
-    jq
-    lld
-    llvmPackages.libllvm
-    llvmPackages.lldb
-    lsof
-    lua-language-server
-    lz4
-    maven
-    moreutils
-    nil
-    nixpkgs-fmt
-    nodePackages.eslint
-    nodePackages.prettier
-    nodePackages.sql-formatter
-    nodejs
-    pkg-config
-    poetry
-    protobuf
-    protoc-gen-go
-    protoc-gen-go-grpc
-    pyright
-    python3
-    ripgrep
-    ruff
-    rustup
-    shellcheck
-    shfmt
-    sqlite
-    stylua
-    taplo
-    tealdeer
-    tmux
-    tokei
-    typescript
-    typst
-    unzip
-    uv
-    vscode-langservers-extracted
-    wget
-    yamllint
-    zig
-    zls
-    zstd
+  home.packages = with pkgs;
+    let
+      urlencode = (writeScriptBin "urlencode" ''
+        #!${python3}/bin/python
+        import sys
+        from urllib.parse import quote
+        print(quote(sys.argv[1]))
+      '');
 
-    (nerdfonts.override {
-      fonts = [
-        "CascadiaCode"
-        "IosevkaTerm"
-        "Recursive"
-      ];
-    })
-  ] ++ lib.optionals stdenv.isLinux [
-    cgdb
-    gcc
-    gdb
-  ];
+      urldecode = (writeScriptBin "urldecode" ''
+        #!${python3}/bin/python
+        import sys
+        from urllib.parse import unquote
+        print(unquote(sys.argv[1]))
+      '');
+
+      nerdfonts-selected = nerdfonts.override {
+        fonts = [
+          "CascadiaCode"
+          "IosevkaTerm"
+          "Recursive"
+        ];
+      };
+    in
+    [
+      bash-language-server
+      biome
+      buf-language-server
+      checkstyle
+      clang-tools
+      clickhouse
+      cmake
+      codespell
+      cppcheck
+      delve
+      dig
+      dua
+      duckdb
+      eza
+      fastfetch
+      fd
+      ffmpeg
+      gh
+      gnumake
+      go
+      golangci-lint
+      google-java-format
+      gopls
+      gotools
+      gradle
+      gradle-completion
+      graphviz
+      grpcurl
+      htop
+      hyperfine
+      inetutils
+      jdk
+      jdt-language-server
+      jq
+      lld
+      llvmPackages.libllvm
+      llvmPackages.lldb
+      lsof
+      lua-language-server
+      lz4
+      maven
+      moreutils
+      nerdfonts-selected
+      nil
+      nixpkgs-fmt
+      nodePackages.eslint
+      nodePackages.prettier
+      nodePackages.sql-formatter
+      nodejs
+      pkg-config
+      poetry
+      protobuf
+      protoc-gen-go
+      protoc-gen-go-grpc
+      pyright
+      python3
+      ripgrep
+      ruff
+      rustup
+      shellcheck
+      shfmt
+      sqlite
+      stylua
+      taplo
+      tealdeer
+      tmux
+      tokei
+      typescript
+      typst
+      unzip
+      urldecode
+      urlencode
+      uv
+      vscode-langservers-extracted
+      wget
+      yamllint
+      zig
+      zls
+      zstd
+    ];
 
   home.sessionVariables = {
     PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
@@ -125,8 +140,6 @@
         gp = "git pull";
         gs = "git status";
         ta = "tmux a";
-        urlencode = ''python -c "import sys; from urllib.parse import quote; print(quote(sys.argv[1]))"'';
-        urldecode = ''python -c "import sys; from urllib.parse import unquote; print(unquote(sys.argv[1]))"'';
       };
     };
     bat = {
