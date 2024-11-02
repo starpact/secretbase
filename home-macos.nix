@@ -1,13 +1,18 @@
 { config, ... }:
 
 let
-  fetchNixpkgs = commit: import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/${commit}.tar.gz") {
-    config = {
-      allowUnfree = true;
-    };
-  };
-  pkgs = fetchNixpkgs "807e9154dcb16384b1b765ebe9cd2bba2ac287fd";
-  pkgs-stable = fetchNixpkgs "080166c15633801df010977d9d7474b4a6c549d7";
+  pkgs = import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/807e9154dcb16384b1b765ebe9cd2bba2ac287fd.tar.gz";
+      sha256 = "sha256:1xc6bw4sa7bq34rinmbmz0rdnbr0lan5xvk53kbcjkyc8p1pfvlp";
+    })
+    { };
+  pkgs-stable = import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/080166c15633801df010977d9d7474b4a6c549d7.tar.gz";
+      sha256 = "sha256:17sls93qjqr0dsh31xph33m1f1x67gs22s3cr8qv20bm8zkab9y4";
+    })
+    { config = { allowUnfree = true; }; };
 in
 {
   home.username = "hongjie.yan";

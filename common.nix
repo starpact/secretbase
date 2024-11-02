@@ -19,19 +19,19 @@
     };
 
   home.packages = with pkgs; let
-    urlencode = (writeScriptBin "urlencode" ''
+    urlencode = writeScriptBin "urlencode" ''
       #!${python3}/bin/python
       import sys
       from urllib.parse import quote
       print(quote(sys.argv[1]))
-    '');
+    '';
 
-    urldecode = (writeScriptBin "urldecode" ''
+    urldecode = writeScriptBin "urldecode" ''
       #!${python3}/bin/python
       import sys
       from urllib.parse import unquote
       print(unquote(sys.argv[1]))
-    '');
+    '';
 
     nerdfonts-selected = nerdfonts.override {
       fonts = [
