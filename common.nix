@@ -1,6 +1,8 @@
 { pkgs, config, ... }:
 
 {
+  home.stateVersion = "24.05";
+
   fonts.fontconfig.enable = true;
 
   home.file =
@@ -9,18 +11,14 @@
       os = if pkgs.stdenv.isLinux then "linux" else "macos";
     in
     {
-      ".config/alacritty/alacritty.toml".source = "${base}/modules/alacritty/alacritty_${os}.toml";
-      ".config/nvim".source = "${base}/modules/nvim";
-      ".config/tmux".source = "${base}/modules/tmux";
+      ".config/alacritty/alacritty.toml".source = "${base}/alacritty/alacritty_${os}.toml";
+      ".config/nvim".source = "${base}/nvim";
+      ".config/tmux".source = "${base}/tmux";
       ".config/yamllint/config".source = "${base}/.yamllint.yaml";
       ".editorconfig".source = "${base}/.editorconfig";
     };
 
   home.packages = with pkgs; [
-    stable.mysql80
-    stable.postgresql
-    stable.terraform
-
     bash-language-server
     biome
     buf-language-server

@@ -548,7 +548,7 @@ local function setup_lint()
   }
 
   lint.linters.codespell.stdin = false
-  lint.linters.codespell.args = { "-L", "crate,flate,inout,lits,ot,ser,statics,te,wit" }
+  lint.linters.codespell.args = { "-L", "crate,flate,inout,lits,NotIn,ot,ser,statics,te,wit" }
 
   vim.api.nvim_create_autocmd("BufWritePost", {
     callback = function()

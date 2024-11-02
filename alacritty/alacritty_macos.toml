@@ -72,7 +72,7 @@ bindings = [
 semantic_escape_chars = "/,│`|:\"' ()[]{}<>\t"
 
 [window]
-decorations = "none"
+decorations = "None"
 dynamic_padding = true
 option_as_alt = "Both"
 
