@@ -1,7 +1,25 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
+let
+  pkgs = import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/2d2a9ddbe3f2c00747398f3dc9b05f7f2ebb0f53.tar.gz";
+      sha256 = "sha256:1v6gpivg8mj4qapdp0y5grapnlvlw8xyh5bjahq9i50iidjr3587";
+    })
+    { };
+  pkgs-stable = import
+    (fetchTarball {
+      url = "https://github.com/NixOS/nixpkgs/archive/080166c15633801df010977d9d7474b4a6c549d7.tar.gz";
+      sha256 = "sha256:17sls93qjqr0dsh31xph33m1f1x67gs22s3cr8qv20bm8zkab9y4";
+    })
+    { config = { allowUnfree = true; }; };
+in
 {
   home.stateVersion = "24.05";
+
+  imports =
+    if pkgs.stdenv.isDarwin then [ (import ./macos.nix { inherit pkgs-stable; }) ]
+    else [ ];
 
   fonts.fontconfig.enable = true;
 
@@ -139,6 +157,7 @@
         gp = "git pull";
         gs = "git status";
         ta = "tmux a";
+        hs = "home-manager switch -f ./home.nix";
       };
     };
     bat = {
