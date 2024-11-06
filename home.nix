@@ -9,8 +9,8 @@ let
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/080166c15633801df010977d9d7474b4a6c549d7.tar.gz";
-      sha256 = "sha256:17sls93qjqr0dsh31xph33m1f1x67gs22s3cr8qv20bm8zkab9y4";
+      url = "https://github.com/NixOS/nixpkgs/archive/d063c1dd113c91ab27959ba540c0d9753409edf3.tar.gz";
+      sha256 = "sha256:0nh2q19pcw3nccdsr3318zsbsdanfs6ckapi4wrnm4bxdmcbrnbr";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -26,7 +26,7 @@ in
   home.file =
     let
       base = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/secretbase";
-      os = if pkgs.stdenv.isLinux then "linux" else "macos";
+      os = if pkgs.stdenv.isDarwin then "macos" else "linux";
     in
     {
       ".config/alacritty/alacritty.toml".source = "${base}/alacritty/alacritty_${os}.toml";
@@ -78,6 +78,7 @@ in
     fd
     ffmpeg
     gh
+    git
     gnumake
     go
     golangci-lint
