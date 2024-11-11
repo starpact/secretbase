@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/2d2a9ddbe3f2c00747398f3dc9b05f7f2ebb0f53.tar.gz";
-      sha256 = "sha256:1v6gpivg8mj4qapdp0y5grapnlvlw8xyh5bjahq9i50iidjr3587";
+      url = "https://github.com/NixOS/nixpkgs/archive/76612b17c0ce71689921ca12d9ffdc9c23ce40b2.tar.gz";
+      sha256 = "sha256:03pmy2dv212mmxgcvwxinf3xy6m6zzr8ri71pda1lqggmll2na12";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/d063c1dd113c91ab27959ba540c0d9753409edf3.tar.gz";
-      sha256 = "sha256:0nh2q19pcw3nccdsr3318zsbsdanfs6ckapi4wrnm4bxdmcbrnbr";
+      url = "https://github.com/NixOS/nixpkgs/archive/83fb6c028368e465cd19bb127b86f971a5e41ebc.tar.gz";
+      sha256 = "sha256:07fzmjwqfd2m8lf4k17rkmc1vcqxvz3ir2hh22b7h22qn4gg8gdg";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -54,7 +54,7 @@ in
     nerdfonts-selected = nerdfonts.override {
       fonts = [
         "CascadiaCode"
-        "IosevkaTerm"
+        "FantasqueSansMono"
         "Recursive"
       ];
     };
@@ -73,6 +73,7 @@ in
     dig
     dua
     duckdb
+    eslint
     eza
     fastfetch
     fd
@@ -106,9 +107,7 @@ in
     nerdfonts-selected
     nil
     nixpkgs-fmt
-    nodePackages.eslint
     nodePackages.prettier
-    nodePackages.sql-formatter
     nodejs
     pkg-config
     poetry
@@ -137,8 +136,6 @@ in
     vscode-langservers-extracted
     wget
     yamllint
-    zig
-    zls
     zstd
   ];
 

@@ -504,7 +504,6 @@ local function setup_format()
       proto = { "buf" },
       python = { "ruff_format" },
       sh = { "shfmt" },
-      sql = { "sql_formatter" },
       terraform = { "terraform_fmt" },
       typescript = { "biome" },
       typescriptreact = { "biome" },
@@ -513,7 +512,7 @@ local function setup_format()
     notify_on_error = false,
   })
 
-  local fts_manual_format = { "proto", "sh", "sql" }
+  local fts_manual_format = { "proto", "sh" }
 
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
