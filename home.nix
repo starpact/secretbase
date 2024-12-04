@@ -3,19 +3,19 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/76612b17c0ce71689921ca12d9ffdc9c23ce40b2.tar.gz";
-      sha256 = "sha256:03pmy2dv212mmxgcvwxinf3xy6m6zzr8ri71pda1lqggmll2na12";
+      url = "https://github.com/NixOS/nixpkgs/archive/ac35b104800bff9028425fec3b6e8a41de2bbfff.tar.gz";
+      sha256 = "sha256:1fbj7shlmviilmgz5z2gp59j6xwgdr01jfh75qhixx06kib4305p";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/83fb6c028368e465cd19bb127b86f971a5e41ebc.tar.gz";
-      sha256 = "sha256:07fzmjwqfd2m8lf4k17rkmc1vcqxvz3ir2hh22b7h22qn4gg8gdg";
+      url = "https://github.com/NixOS/nixpkgs/archive/f9f0d5c5380be0a599b1fb54641fa99af8281539.tar.gz";
+      sha256 = "sha256:1nv2gvdzdqcrzac353yanm432cpbs5x18d9m7h529pj9hm5a0zqj";
     })
     { config = { allowUnfree = true; }; };
 in
 {
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   imports =
     if pkgs.stdenv.isDarwin then [ (import ./macos.nix { inherit pkgs-stable; }) ]
@@ -50,19 +50,10 @@ in
       from urllib.parse import unquote
       print(unquote(sys.argv[1]))
     '';
-
-    nerdfonts-selected = nerdfonts.override {
-      fonts = [
-        "CascadiaCode"
-        "FantasqueSansMono"
-        "Recursive"
-      ];
-    };
   in
   [
     bash-language-server
     biome
-    buf-language-server
     checkstyle
     clang-tools
     clickhouse
@@ -94,8 +85,8 @@ in
     hyperfine
     inetutils
     jdk
-    jdt-language-server
     jq
+    lazygit
     lld
     llvmPackages.libllvm
     llvmPackages.lldb
@@ -104,7 +95,13 @@ in
     lz4
     maven
     moreutils
-    nerdfonts-selected
+    nerd-fonts.caskaydia-cove
+    nerd-fonts.fantasque-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.martian-mono
+    nerd-fonts.recursive-mono
+    nerd-fonts.zed-mono
     nil
     nixpkgs-fmt
     nodePackages.prettier
@@ -155,6 +152,7 @@ in
         gp = "git pull";
         gs = "git status";
         ta = "tmux a";
+        lg = "lazygit";
         hs = "home-manager switch -f ./home.nix";
       };
     };
@@ -183,14 +181,13 @@ in
         lush-nvim
         markdown-preview-nvim
         nvim-autopairs
-        nvim-jdtls
         nvim-lint
         nvim-lspconfig
         nvim-snippy
         nvim-surround
-        nvim-tree-lua
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
+        oil-nvim
         vim-test
         zenbones-nvim
 
@@ -199,8 +196,8 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "jake-stewart";
             repo = "multicursor.nvim";
-            rev = "085fdb7433cf8775ca351f92fec8fdcd099cf630";
-            sha256 = "sha256-YQW37WsCLKnMM7SuXeRTy5Vcw2Y0BnHFFx/HNCFeu0o=";
+            rev = "35236282d95ae08247e967231bd9867076357ab2";
+            sha256 = "sha256-qOQjAAXyLImQi72c1g2HQX0K6k/L23IKBKkbHnJ2DB8=";
           };
         })
       ];

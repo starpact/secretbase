@@ -23,7 +23,6 @@ local function setup_basic()
   vim.o.tabstop = 4
   vim.o.termguicolors = true
   vim.o.undofile = true
-  vim.o.cursorline = true
 
   vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
   vim.api.nvim_create_autocmd("TextYankPost", {
@@ -51,13 +50,8 @@ local function setup_basic()
   vim.keymap.set("i", "<c-e>", "<end>")
   vim.keymap.set("i", "<c-k>", "<c-o>D")
   vim.keymap.set("i", "<a-b>", "<c-left>")
-  vim.keymap.set("i", "<a-f>", "<esc>ea")
+  vim.keymap.set("i", "<a-f>", "<c-right>")
   vim.keymap.set("i", "<a-d>", "<c-o>de")
-
-  vim.keymap.set("n", "<a-left>", "<cmd>vertical resize -5<cr>")
-  vim.keymap.set("n", "<a-down>", "<cmd>resize +5<cr>")
-  vim.keymap.set("n", "<a-up>", "<cmd>resize -5<cr>")
-  vim.keymap.set("n", "<a-right>", "<cmd>vertical resize +5<cr>")
 
   vim.keymap.set("i", "<c-space>", "<nop>")
 
@@ -120,6 +114,13 @@ local function setup_basic()
   require("nvim-surround").setup()
   require("nvim-autopairs").setup()
 
+  require("oil").setup({
+    keymaps = {
+      ["q"] = "actions.close",
+    },
+  })
+  vim.keymap.set("n", "-", "<cmd>Oil<cr>")
+
   local mc = require("multicursor-nvim")
   mc.setup()
   vim.keymap.set({ "n", "v" }, "<down>", function() mc.lineAddCursor(1) end)
@@ -167,7 +168,6 @@ local function setup_colorscheme()
 
   lush(specs)
 
-  vim.api.nvim_set_hl(0, "CursorLine", {})
   vim.api.nvim_set_hl(0, "@constant", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@module", { link = "Identifier" })
   vim.api.nvim_set_hl(0, "@function.macro", { link = "Function" })
@@ -228,157 +228,8 @@ local function setup_treesitter()
           ["<a-left>"] = "@parameter.inner",
         },
       },
-      move = {
-        enable = true,
-        goto_next_start = {
-          ["]f"] = "@function.outer",
-          ["]c"] = "@class.outer",
-          ["]a"] = "@parameter.inner",
-          ["]b"] = "@block.outer",
-        },
-        goto_next_end = {
-          ["]F"] = "@function.outer",
-          ["]C"] = "@class.outer",
-          ["]A"] = "@parameter.inner",
-          ["]B"] = "@block.outer",
-        },
-        goto_previous_start = {
-          ["[f"] = "@function.outer",
-          ["[c"] = "@class.outer",
-          ["[a"] = "@parameter.inner",
-          ["[b"] = "@block.outer",
-        },
-        goto_previous_end = {
-          ["[F"] = "@function.outer",
-          ["[C"] = "@class.outer",
-          ["[A"] = "@parameter.inner",
-          ["[B"] = "@block.outer",
-        },
-      },
     },
   })
-end
-
-local function setup_statusline()
-  local function get_filepath(bufname)
-    local path = bufname
-    -- Shorten jdt url.
-    if vim.startswith(path, "jdt") then path = path:sub(16, path:find("?") - 1) end
-
-    -- File in current directory.
-    local cwd = vim.fn.getcwd()
-    if vim.startswith(path, cwd .. "/") then return vim.fs.basename(cwd) .. path:sub(#cwd + 1) end
-
-    -- Shorten nix path.
-    local nix_store = "/nix/store/"
-    if vim.startswith(path, nix_store) then return "NIX/" .. path:sub(45) end
-
-    -- Shorten home path.
-    local home = vim.fs.normalize("~")
-    if vim.startswith(path, home) then return "~" .. path:sub(#home + 1) end
-
-    return path
-  end
-
-  local function get_git_status()
-    local dict = vim.b.gitsigns_status_dict
-    if not dict then return "" end
-    return dict.head
-      .. (dict.added and dict.added > 0 and " +" .. dict.added or "")
-      .. (dict.changed and dict.changed > 0 and " ~" .. dict.changed or "")
-      .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
-  end
-
-  local colormap = {
-    [vim.diagnostic.severity.ERROR] = "%#StatusLineError#",
-    [vim.diagnostic.severity.WARN] = "%#StatusLineWarn#",
-    [vim.diagnostic.severity.INFO] = "%#StatusLineInfo#",
-    [vim.diagnostic.severity.HINT] = "%#StatusLineHint#",
-  }
-
-  local function get_diagnostics(bufnr, active)
-    local mode = vim.api.nvim_get_mode().mode
-    if mode == "i" or mode == "ic" or mode == "s" then return "" end
-
-    local cnts = {}
-    for _, diagnostic in ipairs(vim.diagnostic.get(bufnr)) do
-      cnts[diagnostic.severity] = (cnts[diagnostic.severity] or 0) + 1
-    end
-    if next(cnts) == nil then return "" end
-
-    local diagnostics = ""
-    for _, severity in ipairs({
-      vim.diagnostic.severity.ERROR,
-      vim.diagnostic.severity.WARN,
-      vim.diagnostic.severity.INFO,
-      vim.diagnostic.severity.HINT,
-    }) do
-      if cnts[severity] then diagnostics = diagnostics .. " " .. colormap[severity] .. cnts[severity] end
-    end
-    if diagnostics == "" then return "" end
-
-    return diagnostics .. (active == 1 and "%#StatusLine#" or "%#StatusLineNC#")
-  end
-
-  _G.StatusLine = function(bufnr, active)
-    local bufname = vim.api.nvim_buf_get_name(bufnr)
-    if vim.fs.basename(bufname) == "NvimTree_1" then return "" end
-
-    local left = get_filepath(bufname) .. " %m%r" .. get_diagnostics(bufnr, active)
-    local right = (active == 1 and get_git_status() or "") .. "%8.(%l,%c%)"
-    return left .. "%=" .. right
-  end
-
-  vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-    callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 1)", opt.buf) end,
-  })
-  vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
-    callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf) end,
-  })
-end
-
-local function setup_tree()
-  require("nvim-tree").setup({
-    disable_netrw = true,
-    sync_root_with_cwd = true,
-    respect_buf_cwd = true,
-    update_cwd = true,
-    diagnostics = {
-      enable = true,
-      show_on_dirs = true,
-      icons = { hint = "", info = "", warning = "", error = "" },
-    },
-    actions = {
-      open_file = {
-        window_picker = {
-          enable = false,
-        },
-      },
-    },
-    renderer = {
-      indent_markers = {
-        enable = true,
-      },
-      icons = {
-        git_placement = "after",
-        show = {
-          file = false,
-          folder = false,
-        },
-      },
-    },
-    view = {
-      width = {
-        max = 60,
-      },
-    },
-    system_open = {
-      cmd = "code",
-    },
-  })
-
-  vim.keymap.set("n", "<leader>e", function() require("nvim-tree.api").tree.open({ find_file = true }) end)
-  vim.keymap.set("n", "<c-n>", require("nvim-tree.api").tree.toggle)
 end
 
 local function setup_git()
@@ -388,12 +239,19 @@ local function setup_git()
       local opts = { buffer = bufnr }
       vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
       vim.keymap.set("n", "<leader>gb", gitsigns.blame_line, opts)
-      vim.keymap.set("n", "[g", gitsigns.prev_hunk, opts)
-      vim.keymap.set("n", "]g", gitsigns.next_hunk, opts)
+      vim.keymap.set("n", "[g", function() gitsigns.nav_hunk("prev") end, opts)
+      vim.keymap.set("n", "]g", function() gitsigns.nav_hunk("next") end, opts)
     end,
   })
 
-  require("diffview").setup({ use_icons = false })
+  local actions = require("diffview.actions")
+  require("diffview").setup({
+    use_icons = false,
+    keymaps = {
+      view = { { "n", "q", actions.close } },
+      file_panel = { { "n", "q", actions.close } },
+    },
+  })
   vim.cmd("cnoreabbrev D DiffviewOpen")
   vim.keymap.set("n", "<leader>gf", function() vim.cmd.DiffviewFileHistory("%") end)
   vim.keymap.set("n", "<leader>gF", vim.cmd.DiffviewFileHistory)
@@ -425,22 +283,10 @@ local function setup_search()
   vim.keymap.set("n", "<leader>f", fzf.files)
   vim.keymap.set("n", "<leader>o", fzf.oldfiles)
   vim.keymap.set("n", "<leader>b", fzf.buffers)
-  vim.keymap.set("n", "<leader>/", function()
-    local cwd
-    if vim.bo.filetype == "NvimTree" then
-      local node = require("nvim-tree.api").tree.get_node_under_cursor()
-      if node.type == "file" then
-        cwd = node.parent.absolute_path
-      elseif node.type == "directory" then
-        cwd = node.absolute_path
-      end
-      vim.cmd("wincmd l") -- avoid open file action from nvim-tree buffer
-    else
-      cwd = vim.fs.dirname(vim.api.nvim_buf_get_name(0))
-    end
-    fzf.live_grep({ cwd = cwd })
-  end)
+  vim.keymap.set("n", "<leader>/", function() fzf.live_grep({ cwd = vim.fn.expand("%:p:h") }) end)
+  vim.keymap.set("v", "<leader>/", function() fzf.grep_visual({ cwd = vim.fn.expand("%:p:h") }) end)
   vim.keymap.set("n", "<leader>?", fzf.live_grep)
+  vim.keymap.set("v", "<leader>?", fzf.grep_visual)
   vim.keymap.set("n", "<leader>d", function() fzf.diagnostics_workspace({ severity_only = "error" }) end)
   vim.keymap.set("n", "<leader>D", fzf.diagnostics_workspace)
   vim.keymap.set("n", "<leader>gs", fzf.git_status)
@@ -484,7 +330,6 @@ local function setup_search()
         ["ctrl-p"] = "up",
         ["ctrl-j"] = "next-history",
         ["ctrl-k"] = "previous-history",
-        ["ctrl-q"] = "select-all+accept",
       },
     },
   })
@@ -522,7 +367,7 @@ local function setup_format()
     end,
   })
 
-  vim.keymap.set("n", "<a-F>", conform.format)
+  vim.api.nvim_create_user_command("Format", function() conform.format() end, {})
 end
 
 local function setup_lint()
@@ -536,6 +381,7 @@ local function setup_lint()
     yaml = { "yamllint" },
   }
 
+  ---@diagnostic disable-next-line
   lint.linters.checkstyle.args = {
     "-c",
     function()
@@ -590,7 +436,7 @@ local function setup_lsp()
 
   for server, config in pairs({
     ["bashls"] = {},
-    ["bufls"] = {},
+    ["buf_ls"] = {},
     ["clangd"] = {
       capabilities = {
         offsetEncoding = { "utf-16" },
@@ -631,22 +477,6 @@ local function setup_lsp()
   }) do
     lspconfig[server].setup(extend_default(config))
   end
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = "java",
-    callback = function()
-      local root_dir = require("jdtls.setup").find_root({ ".git", "gradlew", "mvnw" })
-      local root_dir_name = vim.fn.fnamemodify(root_dir, ":p:h:t")
-      require("jdtls").start_or_attach(extend_default({
-        cmd = {
-          "jdtls",
-          "-data",
-          vim.fs.normalize("~/.cache/jdtls/workspace/") .. root_dir_name,
-        },
-        root_dir = root_dir,
-      }))
-    end,
-  })
 end
 
 local function setup_completion()
@@ -716,8 +546,6 @@ end
 setup_basic()
 setup_colorscheme()
 setup_treesitter()
-setup_statusline()
-setup_tree()
 setup_git()
 setup_search()
 setup_format()
