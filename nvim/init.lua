@@ -1,7 +1,6 @@
 vim.loader.enable()
 
 local function setup_basic()
-  -- Disable netrw.
   vim.g.loaded_netrw = 1
   vim.g.loaded_netrwPlugin = 1
 
@@ -23,6 +22,7 @@ local function setup_basic()
   vim.o.tabstop = 4
   vim.o.termguicolors = true
   vim.o.undofile = true
+  vim.o.cursorline = true
 
   vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
   vim.api.nvim_create_autocmd("TextYankPost", {
@@ -53,10 +53,17 @@ local function setup_basic()
   vim.keymap.set("i", "<a-f>", "<c-right>")
   vim.keymap.set("i", "<a-d>", "<c-o>de")
 
+  vim.keymap.set("n", "<a-s-left>", "<cmd>vertical resize -5<cr>")
+  vim.keymap.set("n", "<a-s-down>", "<cmd>resize +5<cr>")
+  vim.keymap.set("n", "<a-s-up>", "<cmd>resize -5<cr>")
+  vim.keymap.set("n", "<a-s-right>", "<cmd>vertical resize +5<cr>")
+
   vim.keymap.set("i", "<c-space>", "<nop>")
 
   vim.keymap.set("x", "<", "<gv")
   vim.keymap.set("x", ">", ">gv")
+
+  vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>")
 
   -- Copy location.
   vim.keymap.set(
@@ -114,13 +121,6 @@ local function setup_basic()
   require("nvim-surround").setup()
   require("nvim-autopairs").setup()
 
-  require("oil").setup({
-    keymaps = {
-      ["q"] = "actions.close",
-    },
-  })
-  vim.keymap.set("n", "-", "<cmd>Oil<cr>")
-
   local mc = require("multicursor-nvim")
   mc.setup()
   vim.keymap.set({ "n", "v" }, "<down>", function() mc.lineAddCursor(1) end)
@@ -175,6 +175,7 @@ local function setup_colorscheme()
   vim.api.nvim_set_hl(0, "@constructor", { link = "Function" })
   vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 
+  vim.api.nvim_set_hl(0, "CursorLine", {})
   vim.api.nvim_set_hl(0, "StatusLineNC", { fg = specs.FloatBorder.fg.hex, bg = specs.StatusLine.bg.hex })
   vim.api.nvim_set_hl(0, "StatusLineError", { fg = specs.DiagnosticError.fg.hex, bg = specs.StatusLine.bg.hex })
   vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = specs.DiagnosticWarn.fg.hex, bg = specs.StatusLine.bg.hex })
@@ -187,6 +188,38 @@ local function setup_colorscheme()
   for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
     vim.api.nvim_set_hl(0, group, {})
   end
+end
+
+local function setup_tree()
+  require("nvim-tree").setup({
+    actions = {
+      open_file = {
+        window_picker = {
+          enable = false,
+        },
+      },
+    },
+    renderer = {
+      indent_markers = {
+        enable = true,
+      },
+      icons = {
+        git_placement = "after",
+        show = {
+          file = false,
+          folder = false,
+        },
+      },
+    },
+    view = {
+      width = {
+        max = 60,
+      },
+    },
+  })
+
+  vim.keymap.set("n", "<leader>e", function() require("nvim-tree.api").tree.open({ find_file = true }) end)
+  vim.keymap.set("n", "<c-n>", require("nvim-tree.api").tree.toggle)
 end
 
 local function setup_treesitter()
@@ -244,17 +277,88 @@ local function setup_git()
     end,
   })
 
-  local actions = require("diffview.actions")
-  require("diffview").setup({
-    use_icons = false,
-    keymaps = {
-      view = { { "n", "q", actions.close } },
-      file_panel = { { "n", "q", actions.close } },
-    },
-  })
+  require("diffview").setup({ use_icons = false })
   vim.cmd("cnoreabbrev D DiffviewOpen")
   vim.keymap.set("n", "<leader>gf", function() vim.cmd.DiffviewFileHistory("%") end)
   vim.keymap.set("n", "<leader>gF", vim.cmd.DiffviewFileHistory)
+end
+
+local function setup_statusline()
+  local function get_filepath(bufname)
+    local path = bufname
+    -- Shorten jdt url.
+    if vim.startswith(path, "jdt") then path = path:sub(16, path:find("?") - 1) end
+
+    -- File in current directory.
+    local cwd = vim.fn.getcwd()
+    if vim.startswith(path, cwd .. "/") then return vim.fs.basename(cwd) .. path:sub(#cwd + 1) end
+
+    -- Shorten nix path.
+    local nix_store = "/nix/store/"
+    if vim.startswith(path, nix_store) then return "NIX/" .. path:sub(45) end
+
+    -- Shorten home path.
+    local home = vim.fs.normalize("~")
+    if vim.startswith(path, home) then return "~" .. path:sub(#home + 1) end
+
+    return path
+  end
+
+  local function get_git_status()
+    local dict = vim.b.gitsigns_status_dict
+    if not dict then return "" end
+    return dict.head
+      .. (dict.added and dict.added > 0 and " +" .. dict.added or "")
+      .. (dict.changed and dict.changed > 0 and " ~" .. dict.changed or "")
+      .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
+  end
+
+  local colormap = {
+    [vim.diagnostic.severity.ERROR] = "%#StatusLineError#",
+    [vim.diagnostic.severity.WARN] = "%#StatusLineWarn#",
+    [vim.diagnostic.severity.INFO] = "%#StatusLineInfo#",
+    [vim.diagnostic.severity.HINT] = "%#StatusLineHint#",
+  }
+
+  local function get_diagnostics(bufnr, active)
+    local mode = vim.api.nvim_get_mode().mode
+    if mode == "i" or mode == "ic" or mode == "s" then return "" end
+
+    local cnts = {}
+    for _, diagnostic in ipairs(vim.diagnostic.get(bufnr)) do
+      cnts[diagnostic.severity] = (cnts[diagnostic.severity] or 0) + 1
+    end
+    if next(cnts) == nil then return "" end
+
+    local diagnostics = ""
+    for _, severity in ipairs({
+      vim.diagnostic.severity.ERROR,
+      vim.diagnostic.severity.WARN,
+      vim.diagnostic.severity.INFO,
+      vim.diagnostic.severity.HINT,
+    }) do
+      if cnts[severity] then diagnostics = diagnostics .. " " .. colormap[severity] .. cnts[severity] end
+    end
+    if diagnostics == "" then return "" end
+
+    return diagnostics .. (active == 1 and "%#StatusLine#" or "%#StatusLineNC#")
+  end
+
+  _G.StatusLine = function(bufnr, active)
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
+    if vim.fs.basename(bufname) == "NvimTree_1" then return "" end
+
+    local left = get_filepath(bufname) .. " %m%r" .. get_diagnostics(bufnr, active)
+    local right = (active == 1 and get_git_status() or "") .. "%8.(%l,%c%)"
+    return left .. "%=" .. right
+  end
+
+  vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
+    callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 1)", opt.buf) end,
+  })
+  vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
+    callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf) end,
+  })
 end
 
 local function setup_search()
@@ -367,7 +471,7 @@ local function setup_format()
     end,
   })
 
-  vim.api.nvim_create_user_command("Format", function() conform.format() end, {})
+  vim.api.nvim_create_user_command("Format", function() conform.format({ async = true }) end, {})
 end
 
 local function setup_lint()
@@ -545,8 +649,10 @@ end
 
 setup_basic()
 setup_colorscheme()
+setup_tree()
 setup_treesitter()
 setup_git()
+setup_statusline()
 setup_search()
 setup_format()
 setup_lint()

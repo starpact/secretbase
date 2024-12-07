@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/ac35b104800bff9028425fec3b6e8a41de2bbfff.tar.gz";
-      sha256 = "sha256:1fbj7shlmviilmgz5z2gp59j6xwgdr01jfh75qhixx06kib4305p";
+      url = "https://github.com/NixOS/nixpkgs/archive/55d15ad12a74eb7d4646254e13638ad0c4128776.tar.gz";
+      sha256 = "sha256:16lsqai9kv1kkz6xrzgpxrns0b5fynx2l57p8nhhi2krhl5awprk";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/f9f0d5c5380be0a599b1fb54641fa99af8281539.tar.gz";
-      sha256 = "sha256:1nv2gvdzdqcrzac353yanm432cpbs5x18d9m7h529pj9hm5a0zqj";
+      url = "https://github.com/NixOS/nixpkgs/archive/b681065d0919f7eb5309a93cea2cfa84dec9aa88.tar.gz";
+      sha256 = "sha256:1sd5hq0jw3g9la4w4q63rnrzd6nihi3kqpszldb0n8ws523pbbks";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -179,15 +179,14 @@ in
         fzf-lua
         gitsigns-nvim
         lush-nvim
-        markdown-preview-nvim
         nvim-autopairs
         nvim-lint
         nvim-lspconfig
         nvim-snippy
         nvim-surround
+        nvim-tree-lua
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
-        oil-nvim
         vim-test
         zenbones-nvim
 
@@ -196,8 +195,8 @@ in
           src = pkgs.fetchFromGitHub {
             owner = "jake-stewart";
             repo = "multicursor.nvim";
-            rev = "35236282d95ae08247e967231bd9867076357ab2";
-            sha256 = "sha256-qOQjAAXyLImQi72c1g2HQX0K6k/L23IKBKkbHnJ2DB8=";
+            rev = "f454cac9d03ccaf20008f4793f05b159f5547e78";
+            sha256 = "sha256-0bFqoTq4d49/REDu6Rnmvms3kDIyEl0N57CpxYp0ImU=";
           };
         })
       ];
