@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/55d15ad12a74eb7d4646254e13638ad0c4128776.tar.gz";
-      sha256 = "sha256:16lsqai9kv1kkz6xrzgpxrns0b5fynx2l57p8nhhi2krhl5awprk";
+      url = "https://github.com/NixOS/nixpkgs/archive/a73246e2eef4c6ed172979932bc80e1404ba2d56.tar.gz";
+      sha256 = "sha256:0dgfdbf25n29kwspazyzx81g8rj3nwrlfjij5yi8xkx6ylsd5bg3";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/b681065d0919f7eb5309a93cea2cfa84dec9aa88.tar.gz";
-      sha256 = "sha256:1sd5hq0jw3g9la4w4q63rnrzd6nihi3kqpszldb0n8ws523pbbks";
+      url = "https://github.com/NixOS/nixpkgs/archive/a0f3e10d94359665dba45b71b4227b0aeb851f8e.tar.gz";
+      sha256 = "sha256:0nci4yyxpjhvkmgvb97xjqaql6dbd3f7xmqa8ala750y6hshhv19";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -80,7 +80,6 @@ in
     gradle
     gradle-completion
     graphviz
-    grpcurl
     htop
     hyperfine
     inetutils

@@ -23,6 +23,7 @@ local function setup_basic()
   vim.o.termguicolors = true
   vim.o.undofile = true
   vim.o.cursorline = true
+  vim.o.cursorlineopt = "number"
 
   vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
   vim.api.nvim_create_autocmd("TextYankPost", {
@@ -50,7 +51,7 @@ local function setup_basic()
   vim.keymap.set("i", "<c-e>", "<end>")
   vim.keymap.set("i", "<c-k>", "<c-o>D")
   vim.keymap.set("i", "<a-b>", "<c-left>")
-  vim.keymap.set("i", "<a-f>", "<c-right>")
+  vim.keymap.set("i", "<a-f>", "<esc>ea")
   vim.keymap.set("i", "<a-d>", "<c-o>de")
 
   vim.keymap.set("n", "<a-s-left>", "<cmd>vertical resize -5<cr>")
@@ -175,7 +176,6 @@ local function setup_colorscheme()
   vim.api.nvim_set_hl(0, "@constructor", { link = "Function" })
   vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 
-  vim.api.nvim_set_hl(0, "CursorLine", {})
   vim.api.nvim_set_hl(0, "StatusLineNC", { fg = specs.FloatBorder.fg.hex, bg = specs.StatusLine.bg.hex })
   vim.api.nvim_set_hl(0, "StatusLineError", { fg = specs.DiagnosticError.fg.hex, bg = specs.StatusLine.bg.hex })
   vim.api.nvim_set_hl(0, "StatusLineWarn", { fg = specs.DiagnosticWarn.fg.hex, bg = specs.StatusLine.bg.hex })
@@ -598,11 +598,9 @@ local function setup_completion()
   vim.keymap.set({ "i", "s" }, "<tab>", function() feedkey(has_words_before() and "<c-x><c-o>" or "<tab>") end)
 
   local snippy = require("snippy")
-
   vim.keymap.set({ "i", "s" }, "<c-l>", function()
     if snippy.can_expand_or_advance() then snippy.expand_or_advance() end
   end)
-
   vim.keymap.set({ "i", "s" }, "<c-h>", function()
     if snippy.can_jump(-1) then
       snippy.previous()
@@ -615,19 +613,14 @@ end
 local function setup_test()
   vim.g["test#custom_strategies"] = {
     tmux_pane = function(cmd)
-      local function send_command() vim.fn.jobstart({ "tmux", "send-key", "-t", ".2", cmd .. "\n" }) end
-      vim.fn.jobstart({ "tmux", "list-panes" }, {
-        stdout_buffered = true, -- get all stdout rather than line by line
-        on_stdout = function(_, data)
-          if #data >= 3 then -- at least 2 lines for pane info and 1 empty string for EOF
-            send_command()
-          else
-            vim.fn.jobstart({ "tmux", "split-window" }, {
-              on_stdout = send_command,
-            })
-          end
-        end,
-      })
+      local function send_command() vim.system({ "tmux", "send-key", "-t", ".2", cmd .. "\n" }) end
+      vim.system({ "tmux", "list-panes" }, function(ret)
+        if ret.stdout:find("\n") == ret.stdout:len() then
+          vim.system({ "tmux", "split-window" }, send_command)
+        else
+          send_command()
+        end
+      end)
     end,
   }
 
