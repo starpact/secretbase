@@ -27,12 +27,11 @@ white = "#4f5e68"
 yellow = "#803d1c"
 
 [font]
-size = 13
+normal = { family = "TX02 Nerd Font", style = "SemiCondensed" }
+bold = { family = "TX02 Nerd Font", style = "SemiCondensed Bold" }
+italic = { family = "TX02 Nerd Font", style = "SemiCondensed Oblique" }
 
-[font.normal]
-family = "RecMonoLinear Nerd Font"
-style = "Regular"
-
+size = 16
 [[hints.enabled]]
 command = "open"
 post_processing = true

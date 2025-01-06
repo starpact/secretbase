@@ -192,6 +192,8 @@ end
 
 local function setup_tree()
   require("nvim-tree").setup({
+    respect_buf_cwd = true,
+    update_cwd = true,
     actions = {
       open_file = {
         window_picker = {
@@ -369,9 +371,6 @@ local function setup_search()
     width = 1,
     row = 1,
     border = { "─", "─", "─", "", "", "", "", "" },
-    hl = {
-      cursorline = "visual",
-    },
     preview = {
       delay = 0,
       horizontal = "right:50%",

@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/a73246e2eef4c6ed172979932bc80e1404ba2d56.tar.gz";
-      sha256 = "sha256:0dgfdbf25n29kwspazyzx81g8rj3nwrlfjij5yi8xkx6ylsd5bg3";
+      url = "https://github.com/NixOS/nixpkgs/archive/6df24922a1400241dae323af55f30e4318a6ca65.tar.gz";
+      sha256 = "sha256:06anh1d5jndycxcwn6dw0zznfgsznwxxblzmwf7f3p7b0pf70jbn";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/a0f3e10d94359665dba45b71b4227b0aeb851f8e.tar.gz";
-      sha256 = "sha256:0nci4yyxpjhvkmgvb97xjqaql6dbd3f7xmqa8ala750y6hshhv19";
+      url = "https://github.com/NixOS/nixpkgs/archive/d29ab98cd4a70a387b8ceea3e930b3340d41ac5a.tar.gz";
+      sha256 = "sha256:0v41ccwg751qfsryjmbnijq3324kdkmw9cnywxzzd5jjcv032kdy";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -26,10 +26,9 @@ in
   home.file =
     let
       base = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/secretbase";
-      os = if pkgs.stdenv.isDarwin then "macos" else "linux";
     in
     {
-      ".config/alacritty/alacritty.toml".source = "${base}/alacritty/alacritty_${os}.toml";
+      ".config/alacritty/alacritty.toml".source = "${base}/alacritty.toml";
       ".config/nvim".source = "${base}/nvim";
       ".config/tmux".source = "${base}/tmux";
       ".config/yamllint/config".source = "${base}/.yamllint.yaml";
@@ -97,10 +96,9 @@ in
     nerd-fonts.caskaydia-cove
     nerd-fonts.fantasque-sans-mono
     nerd-fonts.fira-code
-    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka-term
     nerd-fonts.martian-mono
     nerd-fonts.recursive-mono
-    nerd-fonts.zed-mono
     nil
     nixpkgs-fmt
     nodePackages.prettier

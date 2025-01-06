@@ -1,0 +1,3 @@
+- Download [Patch script](https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FontPatcher.zip)
+- Install fontforge
+- Use TTF instead of OTF
