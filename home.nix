@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/6df24922a1400241dae323af55f30e4318a6ca65.tar.gz";
-      sha256 = "sha256:06anh1d5jndycxcwn6dw0zznfgsznwxxblzmwf7f3p7b0pf70jbn";
+      url = "https://github.com/NixOS/nixpkgs/archive/799ba5bffed04ced7067a91798353d360788b30d.tar.gz";
+      sha256 = "sha256:15b3bqrmr98y5yhm1jrzw23flpiqzlbrwxaiyyzgd3dwfpwy30m2";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/d29ab98cd4a70a387b8ceea3e930b3340d41ac5a.tar.gz";
-      sha256 = "sha256:0v41ccwg751qfsryjmbnijq3324kdkmw9cnywxzzd5jjcv032kdy";
+      url = "https://github.com/NixOS/nixpkgs/archive/030ba1976b7c0e1a67d9716b17308ccdab5b381e.tar.gz";
+      sha256 = "sha256:14rpk53mia7j0hr4yaf5m3b2d4lzjx8qi2rszxjhqq00pxzzr64w";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -79,6 +79,7 @@ in
     gradle
     gradle-completion
     graphviz
+    grpcurl
     htop
     hyperfine
     inetutils
@@ -170,33 +171,6 @@ in
       enable = true;
       vimAlias = true;
       defaultEditor = true;
-      plugins = with pkgs.vimPlugins; [
-        conform-nvim
-        diffview-nvim
-        fzf-lua
-        gitsigns-nvim
-        lush-nvim
-        nvim-autopairs
-        nvim-lint
-        nvim-lspconfig
-        nvim-snippy
-        nvim-surround
-        nvim-tree-lua
-        nvim-treesitter-textobjects
-        nvim-treesitter.withAllGrammars
-        vim-test
-        zenbones-nvim
-
-        (pkgs.vimUtils.buildVimPlugin {
-          name = "multicursor-nvim";
-          src = pkgs.fetchFromGitHub {
-            owner = "jake-stewart";
-            repo = "multicursor.nvim";
-            rev = "f454cac9d03ccaf20008f4793f05b159f5547e78";
-            sha256 = "sha256-0bFqoTq4d49/REDu6Rnmvms3kDIyEl0N57CpxYp0ImU=";
-          };
-        })
-      ];
     };
     starship.enable = true;
     zoxide.enable = true;

@@ -27,11 +27,11 @@ white = "#4f5e68"
 yellow = "#803d1c"
 
 [font]
+size = 14
 normal = { family = "TX02 Nerd Font", style = "SemiCondensed" }
 bold = { family = "TX02 Nerd Font", style = "SemiCondensed Bold" }
 italic = { family = "TX02 Nerd Font", style = "SemiCondensed Oblique" }
 
-size = 16
 [[hints.enabled]]
 command = "open"
 post_processing = true
