@@ -210,6 +210,7 @@ require("lazy").setup({
 
   {
     "jake-stewart/multicursor.nvim",
+    event = "VeryLazy",
     config = function()
       local mc = require("multicursor-nvim")
       mc.setup()
@@ -279,6 +280,9 @@ require("lazy").setup({
       vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
       vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
 
+      vim.api.nvim_set_hl(0, "SnacksPicker", { link = "Normal" })
+      vim.api.nvim_set_hl(0, "SnacksPickerTitle", { link = "Bold" })
+
       for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
         vim.api.nvim_set_hl(0, group, {})
       end
@@ -336,6 +340,7 @@ require("lazy").setup({
 
   {
     "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
     opts = {
       on_attach = function(bufnr)
         local gitsigns = require("gitsigns")
@@ -350,6 +355,7 @@ require("lazy").setup({
 
   {
     "sindrets/diffview.nvim",
+    event = "VeryLazy",
     config = function()
       require("diffview").setup({ use_icons = false })
       vim.cmd("cnoreabbrev D DiffviewOpen")
@@ -360,6 +366,7 @@ require("lazy").setup({
 
   {
     "stevearc/conform.nvim",
+    event = "VeryLazy",
     config = function()
       local conform = require("conform")
       conform.setup({
@@ -398,6 +405,7 @@ require("lazy").setup({
 
   {
     "mfussenegger/nvim-lint",
+    event = "VeryLazy",
     config = function()
       local lint = require("lint")
 
@@ -434,22 +442,20 @@ require("lazy").setup({
 
   {
     "neovim/nvim-lspconfig",
+    event = "VeryLazy",
     config = function()
-      local lspconfig = require("lspconfig")
-      local fzf = require("fzf-lua")
-
       local default_config = {
         capabilities = vim.lsp.protocol.make_client_capabilities(),
         on_attach = function(_, bufnr)
           local opts = { buffer = bufnr }
-          vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
-          vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
-          vim.keymap.set("n", "gy", fzf.lsp_typedefs, opts)
-          vim.keymap.set("n", "gr", fzf.lsp_references, opts)
-          vim.keymap.set("n", "gi", fzf.lsp_implementations, opts)
-          vim.keymap.set("n", "<leader>a", fzf.lsp_code_actions, opts)
-          vim.keymap.set("n", "<leader>s", fzf.lsp_document_symbols, opts)
-          vim.keymap.set("n", "<leader>S", fzf.lsp_live_workspace_symbols, opts)
+          vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, opts)
+          vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, opts)
+          vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, opts)
+          vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, opts)
+          vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, opts)
+          vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
+          vim.keymap.set("n", "<leader>s", function() Snacks.picker.lsp_symbols() end, opts)
+          vim.keymap.set("n", "<leader>S", function() Snacks.picker.lsp_workspace_symbols() end, opts)
           vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, opts)
           vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
         end,
@@ -465,6 +471,7 @@ require("lazy").setup({
         if path:match("vim%-pack%-dir") then pack_dir = path end
       end
 
+      local lspconfig = require("lspconfig")
       for server, config in pairs({
         ["bashls"] = {},
         ["buf_ls"] = {},
@@ -545,6 +552,7 @@ require("lazy").setup({
 
   {
     "vim-test/vim-test",
+    event = "VeryLazy",
     config = function()
       vim.g["test#custom_strategies"] = {
         tmux_pane = function(cmd)
@@ -578,6 +586,7 @@ require("lazy").setup({
 
   {
     "nvim-tree/nvim-tree.lua",
+    event = "VeryLazy",
     config = function()
       require("nvim-tree").setup({
         respect_buf_cwd = true,
@@ -611,82 +620,56 @@ require("lazy").setup({
       vim.keymap.set("n", "<c-n>", require("nvim-tree.api").tree.toggle)
     end,
   },
-
   {
-    "ibhagwan/fzf-lua",
-    config = function()
-      local fzf = require("fzf-lua")
-
-      local default_winopts = {
-        height = 0.3,
-        width = 1,
-        row = 1,
-        border = "border-top",
-        preview = {
-          delay = 0,
-          horizontal = "right:50%",
-        },
-      }
-
-      local no_preview_winopts = {
-        preview = {
-          hidden = "hidden",
-        },
-      }
-
-      vim.keymap.set("n", "<leader>f", fzf.files)
-      vim.keymap.set("n", "<leader>o", fzf.oldfiles)
-      vim.keymap.set("n", "<leader>b", fzf.buffers)
-      vim.keymap.set("n", "<leader>/", function() fzf.live_grep({ cwd = vim.fn.expand("%:p:h") }) end)
-      vim.keymap.set("v", "<leader>/", function() fzf.grep_visual({ cwd = vim.fn.expand("%:p:h") }) end)
-      vim.keymap.set("n", "<leader>?", fzf.live_grep)
-      vim.keymap.set("v", "<leader>?", fzf.grep_visual)
-      vim.keymap.set("n", "<leader>d", function() fzf.diagnostics_workspace({ severity_only = "error" }) end)
-      vim.keymap.set("n", "<leader>D", fzf.diagnostics_workspace)
-      vim.keymap.set("n", "<leader>gs", fzf.git_status)
-      vim.keymap.set("n", "<leader>gc", fzf.git_bcommits)
-      vim.keymap.set("n", "<leader>l", fzf.builtin)
-
-      fzf.register_ui_select()
-      fzf.setup({
-        winopts = default_winopts,
-        defaults = {
-          git_icons = false,
-        },
-        fzf_opts = {
-          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
-          ["--no-separator"] = "",
-        },
-        builtin = {
-          winopts = default_winopts,
-        },
-        files = {
-          cwd_prompt = false,
-          winopts = no_preview_winopts,
-        },
-        oldfiles = {
-          winopts = no_preview_winopts,
-        },
-        buffers = {
-          winopts = no_preview_winopts,
-        },
-        grep = {
-          rg_glob = true,
-        },
-        lsp = {
-          includeDeclaration = false,
-          jump_to_single_result = true,
-          symbols = { symbol_style = 3 },
-        },
-        keymap = {
-          fzf = {
-            ["ctrl-n"] = "down",
-            ["ctrl-p"] = "up",
-            ["ctrl-j"] = "next-history",
-            ["ctrl-k"] = "previous-history",
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = {
+      picker = {
+        enabled = true,
+        icons = {
+          files = {
+            enabled = false,
           },
         },
-      })
-    end,
+        layout = {
+          layout = {
+            box = "vertical",
+            backdrop = false,
+            row = -1,
+            width = 0,
+            height = 0.3,
+            border = "top",
+            title = "{title} {live} {flags}",
+            { win = "input", height = 1 },
+            {
+              box = "horizontal",
+              { win = "list" },
+              { win = "preview", width = 0.5 },
+            },
+          },
+        },
+        win = {
+          input = {
+            keys = {
+              ["<Esc>"] = { "close", mode = { "n", "i" } },
+              ["<c-j>"] = { "history_forward", mode = { "i", "n" } },
+              ["<c-k>"] = { "history_back", mode = { "i", "n" } },
+            },
+          },
+        },
+      },
+    },
+    keys = {
+      { "<leader>f", function() Snacks.picker.files({ layout = { preview = false } }) end },
+      { "<leader>o", function() Snacks.picker.recent({ layout = { preview = false } }) end },
+      { "<leader>b", function() Snacks.picker.buffers() end },
+      { "<leader>/", function() Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") }) end },
+      { "<leader>?", function() Snacks.picker.grep() end },
+      { "<leader>d", function() Snacks.picker.diagnostics() end },
+      { "<leader>gs", function() Snacks.picker.git_status() end },
+      { "<leader>gl", function() Snacks.picker.git_log() end },
+      { "<leader>l", function() Snacks.picker.pick() end },
+    },
   },
 })

@@ -28,9 +28,13 @@ yellow = "#803d1c"
 
 [font]
 size = 14
-normal = { family = "TX02 Nerd Font", style = "SemiCondensed" }
-bold = { family = "TX02 Nerd Font", style = "SemiCondensed Bold" }
-italic = { family = "TX02 Nerd Font", style = "SemiCondensed Oblique" }
+normal = { family = "RecMonoLinear Nerd Font", style = "Regular" }
+bold = { family = "RecMonoLinear Nerd Font", style = "Bold" }
+italic = { family = "RecMonoLinear Nerd Font", style = "Italic" }
+
+# normal = { family = "TX02 Nerd Font", style = "SemiCondensed" }
+# bold = { family = "TX02 Nerd Font", style = "SemiCondensed Bold" }
+# italic = { family = "TX02 Nerd Font", style = "SemiCondensed Oblique" }
 
 [[hints.enabled]]
 command = "open"
