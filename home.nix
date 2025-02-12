@@ -72,10 +72,7 @@ in
     git
     gnumake
     go
-    golangci-lint
     google-java-format
-    gopls
-    gotools
     gradle
     gradle-completion
     graphviz
