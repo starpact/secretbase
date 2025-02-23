@@ -1,12 +1,3 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
----@diagnostic disable-next-line: undefined-field
-if not vim.uv.fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then error("Error cloning lazy.nvim:\n" .. out) end
-end
-vim.opt.rtp:prepend(lazypath)
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -28,8 +19,6 @@ vim.o.swapfile = false
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.undofile = true
-vim.o.cursorline = true
-vim.o.cursorlineopt = "number"
 
 vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -202,6 +191,15 @@ do
     callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf) end,
   })
 end
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+---@diagnostic disable-next-line: undefined-field
+if not vim.uv.fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then error("Error cloning lazy.nvim:\n" .. out) end
+end
+vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { "kylechui/nvim-surround", event = "VeryLazy", opts = {} },
@@ -395,7 +393,7 @@ require("lazy").setup({
         pattern = "*",
         callback = function()
           if vim.tbl_contains(fts_manual_format, vim.bo.filetype) then return end
-          conform.format({ lsp_format = "fallback" })
+          conform.format({ lsp_format = "fallback", timeout_ms = 2000 })
         end,
       })
 
@@ -625,6 +623,7 @@ require("lazy").setup({
     priority = 1000,
     lazy = false,
     opts = {
+      explorer = {},
       picker = {
         enabled = true,
         icons = {
