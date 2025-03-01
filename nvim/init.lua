@@ -297,6 +297,9 @@ require("lazy").setup({
           enable = true,
           disable = { "xml" },
         },
+        indent = {
+          enable = true,
+        },
         incremental_selection = {
           enable = true,
           keymaps = {
@@ -445,12 +448,13 @@ require("lazy").setup({
       local default_config = {
         capabilities = vim.lsp.protocol.make_client_capabilities(),
         on_attach = function(_, bufnr)
+          local picker_opts = { jump = { reuse_win = false } }
           local opts = { buffer = bufnr }
-          vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, opts)
-          vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations() end, opts)
-          vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions() end, opts)
-          vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references() end, opts)
-          vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, opts)
+          vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions(picker_opts) end, opts)
+          vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations(picker_opts) end, opts)
+          vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions(picker_opts) end, opts)
+          vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references(picker_opts) end, opts)
+          vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations(picker_opts) end, opts)
           vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
           vim.keymap.set("n", "<leader>s", function() Snacks.picker.lsp_symbols() end, opts)
           vim.keymap.set("n", "<leader>S", function() Snacks.picker.lsp_workspace_symbols() end, opts)
@@ -555,9 +559,9 @@ require("lazy").setup({
       vim.g["test#custom_strategies"] = {
         tmux_pane = function(cmd)
           local function send_command() vim.system({ "tmux", "send-key", "-t", ".2", cmd .. "\n" }) end
-          vim.system({ "tmux", "list-panes" }, function(ret)
+          vim.system({ "tmux", "list-panes" }, nil, function(ret)
             if ret.stdout:find("\n") == ret.stdout:len() then
-              vim.system({ "tmux", "split-window" }, send_command)
+              vim.system({ "tmux", "split-window" }, nil, send_command)
             else
               send_command()
             end

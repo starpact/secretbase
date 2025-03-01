@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/73cf49b8ad837ade2de76f87eb53fc85ed5d4680.tar.gz";
-      sha256 = "sha256:1blzcjd13srns4f5b4sl5ad2qqr8wh0p7pxbyl1c15lrsa075v8h";
+      url = "https://github.com/NixOS/nixpkgs/archive/5135c59491985879812717f4c9fea69604e7f26f.tar.gz";
+      sha256 = "sha256:09qy7zv80bkd9ighsw0bdxjq70dw3qjnyvg7il1fycrsgs5x1gan";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/36864ed72f234b9540da4cf7a0c49e351d30d3f1.tar.gz";
-      sha256 = "sha256:1wr1xzkw7v8biqqjcr867gbpqf3kibkgly36lcnhw0glvkr1i986";
+      url = "https://github.com/NixOS/nixpkgs/archive/f44bd8ca21e026135061a0a57dcf3d0775b67a49.tar.gz";
+      sha256 = "sha256:09qy7zv80bkd9ighsw0bdxjq70dw3qjnyvg7il1fycrsgs5x1gan";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -19,6 +19,7 @@ in
 
   imports =
     if pkgs.stdenv.isDarwin then [ (import ./macos.nix { inherit pkgs-stable; }) ]
+    else if pkgs.stdenv.isLInux then [ (import ./linux.nix) ]
     else [ ];
 
   fonts.fontconfig.enable = true;
@@ -72,7 +73,10 @@ in
     git
     gnumake
     go
+    golangci-lint
     google-java-format
+    gopls
+    gotools
     gradle
     gradle-completion
     graphviz

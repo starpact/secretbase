@@ -32,9 +32,9 @@ normal = { family = "RecMonoLinear Nerd Font", style = "Regular" }
 bold = { family = "RecMonoLinear Nerd Font", style = "Bold" }
 italic = { family = "RecMonoLinear Nerd Font", style = "Italic" }
 
-# normal = { family = "TX02 Nerd Font", style = "SemiCondensed" }
-# bold = { family = "TX02 Nerd Font", style = "SemiCondensed Bold" }
-# italic = { family = "TX02 Nerd Font", style = "SemiCondensed Oblique" }
+# normal = { family = "TX02 Nerd Font", style = "Regular" }
+# bold = { family = "TX02 Nerd Font", style = "Bold" }
+# italic = { family = "TX02 Nerd Font", style = "Oblique" }
 
 [[hints.enabled]]
 command = "open"
