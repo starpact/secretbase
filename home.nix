@@ -19,7 +19,7 @@ in
 
   imports =
     if pkgs.stdenv.isDarwin then [ (import ./macos.nix { inherit pkgs-stable; }) ]
-    else if pkgs.stdenv.isLInux then [ (import ./linux.nix) ]
+    else if pkgs.stdenv.isLinux then [ (import ./linux.nix) ]
     else [ ];
 
   fonts.fontconfig.enable = true;
