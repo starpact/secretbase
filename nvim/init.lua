@@ -278,9 +278,6 @@ require("lazy").setup({
       vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
       vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
 
-      vim.api.nvim_set_hl(0, "SnacksPicker", { link = "Normal" })
-      vim.api.nvim_set_hl(0, "SnacksPickerTitle", { link = "Bold" })
-
       for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
         vim.api.nvim_set_hl(0, group, {})
       end
@@ -642,8 +639,7 @@ require("lazy").setup({
             row = -1,
             width = 0,
             height = 0.3,
-            border = "top",
-            title = "{title} {live} {flags}",
+            border = "none",
             { win = "input", height = 1 },
             {
               box = "horizontal",
