@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/ba487dbc9d04e0634c64e3b1f0d25839a0a68246.tar.gz";
-      sha256 = "sha256:0wr8pnx2bkr88vxv3aqa9y9vrcixicm2vahws7i2kvcpy8mnb4sr";
+      url = "https://github.com/NixOS/nixpkgs/archive/10069ef4cf863633f57238f179a0297de84bd8d3.tar.gz";
+      sha256 = "sha256:0id7fn7l9p0ibv3g5lvzm6y2wj2xzj2p39d8xavxwydxhqzlraj3";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/6af28b834daca767a7ef99f8a7defa957d0ade6f.tar.gz";
-      sha256 = "sha256:0wr8pnx2bkr88vxv3aqa9y9vrcixicm2vahws7i2kvcpy8mnb4sr";
+      url = "https://github.com/NixOS/nixpkgs/archive/20755fa05115c84be00b04690630cb38f0a203ad.tar.gz";
+      sha256 = "sha256:013q5l72i020y3b7sdw1naiqwxm4h29alwlzkv4jsnb2k7qmwbdf";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -56,7 +56,6 @@ in
     biome
     checkstyle
     clang-tools
-    clickhouse
     cmake
     codespell
     cppcheck
@@ -78,7 +77,6 @@ in
     gopls
     gotools
     gradle
-    gradle-completion
     graphviz
     grpcurl
     htop
@@ -88,8 +86,7 @@ in
     jq
     lazygit
     lld
-    llvmPackages.libllvm
-    llvmPackages.lldb
+    lldb
     lsof
     lua-language-server
     lz4
@@ -102,6 +99,7 @@ in
     nerd-fonts.martian-mono
     nerd-fonts.recursive-mono
     nil
+    ninja
     nixpkgs-fmt
     nodePackages.prettier
     nodejs
