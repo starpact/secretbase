@@ -27,14 +27,14 @@ white = "#4f5e68"
 yellow = "#803d1c"
 
 [font]
-size = 16
-normal = { family = "RecMonoLinear Nerd Font", style = "Regular" }
-bold = { family = "RecMonoLinear Nerd Font", style = "Bold" }
-italic = { family = "RecMonoLinear Nerd Font", style = "Italic" }
+size = 12
+# normal = { family = "RecMonoLinear Nerd Font", style = "Regular" }
+# bold = { family = "RecMonoLinear Nerd Font", style = "Bold" }
+# italic = { family = "RecMonoLinear Nerd Font", style = "Italic" }
 
-# normal = { family = "TX02 Nerd Font", style = "Regular" }
-# bold = { family = "TX02 Nerd Font", style = "Bold" }
-# italic = { family = "TX02 Nerd Font", style = "Oblique" }
+normal = { family = "BerkeleyMono Nerd Font", style = "Regular" }
+bold = { family = "BerkeleyMono Nerd Font", style = "Bold" }
+italic = { family = "BerkeleyMono Nerd Font", style = "Oblique" }
 
 [[hints.enabled]]
 command = "open"

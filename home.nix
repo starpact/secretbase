@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/10069ef4cf863633f57238f179a0297de84bd8d3.tar.gz";
-      sha256 = "sha256:0id7fn7l9p0ibv3g5lvzm6y2wj2xzj2p39d8xavxwydxhqzlraj3";
+      url = "https://github.com/NixOS/nixpkgs/archive/e3e32b642a31e6714ec1b712de8c91a3352ce7e1.tar.gz";
+      sha256 = "sha256:0aa89pl1xs0kri9ixxg488n7riqi5n9ys89xqc0immyqshqc1d7f";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/20755fa05115c84be00b04690630cb38f0a203ad.tar.gz";
-      sha256 = "sha256:013q5l72i020y3b7sdw1naiqwxm4h29alwlzkv4jsnb2k7qmwbdf";
+      url = "https://github.com/NixOS/nixpkgs/archive/ebe2788eafd539477f83775ef93c3c7e244421d3.tar.gz";
+      sha256 = "sha256:19lbbpqcgjzvcwx8y6wknhh7xrdskh6f61ckbvlwww27r3lz5w69";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -134,7 +134,7 @@ in
   ];
 
   home.sessionVariables = {
-    PATH = "$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
+    PATH = "$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
     FZF_DEFAULT_OPTS = "--color=light";
   };
 
@@ -172,6 +172,5 @@ in
       defaultEditor = true;
     };
     starship.enable = true;
-    zoxide.enable = true;
   };
 }
