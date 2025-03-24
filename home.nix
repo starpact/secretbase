@@ -3,14 +3,14 @@
 let
   pkgs = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/e3e32b642a31e6714ec1b712de8c91a3352ce7e1.tar.gz";
-      sha256 = "sha256:0aa89pl1xs0kri9ixxg488n7riqi5n9ys89xqc0immyqshqc1d7f";
+      url = "https://github.com/NixOS/nixpkgs/archive/a84ebe20c6bc2ecbcfb000a50776219f48d134cc.tar.gz";
+      sha256 = "sha256:053xxy1bn35d9088h3rznhqkqq7lnnhn4ahrilwik8l4b6k8inlq";
     })
     { };
   pkgs-stable = import
     (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/ebe2788eafd539477f83775ef93c3c7e244421d3.tar.gz";
-      sha256 = "sha256:19lbbpqcgjzvcwx8y6wknhh7xrdskh6f61ckbvlwww27r3lz5w69";
+      url = "https://github.com/NixOS/nixpkgs/archive/7105ae3957700a9646cc4b766f5815b23ed0c682.tar.gz";
+      sha256 = "sha256:0j3jd82iyyck4hpmz7pkak1v27l7pydl0c3vvyz6wfpi612x8xzi";
     })
     { config = { allowUnfree = true; }; };
 in
@@ -81,7 +81,6 @@ in
     grpcurl
     htop
     hyperfine
-    inetutils
     jdk
     jq
     lazygit
@@ -134,7 +133,7 @@ in
   ];
 
   home.sessionVariables = {
-    PATH = "$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH:$HOME/.npm-global/bin";
+    PATH = "$PATH:$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.npm-global/bin";
     FZF_DEFAULT_OPTS = "--color=light";
   };
 
