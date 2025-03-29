@@ -1,26 +1,7 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
-let
-  pkgs = import
-    (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/a84ebe20c6bc2ecbcfb000a50776219f48d134cc.tar.gz";
-      sha256 = "sha256:053xxy1bn35d9088h3rznhqkqq7lnnhn4ahrilwik8l4b6k8inlq";
-    })
-    { };
-  pkgs-stable = import
-    (fetchTarball {
-      url = "https://github.com/NixOS/nixpkgs/archive/7105ae3957700a9646cc4b766f5815b23ed0c682.tar.gz";
-      sha256 = "sha256:0j3jd82iyyck4hpmz7pkak1v27l7pydl0c3vvyz6wfpi612x8xzi";
-    })
-    { config = { allowUnfree = true; }; };
-in
 {
   home.stateVersion = "24.11";
-
-  imports =
-    if pkgs.stdenv.isDarwin then [ (import ./macos.nix { inherit pkgs-stable; }) ]
-    else if pkgs.stdenv.isLinux then [ (import ./linux.nix) ]
-    else [ ];
 
   fonts.fontconfig.enable = true;
 
@@ -52,8 +33,10 @@ in
     '';
   in
   [
+    awscli2
     bash-language-server
     biome
+    buf
     checkstyle
     clang-tools
     cmake
@@ -129,6 +112,7 @@ in
     vscode-langservers-extracted
     wget
     yamllint
+    zip
     zstd
   ];
 
@@ -149,7 +133,6 @@ in
         gs = "git status";
         ta = "tmux a";
         lg = "lazygit";
-        hs = "home-manager switch -f ./home.nix";
       };
     };
     bat = {

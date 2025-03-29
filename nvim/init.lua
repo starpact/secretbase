@@ -450,13 +450,9 @@ require("lazy").setup({
           vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions(picker_opts) end, opts)
           vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations(picker_opts) end, opts)
           vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions(picker_opts) end, opts)
-          vim.keymap.set("n", "gr", function() Snacks.picker.lsp_references(picker_opts) end, opts)
-          vim.keymap.set("n", "gi", function() Snacks.picker.lsp_implementations(picker_opts) end, opts)
-          vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
-          vim.keymap.set("n", "<leader>s", function() Snacks.picker.lsp_symbols() end, opts)
-          vim.keymap.set("n", "<leader>S", function() Snacks.picker.lsp_workspace_symbols() end, opts)
-          vim.keymap.set("i", "<c-s>", vim.lsp.buf.signature_help, opts)
-          vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+          vim.keymap.set("n", "grr", function() Snacks.picker.lsp_references(picker_opts) end, opts)
+          vim.keymap.set("n", "gri", function() Snacks.picker.lsp_implementations(picker_opts) end, opts)
+          vim.keymap.set("n", "gO", function() Snacks.picker.lsp_symbols() end, opts)
         end,
       }
 

@@ -1,11 +1,10 @@
-{ pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   home.username = "hongjie.yan";
   home.homeDirectory = "/Users/hongjie.yan";
 
-  home.packages = with pkgs-stable; [
-    awscli2
+  home.packages = with pkgs.stable; [
     colima
     docker
     findutils
@@ -41,6 +40,10 @@
 
         source ~/.work
       '';
+
+      shellAliases = {
+        hs = "home-manager switch --flake .#mac";
+      };
     };
   };
 }
