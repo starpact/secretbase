@@ -96,22 +96,20 @@ end)
 
 -- Toggle diagnostic virtual text.
 local diagnostic_config = {
-  severity_sort = true,
+  virtual_text = false,
+  signs = {
+    text = { "", "", "", "" },
+  },
   float = {
     source = true,
   },
-  virtual_text = false,
+  severity_sort = true,
 }
 vim.diagnostic.config(diagnostic_config)
 vim.keymap.set("n", "<a-D>", function()
   diagnostic_config.virtual_text = not diagnostic_config.virtual_text
   vim.diagnostic.config(diagnostic_config)
 end)
-
-for _, type in ipairs({ "Error", "Warn", "Hint", "Info" }) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = "", texthl = hl })
-end
 
 -- statusline
 do
@@ -281,6 +279,8 @@ require("lazy").setup({
       for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
         vim.api.nvim_set_hl(0, group, {})
       end
+
+      vim.api.nvim_set_hl(0, "LspReferenceTarget", {})
     end,
   },
 
@@ -428,6 +428,13 @@ require("lazy").setup({
 
       lint.linters.codespell.stdin = false
       lint.linters.codespell.args = { "-L", "crate,flate,inout,lits,NotIn,ot,ser,statics,te,wit" }
+
+      lint.linters.golangcilint.args = {
+        "run",
+        "--output.json.path=stdout",
+        "--issues-exit-code=0",
+        "--show-stats=false",
+      }
 
       vim.api.nvim_create_autocmd("BufWritePost", {
         callback = function()
