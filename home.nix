@@ -109,7 +109,6 @@
     urldecode
     urlencode
     uv
-    vscode-langservers-extracted
     wget
     yamllint
     zip
