@@ -449,8 +449,10 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     event = "VeryLazy",
     config = function()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.completion.completionItem.snippetSupport = false
       local default_config = {
-        capabilities = vim.lsp.protocol.make_client_capabilities(),
+        capabilities = capabilities,
         on_attach = function(_, bufnr)
           local picker_opts = { jump = { reuse_win = false } }
           local opts = { buffer = bufnr }
@@ -512,7 +514,7 @@ require("lazy").setup({
           },
         },
         ["taplo"] = {},
-        ["vtsls"] = {},
+        ["ts_ls"] = {},
         ["zls"] = {},
       }) do
         lspconfig[server].setup(extend_default(config))

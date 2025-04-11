@@ -104,6 +104,7 @@
     tmux
     tokei
     typescript
+    typescript-language-server
     typst
     unzip
     urldecode
