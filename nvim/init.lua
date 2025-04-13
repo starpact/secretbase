@@ -470,20 +470,10 @@ require("lazy").setup({
         return vim.tbl_deep_extend("force", default_config, config)
       end
 
-      local pack_dir
-      for _, path in ipairs(vim.opt.runtimepath:get()) do
-        if path:match("vim%-pack%-dir") then pack_dir = path end
-      end
-
-      local lspconfig = require("lspconfig")
       for server, config in pairs({
         ["bashls"] = {},
         ["buf_ls"] = {},
-        ["clangd"] = {
-          capabilities = {
-            offsetEncoding = { "utf-16" },
-          },
-        },
+        ["clangd"] = {},
         ["cssls"] = {},
         ["eslint"] = {},
         ["gopls"] = {},
@@ -492,11 +482,9 @@ require("lazy").setup({
         ["lua_ls"] = {
           settings = {
             Lua = {
-              runtime = "LuaJIT",
               workspace = {
                 library = {
                   vim.fn.expand("$VIMRUNTIME/lua"),
-                  pack_dir,
                 },
               },
             },
@@ -517,7 +505,8 @@ require("lazy").setup({
         ["ts_ls"] = {},
         ["zls"] = {},
       }) do
-        lspconfig[server].setup(extend_default(config))
+        vim.lsp.config(server, extend_default(config))
+        vim.lsp.enable(server)
       end
     end,
   },
