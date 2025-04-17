@@ -503,7 +503,6 @@ require("lazy").setup({
         },
         ["taplo"] = {},
         ["ts_ls"] = {},
-        ["zls"] = {},
       }) do
         vim.lsp.config(server, extend_default(config))
         vim.lsp.enable(server)
