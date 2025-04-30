@@ -19,8 +19,8 @@ vim.o.swapfile = false
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.undofile = true
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
 
-vim.api.nvim_create_autocmd("CursorMoved", { command = "echo" })
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function() vim.highlight.on_yank({ higroup = "Search", timeout = 200 }) end,
 })
@@ -225,6 +225,7 @@ require("lazy").setup({
       vim.keymap.set("n", "<esc>", function()
         if mc.hasCursors() then mc.clearCursors() end
         vim.cmd("nohlsearch")
+        vim.cmd("echo")
       end)
     end,
   },
@@ -451,17 +452,18 @@ require("lazy").setup({
     config = function()
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities.textDocument.completion.completionItem.snippetSupport = false
+      local fzf = require("fzf-lua")
       local default_config = {
         capabilities = capabilities,
         on_attach = function(_, bufnr)
-          local picker_opts = { jump = { reuse_win = false } }
           local opts = { buffer = bufnr }
-          vim.keymap.set("n", "gd", function() Snacks.picker.lsp_definitions(picker_opts) end, opts)
-          vim.keymap.set("n", "gD", function() Snacks.picker.lsp_declarations(picker_opts) end, opts)
-          vim.keymap.set("n", "gy", function() Snacks.picker.lsp_type_definitions(picker_opts) end, opts)
-          vim.keymap.set("n", "grr", function() Snacks.picker.lsp_references(picker_opts) end, opts)
-          vim.keymap.set("n", "gri", function() Snacks.picker.lsp_implementations(picker_opts) end, opts)
-          vim.keymap.set("n", "gO", function() Snacks.picker.lsp_symbols() end, opts)
+          vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
+          vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
+          vim.keymap.set("n", "gy", fzf.lsp_typedefs, opts)
+          vim.keymap.set("n", "grr", fzf.lsp_references, opts)
+          vim.keymap.set("n", "gri", fzf.lsp_implementations, opts)
+          vim.keymap.set("n", "gra", fzf.lsp_code_actions, opts)
+          vim.keymap.set("n", "gO", fzf.lsp_document_symbols, opts)
         end,
       }
 
@@ -562,7 +564,7 @@ require("lazy").setup({
       vim.g["test#strategy"] = "tmux_pane"
 
       vim.g["test#go#runner"] = "gotest"
-      vim.g["test#go#gotest#options"] = "-v -race -failfast --count=1"
+      vim.g["test#go#gotest#options"] = "-v --count=1"
 
       vim.g["test#rust#runner"] = "cargotest"
       vim.g["test#rust#cargotest#options"] = "-- --nocapture --include-ignored"
@@ -613,55 +615,76 @@ require("lazy").setup({
     end,
   },
   {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    opts = {
-      explorer = {},
-      picker = {
-        enabled = true,
-        icons = {
-          files = {
-            enabled = false,
+    "ibhagwan/fzf-lua",
+    config = function()
+      local fzf = require("fzf-lua")
+
+      local default_winopts = {
+        height = 0.3,
+        width = 1,
+        row = 1,
+        border = "border-top",
+        title_flags = false,
+        preview = {
+          delay = 0,
+          horizontal = "right:50%",
+        },
+      }
+
+      local no_preview_winopts = {
+        preview = {
+          hidden = "hidden",
+        },
+      }
+
+      vim.keymap.set("n", "<leader>f", fzf.files)
+      vim.keymap.set("n", "<leader>o", fzf.oldfiles)
+      vim.keymap.set("n", "<leader>b", fzf.buffers)
+      vim.keymap.set("n", "<leader>/", function() fzf.live_grep({ cwd = vim.fn.expand("%:p:h") }) end)
+      vim.keymap.set("v", "<leader>/", function() fzf.grep_visual({ cwd = vim.fn.expand("%:p:h") }) end)
+      vim.keymap.set("n", "<leader>?", fzf.live_grep)
+      vim.keymap.set("v", "<leader>?", fzf.grep_visual)
+      vim.keymap.set("n", "<leader>d", fzf.diagnostics_workspace)
+      vim.keymap.set("n", "<leader>gs", fzf.git_status)
+      vim.keymap.set("n", "<leader>gc", fzf.git_bcommits)
+      vim.keymap.set("n", "<leader>l", fzf.builtin)
+
+      fzf.register_ui_select()
+      fzf.setup({
+        winopts = default_winopts,
+        fzf_opts = {
+          ["--history"] = vim.fn.stdpath("data") .. "/fzf-lua-history",
+          ["--no-separator"] = "",
+        },
+        builtin = {
+          winopts = default_winopts,
+        },
+        files = {
+          cwd_prompt = false,
+          winopts = no_preview_winopts,
+        },
+        oldfiles = {
+          winopts = no_preview_winopts,
+        },
+        buffers = {
+          winopts = no_preview_winopts,
+        },
+        grep = {
+          rg_glob = true,
+        },
+        lsp = {
+          includeDeclaration = false,
+          symbols = { symbol_style = 3 },
+        },
+        keymap = {
+          fzf = {
+            ["ctrl-n"] = "down",
+            ["ctrl-p"] = "up",
+            ["ctrl-j"] = "next-history",
+            ["ctrl-k"] = "previous-history",
           },
         },
-        layout = {
-          layout = {
-            box = "vertical",
-            backdrop = false,
-            row = -1,
-            width = 0,
-            height = 0.3,
-            border = "none",
-            { win = "input", height = 1 },
-            {
-              box = "horizontal",
-              { win = "list" },
-              { win = "preview", width = 0.5 },
-            },
-          },
-        },
-        win = {
-          input = {
-            keys = {
-              ["<Esc>"] = { "close", mode = { "n", "i" } },
-              ["<c-j>"] = { "history_forward", mode = { "i", "n" } },
-              ["<c-k>"] = { "history_back", mode = { "i", "n" } },
-            },
-          },
-        },
-      },
-    },
-    keys = {
-      { "<leader>f", function() Snacks.picker.files({ layout = { preview = false } }) end },
-      { "<leader>o", function() Snacks.picker.recent({ layout = { preview = false } }) end },
-      { "<leader>b", function() Snacks.picker.buffers() end },
-      { "<leader>/", function() Snacks.picker.grep({ cwd = vim.fn.expand("%:p:h") }) end },
-      { "<leader>?", function() Snacks.picker.grep() end },
-      { "<leader>d", function() Snacks.picker.diagnostics() end },
-      { "<leader>gs", function() Snacks.picker.git_status() end },
-      { "<leader>gl", function() Snacks.picker.git_log() end },
-      { "<leader>l", function() Snacks.picker.pick() end },
-    },
+      })
+    end,
   },
 })

@@ -27,7 +27,7 @@ white = "#4f5e68"
 yellow = "#803d1c"
 
 [font]
-size = 12
+size = 13
 # normal = { family = "RecMonoLinear Nerd Font", style = "Regular" }
 # bold = { family = "RecMonoLinear Nerd Font", style = "Bold" }
 # italic = { family = "RecMonoLinear Nerd Font", style = "Italic" }
@@ -66,7 +66,6 @@ bindings = [
   { chars = "\u00018", key = "Key8", mods = "Command" },
   { chars = "\u00019", key = "Key9", mods = "Command" },
   { chars = "\u0001s", key = "S", mods = "Command" },
-  { chars = "\u0001[", key = "X", mods = "Control|Shift" },
   { chars = "\u0001p", key = "LBracket", mods = "Command" },
   { chars = "\u0001n", key = "RBracket", mods = "Command" },
   { action = "ToggleViMode", key = "Q", mode = "Vi|~Search" },
