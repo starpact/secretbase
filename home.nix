@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   fonts.fontconfig.enable = true;
 
@@ -114,6 +114,8 @@
     yamllint
     zip
     zstd
+
+    pkgs.stable.postgresql
   ];
 
   home.sessionVariables = {
