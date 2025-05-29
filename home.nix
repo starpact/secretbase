@@ -45,7 +45,6 @@
     delve
     dig
     dua
-    duckdb
     eslint
     eza
     fastfetch
