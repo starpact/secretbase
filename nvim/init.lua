@@ -266,6 +266,7 @@ require("lazy").setup({
       vim.api.nvim_set_hl(0, "@function.macro", { link = "Function" })
       vim.api.nvim_set_hl(0, "@function.builtin", { link = "Function" })
       vim.api.nvim_set_hl(0, "@constructor", { link = "Function" })
+      vim.api.nvim_set_hl(0, "@keyword.exception", { link = "Function" })
       vim.api.nvim_set_hl(0, "Boolean", { link = "Constant" })
 
       vim.api.nvim_set_hl(0, "StatusLineNC", { fg = specs.FloatBorder.fg.hex, bg = specs.StatusLine.bg.hex })

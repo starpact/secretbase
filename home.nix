@@ -73,11 +73,13 @@
     lz4
     maven
     moreutils
+    nerd-fonts."m+"
     nerd-fonts.caskaydia-cove
     nerd-fonts.fantasque-sans-mono
     nerd-fonts.fira-code
     nerd-fonts.iosevka-term
     nerd-fonts.martian-mono
+    nerd-fonts.monaspace
     nerd-fonts.recursive-mono
     nil
     ninja
