@@ -372,7 +372,6 @@ require("lazy").setup({
       conform.setup({
         formatters_by_ft = {
           css = { "biome" },
-          go = { "goimports" },
           java = { "google-java-format" },
           javascript = { "biome" },
           javascriptreact = { "biome" },
@@ -456,7 +455,7 @@ require("lazy").setup({
       local fzf = require("fzf-lua")
       local default_config = {
         capabilities = capabilities,
-        on_attach = function(_, bufnr)
+        on_attach = function(client, bufnr)
           local opts = { buffer = bufnr }
           vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
           vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
@@ -465,6 +464,22 @@ require("lazy").setup({
           vim.keymap.set("n", "gri", fzf.lsp_implementations, opts)
           vim.keymap.set("n", "gra", fzf.lsp_code_actions, opts)
           vim.keymap.set("n", "gO", fzf.lsp_document_symbols, opts)
+
+          if client.config.name == "gopls" then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              callback = function()
+                local params = vim.lsp.util.make_range_params(0, "utf-8")
+                params.context = { only = { "source.organizeImports" } } ---@diagnostic disable-line
+                local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 2000)
+                for _, res in pairs(result or {}) do
+                  for _, r in pairs(res.result or {}) do
+                    if r.edit then vim.lsp.util.apply_workspace_edit(r.edit, "utf-8") end
+                  end
+                end
+              end,
+            })
+          end
         end,
       }
 
@@ -476,7 +491,7 @@ require("lazy").setup({
       for server, config in pairs({
         ["bashls"] = {},
         ["buf_ls"] = {},
-        ["clangd"] = {},
+        -- ["clangd"] = {},
         ["cssls"] = {},
         ["eslint"] = {},
         ["gopls"] = {},
@@ -632,12 +647,6 @@ require("lazy").setup({
         },
       }
 
-      local no_preview_winopts = {
-        preview = {
-          hidden = "hidden",
-        },
-      }
-
       vim.keymap.set("n", "<leader>f", fzf.files)
       vim.keymap.set("n", "<leader>o", fzf.oldfiles)
       vim.keymap.set("n", "<leader>b", fzf.buffers)
@@ -662,20 +671,19 @@ require("lazy").setup({
         },
         files = {
           cwd_prompt = false,
-          winopts = no_preview_winopts,
+          winopts = { preview = { hidden = true } },
         },
         oldfiles = {
-          winopts = no_preview_winopts,
-        },
-        buffers = {
-          winopts = no_preview_winopts,
+          winopts = { preview = { hidden = true } },
         },
         grep = {
           rg_glob = true,
+          winopts = { fullscreen = true },
         },
         lsp = {
           includeDeclaration = false,
           symbols = { symbol_style = 3 },
+          winopts = { fullscreen = true },
         },
         keymap = {
           fzf = {

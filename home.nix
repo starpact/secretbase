@@ -73,13 +73,10 @@
     lz4
     maven
     moreutils
-    nerd-fonts."m+"
     nerd-fonts.caskaydia-cove
-    nerd-fonts.fantasque-sans-mono
     nerd-fonts.fira-code
     nerd-fonts.iosevka-term
     nerd-fonts.martian-mono
-    nerd-fonts.monaspace
     nerd-fonts.recursive-mono
     nil
     ninja
@@ -113,14 +110,16 @@
     uv
     wget
     yamllint
+    zig
     zip
+    zls
     zstd
 
     pkgs.stable.postgresql
   ];
 
   home.sessionVariables = {
-    PATH = "$PATH:$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.npm-global/bin";
+    PATH = "$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.npm-global/bin:$PATH";
     FZF_DEFAULT_OPTS = "--color=light";
   };
 
@@ -131,7 +130,6 @@
         ls = "eza";
         l = "ls -hl";
         la = "ls -ahl";
-        cat = "bat";
         gp = "git pull";
         gs = "git status";
         ta = "tmux a";
