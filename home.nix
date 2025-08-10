@@ -34,6 +34,7 @@
   in
   [
     awscli2
+    basedpyright
     bash-language-server
     biome
     buf
@@ -76,7 +77,6 @@
     nerd-fonts.caskaydia-cove
     nerd-fonts.fira-code
     nerd-fonts.iosevka-term
-    nerd-fonts.martian-mono
     nerd-fonts.recursive-mono
     nil
     ninja
@@ -88,7 +88,6 @@
     protobuf
     protoc-gen-go
     protoc-gen-go-grpc
-    pyright
     python3
     ripgrep
     ruff
@@ -116,11 +115,13 @@
     zstd
 
     pkgs.stable.postgresql
+    pkgs.stable.neovim
   ];
 
   home.sessionVariables = {
     PATH = "$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$HOME/.npm-global/bin:$PATH";
     FZF_DEFAULT_OPTS = "--color=light";
+    EDITOR = "nvim";
   };
 
   programs = {
@@ -134,6 +135,7 @@
         gs = "git status";
         ta = "tmux a";
         lg = "lazygit";
+        vim = "nvim";
       };
     };
     bat = {
@@ -149,11 +151,6 @@
       historyWidgetOptions = [ "--reverse" ];
     };
     home-manager.enable = true;
-    neovim = {
-      enable = true;
-      vimAlias = true;
-      defaultEditor = true;
-    };
     starship.enable = true;
   };
 }

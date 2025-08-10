@@ -2,7 +2,7 @@
   description = "For the first time in forever.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/69dfebb3d175bde602f612915c5576a41b18486b";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
     home-manager = {
       url = "github:nix-community/home-manager";

@@ -416,7 +416,6 @@ require("lazy").setup({
         yaml = { "yamllint" },
       }
 
-      ---@diagnostic disable-next-line
       lint.linters.checkstyle.args = {
         "-c",
         function()
@@ -509,7 +508,7 @@ require("lazy").setup({
           },
         },
         ["nil_ls"] = {},
-        ["pyright"] = {},
+        ["basedpyright"] = {},
         ["rust_analyzer"] = {
           settings = {
             ["rust-analyzer"] = {
