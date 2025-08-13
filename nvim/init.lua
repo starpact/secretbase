@@ -206,12 +206,14 @@ if not vim.uv.fs_stat(mini_path) then
 end
 require("mini.deps").setup()
 
-MiniDeps.later(function() require("mini.pairs").setup() end)
-
 local pkgs = {
   {
     source = "kylechui/nvim-surround",
     later = function() require("nvim-surround").setup() end,
+  },
+  {
+    source = "windwp/nvim-autopairs",
+    later = function() require("nvim-autopairs").setup() end,
   },
   {
     source = "jake-stewart/multicursor.nvim",
@@ -348,8 +350,20 @@ local pkgs = {
           local opts = { buffer = bufnr }
           vim.keymap.set("n", "<leader>gh", gitsigns.preview_hunk, opts)
           vim.keymap.set("n", "<leader>gb", gitsigns.blame_line, opts)
-          vim.keymap.set("n", "[g", function() gitsigns.nav_hunk("prev") end, opts)
-          vim.keymap.set("n", "]g", function() gitsigns.nav_hunk("next") end, opts)
+          vim.keymap.set("n", "]c", function()
+            if vim.wo.diff then
+              vim.cmd.normal({ "]c", bang = true })
+            else
+              gitsigns.nav_hunk("next")
+            end
+          end, opts)
+          vim.keymap.set("n", "[c", function()
+            if vim.wo.diff then
+              vim.cmd.normal({ "[c", bang = true })
+            else
+              gitsigns.nav_hunk("prev")
+            end
+          end, opts)
         end,
       })
     end,
