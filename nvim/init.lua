@@ -588,7 +588,8 @@ local pkgs = {
       vim.g["test#rust#runner"] = "cargotest"
       vim.g["test#rust#cargotest#options"] = "-- --nocapture --include-ignored"
 
-      vim.g["test#python#runner"] = "pyunit"
+      vim.g["test#python#runner"] = "pytest"
+      vim.g["test#python#pytest#options"] = "-s"
 
       vim.keymap.set("n", "<leader>tn", vim.cmd.TestNearest)
       vim.keymap.set("n", "<leader>tf", vim.cmd.TestFile)
