@@ -498,7 +498,7 @@ local pkgs = {
       for server, config in pairs({
         ["bashls"] = {},
         ["buf_ls"] = {},
-        -- ["clangd"] = {},
+        ["clangd"] = {},
         ["cssls"] = {},
         ["eslint"] = {},
         ["gopls"] = {},
@@ -515,7 +515,6 @@ local pkgs = {
             },
           },
         },
-        ["nil_ls"] = {},
         ["basedpyright"] = {},
         ["rust_analyzer"] = {
           settings = {

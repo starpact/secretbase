@@ -74,11 +74,11 @@
     lz4
     maven
     moreutils
+    neovim
     nerd-fonts.caskaydia-cove
     nerd-fonts.fira-code
     nerd-fonts.iosevka-term
     nerd-fonts.recursive-mono
-    nil
     ninja
     nixpkgs-fmt
     nodePackages.prettier
@@ -115,7 +115,6 @@
     zstd
 
     pkgs.stable.postgresql
-    pkgs.stable.neovim
   ];
 
   home.sessionVariables = {
