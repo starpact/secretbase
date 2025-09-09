@@ -289,6 +289,7 @@ vim.schedule(function()
 
   require("nvim-treesitter.configs").setup({
     auto_install = "true",
+    ensure_installed = { "comment" },
     highlight = {
       enable = true,
       disable = { "xml" },
@@ -476,7 +477,7 @@ vim.schedule(function()
     for server, config in pairs({
       ["bashls"] = {},
       ["buf_ls"] = {},
-      ["clangd"] = {},
+      -- ["clangd"] = {},
       ["cssls"] = {},
       ["eslint"] = {},
       ["gopls"] = {},
