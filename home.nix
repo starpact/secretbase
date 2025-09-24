@@ -94,7 +94,7 @@
     rustup
     shellcheck
     shfmt
-    sqlite
+    sqlite-interactive
     stylua
     taplo
     tealdeer

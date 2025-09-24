@@ -436,13 +436,13 @@ vim.schedule(function()
   end
 
   do
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = false
-    local fzf = require("fzf-lua")
-    local default_config = {
-      capabilities = capabilities,
-      on_attach = function(client, bufnr)
-        local opts = { buffer = bufnr }
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if not client then return end
+
+        local fzf = require("fzf-lua")
+        local opts = { buffer = ev.buf }
         vim.keymap.set("n", "gd", fzf.lsp_definitions, opts)
         vim.keymap.set("n", "gD", fzf.lsp_declarations, opts)
         vim.keymap.set("n", "gy", fzf.lsp_typedefs, opts)
@@ -453,7 +453,7 @@ vim.schedule(function()
 
         if client.config.name == "gopls" then
           vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
+            buffer = ev.buf,
             callback = function()
               local params = vim.lsp.util.make_range_params(0, "utf-8")
               params.context = { only = { "source.organizeImports" } } ---@diagnostic disable-line
@@ -467,8 +467,11 @@ vim.schedule(function()
           })
         end
       end,
-    }
+    })
 
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
+    local default_config = { capabilities = capabilities }
     local function extend_default(config)
       if next(config) == nil then return default_config end
       return vim.tbl_deep_extend("force", default_config, config)
@@ -477,7 +480,7 @@ vim.schedule(function()
     for server, config in pairs({
       ["bashls"] = {},
       ["buf_ls"] = {},
-      -- ["clangd"] = {},
+      ["clangd"] = {},
       ["cssls"] = {},
       ["eslint"] = {},
       ["gopls"] = {},
