@@ -2,7 +2,6 @@
 brew install \
     alacritty \
     alfred \
-    breaktimer \
     doll \
     manico \
     obsidian \

@@ -4,14 +4,15 @@
   home.username = "hongjie.yan";
   home.homeDirectory = "/Users/hongjie.yan";
 
-  home.packages = with pkgs.stable; [
+  home.packages = with pkgs; [
     colima
-    docker
-    findutils
-    gnutar
-    lab
-    ssm-session-manager-plugin
-    terraform
+
+    stable.docker
+    stable.findutils
+    stable.gnutar
+    stable.lab
+    stable.ssm-session-manager-plugin
+    stable.terraform
   ];
 
   home.sessionVariables = {

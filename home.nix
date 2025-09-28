@@ -43,6 +43,7 @@
     cmake
     codespell
     cppcheck
+    curl
     delve
     dig
     dua
