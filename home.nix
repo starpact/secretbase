@@ -33,7 +33,6 @@
     '';
   in
   [
-    awscli2
     basedpyright
     bash-language-server
     biome
@@ -115,6 +114,7 @@
     zls
     zstd
 
+    pkgs.stable.awscli2
     pkgs.stable.postgresql
   ];
 

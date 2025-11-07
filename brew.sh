@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 brew install \
     alacritty \
-    alfred \
     doll \
     manico \
     obsidian \

@@ -49,6 +49,13 @@ vim.keymap.set("i", "<a-b>", "<c-left>")
 vim.keymap.set("i", "<a-f>", "<esc>ea")
 vim.keymap.set("i", "<a-d>", "<c-o>de")
 
+vim.keymap.set("c", "<c-b>", "<left>")
+vim.keymap.set("c", "<c-f>", "<right>")
+vim.keymap.set("c", "<c-a>", "<home>")
+vim.keymap.set("c", "<c-e>", "<end>")
+vim.keymap.set("c", "<a-b>", "<s-left>")
+vim.keymap.set("c", "<a-f>", "<s-right>")
+
 vim.keymap.set("n", "<a-s-left>", "<cmd>vertical resize -5<cr>")
 vim.keymap.set("n", "<a-s-down>", "<cmd>resize +5<cr>")
 vim.keymap.set("n", "<a-s-up>", "<cmd>resize -5<cr>")
@@ -418,7 +425,7 @@ vim.schedule(function()
     }
 
     lint.linters.codespell.stdin = false
-    lint.linters.codespell.args = { "-L", "crate,flate,inout,lits,NotIn,ot,ser,statics,te,wit" }
+    lint.linters.codespell.args = { "-L", "aks,crate,flate,inout,lits,NotIn,ot,ser,statics,te,wit" }
 
     lint.linters.golangcilint.args = {
       "run",
