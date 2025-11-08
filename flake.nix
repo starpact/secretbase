@@ -11,43 +11,28 @@
   };
 
   outputs = { nixpkgs, nixpkgs-stable, home-manager, ... }:
+    let
+      mkHome = system: modules:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+            overlays = [
+              (final: prev: {
+                stable = import nixpkgs-stable { inherit (final) system config; };
+              })
+            ];
+          };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./home.nix ] ++ modules;
+        };
+    in
     {
-      # ==================== wsl ====================
-      homeConfigurations.wsl =
-        let
-          system = "x86_64-linux";
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-              (final: prev: {
-                stable = import nixpkgs-stable { inherit (final) system config; };
-              })
-            ];
-          };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./wsl.nix ./home.nix ];
-        };
-
-      # ==================== macos ====================
-      homeConfigurations.mac =
-        let
-          system = "aarch64-darwin";
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-              (final: prev: {
-                stable = import nixpkgs-stable { inherit (final) system config; };
-              })
-            ];
-          };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./mac.nix ./home.nix ];
-        };
+      homeConfigurations = {
+        mac-2025 = mkHome "aarch64-darwin" [ ./mac-2025.nix ];
+        mac-work = mkHome "aarch64-darwin" [ ./mac-work.nix ];
+      };
     };
 }

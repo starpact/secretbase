@@ -74,7 +74,6 @@
     lz4
     maven
     moreutils
-    neovim
     nerd-fonts.caskaydia-cove
     nerd-fonts.fira-code
     nerd-fonts.iosevka-term
@@ -125,8 +124,9 @@
   };
 
   programs = {
-    bash = {
+    zsh = {
       enable = true;
+      defaultKeymap = "emacs";
       shellAliases = {
         ls = "eza";
         l = "ls -hl";
