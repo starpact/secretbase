@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   home.username = "yhj";
@@ -16,7 +16,9 @@
 
   programs = {
     zsh = {
-      initContent = ''eval "$(brew shellenv)"'';
+      initContent = lib.mkOrder 550 ''
+        fpath+=("$(brew --prefix)/share/zsh/site-functions")
+      '';
       shellAliases = {
         hs = "home-manager switch --flake .#mac-2025";
       };

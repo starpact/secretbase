@@ -383,6 +383,7 @@ vim.schedule(function()
         python = { "ruff_format" },
         sh = { "shfmt" },
         terraform = { "terraform_fmt" },
+        toml = { "taplo" },
         typescript = { "biome" },
         typescriptreact = { "biome" },
         yaml = { "prettier" },
@@ -514,7 +515,6 @@ vim.schedule(function()
           },
         },
       },
-      ["taplo"] = {},
       ["ts_ls"] = {},
     }) do
       vim.lsp.config(server, extend_default(config))
