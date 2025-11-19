@@ -18,8 +18,9 @@
             inherit system;
             config.allowUnfree = true;
             overlays = [
-              (final: prev: {
+              (final: _: rec {
                 stable = import nixpkgs-stable { inherit (final) system config; };
+                direnv = stable.direnv;
               })
             ];
           };

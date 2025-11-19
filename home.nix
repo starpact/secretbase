@@ -96,7 +96,6 @@
     sqlite-interactive
     stylua
     taplo
-    tealdeer
     tmux
     tokei
     typescript
@@ -115,6 +114,7 @@
 
     pkgs.stable.awscli2
     pkgs.stable.postgresql
+    pkgs.stable.tealdeer
   ];
 
   home.sessionVariables = {

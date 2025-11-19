@@ -23,6 +23,7 @@
     zsh = {
       initContent = lib.mkOrder 550 ''
         fpath+=("$(brew --prefix)/share/zsh/site-functions")
+        source ~/.work
       '';
       shellAliases = {
         hs = "home-manager switch --flake .#mac-work";
