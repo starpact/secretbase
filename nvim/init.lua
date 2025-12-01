@@ -505,7 +505,9 @@ vim.schedule(function()
           },
         },
       },
-      ["basedpyright"] = {},
+      ["pyrefly"] = {
+        cmd = { "uvx", "pyrefly", "lsp" },
+      },
       ["rust_analyzer"] = {
         settings = {
           ["rust-analyzer"] = {

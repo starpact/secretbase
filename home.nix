@@ -38,7 +38,7 @@
     biome
     buf
     checkstyle
-    clang-tools
+    # clang-tools
     cmake
     codespell
     cppcheck
