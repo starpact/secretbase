@@ -5,9 +5,6 @@
   home.homeDirectory = "/Users/hongjie.yan";
 
   home.packages = with pkgs; [
-    colima
-    docker
-
     stable.findutils
     stable.gnutar
     stable.lab
