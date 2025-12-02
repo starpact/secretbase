@@ -1,7 +1,7 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "6208aefd675939cc7c8f1a57176135974dad269f",
+      "rev": "4993e07fac6679d0a5005aa7499e0bad2bd39f19",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
@@ -9,11 +9,11 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "ddab8eb5de418f0cb066c21d46e83d63c47dfd19",
+      "rev": "cae96b04f6cad98a3ad24349731df5e56b384c3c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "cdafc32",
+      "rev": "5813e4878748805f1518cee7abb50fd7205a3a48",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lush.nvim": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/rktjmp/lush.nvim"
     },
     "multicursor.nvim": {
-      "rev": "a6cf4e7",
+      "rev": "a6cf4e7daaf10a6b14bb7838caf779f0de5070cd",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
     "nvim-autopairs": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "30a2b191bccf541ce1797946324c9329e90ec448",
+      "rev": "effe4bf2e1afb881ea67291c648b68dd3dfc927a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
@@ -45,7 +45,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "3fb91e18a727ecc0385637895ec397dea90be42a",
+      "rev": "776a5cdfac948b490e06f1d1d22c4cb986e40699",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -57,11 +57,11 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "vim-test": {
-      "rev": "bbdc7f5d6280a047c3b1a951614454555a566356",
+      "rev": "1eeb12774a0f251571700ccf68da27789b2f0852",
       "src": "https://github.com/vim-test/vim-test"
     },
     "zenbones.nvim": {
-      "rev": "a934bc0",
+      "rev": "4635a3f46d1066975d1074cd9f61f93cb1e32f64",
       "src": "https://github.com/zenbones-theme/zenbones.nvim"
     }
   }
