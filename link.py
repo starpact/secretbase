@@ -3,6 +3,7 @@
 import os
 
 link_files = [
+    (".clang-format", "~/.clang-format"),
     (".clangd", "~/.clangd"),
     (".editorconfig", "~/.editorconfig"),
     (".yamllint.yaml", "~/.config/yamllint/config"),
@@ -20,6 +21,7 @@ if __name__ == "__main__":
         source = os.path.abspath(source)
         target = os.path.expanduser(target)
         if os.path.exists(target):
-            print(f"target {target} already exists")
+            print(f"skip {target} as it already exists")
             continue
         os.symlink(source, target)
+        print(f"linked {target} -> {source}")

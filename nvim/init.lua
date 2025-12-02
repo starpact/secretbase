@@ -303,6 +303,7 @@ vim.schedule(function()
     },
     indent = {
       enable = true,
+      disable = { "cpp" },
     },
     incremental_selection = {
       enable = true,
@@ -677,4 +678,9 @@ vim.schedule(function()
       },
     })
   end
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "cpp" },
+    callback = function() vim.opt_local.cinkeys:remove(":") end,
+  })
 end)
