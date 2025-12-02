@@ -1,0 +1,14 @@
+[project]
+name = "secretbase"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["I"]
+
+[tool.pyrefly]
+infer-with-first-use = false

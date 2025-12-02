@@ -17,7 +17,9 @@ formula_packages = [
     "delve",
     "direnv",
     "docker",
+    "docker-compose",
     "dua-cli",
+    "duckdb",
     "eslint",
     "eza",
     "fastfetch",
@@ -40,7 +42,7 @@ formula_packages = [
     "ninja",
     "node",
     "openjdk",
-    "pkg-config",
+    "pkgconf",
     "poetry",
     "postgresql",
     "prettier",
@@ -66,9 +68,6 @@ formula_packages = [
     "zstd",
 ]
 
-if socket.gethostname() == "yhjs-MacBook-Pro.local":
-    formula_packages += ["platformio"]
-
 cask_packages = [
     "alacritty",
     "doll",
@@ -80,6 +79,13 @@ cask_packages = [
     "telegram-desktop",
     "visual-studio-code",
 ]
+
+if (hostname := socket.gethostname()) == "yhjs-MacBook-Pro.local":
+    formula_packages += ["platformio"]
+elif hostname.startswith("IT"):
+    formula_packages += ["lab", "terraform"]
+    cask_packages += ["session-manager-plugin"]
+
 
 if __name__ == "__main__":
     subprocess.run(["brew", "install", "--formula"] + formula_packages, check=True)

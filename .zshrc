@@ -1,13 +1,15 @@
+bindkey -e
+
 path=(
   $HOME/bin
   $HOME/.cargo/bin
   $HOME/go/bin
   $HOME/.npm-global/bin
-  $(brew --prefix llvm)/bin
+  /opt/homebrew/opt/llvm/bin
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
   $path
 )
-
-bindkey -e
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
@@ -24,3 +26,7 @@ alias -- vim=nvim
 source <(fzf --zsh)
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
+
+if [ -f "~/.private" ]; then
+    source "~/.private"
+fi

@@ -412,6 +412,7 @@ vim.schedule(function()
       java = { "checkstyle" },
       proto = { "buf_lint" },
       python = { "ruff" },
+      yaml = { "yamllint" },
     }
 
     lint.linters.checkstyle.args = {
