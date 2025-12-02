@@ -72,7 +72,6 @@ cask_packages = [
     "alacritty",
     "doll",
     "manico",
-    "obsidian",
     "rectangle",
     "scroll-reverser",
     "snipaste",

@@ -15,13 +15,14 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U compinit && compinit
 
-alias -- gp='git pull'
-alias -- gs='git status'
-alias -- l='ls -hl'
-alias -- la='ls -ahl'
-alias -- ls=eza
-alias -- ta='tmux a'
-alias -- vim=nvim
+alias gp='git pull'
+alias gs='git status'
+alias l='ls -hl'
+alias la='ls -ahl'
+alias ls=eza
+alias ta='tmux a'
+alias vim=nvim
+alias python=python3
 
 source <(fzf --zsh)
 eval "$(starship init zsh)"
