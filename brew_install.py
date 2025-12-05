@@ -63,6 +63,7 @@ formula_packages = [
     "typescript-language-server",
     "typst",
     "uv",
+    "vscode-langservers-extracted",
     "wget",
     "yamllint",
     "zstd",

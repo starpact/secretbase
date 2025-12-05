@@ -1,14 +1,15 @@
 bindkey -e
 
 path=(
-  $HOME/bin
-  $HOME/.cargo/bin
-  $HOME/go/bin
-  $HOME/.npm-global/bin
-  /opt/homebrew/opt/llvm/bin
-  /opt/homebrew/bin
-  /opt/homebrew/sbin
-  $path
+    $HOME/bin
+    $HOME/.cargo/bin
+    $HOME/go/bin
+    $HOME/.npm-global/bin
+    $HOME/.local/bin
+    /opt/homebrew/opt/llvm/bin
+    /opt/homebrew/bin
+    /opt/homebrew/sbin
+    $path
 )
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")

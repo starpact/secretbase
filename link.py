@@ -12,8 +12,8 @@ link_files = [
     ("alacritty.toml", "~/.config/alacritty/alacritty.toml"),
     ("nvim", "~/.config/nvim"),
     ("tmux", "~/.config/tmux"),
-    ("utils/urldecode.py", "~/bin/urldecode.py"),
-    ("utils/urlencode.py", "~/bin/urlencode.py"),
+    ("utils/urldecode.py", "~/.local/bin/urldecode.py"),
+    ("utils/urlencode.py", "~/.local/bin/urlencode.py"),
 ]
 
 if __name__ == "__main__":

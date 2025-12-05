@@ -206,7 +206,6 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/lewis6991/gitsigns.nvim",
-  "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/neovim/nvim-lspconfig",
@@ -214,6 +213,8 @@ vim.pack.add({
   "https://github.com/vim-test/vim-test",
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/ibhagwan/fzf-lua",
+  "https://github.com/MunifTanjim/nui.nvim",
+  "https://github.com/esmuellert/vscode-diff.nvim",
 })
 
 -- colorscheme
@@ -259,10 +260,6 @@ do
 
   vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", { link = "DiagnosticUnderlineWarn" })
   vim.api.nvim_set_hl(0, "DiagnosticDeprecated", { link = "DiagnosticUnderlineWarn" })
-
-  for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-    vim.api.nvim_set_hl(0, group, {})
-  end
 
   vim.api.nvim_set_hl(0, "LspReferenceTarget", {})
 end
@@ -363,12 +360,7 @@ vim.schedule(function()
     end,
   })
 
-  do
-    require("diffview").setup({ use_icons = false })
-    vim.cmd("cnoreabbrev D DiffviewOpen")
-    vim.keymap.set("n", "<leader>gf", function() vim.cmd.DiffviewFileHistory("%") end)
-    vim.keymap.set("n", "<leader>gF", vim.cmd.DiffviewFileHistory)
-  end
+  vim.cmd("cnoreabbrev D CodeDiff")
 
   do
     local conform = require("conform")
@@ -379,7 +371,6 @@ vim.schedule(function()
         javascript = { "biome" },
         javascriptreact = { "biome" },
         lua = { "stylua" },
-        nix = { "nixpkgs_fmt" },
         proto = { "buf" },
         python = { "ruff_format" },
         sh = { "shfmt" },
@@ -449,6 +440,7 @@ vim.schedule(function()
       callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         if not client then return end
+        client.server_capabilities.semanticTokensProvider = nil
 
         local fzf = require("fzf-lua")
         local opts = { buffer = ev.buf }
@@ -506,9 +498,7 @@ vim.schedule(function()
           },
         },
       },
-      ["pyrefly"] = {
-        cmd = { "uvx", "pyrefly", "lsp" },
-      },
+      ["pyrefly"] = {},
       ["rust_analyzer"] = {
         settings = {
           ["rust-analyzer"] = {
@@ -526,7 +516,6 @@ vim.schedule(function()
   end
 
   do
-    vim.opt.completeopt = { "menu" }
     vim.opt.shortmess:append("c")
 
     local function has_words_before()
