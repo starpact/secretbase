@@ -206,6 +206,7 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter",
   "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/lewis6991/gitsigns.nvim",
+  "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/neovim/nvim-lspconfig",
@@ -213,8 +214,6 @@ vim.pack.add({
   "https://github.com/vim-test/vim-test",
   "https://github.com/nvim-tree/nvim-tree.lua",
   "https://github.com/ibhagwan/fzf-lua",
-  "https://github.com/MunifTanjim/nui.nvim",
-  "https://github.com/esmuellert/vscode-diff.nvim",
 })
 
 -- colorscheme
@@ -360,8 +359,12 @@ vim.schedule(function()
     end,
   })
 
-  vim.cmd("cnoreabbrev D CodeDiff")
-
+  do
+    require("diffview").setup({ use_icons = false })
+    vim.cmd("cnoreabbrev D DiffviewOpen")
+    vim.keymap.set("n", "<leader>gf", function() vim.cmd.DiffviewFileHistory("%") end)
+    vim.keymap.set("n", "<leader>gF", vim.cmd.DiffviewFileHistory)
+  end
   do
     local conform = require("conform")
     conform.setup({
