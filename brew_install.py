@@ -9,7 +9,6 @@ formula_packages = [
     "bat",
     "biome",
     "buf",
-    "checkstyle",
     "cmake",
     "codespell",
     "colima",
@@ -28,7 +27,6 @@ formula_packages = [
     "gh",
     "go",
     "golangci-lint",
-    "google-java-format",
     "gopls",
     "graphviz",
     "htop",
@@ -41,7 +39,6 @@ formula_packages = [
     "make",
     "ninja",
     "node",
-    "openjdk",
     "pkgconf",
     "poetry",
     "postgresql",
@@ -83,7 +80,13 @@ cask_packages = [
 if (hostname := socket.gethostname()) == "yhjs-MacBook-Pro.local":
     formula_packages += ["platformio"]
 elif hostname.startswith("IT"):
-    formula_packages += ["lab", "terraform"]
+    formula_packages += [
+        "checkstyle",
+        "google-java-format",
+        "lab",
+        "openjdk",
+        "terraform",
+    ]
     cask_packages += ["session-manager-plugin"]
 
 
