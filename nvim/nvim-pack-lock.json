@@ -9,7 +9,7 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "43bda24f711e0c13428f16056002aebc20b38e04",
+      "rev": "de0fd4a21ee29cf6532d0c3bcae08a0b25d99b6a",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -21,11 +21,11 @@
       "src": "https://github.com/rktjmp/lush.nvim"
     },
     "multicursor.nvim": {
-      "rev": "a6cf4e7daaf10a6b14bb7838caf779f0de5070cd",
+      "rev": "c1d0f629e825877c7bec363bd8b7815f233d8742",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
     "nvim-autopairs": {
-      "rev": "7a2c97c",
+      "rev": "d9e44e54384e5b0f3536339c65484f2e41b528e3",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
@@ -45,7 +45,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "59088b96a32ea47caf4976e164dbd88b86447fb7",
+      "rev": "eb33612bff2fb31f54946fb5dcadc89e905e81ec",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {

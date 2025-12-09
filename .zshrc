@@ -13,6 +13,7 @@ path=(
     $HOME/.npm-global/bin
     $HOME/.local/bin
     /opt/homebrew/opt/llvm/bin
+    /opt/homebrew/opt/rustup/bin
     /opt/homebrew/bin
     /opt/homebrew/sbin
     $path
