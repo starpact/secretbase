@@ -12,6 +12,7 @@ path=(
     $HOME/go/bin
     $HOME/.npm-global/bin
     $HOME/.local/bin
+    /opt/homebrew/opt/curl/bin
     /opt/homebrew/opt/llvm/bin
     /opt/homebrew/opt/rustup/bin
     /opt/homebrew/bin
@@ -19,7 +20,12 @@ path=(
     $path
 )
 
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fpath=(
+    /opt/homebrew/opt/curl/share/zsh/site-functions
+    /opt/homebrew/opt/rustup/share/zsh/site-functions
+    /opt/homebrew/share/zsh/site-functions
+    $fpath
+)
 
 autoload -U compinit && compinit
 

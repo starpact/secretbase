@@ -9,7 +9,7 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "de0fd4a21ee29cf6532d0c3bcae08a0b25d99b6a",
+      "rev": "bd69cbae60eeb4589fbd285cb112265530fe1a5e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/rktjmp/lush.nvim"
     },
     "multicursor.nvim": {
-      "rev": "c1d0f629e825877c7bec363bd8b7815f233d8742",
+      "rev": "a0ea3303a6c4b233cf3272fb1e358d4c842e5260",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
     "nvim-autopairs": {
@@ -29,11 +29,11 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "ebe535956106c60405b02220246e135910f6853d",
+      "rev": "ae64d6466ed92b68353122d920e314ff2c8dd0a8",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "a2bd1cf7b0446a7414aaf373cea5e4ca804c9c69",
+      "rev": "0044d0987ef7e624d04141d0f90d0481fd3c3663",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
