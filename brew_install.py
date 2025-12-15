@@ -13,7 +13,6 @@ formula_packages = [
     "codespell",
     "colima",
     "cppcheck",
-    "curl",
     "delve",
     "direnv",
     "docker",
