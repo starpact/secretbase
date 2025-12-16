@@ -4,9 +4,11 @@ vim.g.loaded_netrwPlugin = 1
 vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "UTF-8"
 vim.o.foldenable = false
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldmethod = "expr"
-vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
 vim.o.ignorecase = true
+vim.o.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 vim.o.jumpoptions = "stack"
 vim.o.number = true
 vim.o.scrolloff = 3
@@ -19,13 +21,16 @@ vim.o.swapfile = false
 vim.o.tabstop = 4
 vim.o.termguicolors = true
 vim.o.undofile = true
-vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function() vim.highlight.on_yank({ higroup = "Search", timeout = 200 }) end,
+  callback = function()
+    vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
+  end,
 })
 vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function(ev) vim.wo.wrap = ev.file == "" or vim.endswith(ev.file, ".md") end,
+  callback = function(ev)
+    vim.wo.wrap = ev.file == "" or vim.endswith(ev.file, ".md")
+  end,
 })
 
 vim.g.mapleader = " "
@@ -69,11 +74,9 @@ vim.keymap.set("x", ">", ">gv")
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>")
 
 -- Copy location.
-vim.keymap.set(
-  "n",
-  "cp",
-  function() vim.fn.setreg("+", vim.api.nvim_buf_get_name(0) .. ":" .. vim.api.nvim_win_get_cursor(0)[1]) end
-)
+vim.keymap.set("n", "cp", function()
+  vim.fn.setreg("+", vim.api.nvim_buf_get_name(0) .. ":" .. vim.api.nvim_win_get_cursor(0)[1])
+end)
 
 -- Highlight cursor word without moving to next occurrence.
 vim.keymap.set("n", "<leader>h", function()
@@ -128,10 +131,6 @@ do
     -- File in current directory.
     local cwd = vim.fn.getcwd()
     if vim.startswith(path, cwd .. "/") then return vim.fs.basename(cwd) .. path:sub(#cwd + 1) end
-
-    -- Shorten nix path.
-    local nix_store = "/nix/store/"
-    if vim.startswith(path, nix_store) then return "NIX/" .. path:sub(45) end
 
     -- Shorten home path.
     local home = vim.fs.normalize("~")
@@ -190,10 +189,14 @@ do
   end
 
   vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-    callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 1)", opt.buf) end,
+    callback = function(opt)
+      vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 1)", opt.buf)
+    end,
   })
   vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
-    callback = function(opt) vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf) end,
+    callback = function(opt)
+      vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf)
+    end,
   })
 end
 
@@ -204,7 +207,7 @@ vim.pack.add({
   "https://github.com/rktjmp/lush.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
@@ -271,14 +274,30 @@ vim.schedule(function()
   do
     local mc = require("multicursor-nvim")
     mc.setup()
-    vim.keymap.set({ "n", "v" }, "<down>", function() mc.lineAddCursor(1) end)
-    vim.keymap.set({ "n", "v" }, "<up>", function() mc.lineAddCursor(-1) end)
-    vim.keymap.set({ "n", "v" }, "<s-down>", function() mc.lineSkipCursor(1) end)
-    vim.keymap.set({ "n", "v" }, "<s-up>", function() mc.lineSkipCursor(-1) end)
-    vim.keymap.set({ "n", "v" }, "<a-n>", function() mc.matchAddCursor(1) end)
-    vim.keymap.set({ "n", "v" }, "<a-N>", function() mc.matchAddCursor(-1) end)
-    vim.keymap.set({ "n", "v" }, "<a-s>", function() mc.matchSkipCursor(1) end)
-    vim.keymap.set({ "n", "v" }, "<a-S>", function() mc.matchSkipCursor(-1) end)
+    vim.keymap.set({ "n", "v" }, "<down>", function()
+      mc.lineAddCursor(1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<up>", function()
+      mc.lineAddCursor(-1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<s-down>", function()
+      mc.lineSkipCursor(1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<s-up>", function()
+      mc.lineSkipCursor(-1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<a-n>", function()
+      mc.matchAddCursor(1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<a-N>", function()
+      mc.matchAddCursor(-1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<a-s>", function()
+      mc.matchSkipCursor(1)
+    end)
+    vim.keymap.set({ "n", "v" }, "<a-S>", function()
+      mc.matchSkipCursor(-1)
+    end)
     vim.keymap.set({ "n", "v" }, "<a-L>", mc.matchAllAddCursors)
     vim.keymap.set("n", "<a-A>", mc.alignCursors)
     vim.keymap.set("v", "m", mc.matchCursors)
@@ -290,51 +309,74 @@ vim.schedule(function()
     end)
   end
 
-  require("nvim-treesitter.configs").setup({
-    auto_install = "true",
-    ensure_installed = { "comment" },
-    highlight = {
-      enable = true,
-      disable = { "xml" },
-    },
-    indent = {
-      enable = true,
-      disable = { "cpp" },
-    },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<a-o>",
-        node_incremental = "<a-o>",
-        node_decremental = "<a-i>",
-      },
-    },
-    textobjects = {
-      select = {
-        enable = true,
-        lookahead = true,
-        keymaps = {
-          ["if"] = "@function.inner",
-          ["af"] = "@function.outer",
-          ["ic"] = "@class.inner",
-          ["ac"] = "@class.outer",
-          ["ia"] = "@parameter.inner",
-          ["aa"] = "@parameter.outer",
-          ["ib"] = "@block.inner",
-          ["ab"] = "@block.outer",
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<a-right>"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<a-left>"] = "@parameter.inner",
-        },
-      },
-    },
-  })
+  -- tree-sitter
+  do
+    local ts_langs = {
+      "bash",
+      "c",
+      "cmake",
+      "comment",
+      "cpp",
+      "css",
+      "csv",
+      "go",
+      "gomod",
+      "gosum",
+      "html",
+      "java",
+      "javascript",
+      "json",
+      "lua",
+      "luadoc",
+      "make",
+      "markdown",
+      "markdown_inline",
+      "proto",
+      "python",
+      "rust",
+      "sql",
+      "terraform",
+      "toml",
+      "tsx",
+      "typescript",
+      "typse",
+      "vim",
+      "vimdoc",
+      "xml",
+      "yaml",
+      "zig",
+      "zsh",
+    }
+    require("nvim-treesitter").install(ts_langs)
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = ts_langs,
+      callback = function()
+        vim.treesitter.start()
+      end,
+    })
+
+    for keymap, capture_group in pairs({
+      ["if"] = "@function.inner",
+      ["af"] = "@function.outer",
+      ["ic"] = "@class.inner",
+      ["ac"] = "@class.outer",
+      ["ia"] = "@parameter.inner",
+      ["aa"] = "@parameter.outer",
+      ["ib"] = "@block.inner",
+      ["ab"] = "@block.outer",
+    }) do
+      vim.keymap.set({ "x", "o" }, keymap, function()
+        require("nvim-treesitter-textobjects.select").select_textobject(capture_group, "textobjects")
+      end)
+    end
+
+    vim.keymap.set("n", "<a-left>", function()
+      require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+    end)
+    vim.keymap.set("n", "<a-right>", function()
+      require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+    end)
+  end
 
   require("gitsigns").setup({
     on_attach = function(bufnr)
@@ -362,7 +404,9 @@ vim.schedule(function()
   do
     require("diffview").setup({ use_icons = false })
     vim.cmd("cnoreabbrev D DiffviewOpen")
-    vim.keymap.set("n", "<leader>gf", function() vim.cmd.DiffviewFileHistory("%") end)
+    vim.keymap.set("n", "<leader>gf", function()
+      vim.cmd.DiffviewFileHistory("%")
+    end)
     vim.keymap.set("n", "<leader>gF", vim.cmd.DiffviewFileHistory)
   end
   do
@@ -396,7 +440,9 @@ vim.schedule(function()
       end,
     })
 
-    vim.api.nvim_create_user_command("Format", function() conform.format({ async = true }) end, {})
+    vim.api.nvim_create_user_command("Format", function()
+      conform.format({ async = true })
+    end, {})
   end
 
   do
@@ -527,9 +573,13 @@ vim.schedule(function()
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
     end
 
-    local function feedkey(key) vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true) end
+    local function feedkey(key)
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), "n", true)
+    end
 
-    vim.keymap.set({ "i", "s" }, "<tab>", function() feedkey(has_words_before() and "<c-x><c-o>" or "<tab>") end)
+    vim.keymap.set({ "i", "s" }, "<tab>", function()
+      feedkey(has_words_before() and "<c-x><c-o>" or "<tab>")
+    end)
     local snippy = require("snippy")
     vim.keymap.set({ "i", "s" }, "<c-l>", function()
       if snippy.can_expand_or_advance() then snippy.expand_or_advance() end
@@ -546,7 +596,9 @@ vim.schedule(function()
   do
     vim.g["test#custom_strategies"] = {
       tmux_pane = function(cmd)
-        local function send_command() vim.system({ "tmux", "send-key", "-t", ".2", cmd .. "\n" }) end
+        local function send_command()
+          vim.system({ "tmux", "send-key", "-t", ".2", cmd .. "\n" })
+        end
         vim.system({ "tmux", "list-panes" }, nil, function(ret)
           if ret.stdout:find("\n") == ret.stdout:len() then
             vim.system({ "tmux", "split-window" }, nil, send_command)
@@ -603,7 +655,9 @@ vim.schedule(function()
         },
       },
     })
-    vim.keymap.set("n", "<leader>e", function() require("nvim-tree.api").tree.open({ find_file = true }) end)
+    vim.keymap.set("n", "<leader>e", function()
+      require("nvim-tree.api").tree.open({ find_file = true })
+    end)
     vim.keymap.set("n", "<c-n>", require("nvim-tree.api").tree.toggle)
   end
 
@@ -625,8 +679,12 @@ vim.schedule(function()
     vim.keymap.set("n", "<leader>f", fzf.files)
     vim.keymap.set("n", "<leader>o", fzf.oldfiles)
     vim.keymap.set("n", "<leader>b", fzf.buffers)
-    vim.keymap.set("n", "<leader>/", function() fzf.live_grep({ cwd = vim.fn.expand("%:p:h") }) end)
-    vim.keymap.set("v", "<leader>/", function() fzf.grep_visual({ cwd = vim.fn.expand("%:p:h") }) end)
+    vim.keymap.set("n", "<leader>/", function()
+      fzf.live_grep({ cwd = vim.fn.expand("%:p:h") })
+    end)
+    vim.keymap.set("v", "<leader>/", function()
+      fzf.grep_visual({ cwd = vim.fn.expand("%:p:h") })
+    end)
     vim.keymap.set("n", "<leader>?", fzf.live_grep)
     vim.keymap.set("v", "<leader>?", fzf.grep_visual)
     vim.keymap.set("n", "<leader>d", fzf.diagnostics_workspace)
@@ -673,6 +731,8 @@ vim.schedule(function()
 
   vim.api.nvim_create_autocmd("FileType", {
     pattern = { "cpp" },
-    callback = function() vim.opt_local.cinkeys:remove(":") end,
+    callback = function()
+      vim.opt_local.cinkeys:remove(":")
+    end,
   })
 end)

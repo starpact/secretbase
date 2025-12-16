@@ -56,6 +56,7 @@ formula_packages = [
     "tealdeer",
     "tmux",
     "tokei",
+    "tree-sitter-cli",
     "typescript",
     "typescript-language-server",
     "typst",
