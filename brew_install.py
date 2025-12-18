@@ -5,7 +5,8 @@ import subprocess
 
 formula_packages = [
     "awscli",
-    "bash-language-server",
+    "bash",
+    "bash-completion@2",
     "bat",
     "biome",
     "buf",
@@ -41,7 +42,7 @@ formula_packages = [
     "node",
     "pkgconf",
     "poetry",
-    "postgresql",
+    "postgresql@18",
     "prettier",
     "protobuf",
     "python3",
@@ -57,6 +58,7 @@ formula_packages = [
     "tmux",
     "tokei",
     "tree-sitter-cli",
+    "ty",
     "typescript",
     "typescript-language-server",
     "typst",

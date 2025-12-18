@@ -4,11 +4,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "UTF-8"
 vim.o.foldenable = false
-vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.o.foldmethod = "expr"
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
 vim.o.ignorecase = true
-vim.o.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 vim.o.jumpoptions = "stack"
 vim.o.number = true
 vim.o.scrolloff = 3
@@ -352,6 +349,9 @@ vim.schedule(function()
       pattern = ts_langs,
       callback = function()
         vim.treesitter.start()
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        vim.wo[0][0].foldmethod = "expr"
+        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
       end,
     })
 
@@ -528,7 +528,6 @@ vim.schedule(function()
     end
 
     for server, config in pairs({
-      ["bashls"] = {},
       ["buf_ls"] = {},
       ["clangd"] = {},
       ["cssls"] = {},
@@ -547,7 +546,6 @@ vim.schedule(function()
           },
         },
       },
-      ["pyrefly"] = {},
       ["rust_analyzer"] = {
         settings = {
           ["rust-analyzer"] = {
@@ -558,6 +556,7 @@ vim.schedule(function()
         },
       },
       ["ts_ls"] = {},
+      ["ty"] = {},
     }) do
       vim.lsp.config(server, extend_default(config))
       vim.lsp.enable(server)
