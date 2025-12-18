@@ -2,8 +2,6 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
 
-set -o emacs
-
 alias gp='git pull'
 alias gs='git status'
 alias l='ls -hl'
@@ -18,6 +16,10 @@ eval "$(starship init bash)"
 eval "$(direnv hook bash)"
 
 HOMEBREW_PREFIX="$(brew --prefix)"
-[[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]] && source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+fi
 
-[[ -r ~/.private ]] && source ~/.private
+if [[ -r ~/.private ]]; then
+    source ~/.private
+fi

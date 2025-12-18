@@ -14,4 +14,6 @@ $HOME/.npm-global/bin:\
 /opt/homebrew/bin:\
 $PATH"
 
-[[ -f ~/.bashrc ]] && source ~/.bashrc
+if [[ -f ~/.bashrc ]]; then
+    source ~/.bashrc
+fi
