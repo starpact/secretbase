@@ -118,85 +118,6 @@ vim.keymap.set("n", "<a-D>", function()
   vim.diagnostic.config(diagnostic_config)
 end)
 
--- statusline
-do
-  local function get_filepath(bufname)
-    local path = bufname
-    -- Shorten jdt url.
-    if vim.startswith(path, "jdt") then path = path:sub(16, path:find("?") - 1) end
-
-    -- File in current directory.
-    local cwd = vim.fn.getcwd()
-    if vim.startswith(path, cwd .. "/") then return vim.fs.basename(cwd) .. path:sub(#cwd + 1) end
-
-    -- Shorten home path.
-    local home = vim.fs.normalize("~")
-    if vim.startswith(path, home) then return "~" .. path:sub(#home + 1) end
-
-    return path
-  end
-
-  local function get_git_status()
-    local dict = vim.b.gitsigns_status_dict
-    if not dict then return "" end
-    return dict.head
-      .. (dict.added and dict.added > 0 and " +" .. dict.added or "")
-      .. (dict.changed and dict.changed > 0 and " ~" .. dict.changed or "")
-      .. (dict.removed and dict.removed > 0 and " -" .. dict.removed or "")
-  end
-
-  local colormap = {
-    [vim.diagnostic.severity.ERROR] = "%#StatusLineError#",
-    [vim.diagnostic.severity.WARN] = "%#StatusLineWarn#",
-    [vim.diagnostic.severity.INFO] = "%#StatusLineInfo#",
-    [vim.diagnostic.severity.HINT] = "%#StatusLineHint#",
-  }
-
-  local function get_diagnostics(bufnr, active)
-    local mode = vim.api.nvim_get_mode().mode
-    if mode == "i" or mode == "ic" or mode == "s" then return "" end
-
-    local cnts = {}
-    for _, diagnostic in ipairs(vim.diagnostic.get(bufnr)) do
-      cnts[diagnostic.severity] = (cnts[diagnostic.severity] or 0) + 1
-    end
-    if next(cnts) == nil then return "" end
-
-    local diagnostics = ""
-    for _, severity in ipairs({
-      vim.diagnostic.severity.ERROR,
-      vim.diagnostic.severity.WARN,
-      vim.diagnostic.severity.INFO,
-      vim.diagnostic.severity.HINT,
-    }) do
-      if cnts[severity] then diagnostics = diagnostics .. " " .. colormap[severity] .. cnts[severity] end
-    end
-    if diagnostics == "" then return "" end
-
-    return diagnostics .. (active == 1 and "%#StatusLine#" or "%#StatusLineNC#")
-  end
-
-  _G.StatusLine = function(bufnr, active)
-    local bufname = vim.api.nvim_buf_get_name(bufnr)
-    if vim.fs.basename(bufname) == "NvimTree_1" then return "" end
-
-    local left = get_filepath(bufname) .. " %m%r" .. get_diagnostics(bufnr, active)
-    local right = (active == 1 and get_git_status() or "") .. "%8.(%l,%c%)"
-    return left .. "%=" .. right
-  end
-
-  vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter" }, {
-    callback = function(opt)
-      vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 1)", opt.buf)
-    end,
-  })
-  vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave" }, {
-    callback = function(opt)
-      vim.opt_local.statusline = string.format("%%!v:lua.StatusLine(%d, 0)", opt.buf)
-    end,
-  })
-end
-
 vim.pack.add({
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/windwp/nvim-autopairs",
@@ -263,6 +184,78 @@ do
   vim.api.nvim_set_hl(0, "LspReferenceTarget", {})
 end
 
+-- tree-sitter
+do
+  local ts_langs = {
+    "bash",
+    "c",
+    "cmake",
+    "comment",
+    "cpp",
+    "css",
+    "csv",
+    "go",
+    "gomod",
+    "gosum",
+    "html",
+    "java",
+    "javascript",
+    "json",
+    "lua",
+    "luadoc",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "proto",
+    "python",
+    "rust",
+    "sql",
+    "terraform",
+    "toml",
+    "tsx",
+    "typescript",
+    "typse",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+    "zig",
+    "zsh",
+  }
+  require("nvim-treesitter").install(ts_langs)
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = ts_langs,
+    callback = function()
+      vim.treesitter.start()
+      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      vim.wo[0][0].foldmethod = "expr"
+      vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+    end,
+  })
+
+  for keymap, capture_group in pairs({
+    ["if"] = "@function.inner",
+    ["af"] = "@function.outer",
+    ["ic"] = "@class.inner",
+    ["ac"] = "@class.outer",
+    ["ia"] = "@parameter.inner",
+    ["aa"] = "@parameter.outer",
+    ["ib"] = "@block.inner",
+    ["ab"] = "@block.outer",
+  }) do
+    vim.keymap.set({ "x", "o" }, keymap, function()
+      require("nvim-treesitter-textobjects.select").select_textobject(capture_group, "textobjects")
+    end)
+  end
+
+  vim.keymap.set("n", "<a-left>", function()
+    require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
+  end)
+  vim.keymap.set("n", "<a-right>", function()
+    require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+  end)
+end
+
 vim.schedule(function()
   require("nvim-surround").setup()
 
@@ -303,78 +296,6 @@ vim.schedule(function()
       if mc.hasCursors() then mc.clearCursors() end
       vim.cmd("nohlsearch")
       vim.cmd("echo")
-    end)
-  end
-
-  -- tree-sitter
-  do
-    local ts_langs = {
-      "bash",
-      "c",
-      "cmake",
-      "comment",
-      "cpp",
-      "css",
-      "csv",
-      "go",
-      "gomod",
-      "gosum",
-      "html",
-      "java",
-      "javascript",
-      "json",
-      "lua",
-      "luadoc",
-      "make",
-      "markdown",
-      "markdown_inline",
-      "proto",
-      "python",
-      "rust",
-      "sql",
-      "terraform",
-      "toml",
-      "tsx",
-      "typescript",
-      "typse",
-      "vim",
-      "vimdoc",
-      "xml",
-      "yaml",
-      "zig",
-      "zsh",
-    }
-    require("nvim-treesitter").install(ts_langs)
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = ts_langs,
-      callback = function()
-        vim.treesitter.start()
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-        vim.wo[0][0].foldmethod = "expr"
-        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-      end,
-    })
-
-    for keymap, capture_group in pairs({
-      ["if"] = "@function.inner",
-      ["af"] = "@function.outer",
-      ["ic"] = "@class.inner",
-      ["ac"] = "@class.outer",
-      ["ia"] = "@parameter.inner",
-      ["aa"] = "@parameter.outer",
-      ["ib"] = "@block.inner",
-      ["ab"] = "@block.outer",
-    }) do
-      vim.keymap.set({ "x", "o" }, keymap, function()
-        require("nvim-treesitter-textobjects.select").select_textobject(capture_group, "textobjects")
-      end)
-    end
-
-    vim.keymap.set("n", "<a-left>", function()
-      require("nvim-treesitter-textobjects.swap").swap_previous("@parameter.inner")
-    end)
-    vim.keymap.set("n", "<a-right>", function()
-      require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
     end)
   end
 

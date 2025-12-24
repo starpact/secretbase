@@ -4,7 +4,6 @@ import os
 
 link_files = [
     (".clang-format", "~/.clang-format"),
-    (".clangd", "~/.clangd"),
     (".editorconfig", "~/.editorconfig"),
     (".yamllint.yaml", "~/.config/yamllint/config"),
     (".bash_profile", "~/.bash_profile"),
