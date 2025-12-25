@@ -28,6 +28,7 @@ formula_packages = [
     "findutils",
     "fzf",
     "gh",
+    "git",
     "go",
     "golangci-lint",
     "gopls",
