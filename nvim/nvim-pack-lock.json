@@ -24,10 +24,6 @@
       "rev": "c982cc8375f062e9f98e96a408e0f7ad0c80d4db",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
-    "nvim-autopairs": {
-      "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
-      "src": "https://github.com/windwp/nvim-autopairs"
-    },
     "nvim-lint": {
       "rev": "1f19dacd945a7b1a57f29f32b2d7168384df3d36",
       "src": "https://github.com/mfussenegger/nvim-lint"

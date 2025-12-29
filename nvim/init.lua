@@ -120,7 +120,6 @@ end)
 
 vim.pack.add({
   "https://github.com/kylechui/nvim-surround",
-  "https://github.com/windwp/nvim-autopairs",
   "https://github.com/jake-stewart/multicursor.nvim",
   "https://github.com/rktjmp/lush.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
@@ -258,8 +257,6 @@ end
 
 vim.schedule(function()
   require("nvim-surround").setup()
-
-  -- require("nvim-autopairs").setup()
 
   do
     local mc = require("multicursor-nvim")
