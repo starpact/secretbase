@@ -75,7 +75,12 @@ formula_packages = [
 
 cask_packages = [
     "alacritty",
+    "cursor",
     "doll",
+    "font-fantasque-sans-mono-nerd-font",
+    "font-iosevka-term-nerd-font",
+    "font-jetbrains-mono-nerd-font",
+    "font-recursive-mono-nerd-font",
     "manico",
     "rectangle",
     "scroll-reverser",

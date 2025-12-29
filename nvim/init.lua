@@ -259,7 +259,7 @@ end
 vim.schedule(function()
   require("nvim-surround").setup()
 
-  require("nvim-autopairs").setup()
+  -- require("nvim-autopairs").setup()
 
   do
     local mc = require("multicursor-nvim")
