@@ -50,7 +50,6 @@ vim.keymap.set("i", "<c-k>", "<c-o>D")
 vim.keymap.set("i", "<a-b>", "<c-left>")
 vim.keymap.set("i", "<a-f>", "<esc>ea")
 vim.keymap.set("i", "<a-d>", "<c-o>de")
-vim.keymap.set("i", "{<cr>", "{<cr>}<esc>O")
 
 vim.keymap.set("c", "<c-b>", "<left>")
 vim.keymap.set("c", "<c-f>", "<right>")
@@ -120,6 +119,7 @@ vim.keymap.set("n", "<a-D>", function()
 end)
 
 vim.pack.add({
+  "https://github.com/windwp/nvim-autopairs",
   "https://github.com/kylechui/nvim-surround",
   "https://github.com/jake-stewart/multicursor.nvim",
   "https://github.com/rktjmp/lush.nvim",
@@ -257,6 +257,8 @@ do
 end
 
 vim.schedule(function()
+  require("nvim-autopairs").setup()
+
   require("nvim-surround").setup()
 
   do
