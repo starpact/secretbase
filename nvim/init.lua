@@ -214,7 +214,7 @@ do
     "toml",
     "tsx",
     "typescript",
-    "typse",
+    "typst",
     "vim",
     "vimdoc",
     "xml",
