@@ -233,6 +233,14 @@ do
     end,
   })
 
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "cpp" },
+    callback = function()
+      vim.opt_local.cinkeys:remove(":")
+      vim.opt_local.indentkeys:remove(":")
+    end,
+  })
+
   for keymap, capture_group in pairs({
     ["if"] = "@function.inner",
     ["af"] = "@function.outer",
@@ -648,11 +656,4 @@ vim.schedule(function()
       },
     })
   end
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "cpp" },
-    callback = function()
-      vim.opt_local.cinkeys:remove(":")
-    end,
-  })
 end)
