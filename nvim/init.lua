@@ -4,20 +4,26 @@ vim.g.loaded_netrwPlugin = 1
 vim.o.clipboard = "unnamedplus"
 vim.o.fileencoding = "UTF-8"
 vim.o.foldenable = false
-vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
-vim.o.ignorecase = true
 vim.o.jumpoptions = "stack"
 vim.o.number = true
 vim.o.scrolloff = 3
 vim.o.showmode = false
 vim.o.signcolumn = "yes"
-vim.o.smartcase = true
-vim.o.splitbelow = true
-vim.o.splitright = true
 vim.o.swapfile = false
 vim.o.tabstop = 4
-vim.o.termguicolors = true
 vim.o.undofile = true
+
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.o.splitbelow = true
+vim.o.splitright = true
+
+vim.o.cinkeys = "0{,0},0),0],0#,!^F,o,O,e"
+vim.o.indentkeys = "0{,0},0),0],0#,!^F,o,O,e"
+
+vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
+vim.o.termguicolors = true
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
@@ -230,14 +236,6 @@ do
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
       vim.wo[0][0].foldmethod = "expr"
       vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    end,
-  })
-
-  vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "cpp" },
-    callback = function()
-      vim.opt_local.cinkeys:remove(":")
-      vim.opt_local.indentkeys:remove(":")
     end,
   })
 
