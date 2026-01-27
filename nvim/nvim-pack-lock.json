@@ -1,15 +1,15 @@
 {
   "plugins": {
+    "codediff.nvim": {
+      "rev": "e20948fc221a7bbab6f21338e423d0d5ec93ab43",
+      "src": "https://github.com/esmuellert/codediff.nvim"
+    },
     "conform.nvim": {
       "rev": "c2526f1cde528a66e086ab1668e996d162c75f4f",
       "src": "https://github.com/stevearc/conform.nvim"
     },
-    "diffview.nvim": {
-      "rev": "4516612",
-      "src": "https://github.com/sindrets/diffview.nvim"
-    },
     "fzf-lua": {
-      "rev": "6b5bb1c8d86845c4b21e2146cc11e934a7f831cb",
+      "rev": "d59f857c76eb474ec00debcf043f14fd001805cc",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -24,6 +24,10 @@
       "rev": "3b5c79c4eec52ff18ce69923156422c298b9ae5d",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
+    "nui.nvim": {
+      "rev": "de740991c12411b663994b2860f1a4fd0937c130",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
     "nvim-autopairs": {
       "rev": "c2a0dd0d931d0fb07665e1fedb1ea688da3b80b4",
       "src": "https://github.com/windwp/nvim-autopairs"
@@ -33,7 +37,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "419b082102fa813739588dd82e19a8b6b2442855",
+      "rev": "54baa4beeeabed24be24379d5b3ce402fe7b5208",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
@@ -45,15 +49,15 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "869fc957edd43962c4cc7d70f0dca087056534c8",
+      "rev": "c07ce43527e5f0242121f4eb1feb7ac0ecea8275",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "511e5ccf404f8a96ee31866b079fca033a8a7c4e",
+      "rev": "568ede7e79172a0fe7c9d631454a97ad968deaf2",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "4d55f63252e04c5212daed958e4e940915ff16ce",
+      "rev": "52bda74e087034408e2d563cb4499c1601038f9d",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
