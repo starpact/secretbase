@@ -133,8 +133,7 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   "https://github.com/lewis6991/gitsigns.nvim",
-  "https://github.com/MunifTanjim/nui.nvim",
-  "https://github.com/esmuellert/codediff.nvim",
+  "https://github.com/sindrets/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/neovim/nvim-lspconfig",
@@ -332,9 +331,10 @@ vim.schedule(function()
   })
 
   do
-    vim.cmd("cnoreabbrev D CodeDiff")
+    require("diffview").setup({ use_icons = false })
+    vim.cmd("cnoreabbrev D DiffviewOpen")
     vim.keymap.set("n", "<leader>gf", function()
-      vim.cmd("CodeDiff history %")
+      vim.cmd("DiffviewFileHistory %")
     end)
   end
 
