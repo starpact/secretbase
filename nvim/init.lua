@@ -19,9 +19,6 @@ vim.o.smartcase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.o.cinkeys = "0{,0},0),0],0#,!^F,o,O,e"
-vim.o.indentkeys = "0{,0},0),0],0#,!^F,o,O,e"
-
 vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkoff0"
 vim.o.termguicolors = true
 
@@ -232,6 +229,9 @@ do
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function(e)
+      vim.bo.cinkeys = "o,O,e"
+      vim.bo.indentkeys = "o,O,e"
+
       local lang = vim.treesitter.language.get_lang(e.match)
       if lang == nil or not vim.tbl_contains(ts_langs, lang) then return end
       vim.treesitter.start()
