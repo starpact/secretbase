@@ -78,6 +78,8 @@ formula_packages = [
 
 cask_packages = [
     "alacritty",
+    "claude-code",
+    "codex",
     "cursor",
     "doll",
     "font-fantasque-sans-mono-nerd-font",
