@@ -46,6 +46,8 @@ formula_packages = [
     "make",
     "ninja",
     "node",
+    "nvim",
+    "parquet-cli",
     "pkgconf",
     "poetry",
     "postgresql@18",

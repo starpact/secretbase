@@ -1,7 +1,7 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "e969e302bced7ffb9a0a0323629f31feb0ca35a6",
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
@@ -9,11 +9,11 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "cc81c66dba2153f08c382565466e18d6ea5a6c50",
+      "rev": "c9e7b7bfbd01f949164988ee1684035468e1995c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "9f3c6dd7868bcc116e9c1c1929ce063b978fa519",
+      "rev": "0f00d07c2c3106ba6abd594ac1c17f211141b7b5",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lush.nvim": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/rktjmp/lush.nvim"
     },
     "multicursor.nvim": {
-      "rev": "630dd29dd696bc977cb81d7dd2fa6bb280f60fc4",
+      "rev": "704b99f10a72cc05d370cfeb294ff83412a8ab55",
       "src": "https://github.com/jake-stewart/multicursor.nvim"
     },
     "nvim-autopairs": {
@@ -29,36 +29,36 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "606b823a57b027502a9ae00978ebf4f5d5158098",
+      "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "ab5139c99df944479e5a26495a37840fcbb1d512",
+      "rev": "8e2084bf5e40c79c1f42210a6ef96a0a4793a763",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
-      "rev": "504ab14",
+      "rev": "7e500286eb880032391107f6d0ee28211ba3eb3c",
       "src": "https://github.com/dcampos/nvim-snippy"
     },
     "nvim-surround": {
-      "rev": "c4b406f4ec51fde25eb8ba71cc61cd2ec38f53eb",
+      "rev": "19e39478ccf5fa2eefdb3595af2f2927d0ff2416",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "ae16aab5fd1792b97758622b9fb53408ec804fd8",
+      "rev": "02ccbcd4af9a7fa159251f721d763c0d16f91703",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "a8845121f063458ef23df86e73f16bbee71ec67b",
+      "rev": "7caec274fd19c12b55902a5b795100d21531391f",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
+      "rev": "93d60a475f0b08a8eceb99255863977d3a25f310",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
     "vim-test": {
-      "rev": "931c6cfdd3069df52c4486b25200e4b10d0595c8",
+      "rev": "7d7a3a220fd46aa24e179bc9a073687e4cf187ac",
       "src": "https://github.com/vim-test/vim-test"
     },
     "zenbones.nvim": {
