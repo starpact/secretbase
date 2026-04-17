@@ -9,7 +9,7 @@
       "src": "https://github.com/sindrets/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "4deeecf611c0beba6455e6cf06e2c051a6169dd4",
+      "rev": "83f7195972538beee3a40932b38ccd86c8cc0f06",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "c588db330592fa477a70d2fee6ba20a57194bdc3",
+      "rev": "4b7fbaa239c5db6b36f424a4521ca9f1a401be33",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
@@ -45,7 +45,7 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "509962f21ab7289d8dcd28568af539be39a8c01e",
+      "rev": "d277467fc0d1d0e2bca88165a1de6b526f9f6fe8",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -58,7 +58,7 @@
       "version": "'main'"
     },
     "vim-test": {
-      "rev": "cdc89c597e9697d6e5c83ce8c64e2bea81fe9ef8",
+      "rev": "bc0e94059de40641d163516a83c63bc45c716acf",
       "src": "https://github.com/vim-test/vim-test"
     },
     "zenbones.nvim": {
