@@ -73,8 +73,6 @@ vim.keymap.set("x", ">", ">gv")
 
 vim.keymap.set("n", "<leader>x", "<cmd>tabclose<cr>")
 
-vim.keymap.set("n", "ZR", vim.cmd.restart)
-
 -- Copy location.
 vim.keymap.set("n", "cp", function()
   vim.fn.setreg("+", vim.api.nvim_buf_get_name(0) .. ":" .. vim.api.nvim_win_get_cursor(0)[1])
@@ -132,7 +130,8 @@ vim.pack.add({
   "https://github.com/nvim-treesitter/nvim-treesitter",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   "https://github.com/lewis6991/gitsigns.nvim",
-  "https://github.com/sindrets/diffview.nvim",
+  -- "https://github.com/sindrets/diffview.nvim",
+  "https://github.com/dlyongemallo/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/mfussenegger/nvim-lint",
   "https://github.com/neovim/nvim-lspconfig",

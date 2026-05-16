@@ -70,6 +70,7 @@ bindings = [
   { chars = "\u0001n", key = "RBracket", mods = "Command" },
   { action = "ToggleViMode", key = "Q", mode = "Vi|~Search" },
   { action = "ScrollToBottom", key = "Q", mode = "Vi|~Search" },
+  { chars = "\n", key = "Return", mods = "Shift" },
 ]
 
 [selection]
