@@ -84,7 +84,6 @@ cask_packages = [
     "claude-code",
     "codex",
     "codex-app",
-    "cursor",
     "doll",
     "font-fantasque-sans-mono-nerd-font",
     "font-iosevka-term-nerd-font",
@@ -93,6 +92,7 @@ cask_packages = [
     "manico",
     "rectangle",
     "scroll-reverser",
+    "session-manager-plugin",
     "snipaste",
     "telegram-desktop",
     "visual-studio-code",
@@ -102,7 +102,7 @@ if (hostname := socket.gethostname()) == "yhjs-MacBook-Pro.local":
     formula_packages += ["platformio"]
 elif hostname.startswith("IT"):
     formula_packages += ["lab", "terraform"]
-    cask_packages += ["session-manager-plugin"]
+    cask_packages += ["cursor"]
 
 
 if __name__ == "__main__":
