@@ -127,10 +127,10 @@ vim.pack.add({
   "https://github.com/jake-stewart/multicursor.nvim",
   "https://github.com/rktjmp/lush.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/romus204/tree-sitter-manager.nvim",
+  -- "https://github.com/nvim-treesitter/nvim-treesitter",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   "https://github.com/lewis6991/gitsigns.nvim",
-  -- "https://github.com/sindrets/diffview.nvim",
   "https://github.com/dlyongemallo/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/mfussenegger/nvim-lint",
@@ -190,43 +190,9 @@ end
 
 -- tree-sitter
 do
-  local ts_langs = {
-    "bash",
-    "c",
-    "cmake",
-    "comment",
-    "cpp",
-    "css",
-    "csv",
-    "go",
-    "gomod",
-    "gosum",
-    "html",
-    "java",
-    "javascript",
-    "json",
-    "lua",
-    "luadoc",
-    "make",
-    "markdown",
-    "markdown_inline",
-    "proto",
-    "python",
-    "rust",
-    "sql",
-    "terraform",
-    "toml",
-    "tsx",
-    "typescript",
-    "typst",
-    "vim",
-    "vimdoc",
-    "xml",
-    "yaml",
-    "zig",
-    "zsh",
-  }
-  require("nvim-treesitter").install(ts_langs)
+  require("tree-sitter-manager").setup({
+    auto_install = true,
+  })
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function(e)
@@ -234,9 +200,9 @@ do
       vim.bo.indentkeys = "o,O,e"
 
       local lang = vim.treesitter.language.get_lang(e.match)
-      if lang == nil or not vim.tbl_contains(ts_langs, lang) then return end
-      vim.treesitter.start()
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      if not lang then return end
+      if not vim.treesitter.language.add(lang) then return end
+      vim.treesitter.start(e.buf, lang)
       vim.wo[0][0].foldmethod = "expr"
       vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
     end,
