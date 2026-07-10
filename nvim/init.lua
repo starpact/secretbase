@@ -128,7 +128,6 @@ vim.pack.add({
   "https://github.com/rktjmp/lush.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
   "https://github.com/romus204/tree-sitter-manager.nvim",
-  -- "https://github.com/nvim-treesitter/nvim-treesitter",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/dlyongemallo/diffview.nvim",
@@ -312,6 +311,7 @@ vim.schedule(function()
         css = { "biome" },
         java = { "google-java-format" },
         javascript = { "biome" },
+        hurl = { "hurlfmt" },
         javascriptreact = { "biome" },
         lua = { "stylua" },
         proto = { "buf" },
@@ -510,7 +510,13 @@ vim.schedule(function()
     vim.g["test#go#gotest#options"] = "-v --count=1"
 
     vim.g["test#rust#runner"] = "cargotest"
-    vim.g["test#rust#cargotest#options"] = "-- --nocapture --include-ignored"
+    vim.g["test#rust#cargotest#options"] = {
+      all = "--lib",
+    }
+    vim.g["test#rust#cargotest#test_options"] = {
+      nearest = "-- --nocapture --include-ignored --exact",
+      file = "-- --nocapture --include-ignored",
+    }
 
     vim.g["test#python#runner"] = "pytest"
     vim.g["test#python#pytest#options"] = "-s"
