@@ -127,8 +127,8 @@ vim.pack.add({
   "https://github.com/jake-stewart/multicursor.nvim",
   "https://github.com/rktjmp/lush.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
-  "https://github.com/romus204/tree-sitter-manager.nvim",
-  { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
+  "https://github.com/nvim-treesitter/nvim-treesitter",
+  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/dlyongemallo/diffview.nvim",
   "https://github.com/stevearc/conform.nvim",
@@ -189,9 +189,43 @@ end
 
 -- tree-sitter
 do
-  require("tree-sitter-manager").setup({
-    auto_install = true,
-  })
+  local ts_langs = {
+    "bash",
+    "c",
+    "cmake",
+    "comment",
+    "cpp",
+    "css",
+    "csv",
+    "go",
+    "gomod",
+    "gosum",
+    "html",
+    "java",
+    "javascript",
+    "json",
+    "lua",
+    "luadoc",
+    "make",
+    "markdown",
+    "markdown_inline",
+    "proto",
+    "python",
+    "rust",
+    "sql",
+    "terraform",
+    "toml",
+    "tsx",
+    "typescript",
+    "typst",
+    "vim",
+    "vimdoc",
+    "xml",
+    "yaml",
+    "zig",
+    "zsh",
+  }
+  require("nvim-treesitter").install(ts_langs)
   vim.api.nvim_create_autocmd("FileType", {
     pattern = "*",
     callback = function(e)

@@ -33,7 +33,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "5955a100ae7155962330643924e21a798b9bdc91",
+      "rev": "d5b6e3db4c17b0146f63a2fc47e2027a754b2cb1",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
@@ -48,14 +48,13 @@
       "rev": "cf18a662cd5f200361b6fedfb794eed583e075e1",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
-    "nvim-treesitter-textobjects": {
-      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
-      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-      "version": "'main'"
+    "nvim-treesitter": {
+      "rev": "7248feaca45e4d944591497964bc19afa89ad1c6",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
-    "tree-sitter-manager.nvim": {
-      "rev": "09e3a321eea8100cacd2e759c3a6c9d350295fab",
-      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
+    "nvim-treesitter-textobjects": {
+      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "vim-test": {
       "rev": "2676d84c6901e484df00b5d728bd6a345d47ee12",
