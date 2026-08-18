@@ -1,7 +1,7 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
+      "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
@@ -9,11 +9,11 @@
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "9ad7340dcc6d2afc30e64fb4088597c7573ed62c",
+      "rev": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "31d6fb2d618bca1482b9f274751ead5f03461408",
+      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lush.nvim": {
@@ -29,11 +29,11 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "a219b2c9e5b4765e5c845aba119dad55806fcaf1",
+      "rev": "5b5b794458b5ff0b17d26c9d7400faaebd00b32d",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "d592c1e6ad9a0a01b3d5ed3f0345d68407167181",
+      "rev": "0662886bc0a4e0c199dec65cee23a4319dd79f55",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
@@ -45,11 +45,11 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "4213bd6eabac38b16dd6615002b6243b23cf3bf6",
+      "rev": "b2aadda94b107480c48e548d6db51c6840b7b33c",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "8b3a191c015dd66a92d51a112ed96af0aac13b63",
+      "rev": "074aa4422bf029908338e855d0c0f71470a971bb",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {

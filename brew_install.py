@@ -53,6 +53,7 @@ formula_packages = [
     "node",
     "nvim",
     "parquet-cli",
+    "pi-coding-agent",
     "pkgconf",
     "poetry",
     "postgresql@18",
