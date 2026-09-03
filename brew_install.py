@@ -85,7 +85,6 @@ formula_packages = [
 ]
 
 cask_packages = [
-    "alacritty",
     "chatgpt",
     "claude-code",
     "codex",
@@ -99,12 +98,12 @@ cask_packages = [
     "scroll-reverser",
     "session-manager-plugin",
     "snipaste",
-    "telegram-desktop",
     "visual-studio-code",
 ]
 
 if (hostname := socket.gethostname()) == "yhjs-MacBook-Pro.local":
     formula_packages += ["platformio"]
+    cask_packages += ["telegram-desktop"]
 elif hostname.startswith("IT"):
     formula_packages += ["lab", "terraform"]
     cask_packages += ["cursor"]

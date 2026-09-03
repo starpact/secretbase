@@ -485,7 +485,7 @@ vim.schedule(function()
           },
         },
       },
-      ["tsgo"] = {},
+      ["tsc"] = {},
       ["ty"] = {},
     }) do
       vim.lsp.config(server, extend_default(config))

@@ -2,9 +2,6 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
 
-HOMEBREW_PREFIX="$(brew --prefix)"
-
-eval "$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
