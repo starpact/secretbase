@@ -24,7 +24,7 @@ vim.o.termguicolors = true
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
-    vim.highlight.on_yank({ higroup = "Search", timeout = 200 })
+    vim.hl.hl_op({ higroup = "Search", timeout = 200 })
   end,
 })
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -36,11 +36,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.g.mapleader = " "
 
 vim.keymap.set({ "i", "s" }, "jk", "<esc>")
-
-vim.keymap.set("n", "<c-h>", "<c-w>h")
-vim.keymap.set("n", "<c-j>", "<c-w>j")
-vim.keymap.set("n", "<c-k>", "<c-w>k")
-vim.keymap.set("n", "<c-l>", "<c-w>l")
 
 vim.keymap.set({ "n", "x" }, "<c-u>", "10k")
 vim.keymap.set({ "n", "x" }, "<c-d>", "10j")
@@ -124,7 +119,6 @@ end)
 vim.pack.add({
   "https://github.com/windwp/nvim-autopairs",
   "https://github.com/kylechui/nvim-surround",
-  "https://github.com/jake-stewart/multicursor.nvim",
   "https://github.com/rktjmp/lush.nvim",
   "https://github.com/zenbones-theme/zenbones.nvim",
   "https://github.com/nvim-treesitter/nvim-treesitter",
@@ -268,44 +262,6 @@ vim.schedule(function()
   require("nvim-autopairs").setup()
 
   require("nvim-surround").setup()
-
-  do
-    local mc = require("multicursor-nvim")
-    mc.setup()
-    vim.keymap.set({ "n", "v" }, "<down>", function()
-      mc.lineAddCursor(1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<up>", function()
-      mc.lineAddCursor(-1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<s-down>", function()
-      mc.lineSkipCursor(1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<s-up>", function()
-      mc.lineSkipCursor(-1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<a-n>", function()
-      mc.matchAddCursor(1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<a-N>", function()
-      mc.matchAddCursor(-1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<a-s>", function()
-      mc.matchSkipCursor(1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<a-S>", function()
-      mc.matchSkipCursor(-1)
-    end)
-    vim.keymap.set({ "n", "v" }, "<a-L>", mc.matchAllAddCursors)
-    vim.keymap.set("n", "<a-A>", mc.alignCursors)
-    vim.keymap.set("v", "m", mc.matchCursors)
-
-    vim.keymap.set("n", "<esc>", function()
-      if mc.hasCursors() then mc.clearCursors() end
-      vim.cmd("nohlsearch")
-      vim.cmd("echo")
-    end)
-  end
 
   require("gitsigns").setup({
     on_attach = function(bufnr)
