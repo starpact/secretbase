@@ -86,7 +86,7 @@ formula_packages = [
 
 cask_packages = [
     "chatgpt",
-    "claude-code",
+    "claude-code@latest",
     "codex",
     "doll",
     "font-fantasque-sans-mono-nerd-font",
@@ -98,7 +98,6 @@ cask_packages = [
     "scroll-reverser",
     "session-manager-plugin",
     "snipaste",
-    "visual-studio-code",
 ]
 
 if (hostname := socket.gethostname()) == "yhjs-MacBook-Pro.local":
