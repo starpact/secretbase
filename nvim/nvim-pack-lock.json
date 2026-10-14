@@ -5,11 +5,11 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "82bfbe195c6e3bfe8e7e869ed5724feb7c36b6e2",
+      "rev": "42b49c29f6eeb61ec07a492ae993b245e73e79fd",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "ce788d5acb83628c66f6639920ec0f36576646d7",
+      "rev": "71b6d3667c4846ab2f0bab06e68d196d2eea016c",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
