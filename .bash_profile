@@ -9,10 +9,7 @@ export PATH="\
 $HOME/.local/bin:\
 $HOME/.cargo/bin:\
 $HOME/go/bin:\
-$HOME/.npm-global/bin:\
 /opt/homebrew/opt/llvm/bin:\
-/opt/homebrew/opt/rustup/bin:\
-/opt/homebrew/opt/postgresql@18/bin:\
 $PATH"
 
 if [[ -f ~/.bashrc ]]; then

@@ -2,6 +2,7 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
 
+eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"

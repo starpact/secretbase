@@ -9,6 +9,7 @@ link_files = [
     (".bash_profile", "~/.bash_profile"),
     (".bashrc", "~/.bashrc"),
     ("alacritty.toml", "~/.config/alacritty/alacritty.toml"),
+    ("mise/config.toml", "~/.config/mise/config.toml"),
     ("nvim", "~/.config/nvim"),
     ("tmux", "~/.config/tmux"),
     ("scripts/urldecode.py", "~/.local/bin/urldecode.py"),
@@ -22,5 +23,6 @@ if __name__ == "__main__":
         if os.path.exists(target):
             print(f"skip {target} as it already exists")
             continue
+        os.makedirs(os.path.dirname(target), exist_ok=True)
         os.symlink(source, target)
         print(f"linked {target} -> {source}")
