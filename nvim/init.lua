@@ -436,8 +436,12 @@ vim.schedule(function()
       ["rust_analyzer"] = {
         settings = {
           ["rust-analyzer"] = {
+            cargo = {
+              features = "all",
+            },
             check = {
               command = "clippy",
+              features = "all",
             },
           },
         },

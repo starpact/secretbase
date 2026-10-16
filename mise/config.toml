@@ -1,6 +1,10 @@
 [settings]
 pipx.uvx = true
 disable_backends = ["asdf", "vfox"]
+minimum_release_age = "0d"
+
+[settings.github]
+credential_command = 'gh auth token'
 
 [tools]
 "aqua:rust-lang/rustup" = "latest"
