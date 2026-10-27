@@ -3,6 +3,9 @@ pipx.uvx = true
 disable_backends = ["asdf", "vfox"]
 minimum_release_age = "0d"
 
+[settings.go]
+set_gobin = false
+
 [settings.github]
 credential_command = 'gh auth token'
 
