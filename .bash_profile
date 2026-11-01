@@ -7,6 +7,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export PATH="\
 $HOME/.local/bin:\
+/opt/homebrew/opt/rustup/bin:\
 $HOME/.cargo/bin:\
 $HOME/go/bin:\
 /opt/homebrew/opt/llvm/bin:\

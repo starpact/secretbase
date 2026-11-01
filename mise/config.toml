@@ -10,11 +10,7 @@ set_gobin = false
 credential_command = 'gh auth token'
 
 [tools]
-"aqua:rust-lang/rustup" = "latest"
 "aqua:zaquestion/lab" = "latest"
-
-"cargo:cargo-expand" = "latest"
-"cargo:cargo-outdated" = "latest"
 
 "conda:cppcheck" = "latest"
 "conda:findutils" = "latest"
@@ -45,7 +41,6 @@ aws-cli = "latest"
 bat = "latest"
 biome = "latest"
 buf = "latest"
-cargo-binstall = "latest"
 ccache = "latest"
 checkstyle = "latest"
 claude-code = "latest"

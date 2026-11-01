@@ -6,9 +6,13 @@ import subprocess
 formula_packages = [
     "bash",
     "bash-completion@2",
+    "cargo-binstall",
+    "cargo-expand",
+    "cargo-outdated",
     "lld",
     "llvm",
     "pkgconf",
+    "rustup",
 ]
 
 cask_packages = [
