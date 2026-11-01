@@ -5,7 +5,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "2a2d89a07f5d5d3cef7f542b99c3e28050ca205c",
+      "rev": "3aba39f4d1704cc7aa26af487ab5579b5c614437",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "fzf-lua": {
@@ -13,7 +13,7 @@
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "fd780920613e541cbdfac41bf711583ed49f9249",
+      "rev": "1e9d0fbfe7ff848bc402d2c2e2854fb4eff2dce7",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "lush.nvim": {
@@ -25,15 +25,15 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lint": {
-      "rev": "f6230a5c06ba59e6059c14637f1dbe29a7978b9b",
+      "rev": "52107ce2076a27a285af781248e2c59bad817cd0",
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "77b7432d4770d23b277d37923e5a08a442d8bb07",
+      "rev": "d8d2fda7aae57030452ce8cd6e770b1eb704514e",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-snippy": {
-      "rev": "1f5a5c82cb4902522806a58cf25479f6f8fe16ac",
+      "rev": "fb49f5cf32bd20d0aa8804648c15775ace2fc66a",
       "src": "https://github.com/dcampos/nvim-snippy"
     },
     "nvim-surround": {
@@ -41,11 +41,11 @@
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "3be8cad084e79e84833ef98cef88116c26a224ff",
+      "rev": "45f82f7b2c68c3e2bedbf6ad1d8d687a78e6faf4",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
-      "rev": "29212d826054bb2948fa9d3a99eca9bf6a050eb2",
+      "rev": "a9c4e1457e2e59f1b82c8f78dcdb3b2517555200",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "nvim-treesitter-textobjects": {
@@ -53,7 +53,7 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
     },
     "vim-test": {
-      "rev": "3afb1cf5cd3013e8822e6eecf612fc36c974a98f",
+      "rev": "a9bfcd4ed4f6a4494a9f2569d8c9277ff31bb13e",
       "src": "https://github.com/vim-test/vim-test"
     },
     "zenbones.nvim": {
