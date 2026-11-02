@@ -299,20 +299,20 @@ vim.schedule(function()
     local conform = require("conform")
     conform.setup({
       formatters_by_ft = {
-        css = { "biome" },
+        css = { "oxfmt" },
         java = { "google-java-format" },
-        javascript = { "biome" },
+        javascript = { "oxfmt" },
         hurl = { "hurlfmt" },
-        javascriptreact = { "biome" },
+        javascriptreact = { "oxfmt" },
         lua = { "stylua" },
         proto = { "buf" },
         python = { "ruff_format" },
         sh = { "shfmt" },
         terraform = { "terraform_fmt" },
         toml = { "taplo" },
-        typescript = { "biome" },
-        typescriptreact = { "biome" },
-        yaml = { "prettier" },
+        typescript = { "oxfmt" },
+        typescriptreact = { "oxfmt" },
+        yaml = { "oxfmt" },
       },
       notify_on_error = false,
     })
