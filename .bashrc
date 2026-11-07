@@ -2,11 +2,9 @@ HISTSIZE=10000
 HISTFILESIZE=10000
 HISTCONTROL=ignoreboth:erasedups
 
-eval "$(mise activate bash)"
 eval "$(fzf --bash)"
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
-source "$(mise where conda:git)/share/bash-completion/completions/git"
 
 alias gp='git pull'
 alias gs='git status'

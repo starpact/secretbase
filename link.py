@@ -9,7 +9,6 @@ link_files = [
     (".bash_profile", "~/.bash_profile"),
     (".bashrc", "~/.bashrc"),
     ("alacritty.toml", "~/.config/alacritty/alacritty.toml"),
-    ("mise/config.toml", "~/.config/mise/config.toml"),
     ("nvim", "~/.config/nvim"),
     ("tmux", "~/.config/tmux"),
     ("scripts/urldecode.py", "~/.local/bin/urldecode.py"),
