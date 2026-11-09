@@ -88,6 +88,7 @@ formula_packages = [
 
 cask_packages = [
     "chatgpt",
+    "claude",
     "claude-code@latest",
     "codex",
     "doll",
