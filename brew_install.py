@@ -89,7 +89,6 @@ formula_packages = [
 cask_packages = [
     "chatgpt",
     "claude",
-    "claude-code@latest",
     "codex",
     "doll",
     "font-fantasque-sans-mono-nerd-font",
@@ -105,10 +104,9 @@ cask_packages = [
 
 if (hostname := socket.gethostname()) == "yhjs-MacBook-Pro.local":
     formula_packages += ["platformio"]
-    cask_packages += ["telegram-desktop"]
+    cask_packages += ["telegram-desktop", "antigravity"]
 elif hostname.startswith("IT"):
     formula_packages += ["lab", "hashicorp/tap/terraform"]
-    cask_packages += ["cursor"]
 
 
 if __name__ == "__main__":

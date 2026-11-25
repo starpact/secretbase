@@ -354,7 +354,7 @@ vim.schedule(function()
     }
 
     lint.linters.codespell.stdin = false
-    lint.linters.codespell.args = { "-L", "aks,crate,flate,inout,lits,NotIn,ot,ser,statics,te,wit" }
+    lint.linters.codespell.args = { "-L", "aks,crate,flate,inout,lits,NotIn,notIn,ot,ser,statics,te,wit" }
 
     lint.linters.golangcilint.args = {
       "run",
